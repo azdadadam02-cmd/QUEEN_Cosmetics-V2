@@ -12,7 +12,7 @@ class Product extends Model
     protected $table = 'produits';
     public $timestamps = false;
 
-    protected $fillable = ['nom', 'categorie', 'prix', 'quantite_stock', 'image', 'promotion'];
+    protected $fillable = ['nom', 'categorie', 'sous_categorie', 'marque', 'details', 'tranche_age', 'prix', 'quantite_stock', 'image', 'promotion'];
 
     protected function casts(): array
     {
@@ -31,7 +31,37 @@ class Product extends Model
     /** Charge la plus forte réduction venant des publicités liées (colonne virtuelle pub_reduction) */
     public function scopeWithPromo(Builder $q): Builder
     {
-        return $q->withMax(['advertisements as pub_reduction' => fn ($a) => $a->where('reduction', '>', 0)], 'reduction');
+        return $q->withMax(['advertisements as pub_reduction' => fn ($a) => $a->where('reduction', '>', 0)], 'reduction')
+            ->withAvg(['reviews as rating_avg' => fn ($r) => $r->where('est_approuve', true)], 'note')
+            ->withCount(['reviews as rating_count' => fn ($r) => $r->where('est_approuve', true)]);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class, 'produit_id');
+    }
+
+    public function variants(): HasMany
+    {
+        return $this->hasMany(ProductVariant::class, 'produit_id');
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class, 'produit_id');
+    }
+
+    public function favorites(): HasMany
+    {
+        return $this->hasMany(Favorite::class, 'produit_id');
+    }
+
+    /** Avec des variantes, le stock du produit reste la somme de leurs stocks (catalogue, stats et admin le lisent) */
+    public function syncVariantStock(): void
+    {
+        if ($this->variants()->exists()) {
+            $this->update(['quantite_stock' => (int) $this->variants()->sum('quantite_stock')]);
+        }
     }
 
     /** Disponibles d'abord, puis les plus récents (comme l'ancien accueil) */

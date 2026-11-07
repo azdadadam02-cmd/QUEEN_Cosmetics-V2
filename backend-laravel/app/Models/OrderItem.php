@@ -11,7 +11,7 @@ class OrderItem extends Model
     protected $table = 'details_commandes';
     public $timestamps = false;
 
-    protected $fillable = ['commande_id', 'produit_id', 'quantite', 'prix_unitaire'];
+    protected $fillable = ['commande_id', 'produit_id', 'variante_id', 'pack_id', 'quantite', 'prix_unitaire'];
 
     protected function casts(): array
     {
@@ -21,5 +21,15 @@ class OrderItem extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'produit_id');
+    }
+
+    public function pack(): BelongsTo
+    {
+        return $this->belongsTo(Pack::class, 'pack_id');
+    }
+
+    public function variant(): BelongsTo
+    {
+        return $this->belongsTo(ProductVariant::class, 'variante_id');
     }
 }

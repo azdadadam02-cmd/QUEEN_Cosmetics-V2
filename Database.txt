@@ -1,0 +1,196 @@
+CREATE DATABASE IF NOT EXISTS queen_db;
+USE queen_db;
+
+-- 1. UTILISATEURS
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    date_naissance DATE DEFAULT NULL,
+    image VARCHAR(255) DEFAULT NULL,
+    role ENUM('client', 'admin', 'responsable_produits', 'responsable_commandes') DEFAULT 'client'
+);
+
+-- 2. ADRESSES DE LIVRAISON
+CREATE TABLE adresses_livraison (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateur_id INT NOT NULL,
+    titre VARCHAR(50) DEFAULT 'Domicile',
+    adresse_complete TEXT NOT NULL,
+    ville VARCHAR(100) NOT NULL,
+    telephone VARCHAR(20) NOT NULL,
+    est_principale BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+-- 3. PRODUITS
+CREATE TABLE produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    categorie VARCHAR(50),
+    sous_categorie VARCHAR(100) DEFAULT NULL,
+    marque VARCHAR(100) DEFAULT NULL,
+    details TEXT,
+    tranche_age VARCHAR(50) DEFAULT NULL,
+    prix DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255) -- الصورة الرئيسية (Thumbnail)
+);
+
+-- 4. VARIANTES DE PRODUITS
+CREATE TABLE variantes_produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produit_id INT NOT NULL,
+    sku VARCHAR(100) UNIQUE NULL,
+    couleur VARCHAR(50) DEFAULT NULL,
+    taille VARCHAR(20) DEFAULT NULL,
+    volume_ml INT DEFAULT NULL,
+    poids_g INT DEFAULT NULL,
+    quantite_pieces INT DEFAULT NULL,
+    quantite_stock INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
+);
+
+-- 5. IMAGES DES PRODUITS (GALERIE) <-- الجدول الجديد
+CREATE TABLE images_produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produit_id INT NOT NULL,
+    chemin_image VARCHAR(255) NOT NULL,
+    est_principale BOOLEAN DEFAULT FALSE,
+    ordre_affichage INT DEFAULT 0,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
+);
+
+-- 6. PACKS
+CREATE TABLE packs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(150) NOT NULL,
+    description TEXT,
+    image VARCHAR(255),
+    prix_promo DECIMAL(10,2) NOT NULL,
+    est_actif BOOLEAN DEFAULT TRUE,
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 7. RELATION PACKS ET PRODUITS
+CREATE TABLE pack_produit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pack_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT DEFAULT 1,
+    FOREIGN KEY (pack_id) REFERENCES packs(id) ON DELETE CASCADE,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
+);
+
+-- 8. FAVORIS (WISHLIST)
+CREATE TABLE favoris (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateur_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    date_ajout DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE,
+    UNIQUE(utilisateur_id, produit_id)
+);
+
+-- 9. COMMANDES
+CREATE TABLE commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_id INT NOT NULL,
+    adresse_id INT NULL, 
+    date_commande DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10,2) NOT NULL,
+    statut ENUM('En attente', 'Acceptee', 'Refusee', 'Livree') DEFAULT 'En attente',
+    FOREIGN KEY (client_id) REFERENCES utilisateurs(id),
+    FOREIGN KEY (adresse_id) REFERENCES adresses_livraison(id) ON DELETE SET NULL
+);
+
+-- 10. DETAILS DES COMMANDES
+CREATE TABLE details_commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    commande_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    variante_id INT NULL, 
+    quantite INT NOT NULL,
+    prix_unitaire DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (commande_id) REFERENCES commandes(id) ON DELETE CASCADE,
+    FOREIGN KEY (produit_id) REFERENCES produits(id),
+    FOREIGN KEY (variante_id) REFERENCES variantes_produits(id) ON DELETE SET NULL
+);
+
+-- 11. PAIEMENTS
+CREATE TABLE paiements (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    commande_id INT NOT NULL UNIQUE,
+    montant DECIMAL(10,2) NOT NULL,
+    methode VARCHAR(50) DEFAULT 'Livraison',
+    statut ENUM('Non paye', 'Paye') DEFAULT 'Non paye',
+    FOREIGN KEY (commande_id) REFERENCES commandes(id) ON DELETE CASCADE
+);
+
+-- 12. RECLAMATIONS (REPORTS)
+CREATE TABLE reclamations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateur_id INT NULL,
+    sujet VARCHAR(150) NOT NULL,
+    message TEXT NOT NULL,
+    statut ENUM('Ouvert', 'En cours', 'Resolu') DEFAULT 'Ouvert',
+    date_reclamation DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE SET NULL
+);
+
+-- 13. AVIS ET EVALUATIONS
+CREATE TABLE avis_produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produit_id INT NOT NULL,
+    utilisateur_id INT NOT NULL,
+    note INT NOT NULL CHECK(note >= 1 AND note <= 5),
+    commentaire TEXT,
+    est_approuve BOOLEAN DEFAULT FALSE,
+    date_avis DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+-- 14. USPS (BARRE DES AVANTAGES)
+CREATE TABLE usps (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    icone VARCHAR(100),
+    texte VARCHAR(255) NOT NULL,
+    lien VARCHAR(255) DEFAULT NULL,
+    ordre_affichage INT DEFAULT 0,
+    est_actif BOOLEAN DEFAULT TRUE
+);
+
+-- 15. ANNONCES PROMO
+CREATE TABLE annonces_promo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    texte VARCHAR(255) NOT NULL,
+    lien VARCHAR(255) DEFAULT NULL,
+    couleur_fond VARCHAR(20) DEFAULT '#000000',
+    couleur_texte VARCHAR(20) DEFAULT '#FFFFFF',
+    date_debut DATETIME DEFAULT NULL,
+    date_fin DATETIME DEFAULT NULL,
+    est_actif BOOLEAN DEFAULT FALSE
+);
+
+-- 16. PUBLICITES (BANNERS)
+CREATE TABLE publicites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(100) NOT NULL,
+    image VARCHAR(255),
+    reduction INT DEFAULT 0
+);
+
+-- 17. PARAMETRES DU HEADER
+CREATE TABLE parametres_header (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_marque VARCHAR(150) NOT NULL DEFAULT 'QUEEN-Cosmetics', 
+    couleur_fond VARCHAR(20) DEFAULT '#000000',                 
+    couleur_texte VARCHAR(20) DEFAULT '#D4AF37',                
+    est_actif BOOLEAN DEFAULT TRUE                              
+);
+
+-- Insertion de base
+INSERT INTO parametres_header (nom_marque, couleur_fond, couleur_texte, est_actif) 
+VALUES ('QUEEN-Cosmetics', '#000000', '#D4AF37', TRUE);

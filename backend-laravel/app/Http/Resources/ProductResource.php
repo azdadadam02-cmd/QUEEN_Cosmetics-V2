@@ -26,6 +26,25 @@ class ProductResource extends JsonResource
             'original_price' => (float) $this->prix,          // prix barré si promo > 0
             'promo'          => $promo,                       // % (0 = pas de promo)
             'own_promotion'  => (int) $this->promotion,       // promo saisie sur le produit (back-office)
+            'details'        => $this->details,
+            'brand'          => $this->marque,
+            'sub_category'   => $this->sous_categorie,
+            'age_range'      => $this->tranche_age,
+            'gallery'        => $this->whenLoaded('images', fn () => $this->images->sortBy('ordre_affichage')->values()->map(fn ($i) => ['id' => $i->id, 'url' => asset('images/'.$i->chemin_image)])),
+            'variants'       => $this->whenLoaded('variants', fn () => $this->variants->map(fn ($v) => [
+                'id'              => $v->id,
+                'color'           => $v->couleur,
+                'size'            => $v->sizeLabel(),
+                'stock'           => $v->quantite_stock,
+                'taille'          => $v->taille,
+                'volume_ml'       => $v->volume_ml,
+                'poids_g'         => $v->poids_g,
+                'quantite_pieces' => $v->quantite_pieces,
+            ])),
+            'buyers'         => $this->when($this->buyers_count !== null, fn () => (int) $this->buyers_count),
+            'loves'          => $this->when($this->loves_count !== null, fn () => (int) $this->loves_count),
+            'rating'         => round((float) ($this->rating_avg ?? 0), 1),   // moyenne des avis approuvés
+            'rating_count'   => (int) ($this->rating_count ?? 0),
             'stock'          => $stock,
             'in_stock'       => $stock > 0,
             'low_stock'      => $stock > 0 && $stock <= 5,

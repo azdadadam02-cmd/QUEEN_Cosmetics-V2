@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Advertisement;
 use App\Models\Product;
+use App\Models\PromoAnnouncement;
+use App\Models\Usp;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -23,6 +25,21 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($comptes as [$nom, $email, $role]) {
             User::firstOrCreate(['email' => $email], ['nom' => $nom, 'mot_de_passe' => 'Queen2026', 'role' => $role]);
+        }
+
+        // Barres du haut : exemples, seulement si les tables sont vides (l'admin les modifie ensuite)
+        if (Usp::count() === 0) {
+            foreach ([
+                ['truck', 'Livraison partout au Maroc'],
+                ['check', 'Paiement à la livraison'],
+                ['mail', 'Inscrivez-vous pour nos offres exclusives'],
+                ['gift', 'Gagnez des points QUEEN'],
+            ] as $i => [$icone, $texte]) {
+                Usp::create(['icone' => $icone, 'texte' => $texte, 'ordre_affichage' => $i + 1, 'est_actif' => true]);
+            }
+        }
+        if (PromoAnnouncement::count() === 0) {
+            PromoAnnouncement::create(['texte' => "Jusqu'à -75 % sur la sélection Black Friday", 'couleur_fond' => '#725A65', 'couleur_texte' => '#FFFFFF', 'est_actif' => true]);
         }
 
         if (Product::count() > 0) {

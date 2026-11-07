@@ -1,0 +1,860 @@
+{
+  "backend-laravel/.styleci.yml": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353088,
+    "ast_hash": "5177f4fa500b459b5ca4ba40ab889f20",
+    "semantic_hash": "5177f4fa500b459b5ca4ba40ab889f20"
+  },
+  "backend-laravel/app/Http/Controllers/Api/AdminController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353153,
+    "ast_hash": "ca45e6dc27506a960dd109d506519af4",
+    "semantic_hash": "ca45e6dc27506a960dd109d506519af4"
+  },
+  "backend-laravel/app/Http/Controllers/Api/AdvertisementController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353184,
+    "ast_hash": "43f181a5d7b3d2b3ea23bc752d90b856",
+    "semantic_hash": "43f181a5d7b3d2b3ea23bc752d90b856"
+  },
+  "backend-laravel/app/Http/Controllers/Api/AuthController.php": {
+    "mtime": 1793746207.0,
+    "seen": 1793915049.03532,
+    "ast_hash": "7c0a1b0fb8efb3939293ef106ef96b56",
+    "semantic_hash": "7c0a1b0fb8efb3939293ef106ef96b56"
+  },
+  "backend-laravel/app/Http/Controllers/Api/CartController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353217,
+    "ast_hash": "9fb22f06c6c348435ec8c86f0c1f9978",
+    "semantic_hash": "9fb22f06c6c348435ec8c86f0c1f9978"
+  },
+  "backend-laravel/app/Http/Controllers/Api/OrderController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.035323,
+    "ast_hash": "56df9ea48f8c6a2efb302a898764dc06",
+    "semantic_hash": "56df9ea48f8c6a2efb302a898764dc06"
+  },
+  "backend-laravel/app/Http/Controllers/Api/OrderManagementController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353243,
+    "ast_hash": "cfc0f01b6f00f0255e18cf18124b5a18",
+    "semantic_hash": "cfc0f01b6f00f0255e18cf18124b5a18"
+  },
+  "backend-laravel/app/Http/Controllers/Api/ProductController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353258,
+    "ast_hash": "b2e88d12ecdf96bd24ca67193084d253",
+    "semantic_hash": "b2e88d12ecdf96bd24ca67193084d253"
+  },
+  "backend-laravel/app/Http/Controllers/Api/UserController.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.035327,
+    "ast_hash": "55bd0b3d6b0596e0c97a6f7b2c9edaa6",
+    "semantic_hash": "55bd0b3d6b0596e0c97a6f7b2c9edaa6"
+  },
+  "backend-laravel/app/Http/Controllers/Controller.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353286,
+    "ast_hash": "25a307335c0719bc9a91b3f7babd186d",
+    "semantic_hash": "25a307335c0719bc9a91b3f7babd186d"
+  },
+  "backend-laravel/app/Http/Middleware/EnsureRole.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353298,
+    "ast_hash": "ba51bb1cae2c5dba5b5f3617868489ae",
+    "semantic_hash": "ba51bb1cae2c5dba5b5f3617868489ae"
+  },
+  "backend-laravel/app/Http/Middleware/SecurityHeaders.php": {
+    "mtime": 1793746171.0,
+    "seen": 1793915049.0353312,
+    "ast_hash": "ab104ad67d5d9c2e4fd0d66426a2e640",
+    "semantic_hash": "ab104ad67d5d9c2e4fd0d66426a2e640"
+  },
+  "backend-laravel/app/Http/Requests/AdvertisementRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353327,
+    "ast_hash": "57dc6e70d26ef12744f05d0563876b89",
+    "semantic_hash": "57dc6e70d26ef12744f05d0563876b89"
+  },
+  "backend-laravel/app/Http/Requests/CartCheckRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353339,
+    "ast_hash": "f3ecfabebd1e7dc57a062c3d63f407f2",
+    "semantic_hash": "f3ecfabebd1e7dc57a062c3d63f407f2"
+  },
+  "backend-laravel/app/Http/Requests/LoginRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353355,
+    "ast_hash": "1e1d5510c699168e2df16c96d80a6983",
+    "semantic_hash": "1e1d5510c699168e2df16c96d80a6983"
+  },
+  "backend-laravel/app/Http/Requests/ProductRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353367,
+    "ast_hash": "9e3c0925f72d7c9c4ca08bcb0cb6cdd1",
+    "semantic_hash": "9e3c0925f72d7c9c4ca08bcb0cb6cdd1"
+  },
+  "backend-laravel/app/Http/Requests/RegisterRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353377,
+    "ast_hash": "e189f4a7b1363b63d66c44c482e4bb1e",
+    "semantic_hash": "e189f4a7b1363b63d66c44c482e4bb1e"
+  },
+  "backend-laravel/app/Http/Requests/StoreOrderRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.035339,
+    "ast_hash": "2fedee582f7fc605709f6ae66707eaaf",
+    "semantic_hash": "2fedee582f7fc605709f6ae66707eaaf"
+  },
+  "backend-laravel/app/Http/Requests/UserRequest.php": {
+    "mtime": 1793746093.0,
+    "seen": 1793915049.0353403,
+    "ast_hash": "9fd01eceb4026a4ded58e505553b91af",
+    "semantic_hash": "9fd01eceb4026a4ded58e505553b91af"
+  },
+  "backend-laravel/app/Http/Resources/AdvertisementResource.php": {
+    "mtime": 1793746110.0,
+    "seen": 1793915049.0353417,
+    "ast_hash": "0f3fbdf097fd8c2421685050659d6b84",
+    "semantic_hash": "0f3fbdf097fd8c2421685050659d6b84"
+  },
+  "backend-laravel/app/Http/Resources/OrderItemResource.php": {
+    "mtime": 1793746110.0,
+    "seen": 1793915049.0353432,
+    "ast_hash": "8a62654279bdf11af92603c8227947e3",
+    "semantic_hash": "8a62654279bdf11af92603c8227947e3"
+  },
+  "backend-laravel/app/Http/Resources/OrderResource.php": {
+    "mtime": 1793746110.0,
+    "seen": 1793915049.0353444,
+    "ast_hash": "048eb6b139240b4920ec6a2c1caaa998",
+    "semantic_hash": "048eb6b139240b4920ec6a2c1caaa998"
+  },
+  "backend-laravel/app/Http/Resources/ProductResource.php": {
+    "mtime": 1793746110.0,
+    "seen": 1793915049.035346,
+    "ast_hash": "2c6f0fb7dda29281fc7ec4bad260466a",
+    "semantic_hash": "2c6f0fb7dda29281fc7ec4bad260466a"
+  },
+  "backend-laravel/app/Http/Resources/UserResource.php": {
+    "mtime": 1793746110.0,
+    "seen": 1793915049.0353472,
+    "ast_hash": "0868b7050415382058da11e40c2eb0f3",
+    "semantic_hash": "0868b7050415382058da11e40c2eb0f3"
+  },
+  "backend-laravel/app/Models/Advertisement.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.0353484,
+    "ast_hash": "e571edc318020030c55b526c5babbf09",
+    "semantic_hash": "e571edc318020030c55b526c5babbf09"
+  },
+  "backend-laravel/app/Models/Order.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.03535,
+    "ast_hash": "198f1f9a626b7d7a7455690ff1a2acd8",
+    "semantic_hash": "198f1f9a626b7d7a7455690ff1a2acd8"
+  },
+  "backend-laravel/app/Models/OrderItem.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.0353513,
+    "ast_hash": "c5ede81bb6ade7d2f108a770cc524677",
+    "semantic_hash": "c5ede81bb6ade7d2f108a770cc524677"
+  },
+  "backend-laravel/app/Models/Payment.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.0353525,
+    "ast_hash": "bb8154ffdeeef6ee43b4ffd36d3201c9",
+    "semantic_hash": "bb8154ffdeeef6ee43b4ffd36d3201c9"
+  },
+  "backend-laravel/app/Models/Product.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.035354,
+    "ast_hash": "1b3fc58bc709233aed9a49b449d07e01",
+    "semantic_hash": "1b3fc58bc709233aed9a49b449d07e01"
+  },
+  "backend-laravel/app/Models/User.php": {
+    "mtime": 1793746017.0,
+    "seen": 1793915049.035355,
+    "ast_hash": "ad7ace0689c8fd197e7bdad34e901703",
+    "semantic_hash": "ad7ace0689c8fd197e7bdad34e901703"
+  },
+  "backend-laravel/app/Providers/AppServiceProvider.php": {
+    "mtime": 1793746207.0,
+    "seen": 1793915049.0353565,
+    "ast_hash": "5e675f82fafff49c3d58d96b6dd8c9c7",
+    "semantic_hash": "5e675f82fafff49c3d58d96b6dd8c9c7"
+  },
+  "backend-laravel/app/Services/CartService.php": {
+    "mtime": 1793746057.0,
+    "seen": 1793915049.0353577,
+    "ast_hash": "b3a5bedfebaea7899aa43855b3f147dc",
+    "semantic_hash": "b3a5bedfebaea7899aa43855b3f147dc"
+  },
+  "backend-laravel/app/Services/FinanceService.php": {
+    "mtime": 1793746057.0,
+    "seen": 1793915049.035359,
+    "ast_hash": "5cbd19fb59ca31cefa2f2c8b114fd700",
+    "semantic_hash": "5cbd19fb59ca31cefa2f2c8b114fd700"
+  },
+  "backend-laravel/app/Services/ImageUploader.php": {
+    "mtime": 1793746057.0,
+    "seen": 1793915049.0353603,
+    "ast_hash": "8e80147e97d42571d4fd934adae8db6e",
+    "semantic_hash": "8e80147e97d42571d4fd934adae8db6e"
+  },
+  "backend-laravel/app/Services/OrderService.php": {
+    "mtime": 1793746057.0,
+    "seen": 1793915049.0353615,
+    "ast_hash": "7f0350249c9d8f8d92ead3042fe1151a",
+    "semantic_hash": "7f0350249c9d8f8d92ead3042fe1151a"
+  },
+  "backend-laravel/artisan": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.035363,
+    "ast_hash": "e66bb13691f6184c762c196427d8e685",
+    "semantic_hash": "e66bb13691f6184c762c196427d8e685"
+  },
+  "backend-laravel/bootstrap/app.php": {
+    "mtime": 1793746218.0,
+    "seen": 1793915049.0353646,
+    "ast_hash": "7ccc6edc294f4f725bba6948be287953",
+    "semantic_hash": "7ccc6edc294f4f725bba6948be287953"
+  },
+  "backend-laravel/bootstrap/providers.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353658,
+    "ast_hash": "888c810b5a4720916f07aa05dd2c2dd3",
+    "semantic_hash": "888c810b5a4720916f07aa05dd2c2dd3"
+  },
+  "backend-laravel/composer.json": {
+    "mtime": 1793745955.0,
+    "seen": 1793915049.0353673,
+    "ast_hash": "1ccea8d81110afbcc8f86618165a3c54",
+    "semantic_hash": "1ccea8d81110afbcc8f86618165a3c54"
+  },
+  "backend-laravel/config/app.php": {
+    "mtime": 1793745958.0,
+    "seen": 1793915049.0353684,
+    "ast_hash": "861ef906183e8242f136493f456740e2",
+    "semantic_hash": "861ef906183e8242f136493f456740e2"
+  },
+  "backend-laravel/config/auth.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353696,
+    "ast_hash": "26354511ab860b301f2a3554bc388b91",
+    "semantic_hash": "26354511ab860b301f2a3554bc388b91"
+  },
+  "backend-laravel/config/cache.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.035371,
+    "ast_hash": "022fdf20e95ddb79949954243e367003",
+    "semantic_hash": "022fdf20e95ddb79949954243e367003"
+  },
+  "backend-laravel/config/cors.php": {
+    "mtime": 1793746218.0,
+    "seen": 1793915049.0353723,
+    "ast_hash": "a23e1ff6c818d6d4914aadee93402577",
+    "semantic_hash": "a23e1ff6c818d6d4914aadee93402577"
+  },
+  "backend-laravel/config/database.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353742,
+    "ast_hash": "1f64a753d593c0265d8ecb7d896906fc",
+    "semantic_hash": "1f64a753d593c0265d8ecb7d896906fc"
+  },
+  "backend-laravel/config/filesystems.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353756,
+    "ast_hash": "bde1aa1027f0448f17348dbd93f3d7ea",
+    "semantic_hash": "bde1aa1027f0448f17348dbd93f3d7ea"
+  },
+  "backend-laravel/config/logging.php": {
+    "mtime": 1793746207.0,
+    "seen": 1793915049.0353768,
+    "ast_hash": "7774b646a893e58bdecb4d5818e91673",
+    "semantic_hash": "7774b646a893e58bdecb4d5818e91673"
+  },
+  "backend-laravel/config/mail.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353782,
+    "ast_hash": "18601a927b48d38337ba2077426a7d60",
+    "semantic_hash": "18601a927b48d38337ba2077426a7d60"
+  },
+  "backend-laravel/config/queue.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353794,
+    "ast_hash": "f98ce92e7bf51db1fabaf8a30e12fc5a",
+    "semantic_hash": "f98ce92e7bf51db1fabaf8a30e12fc5a"
+  },
+  "backend-laravel/config/sanctum.php": {
+    "mtime": 1793746218.0,
+    "seen": 1793915049.0353808,
+    "ast_hash": "f636c505d3509eb89c3ce17be5db287a",
+    "semantic_hash": "f636c505d3509eb89c3ce17be5db287a"
+  },
+  "backend-laravel/config/services.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.035382,
+    "ast_hash": "534a1b7af7009c373ea4ebfa18823d57",
+    "semantic_hash": "534a1b7af7009c373ea4ebfa18823d57"
+  },
+  "backend-laravel/config/session.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353832,
+    "ast_hash": "6d9336e9ca1183588abbce7ff7a6f29a",
+    "semantic_hash": "6d9336e9ca1183588abbce7ff7a6f29a"
+  },
+  "backend-laravel/database/migrations/0001_01_01_000000_create_utilisateurs_table.php": {
+    "mtime": 1793745993.0,
+    "seen": 1793915049.035385,
+    "ast_hash": "dd2b841b0d7a91ec735394e118cb83e4",
+    "semantic_hash": "dd2b841b0d7a91ec735394e118cb83e4"
+  },
+  "backend-laravel/database/migrations/0001_01_01_000001_create_cache_table.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.035386,
+    "ast_hash": "f3f38b41650112a6282c8dd1f635afb0",
+    "semantic_hash": "f3f38b41650112a6282c8dd1f635afb0"
+  },
+  "backend-laravel/database/migrations/0001_01_01_000002_create_jobs_table.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353873,
+    "ast_hash": "ead9cce2650b36345454f85e8c0214a0",
+    "semantic_hash": "ead9cce2650b36345454f85e8c0214a0"
+  },
+  "backend-laravel/database/migrations/2026_01_01_000001_create_queen_tables.php": {
+    "mtime": 1793745991.0,
+    "seen": 1793915049.0353887,
+    "ast_hash": "11ade382e4efff5564baa5e60e9f24c6",
+    "semantic_hash": "11ade382e4efff5564baa5e60e9f24c6"
+  },
+  "backend-laravel/database/migrations/2026_01_01_000002_create_personal_access_tokens_table.php": {
+    "mtime": 1793745975.0,
+    "seen": 1793915049.03539,
+    "ast_hash": "b79a626c3d3d8914fdd10f7e79889092",
+    "semantic_hash": "b79a626c3d3d8914fdd10f7e79889092"
+  },
+  "backend-laravel/database/seeders/DatabaseSeeder.php": {
+    "mtime": 1793928690.2198074,
+    "seen": 1793928969.290987,
+    "ast_hash": "32e80d9dae44bd87d9a101a750d9ab7a",
+    "semantic_hash": "32e80d9dae44bd87d9a101a750d9ab7a"
+  },
+  "backend-laravel/public/index.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353925,
+    "ast_hash": "d8eda274115af5fd2aaa8230af329ef7",
+    "semantic_hash": "d8eda274115af5fd2aaa8230af329ef7"
+  },
+  "backend-laravel/routes/api.php": {
+    "mtime": 1793928690.068048,
+    "seen": 1793928969.2909906,
+    "ast_hash": "d90bca49fc978e06701cc4f7b299d8e3",
+    "semantic_hash": "d90bca49fc978e06701cc4f7b299d8e3"
+  },
+  "backend-laravel/routes/console.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353951,
+    "ast_hash": "3c6ce2e6d16444282b24a9aa63885563",
+    "semantic_hash": "3c6ce2e6d16444282b24a9aa63885563"
+  },
+  "backend-laravel/routes/web.php": {
+    "mtime": 1793746207.0,
+    "seen": 1793915049.0353966,
+    "ast_hash": "8455d5b6f55993197d694614e3b4d72b",
+    "semantic_hash": "8455d5b6f55993197d694614e3b4d72b"
+  },
+  "backend-laravel/tests/TestCase.php": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0353975,
+    "ast_hash": "7e567dc27e68d5b57bae16af07f68907",
+    "semantic_hash": "7e567dc27e68d5b57bae16af07f68907"
+  },
+  "frontend-nextjs/eslint.config.mjs": {
+    "mtime": 1793745787.0,
+    "seen": 1793915049.035399,
+    "ast_hash": "bcb00e240634dd9448e57386fdff1902",
+    "semantic_hash": "bcb00e240634dd9448e57386fdff1902"
+  },
+  "frontend-nextjs/jsconfig.json": {
+    "mtime": 1793745787.0,
+    "seen": 1793915049.0354002,
+    "ast_hash": "373b4d3b81ad935084b8292c8233423e",
+    "semantic_hash": "373b4d3b81ad935084b8292c8233423e"
+  },
+  "frontend-nextjs/next.config.js": {
+    "mtime": 1793746873.0,
+    "seen": 1793915049.0354018,
+    "ast_hash": "c67ea80ba5d7a1853dd92a52b57b8fcf",
+    "semantic_hash": "c67ea80ba5d7a1853dd92a52b57b8fcf"
+  },
+  "frontend-nextjs/package.json": {
+    "mtime": 1793745882.0,
+    "seen": 1793915049.035403,
+    "ast_hash": "3953ee9c0da0eb435cdf48fdc1c695b7",
+    "semantic_hash": "3953ee9c0da0eb435cdf48fdc1c695b7"
+  },
+  "frontend-nextjs/src/app/admin/commandes/page.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354042,
+    "ast_hash": "419710343c85c24e2ea5e490de639108",
+    "semantic_hash": "419710343c85c24e2ea5e490de639108"
+  },
+  "frontend-nextjs/src/app/admin/finances/page.jsx": {
+    "mtime": 1793747183.0,
+    "seen": 1793915049.0354056,
+    "ast_hash": "65e2824b7c9bf4e567b7d62377f3b000",
+    "semantic_hash": "65e2824b7c9bf4e567b7d62377f3b000"
+  },
+  "frontend-nextjs/src/app/admin/layout.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354068,
+    "ast_hash": "084eb4c5feebd7ae6f199d7c48c8772c",
+    "semantic_hash": "084eb4c5feebd7ae6f199d7c48c8772c"
+  },
+  "frontend-nextjs/src/app/admin/page.jsx": {
+    "mtime": 1793747183.0,
+    "seen": 1793915049.035408,
+    "ast_hash": "1b57a2b0c6df182a2c444d4c5655e50a",
+    "semantic_hash": "1b57a2b0c6df182a2c444d4c5655e50a"
+  },
+  "frontend-nextjs/src/app/admin/produits/page.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354095,
+    "ast_hash": "1fcd12c53f410616f5354252de67a909",
+    "semantic_hash": "1fcd12c53f410616f5354252de67a909"
+  },
+  "frontend-nextjs/src/app/admin/publicites/page.jsx": {
+    "mtime": 1793747213.0,
+    "seen": 1793915049.0354106,
+    "ast_hash": "6489f206076c4066eac2a6a931cb2c39",
+    "semantic_hash": "6489f206076c4066eac2a6a931cb2c39"
+  },
+  "frontend-nextjs/src/app/admin/utilisateurs/page.jsx": {
+    "mtime": 1793747183.0,
+    "seen": 1793915049.035412,
+    "ast_hash": "828800a6c008d7a04b3b69f011917672",
+    "semantic_hash": "828800a6c008d7a04b3b69f011917672"
+  },
+  "frontend-nextjs/src/app/cart/page.jsx": {
+    "mtime": 1793747213.0,
+    "seen": 1793915049.0354133,
+    "ast_hash": "f7c36ca5ba21f692a200aa3e5fe78db1",
+    "semantic_hash": "f7c36ca5ba21f692a200aa3e5fe78db1"
+  },
+  "frontend-nextjs/src/app/checkout/page.jsx": {
+    "mtime": 1793747091.0,
+    "seen": 1793915049.0354145,
+    "ast_hash": "9d1494b7fefa8f337d6b272b9b1e6134",
+    "semantic_hash": "9d1494b7fefa8f337d6b272b9b1e6134"
+  },
+  "frontend-nextjs/src/app/error.jsx": {
+    "mtime": 1793747183.0,
+    "seen": 1793915049.035416,
+    "ast_hash": "d53033255ba89afeabbfba891fc4dd45",
+    "semantic_hash": "d53033255ba89afeabbfba891fc4dd45"
+  },
+  "frontend-nextjs/src/app/gestion/commandes/layout.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.035417,
+    "ast_hash": "cec475af1da0f1debec1a3398ade8169",
+    "semantic_hash": "cec475af1da0f1debec1a3398ade8169"
+  },
+  "frontend-nextjs/src/app/gestion/commandes/page.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354185,
+    "ast_hash": "00a90372eec99ff1e944d8c00320198e",
+    "semantic_hash": "00a90372eec99ff1e944d8c00320198e"
+  },
+  "frontend-nextjs/src/app/gestion/produits/layout.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.03542,
+    "ast_hash": "fe35cf3a6bbe650e7588a6f816691302",
+    "semantic_hash": "fe35cf3a6bbe650e7588a6f816691302"
+  },
+  "frontend-nextjs/src/app/gestion/produits/page.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354211,
+    "ast_hash": "89298a739c51ab0b5639950f15274d74",
+    "semantic_hash": "89298a739c51ab0b5639950f15274d74"
+  },
+  "frontend-nextjs/src/app/layout.jsx": {
+    "mtime": 1793928728.1204035,
+    "seen": 1793928969.2910314,
+    "ast_hash": "f069506af89d0f91bf5a0c8e1bbbfa32",
+    "semantic_hash": "f069506af89d0f91bf5a0c8e1bbbfa32"
+  },
+  "frontend-nextjs/src/app/login/page.jsx": {
+    "mtime": 1793747091.0,
+    "seen": 1793915049.0354238,
+    "ast_hash": "984420bd80227fe6290a39a798c60590",
+    "semantic_hash": "984420bd80227fe6290a39a798c60590"
+  },
+  "frontend-nextjs/src/app/not-found.jsx": {
+    "mtime": 1793747183.0,
+    "seen": 1793915049.035425,
+    "ast_hash": "71e1db8ca3a27a1f7e4f3abb135506b3",
+    "semantic_hash": "71e1db8ca3a27a1f7e4f3abb135506b3"
+  },
+  "frontend-nextjs/src/app/notifications/page.jsx": {
+    "mtime": 1793747091.0,
+    "seen": 1793915049.0354264,
+    "ast_hash": "c80dd037afa2f2c1187dbefed4a8a0a9",
+    "semantic_hash": "c80dd037afa2f2c1187dbefed4a8a0a9"
+  },
+  "frontend-nextjs/src/app/page.jsx": {
+    "mtime": 1793747041.0,
+    "seen": 1793915049.0354276,
+    "ast_hash": "1570d1cfbeed9a617aa7f3f4a1873dd4",
+    "semantic_hash": "1570d1cfbeed9a617aa7f3f4a1873dd4"
+  },
+  "frontend-nextjs/src/app/products/[id]/BuyBox.jsx": {
+    "mtime": 1793747041.0,
+    "seen": 1793915049.035429,
+    "ast_hash": "f7e36dc6b03cae9f96ebae9d016629b3",
+    "semantic_hash": "f7e36dc6b03cae9f96ebae9d016629b3"
+  },
+  "frontend-nextjs/src/app/products/[id]/page.jsx": {
+    "mtime": 1793747041.0,
+    "seen": 1793915049.0354311,
+    "ast_hash": "ccc1d22ffe3993aee2ca3cacb5a19e8a",
+    "semantic_hash": "ccc1d22ffe3993aee2ca3cacb5a19e8a"
+  },
+  "frontend-nextjs/src/app/products/page.jsx": {
+    "mtime": 1793747041.0,
+    "seen": 1793915049.0354328,
+    "ast_hash": "95cd95be01a5f031df9411853bcd27ab",
+    "semantic_hash": "95cd95be01a5f031df9411853bcd27ab"
+  },
+  "frontend-nextjs/src/app/register/page.jsx": {
+    "mtime": 1793747091.0,
+    "seen": 1793915049.0354338,
+    "ast_hash": "b5552692a916e3fb0492cb0d401b16d2",
+    "semantic_hash": "b5552692a916e3fb0492cb0d401b16d2"
+  },
+  "frontend-nextjs/src/components/layout/AddToCartButton.jsx": {
+    "mtime": 1793746994.0,
+    "seen": 1793915049.035435,
+    "ast_hash": "cb60528ff047b67482891a82320cbdf7",
+    "semantic_hash": "cb60528ff047b67482891a82320cbdf7"
+  },
+  "frontend-nextjs/src/components/layout/AdsCarousel.jsx": {
+    "mtime": 1793746994.0,
+    "seen": 1793915049.0354366,
+    "ast_hash": "3804c4be2143835dbb9df5be037eff64",
+    "semantic_hash": "3804c4be2143835dbb9df5be037eff64"
+  },
+  "frontend-nextjs/src/components/layout/Footer.jsx": {
+    "mtime": 1793747014.0,
+    "seen": 1793915049.0354378,
+    "ast_hash": "89cde10dd65ae5300cfdd5a94e817385",
+    "semantic_hash": "89cde10dd65ae5300cfdd5a94e817385"
+  },
+  "frontend-nextjs/src/components/layout/ImageInput.jsx": {
+    "mtime": 1793747213.0,
+    "seen": 1793915049.035439,
+    "ast_hash": "ec28d498c7b1c69763f45ad05a8ec7ec",
+    "semantic_hash": "ec28d498c7b1c69763f45ad05a8ec7ec"
+  },
+  "frontend-nextjs/src/components/layout/Navbar.jsx": {
+    "mtime": 1793928728.1894183,
+    "seen": 1793928969.2910573,
+    "ast_hash": "a2886c0a6c29d7827e80a253fff5edc9",
+    "semantic_hash": "a2886c0a6c29d7827e80a253fff5edc9"
+  },
+  "frontend-nextjs/src/components/layout/OrdersTable.jsx": {
+    "mtime": 1793747213.0,
+    "seen": 1793915049.0354416,
+    "ast_hash": "a3cefd0b011effad9b6c3c697119b19c",
+    "semantic_hash": "a3cefd0b011effad9b6c3c697119b19c"
+  },
+  "frontend-nextjs/src/components/layout/PageHead.jsx": {
+    "mtime": 1793747127.0,
+    "seen": 1793915049.0354428,
+    "ast_hash": "b0112f2ca183b03da4604fe81f95348a",
+    "semantic_hash": "b0112f2ca183b03da4604fe81f95348a"
+  },
+  "frontend-nextjs/src/components/layout/ProductCard.jsx": {
+    "mtime": 1793746994.0,
+    "seen": 1793915049.0354443,
+    "ast_hash": "3edc5a91b4c16efca9bb9a6319894e92",
+    "semantic_hash": "3edc5a91b4c16efca9bb9a6319894e92"
+  },
+  "frontend-nextjs/src/components/layout/ProductsBrowser.jsx": {
+    "mtime": 1793924657.5836341,
+    "seen": 1793928969.2910645,
+    "ast_hash": "ea51a448772f0947898f729421259d38",
+    "semantic_hash": "ea51a448772f0947898f729421259d38"
+  },
+  "frontend-nextjs/src/components/layout/ProductsTable.jsx": {
+    "mtime": 1793747134.0,
+    "seen": 1793915049.035447,
+    "ast_hash": "000779ae61e29e2f9431a5819094fd04",
+    "semantic_hash": "000779ae61e29e2f9431a5819094fd04"
+  },
+  "frontend-nextjs/src/components/layout/RequireRole.jsx": {
+    "mtime": 1793746994.0,
+    "seen": 1793915049.035448,
+    "ast_hash": "c6c8b336c43139c21544b5bc6575f549",
+    "semantic_hash": "c6c8b336c43139c21544b5bc6575f549"
+  },
+  "frontend-nextjs/src/components/layout/StaffTabs.jsx": {
+    "mtime": 1793928728.2920885,
+    "seen": 1793928969.2910697,
+    "ast_hash": "e5fb167267f2b3d5499aa14f88fb3cb6",
+    "semantic_hash": "e5fb167267f2b3d5499aa14f88fb3cb6"
+  },
+  "frontend-nextjs/src/components/ui/Button.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.0354507,
+    "ast_hash": "91fa1786216bb5a5613efd36da7727b7",
+    "semantic_hash": "91fa1786216bb5a5613efd36da7727b7"
+  },
+  "frontend-nextjs/src/components/ui/Field.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.035452,
+    "ast_hash": "1eb8c6e563ab80b7531292e54b48597d",
+    "semantic_hash": "1eb8c6e563ab80b7531292e54b48597d"
+  },
+  "frontend-nextjs/src/components/ui/Modal.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.035453,
+    "ast_hash": "12d7089847e228db5811953756cb7125",
+    "semantic_hash": "12d7089847e228db5811953756cb7125"
+  },
+  "frontend-nextjs/src/components/ui/StatusPill.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.0354545,
+    "ast_hash": "8f1a58fa7b5c9956e45b89a8c88b4076",
+    "semantic_hash": "8f1a58fa7b5c9956e45b89a8c88b4076"
+  },
+  "frontend-nextjs/src/components/ui/Thumb.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.0354557,
+    "ast_hash": "a3610825ff6737885cb7116ea17f480e",
+    "semantic_hash": "a3610825ff6737885cb7116ea17f480e"
+  },
+  "frontend-nextjs/src/components/ui/Toaster.jsx": {
+    "mtime": 1793746948.0,
+    "seen": 1793915049.0354571,
+    "ast_hash": "6f1741d5cf285700d12771ef29cd1823",
+    "semantic_hash": "6f1741d5cf285700d12771ef29cd1823"
+  },
+  "frontend-nextjs/src/lib/api.js": {
+    "mtime": 1793746913.0,
+    "seen": 1793915049.0354583,
+    "ast_hash": "594be4ea40ac043eda7a0049ffbfa561",
+    "semantic_hash": "594be4ea40ac043eda7a0049ffbfa561"
+  },
+  "frontend-nextjs/src/lib/auth.js": {
+    "mtime": 1793746904.0,
+    "seen": 1793915049.0354595,
+    "ast_hash": "ca4489ad61299e37692f65dd82f67873",
+    "semantic_hash": "ca4489ad61299e37692f65dd82f67873"
+  },
+  "frontend-nextjs/src/lib/format.js": {
+    "mtime": 1793746904.0,
+    "seen": 1793915049.0354612,
+    "ast_hash": "0ce1d19682603bb5bac3c4e471b6427a",
+    "semantic_hash": "0ce1d19682603bb5bac3c4e471b6427a"
+  },
+  "frontend-nextjs/src/lib/serverApi.js": {
+    "mtime": 1793746913.0,
+    "seen": 1793915049.0354624,
+    "ast_hash": "e39ac46dc6104e13e1c4e83e45a7842f",
+    "semantic_hash": "e39ac46dc6104e13e1c4e83e45a7842f"
+  },
+  "frontend-nextjs/src/lib/useHydrated.js": {
+    "mtime": 1793746904.0,
+    "seen": 1793915049.0354636,
+    "ast_hash": "09135d2e719261ab1c03788105e6eaee",
+    "semantic_hash": "09135d2e719261ab1c03788105e6eaee"
+  },
+  "frontend-nextjs/src/store/authStore.js": {
+    "mtime": 1793746913.0,
+    "seen": 1793915049.0354652,
+    "ast_hash": "fba57c9187b1e5637cd7593212d55daa",
+    "semantic_hash": "fba57c9187b1e5637cd7593212d55daa"
+  },
+  "frontend-nextjs/src/store/cartStore.js": {
+    "mtime": 1793746913.0,
+    "seen": 1793915049.0354664,
+    "ast_hash": "fbb5eb2bd4c775909bfa7ddcc417862d",
+    "semantic_hash": "fbb5eb2bd4c775909bfa7ddcc417862d"
+  },
+  "frontend-nextjs/src/store/toastStore.js": {
+    "mtime": 1793746913.0,
+    "seen": 1793915049.0354679,
+    "ast_hash": "956aa1e55746b9b3888278a4d1f2a434",
+    "semantic_hash": "956aa1e55746b9b3888278a4d1f2a434"
+  },
+  "README.md": {
+    "mtime": 1793747457.0,
+    "seen": 1793915049.035469,
+    "ast_hash": "2c03dee4c4a12e045e4670b5340be726",
+    "semantic_hash": "2c03dee4c4a12e045e4670b5340be726"
+  },
+  "backend-laravel/README.md": {
+    "mtime": 1793747467.0,
+    "seen": 1793915049.03547,
+    "ast_hash": "c94c780c17f9241250d6b7da8ce516f3",
+    "semantic_hash": "c94c780c17f9241250d6b7da8ce516f3"
+  },
+  "backend-laravel/public/robots.txt": {
+    "mtime": 1793745903.0,
+    "seen": 1793915049.0354717,
+    "ast_hash": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "semantic_hash": "b6216d61c03e6ce0c9aea6ca7808f7ca"
+  },
+  "frontend-nextjs/AGENTS.md": {
+    "mtime": 1793745877.0,
+    "seen": 1793915049.0354729,
+    "ast_hash": "c98dbebb744eadc1acc4b9f58bfe0f42",
+    "semantic_hash": "c98dbebb744eadc1acc4b9f58bfe0f42"
+  },
+  "frontend-nextjs/README.md": {
+    "mtime": 1793747467.0,
+    "seen": 1793915049.035474,
+    "ast_hash": "df932398e92d749fd434d4cc92fe1573",
+    "semantic_hash": "df932398e92d749fd434d4cc92fe1573"
+  },
+  "backend-laravel/public/images/creme-visage-84f07733.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354757,
+    "ast_hash": "aad8d2fc4e38bc67dee6b9b38ff82524",
+    "semantic_hash": "aad8d2fc4e38bc67dee6b9b38ff82524"
+  },
+  "backend-laravel/public/images/logo.png": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.035477,
+    "ast_hash": "b6ef0a7ea9b7fd14a7e5fe8be3b063d9",
+    "semantic_hash": "b6ef0a7ea9b7fd14a7e5fe8be3b063d9"
+  },
+  "backend-laravel/public/images/mascara-67b77147.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354784,
+    "ast_hash": "7cba9e254dce2ba78529cac7ac033263",
+    "semantic_hash": "7cba9e254dce2ba78529cac7ac033263"
+  },
+  "backend-laravel/public/images/parfum-rose-69e49c2f.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354798,
+    "ast_hash": "874acef730188792fefc545bfd696242",
+    "semantic_hash": "874acef730188792fefc545bfd696242"
+  },
+  "backend-laravel/public/images/queen-des-promotions-execeptionnelles-to-32f59de2.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.035481,
+    "ast_hash": "d664648d69be4b8da1b272d916d118ba",
+    "semantic_hash": "d664648d69be4b8da1b272d916d118ba"
+  },
+  "backend-laravel/public/images/queen-offre-parfums-e4561299.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354824,
+    "ast_hash": "a87a6874b8aae922fbe87ff0664a4743",
+    "semantic_hash": "a87a6874b8aae922fbe87ff0664a4743"
+  },
+  "backend-laravel/public/images/queen-promotion-maquillage-8072d798.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354836,
+    "ast_hash": "5853e82c1c8dd2a76093a09136e8f61f",
+    "semantic_hash": "5853e82c1c8dd2a76093a09136e8f61f"
+  },
+  "backend-laravel/public/images/rouge-a-levres-49730228.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.035485,
+    "ast_hash": "2bf8990f7e89e7a23a166cd0f2d028de",
+    "semantic_hash": "2bf8990f7e89e7a23a166cd0f2d028de"
+  },
+  "backend-laravel/public/images/selecon-2776b31e.webp": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354862,
+    "ast_hash": "a87a6874b8aae922fbe87ff0664a4743",
+    "semantic_hash": "a87a6874b8aae922fbe87ff0664a4743"
+  },
+  "backend-laravel/public/images/selecon-96b3e0c0.jpg": {
+    "mtime": 1793745939.0,
+    "seen": 1793915049.0354874,
+    "ast_hash": "366a7e5958322a19e9042bac469e442a",
+    "semantic_hash": "366a7e5958322a19e9042bac469e442a"
+  },
+  "frontend-nextjs/public/images/logo.webp": {
+    "mtime": 1793746873.0,
+    "seen": 1793915049.035489,
+    "ast_hash": "b2218ed54d99947c7ab4aec1abf3fd4a",
+    "semantic_hash": "b2218ed54d99947c7ab4aec1abf3fd4a"
+  },
+  "backend-laravel/app/Http/Controllers/Api/TopBarController.php": {
+    "mtime": 1793928689.7822168,
+    "seen": 1793928969.2908854,
+    "ast_hash": "0ebfac4fe36c2dac342f353115ff849e",
+    "semantic_hash": "0ebfac4fe36c2dac342f353115ff849e"
+  },
+  "backend-laravel/app/Http/Resources/PromoResource.php": {
+    "mtime": 1793928689.6695144,
+    "seen": 1793928969.2909143,
+    "ast_hash": "816ac6702904c335308d63a468fde7e2",
+    "semantic_hash": "816ac6702904c335308d63a468fde7e2"
+  },
+  "backend-laravel/app/Http/Resources/UspResource.php": {
+    "mtime": 1793928689.5821059,
+    "seen": 1793928969.2909179,
+    "ast_hash": "7a05d970ffb32a0668dab0eab496bf68",
+    "semantic_hash": "7a05d970ffb32a0668dab0eab496bf68"
+  },
+  "backend-laravel/app/Models/PromoAnnouncement.php": {
+    "mtime": 1793928689.476049,
+    "seen": 1793928969.2909296,
+    "ast_hash": "92be3f1baba494bd55a8b1e5d99633de",
+    "semantic_hash": "92be3f1baba494bd55a8b1e5d99633de"
+  },
+  "backend-laravel/app/Models/Usp.php": {
+    "mtime": 1793928689.373666,
+    "seen": 1793928969.290933,
+    "ast_hash": "59b88b5dcf92f7692f638b02b67dbf84",
+    "semantic_hash": "59b88b5dcf92f7692f638b02b67dbf84"
+  },
+  "backend-laravel/database/migrations/2026_11_05_000001_create_top_bars_tables.php": {
+    "mtime": 1793928689.2539945,
+    "seen": 1793928969.290985,
+    "ast_hash": "1c58dba8035c2b84ae82591f14e688c4",
+    "semantic_hash": "1c58dba8035c2b84ae82591f14e688c4"
+  },
+  "frontend-nextjs/src/app/admin/barres/page.jsx": {
+    "mtime": 1793928754.282108,
+    "seen": 1793928969.2910044,
+    "ast_hash": "05850ae7bf7cad3238c043b676c3e72a",
+    "semantic_hash": "05850ae7bf7cad3238c043b676c3e72a"
+  },
+  "frontend-nextjs/src/components/layout/ClientNavbar.jsx": {
+    "mtime": 1793924656.9436526,
+    "seen": 1793928969.2910523,
+    "ast_hash": "b783673127c182b09d70740ea7662c81",
+    "semantic_hash": "b783673127c182b09d70740ea7662c81"
+  },
+  "frontend-nextjs/src/components/layout/TopBars.jsx": {
+    "mtime": 1793928727.8279157,
+    "seen": 1793928969.291071,
+    "ast_hash": "05b2fa6409c70efa3913eb93687cfaee",
+    "semantic_hash": "05b2fa6409c70efa3913eb93687cfaee"
+  },
+  "frontend-nextjs/src/components/layout/TopBarsLoader.jsx": {
+    "mtime": 1793928727.914301,
+    "seen": 1793928969.2910726,
+    "ast_hash": "21d5a0edfb3533b24f74d549d08d7217",
+    "semantic_hash": "21d5a0edfb3533b24f74d549d08d7217"
+  },
+  "frontend-nextjs/src/lib/barIcons.jsx": {
+    "mtime": 1793928727.740289,
+    "seen": 1793928969.2910872,
+    "ast_hash": "f7605e1cfa78b928de69b833c8f6dce7",
+    "semantic_hash": "f7605e1cfa78b928de69b833c8f6dce7"
+  },
+  "Database.txt": {
+    "mtime": 1793928141.6311724,
+    "seen": 1793928969.291099,
+    "ast_hash": "f302738be1d458330fbfd1ea40e6d672",
+    "semantic_hash": "f302738be1d458330fbfd1ea40e6d672"
+  }
+}

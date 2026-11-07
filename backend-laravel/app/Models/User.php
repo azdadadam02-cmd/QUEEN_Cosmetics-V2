@@ -25,12 +25,12 @@ class User extends Authenticatable
     /** La colonne du mot de passe s'appelle « mot_de_passe » et non « password » */
     protected $authPasswordName = 'mot_de_passe';
 
-    protected $fillable = ['nom', 'email', 'mot_de_passe', 'role'];
+    protected $fillable = ['nom', 'email', 'mot_de_passe', 'role', 'date_naissance', 'image'];
     protected $hidden = ['mot_de_passe'];
 
     protected function casts(): array
     {
-        return ['mot_de_passe' => 'hashed'];
+        return ['mot_de_passe' => 'hashed', 'date_naissance' => 'date'];
     }
 
     public function orders(): HasMany

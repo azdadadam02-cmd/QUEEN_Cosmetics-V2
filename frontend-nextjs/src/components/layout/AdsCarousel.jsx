@@ -2,11 +2,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEntrance } from '@/lib/useReveal';
 
 /** Bandeau publicitaire à défilement automatique (table « publicites ») */
 export default function AdsCarousel({ ads }) {
   const track = useRef(null);
   const [index, setIndex] = useState(0);
+  const hero = useRef(null);
+  useEntrance(hero, '.ad-slide:first-child .ad-content > *, .ad-slide:first-child .ad-badge');
   const slides = ads.length ? ads : [{ id: 0, title: "L'élégance royale au cœur de votre beauté", reduction: 0, image_url: null, fallback: true }];
   const multi = slides.length > 1;
 
@@ -26,7 +29,7 @@ export default function AdsCarousel({ ads }) {
   }, [index, multi, go]);
 
   return (
-    <section className="ads" aria-roledescription="carrousel" aria-label="Offres QUEEN">
+    <section className="ads" ref={hero} aria-roledescription="carrousel" aria-label="Offres QUEEN">
       <div className="ads-track" ref={track}>
         {slides.map((ad, i) => (
           <article className="ad-slide" key={ad.id}>

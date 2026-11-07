@@ -39,7 +39,7 @@ class OrderController extends Controller
 
         return response()->json([
             'message' => "Commande #{$order->id} enregistrée — vous réglerez à la livraison.",
-            'order'   => new OrderResource($order->fresh(['items.product', 'payment'])),
+            'order'   => new OrderResource($order->fresh(['items.product', 'items.variant', 'items.pack', 'payment'])),
         ], 201);
     }
 
@@ -47,7 +47,7 @@ class OrderController extends Controller
     public function notifications(Request $request): JsonResponse
     {
         $orders = $request->user()->orders()
-            ->with(['items.product', 'payment'])
+            ->with(['items.product', 'items.variant', 'items.pack', 'payment'])
             ->orderByDesc('date_commande')->orderByDesc('id')
             ->get();
 

@@ -14,6 +14,7 @@ class UserResource extends JsonResource
             'id'           => $this->id,
             'name'         => $this->nom,
             'email'        => $this->email,
+            'image_url'    => $this->image ? asset('images/'.$this->image) : null,
             'role'         => $this->role,
             'home'         => $this->homePath(),
             'orders_count' => $this->whenCounted('orders'),

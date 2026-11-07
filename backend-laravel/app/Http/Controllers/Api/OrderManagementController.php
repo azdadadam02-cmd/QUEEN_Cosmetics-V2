@@ -18,7 +18,7 @@ class OrderManagementController extends Controller
     {
         $status = in_array($request->query('status'), Order::STATUTS, true) ? $request->query('status') : null;
 
-        $orders = Order::with(['client', 'items.product', 'payment'])
+        $orders = Order::with(['client', 'items.product', 'items.variant', 'items.pack', 'payment'])
             ->when($status, fn ($q) => $q->where('statut', $status))
             ->orderByDesc('date_commande')->orderByDesc('id')
             ->get();

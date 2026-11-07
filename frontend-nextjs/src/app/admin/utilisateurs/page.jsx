@@ -1,12 +1,12 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
+import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
 import Field from '@/components/ui/Field';
 import Modal from '@/components/ui/Modal';
 import { api, errorMessage, fieldErrors } from '@/lib/api';
 import { ROLE_LABELS } from '@/lib/auth';
-import { initial } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
 const ROLES = ['client', 'responsable_produits', 'responsable_commandes'];
@@ -75,7 +75,7 @@ export default function UtilisateursPage() {
             {users?.length === 0 && <tr><td colSpan={4} className="empty-row">Aucun utilisateur.</td></tr>}
             {users?.map((u) => (
               <tr key={u.id}>
-                <td><span className="cell-prod"><span className="avatar sm">{initial(u.name)}</span><span><strong>{u.name}</strong><small>{u.email}</small></span></span></td>
+                <td><span className="cell-prod"><Avatar src={u.image_url} name={u.name} className="avatar sm" /><span><strong>{u.name}</strong><small>{u.email}</small></span></span></td>
                 <td><span className={`pill pill-${u.role}`}>{ROLE_LABELS[u.role]}</span></td>
                 <td className="num">{u.orders_count}</td>
                 <td className="act right">

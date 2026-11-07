@@ -12,7 +12,7 @@ export default function Modal({ open, onClose, title, children }) {
 
   if (!open) return null;
   return (
-    <div className="modal-backdrop" onMouseDown={(e) => e.target === e.currentTarget && onClose?.()}>
+    <div className="modal-backdrop" data-lenis-prevent onMouseDown={(e) => e.target === e.currentTarget && onClose?.()}>
       <div className="dialog" role="dialog" aria-modal="true" aria-label={title}>
         {title && <h3>{title}</h3>}
         {children}

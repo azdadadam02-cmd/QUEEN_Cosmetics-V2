@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Pack;
 use App\Models\Product;
 
 /**
@@ -26,8 +27,13 @@ class CartService
         foreach ($items as $it) {
             $id = (int) ($it['id'] ?? 0);
             $q  = (int) ($it['quantity'] ?? 0);
-            if ($id > 0 && $q > 0) {
-                $wanted[$id] = min(self::MAX_QTE, ($wanted[$id] ?? 0) + $q);
+            $packId = (int) ($it['pack_id'] ?? 0);
+            if ($packId > 0 && $q > 0) {
+                $key = 'pack:'.$packId;
+                $wanted[$key] = min(self::MAX_QTE, ($wanted[$key] ?? 0) + $q);
+            } elseif ($id > 0 && $q > 0) {
+                $key = $id.':'.(int) ($it['variant_id'] ?? 0);
+                $wanted[$key] = min(self::MAX_QTE, ($wanted[$key] ?? 0) + $q);
             }
         }
         if (count($wanted) > self::MAX_LIGNES) {
@@ -38,26 +44,74 @@ class CartService
             return $out;
         }
 
-        $products = Product::withPromo()->whereIn('id', array_keys($wanted))->get()->keyBy('id');
+        $packIds = [];
+        foreach (array_keys($wanted) as $k) {
+            if (str_starts_with($k, 'pack:')) {
+                $packIds[] = (int) substr($k, 5);
+            }
+        }
+        $packs    = Pack::withDetails()->where('est_actif', true)->whereIn('id', $packIds)->get()->keyBy('id');
+        $ids      = array_map(fn ($k) => (int) explode(':', $k)[0], array_filter(array_keys($wanted), fn ($k) => ! str_starts_with($k, 'pack:')));
+        $products = Product::withPromo()->with('variants')->whereIn('id', $ids)->get()->keyBy('id');
 
-        foreach ($wanted as $id => $qte) {
+        foreach ($wanted as $key => $qte) {
+            if (str_starts_with($key, 'pack:')) {
+                $pack = $packs->get((int) substr($key, 5));
+                if (! $pack) {
+                    $out['warnings'][] = "Un pack n'est plus disponible et a été retiré du panier.";
+                    continue;
+                }
+                $stock = $pack->availableCount();
+                if ($stock <= 0) {
+                    $out['warnings'][] = "« {$pack->nom} » n'est plus disponible : retiré du panier.";
+                    continue;
+                }
+                if ($qte > $stock) {
+                    $qte = $stock;
+                    $out['warnings'][] = "Quantité de « {$pack->nom} » ajustée au stock disponible ({$stock}).";
+                }
+                $out['lines'][] = [
+                    'pack_id'   => $pack->id,
+                    'name'      => $pack->nom,
+                    'image_url' => $pack->image ? asset('images/'.$pack->image) : null,
+                    'price'     => (float) $pack->prix_promo,
+                    'quantity'  => $qte,
+                    'stock'     => $stock,
+                    'subtotal'  => round($pack->prix_promo * $qte, 2),
+                    'products'  => $pack->products->map(fn ($p) => ['id' => $p->id, 'name' => $p->nom, 'image_url' => $p->imageUrl(), 'quantity' => (int) $p->pivot->quantite])->values(),
+                ];
+                $out['total'] += $pack->prix_promo * $qte;
+                $out['count'] += $qte;
+                continue;
+            }
+
+            [$id, $variantId] = array_map('intval', explode(':', $key));
             $p = $products->get($id);
             if (! $p) {
                 $out['warnings'][] = "Un produit n'existe plus et a été retiré du panier.";
                 continue;
             }
-            if ($p->quantite_stock <= 0) {
+            $v = $variantId ? $p->variants->firstWhere('id', $variantId) : null;
+            if (($variantId && ! $v) || (! $v && $p->variants->isNotEmpty())) {
+                $out['warnings'][] = "Choisissez à nouveau une option pour « {$p->nom} » : retiré du panier.";
+                continue;
+            }
+            $stock = $v ? $v->quantite_stock : $p->quantite_stock;
+            if ($stock <= 0) {
                 $out['warnings'][] = "« {$p->nom} » n'est plus disponible : retiré du panier.";
                 continue;
             }
-            if ($qte > $p->quantite_stock) {
-                $qte = $p->quantite_stock;
-                $out['warnings'][] = "Quantité de « {$p->nom} » ajustée au stock disponible ({$p->quantite_stock}).";
+            if ($qte > $stock) {
+                $qte = $stock;
+                $out['warnings'][] = "Quantité de « {$p->nom} » ajustée au stock disponible ({$stock}).";
             }
 
             $prix = $p->finalPrice();
             $out['lines'][] = [
                 'id'             => $p->id,
+                'variant_id'     => $v?->id,
+                'variant_color'  => $v?->couleur,
+                'variant_size'   => $v?->sizeLabel(),
                 'name'           => $p->nom,
                 'category'       => $p->categorie,
                 'image_url'      => $p->imageUrl(),
@@ -65,7 +119,7 @@ class CartService
                 'original_price' => (float) $p->prix,
                 'promo'          => $p->promoPercent(),
                 'quantity'       => $qte,
-                'stock'          => $p->quantite_stock,
+                'stock'          => $stock,
                 'subtotal'       => round($prix * $qte, 2),
             ];
             $out['total'] += $prix * $qte;

@@ -7,12 +7,15 @@ const TABS = {
   admin: [
     ['/admin', 'Tableau de bord'],
     ['/admin/produits', 'Produits & stock'],
+    ['/admin/packs', 'Packs'],
     ['/admin/commandes', 'Commandes'],
     ['/admin/finances', 'Finances'],
     ['/admin/publicites', 'Publicités'],
+    ['/admin/barres', 'Barres du haut'],
+    ['/admin/avis', 'Avis'],
     ['/admin/utilisateurs', 'Utilisateurs'],
   ],
-  responsable_produits: [['/gestion/produits', 'Produits']],
+  responsable_produits: [['/gestion/produits', 'Produits'], ['/gestion/packs', 'Packs']],
   responsable_commandes: [['/gestion/commandes', 'Commandes']],
 };
 

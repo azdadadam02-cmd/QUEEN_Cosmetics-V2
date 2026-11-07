@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import RequireRole from '@/components/layout/RequireRole';
 import Button from '@/components/ui/Button';
 import StatusPill from '@/components/ui/StatusPill';
 import Thumb from '@/components/ui/Thumb';
+import VariantTag from '@/components/ui/VariantTag';
 import { api, errorMessage } from '@/lib/api';
 import { dateTime, money } from '@/lib/format';
 import { toast } from '@/store/toastStore';
@@ -11,16 +11,8 @@ import { toast } from '@/store/toastStore';
 const STEPS = ['Reçue', 'Acceptée', 'Livrée'];
 const stepIndex = { 'En attente': 0, Acceptee: 1, Livree: 2, Refusee: 1 };
 
-export default function NotificationsPage() {
-  return (
-    <RequireRole roles={['client']}>
-      <Notifications />
-    </RequireRole>
-  );
-}
-
-/** Suivi des commandes : reçue → acceptée → livrée (ou refusée) */
-function Notifications() {
+/** My Orders : suivi des commandes, reçue → acceptée → livrée (ou refusée) */
+export default function OrdersPage() {
   const [orders, setOrders] = useState(null);
 
   useEffect(() => {
@@ -29,11 +21,7 @@ function Notifications() {
 
   return (
     <>
-      <div className="page-head">
-        <span className="eyebrow">Suivi</span>
-        <h1 className="h-serif">Notifications</h1>
-        <p className="lead">L&apos;état de chacune de vos commandes.</p>
-      </div>
+      <h1 className="pf-title">My Orders</h1>
 
       {!orders && <p className="loading-line">Chargement…</p>}
       {orders?.length === 0 && (
@@ -77,9 +65,9 @@ function Notifications() {
               )}
               <ul className="notif-items">
                 {o.items.map((it) => (
-                  <li key={it.product_id}>
+                  <li key={it.id}>
                     <Thumb src={it.image_url} name={it.name} size="xs" />
-                    <span className="ni-name">{it.name} <em>× {it.quantity}</em></span>
+                    <span className="ni-name">{it.name} <VariantTag color={it.variant_color} size={it.variant_size} /> {it.pack_name && <small className="pack-tag">{it.pack_name}</small>} <em>× {it.quantity}</em></span>
                     <span className="ni-price">{money(it.subtotal)}</span>
                   </li>
                 ))}

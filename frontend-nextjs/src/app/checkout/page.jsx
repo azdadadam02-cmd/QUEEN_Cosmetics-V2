@@ -5,10 +5,11 @@ import RequireRole from '@/components/layout/RequireRole';
 import Button from '@/components/ui/Button';
 import Field from '@/components/ui/Field';
 import Thumb from '@/components/ui/Thumb';
+import VariantTag from '@/components/ui/VariantTag';
 import { api, errorMessage, fieldErrors } from '@/lib/api';
 import { money } from '@/lib/format';
 import { useAuthStore } from '@/store/authStore';
-import { useCartStore } from '@/store/cartStore';
+import { lineKey, useCartStore } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
 
 export default function CheckoutPage() {
@@ -59,7 +60,7 @@ function Checkout() {
       const { data } = await api.post('/orders', { ...form, items: payload() });
       clear();
       toast.success(data.message);
-      router.push('/notifications');
+      router.push('/profile/orders');
     } catch (err) {
       setErrors(fieldErrors(err));
       toast.error(errorMessage(err));
@@ -106,9 +107,9 @@ function Checkout() {
           <section className="panel">
             <h3>Articles</h3>
             {(lines?.lines || items).map((l) => (
-              <div className="mini-line" key={l.id}>
+              <div className="mini-line" key={lineKey(l)}>
                 <Thumb src={l.image_url} name={l.name} size="sm" />
-                <div className="ml-info"><strong>{l.name}</strong><small>{l.quantity} × {money(l.price)}</small></div>
+                <div className="ml-info"><strong>{l.name}</strong><VariantTag color={l.variant_color} size={l.variant_size} /><small>{l.quantity} × {money(l.price)}</small></div>
                 <span className="ml-total">{money(l.price * l.quantity)}</span>
               </div>
             ))}

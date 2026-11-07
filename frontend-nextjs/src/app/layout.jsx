@@ -1,6 +1,8 @@
 import { Suspense } from 'react';
 import Footer from '@/components/layout/Footer';
 import Navbar, { NavbarFallback } from '@/components/layout/Navbar';
+import SmoothScroll from '@/components/layout/SmoothScroll';
+import TopBarsLoader from '@/components/layout/TopBarsLoader';
 import Toaster from '@/components/ui/Toaster';
 import './globals.css';
 
@@ -20,13 +22,18 @@ export default function RootLayout({ children }) {
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap"
         />
       </head>
       <body>
+        {/* Barres avant la navbar : elles partent avec le scroll, la navbar (sticky) reste en haut */}
+        <Suspense fallback={null}>
+          <TopBarsLoader />
+        </Suspense>
         <Suspense fallback={<NavbarFallback />}>
           <Navbar />
         </Suspense>
+        <SmoothScroll />
         <Toaster />
         <main className="container">{children}</main>
         <Footer />

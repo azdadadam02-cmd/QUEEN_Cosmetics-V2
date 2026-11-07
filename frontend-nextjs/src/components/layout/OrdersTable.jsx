@@ -1,6 +1,7 @@
 'use client';
 import { Fragment, useEffect, useState } from 'react';
 import Thumb from '@/components/ui/Thumb';
+import VariantTag from '@/components/ui/VariantTag';
 import StatusPill from '@/components/ui/StatusPill';
 import { api, errorMessage } from '@/lib/api';
 import { dateTime, money, STATUS } from '@/lib/format';
@@ -105,9 +106,9 @@ export default function OrdersTable({ readOnly = false }) {
                       <div className="ship"><b>Adresse</b> {o.delivery.address} — {o.delivery.city} · {o.delivery.phone}</div>
                       <ul className="lines">
                         {o.items.map((it) => (
-                          <li key={it.product_id}>
+                          <li key={it.id}>
                             <Thumb src={it.image_url} name={it.name} size="xs" />
-                            <span>{it.name} <em>× {it.quantity} · {money(it.unit_price)}</em></span>
+                            <span>{it.name} <VariantTag color={it.variant_color} size={it.variant_size} /> {it.pack_name && <small className="pack-tag">{it.pack_name}</small>} <em>× {it.quantity} · {money(it.unit_price)}</em></span>
                             <span>{money(it.subtotal)}</span>
                           </li>
                         ))}

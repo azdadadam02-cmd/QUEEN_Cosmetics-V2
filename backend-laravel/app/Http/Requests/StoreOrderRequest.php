@@ -31,7 +31,9 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             'items'            => ['required', 'array', 'min:1', 'max:'.CartService::MAX_LIGNES],
-            'items.*.id'       => ['required', 'integer', 'distinct', 'exists:produits,id'],
+            'items.*.id'       => ['nullable', 'required_without:items.*.pack_id', 'integer', 'exists:produits,id'],
+            'items.*.pack_id'  => ['nullable', 'integer', 'exists:packs,id'],
+            'items.*.variant_id' => ['nullable', 'integer', 'min:1'],
             'items.*.quantity' => ['required', 'integer', 'min:1', 'max:'.CartService::MAX_QTE],
 
             'nom'       => ['required', 'string', 'min:3', 'max:100'],
@@ -49,7 +51,8 @@ class StoreOrderRequest extends FormRequest
             'items.min'          => 'Votre panier est vide.',
             'items.max'          => 'Panier limité à '.CartService::MAX_LIGNES.' produits différents.',
             'items.*.id.exists'  => "Un produit de votre panier n'existe plus.",
-            'items.*.id.distinct'=> 'Produit en double dans le panier.',
+            'items.*.pack_id.*'  => "Un pack de votre panier n'existe plus.",
+            'items.*.variant_id.*' => 'Option de produit invalide.',
             'items.*.quantity.*' => 'Quantité invalide (1 à '.CartService::MAX_QTE.' par produit).',
             'nom.*'              => 'Indiquez le nom de la personne qui réceptionne (3 à 100 caractères).',
             'telephone.*'        => 'Numéro de téléphone invalide (ex : 06 12 34 56 78).',

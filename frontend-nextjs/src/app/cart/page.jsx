@@ -1,13 +1,15 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import ProductCard from '@/components/layout/ProductCard';
 import Button from '@/components/ui/Button';
 import Thumb from '@/components/ui/Thumb';
+import VariantTag from '@/components/ui/VariantTag';
 import { api, errorMessage } from '@/lib/api';
 import { money } from '@/lib/format';
 import { useHydrated } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
-import { MAX_QTE, useCartStore } from '@/store/cartStore';
+import { lineKey, MAX_QTE, useCartStore } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
 
 /** Panier : +, −, retirer, vider. Les prix et le stock sont relus depuis Laravel à l'ouverture. */
@@ -16,6 +18,8 @@ export default function CartPage() {
   const { items, setQuantity, remove, clear, syncFromServer, payload } = useCartStore();
   const user = useAuthStore((s) => s.user);
   const [checked, setChecked] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [openPack, setOpenPack] = useState(null);
 
   // Vérifie le panier auprès de l'API (prix réduits, stock, produits supprimés)
   useEffect(() => {
@@ -32,6 +36,13 @@ export default function CartPage() {
       .finally(() => setChecked(true));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated]);
+
+  // Produits des mêmes sous-catégories que le panier
+  const cartIds = [...new Set(items.flatMap((i) => (i.pack_id ? (i.products || []).map((it) => it.id) : [i.id])))].sort((a, b) => a - b).join(',');
+  useEffect(() => {
+    if (!hydrated || !cartIds) return;
+    api.get('/products/suggestions', { params: { ids: cartIds } }).then(({ data }) => setSuggestions(data.data ?? data)).catch(() => {});
+  }, [hydrated, cartIds]);
 
   if (!hydrated) return <p className="loading-line">Chargement du panier…</p>;
 
@@ -58,26 +69,41 @@ export default function CartPage() {
           <div>
             <div className="cart-list">
               {items.map((i) => (
-                <div className="cart-item" key={i.id}>
-                  <Link href={`/products/${i.id}`}><Thumb src={i.image_url} name={i.name} /></Link>
+                <div className="cart-item" key={lineKey(i)}>
+                  <Link href={i.pack_id ? `/packs/${i.pack_id}` : `/products/${i.id}`}><Thumb src={i.image_url} name={i.name} /></Link>
                   <div className="ci-info">
                     <h3>{i.name}</h3>
+                    <VariantTag color={i.variant_color} size={i.variant_size} />
+                    {i.pack_id && (
+                      <button type="button" className="link-remove pack-detail-btn" aria-expanded={openPack === i.pack_id} onClick={() => setOpenPack((v) => (v === i.pack_id ? null : i.pack_id))}>
+                        {openPack === i.pack_id ? 'Masquer le détail' : 'Détail'}
+                      </button>
+                    )}
                     <small>{money(i.price)} · {i.stock} en stock</small>
                   </div>
                   <div className="qty-form">
                     <div className="qty">
-                      <button type="button" aria-label="Moins" onClick={() => setQuantity(i.id, i.quantity - 1)}>−</button>
+                      <button type="button" aria-label="Moins" onClick={() => setQuantity(lineKey(i), i.quantity - 1)}>−</button>
                       <span>{i.quantity}</span>
                       <button
                         type="button"
                         aria-label="Plus"
                         disabled={i.quantity >= Math.min(i.stock, MAX_QTE)}
-                        onClick={() => setQuantity(i.id, i.quantity + 1)}
+                        onClick={() => setQuantity(lineKey(i), i.quantity + 1)}
                       >+</button>
                     </div>
-                    <button type="button" className="link-remove" onClick={() => remove(i.id)}>Retirer</button>
+                    <button type="button" className="link-remove" onClick={() => remove(lineKey(i))}>Retirer</button>
                   </div>
                   <span className="ci-total">{money(i.price * i.quantity)}</span>
+                  {i.pack_id && openPack === i.pack_id && (
+                    <ul className="pack-lines">
+                      {(i.products || []).map((it) => (
+                        <li key={it.id}>
+                          <Link href={`/products/${it.id}`}><Thumb src={it.image_url} name={it.name} size="xs" /><span>{it.name} × {it.quantity * i.quantity}</span></Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
@@ -102,6 +128,15 @@ export default function CartPage() {
             <Link href="/products" className="sum-link">← Continuer mes achats</Link>
           </aside>
         </div>
+      )}
+
+      {items.length > 0 && suggestions.length > 0 && (
+        <section className="cart-suggest">
+          <h2 className="pc-row-title">Vous aimerez aussi</h2>
+          <div className="pgrid">
+            {suggestions.map((p) => <ProductCard key={p.id} product={p} />)}
+          </div>
+        </section>
       )}
     </>
   );

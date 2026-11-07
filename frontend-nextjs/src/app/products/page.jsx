@@ -8,11 +8,8 @@ export const metadata = { title: 'Catalogue' };
 export default function ProductsPage() {
   return (
     <>
-      <div className="page-head">
-        <span className="eyebrow">Parfums · Soins · Maquillage</span>
-        <h1 className="h-serif">Catalogue</h1>
-      </div>
-      <Suspense fallback={<div className="grid">{Array.from({ length: 8 }, (_, i) => <div key={i} className="skeleton sk-card" />)}</div>}>
+      <h1 className="sr-only">Catalogue</h1>
+      <Suspense fallback={<div className="pgrid">{Array.from({ length: 6 }, (_, i) => <div key={i} className="skeleton sk-card" />)}</div>}>
         <Catalogue />
       </Suspense>
     </>
@@ -21,5 +18,5 @@ export default function ProductsPage() {
 
 async function Catalogue() {
   const [products, categories] = await Promise.all([apiGet('/products'), apiGet('/categories')]);
-  return <ProductsBrowser products={products || []} categories={categories || []} title="Tous les produits" eyebrow={`${products?.length || 0} produits`} />;
+  return <ProductsBrowser products={products || []} categories={categories || []} />;
 }

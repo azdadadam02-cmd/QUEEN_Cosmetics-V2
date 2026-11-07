@@ -16,7 +16,9 @@ class CartCheckRequest extends FormRequest
     {
         return [
             'items'            => ['present', 'array', 'max:60'],
-            'items.*.id'       => ['required', 'integer', 'min:1'],
+            'items.*.id'       => ['nullable', 'required_without:items.*.pack_id', 'integer', 'min:1'],
+            'items.*.pack_id'  => ['nullable', 'integer', 'min:1'],
+            'items.*.variant_id' => ['nullable', 'integer', 'min:1'],
             'items.*.quantity' => ['required', 'integer', 'min:1', 'max:1000'],
         ];
     }

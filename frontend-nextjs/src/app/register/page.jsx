@@ -35,7 +35,6 @@ export default function RegisterPage() {
   return (
     <div className="auth-wrap">
       <div className="auth-card">
-        <span className="eyebrow">Bienvenue</span>
         <h1 className="h-serif">Créer un compte</h1>
         <form onSubmit={submit}>
           <Field id="nom" label="Nom complet" type="text" value={form.nom} onChange={set('nom')} error={errors.nom} autoComplete="name" required />

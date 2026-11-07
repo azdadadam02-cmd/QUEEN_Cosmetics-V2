@@ -40,7 +40,6 @@ export default function LoginPage() {
   return (
     <div className="auth-wrap">
       <div className="auth-card">
-        <span className="eyebrow">Espace QUEEN</span>
         <h1 className="h-serif">Connexion</h1>
         <form onSubmit={submit}>
           <Field id="email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required />

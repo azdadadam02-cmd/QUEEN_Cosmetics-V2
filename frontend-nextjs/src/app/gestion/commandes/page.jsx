@@ -6,7 +6,7 @@ import PageHead from '@/components/layout/PageHead';
 export default function GestionCommandesPage() {
   return (
     <>
-      <PageHead eyebrow="Responsable commandes" title="Gestion des commandes" />
+      <PageHead title="Gestion des commandes" />
       <OrdersTable />
     </>
   );

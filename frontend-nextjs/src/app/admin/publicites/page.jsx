@@ -74,7 +74,7 @@ export default function PublicitesPage() {
 
   return (
     <>
-      <PageHead eyebrow="Administration" title="Publicités">
+      <PageHead title="Publicités">
         <Button onClick={() => open()}>+ Nouvelle publicité</Button>
       </PageHead>
 

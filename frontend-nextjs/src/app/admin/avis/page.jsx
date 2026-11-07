@@ -31,7 +31,7 @@ export default function AvisPage() {
   const pending = rows?.filter((r) => !r.approved).length ?? 0;
   return (
     <>
-      <PageHead eyebrow="Administration" title="Avis clients" note={rows ? `${pending} en attente de validation` : ''} />
+      <PageHead title="Avis clients" note={rows ? `${pending} en attente de validation` : ''} />
       <div className="panel tablewrap">
         <table className="tbl">
           <thead><tr><th>Produit</th><th>Client</th><th>Avis</th><th>État</th><th className="right">Actions</th></tr></thead>

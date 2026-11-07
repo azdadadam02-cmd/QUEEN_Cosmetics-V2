@@ -91,7 +91,7 @@ export default function GestionProduitsPage() {
 
   return (
     <>
-      <PageHead eyebrow="Responsable produits" title="Produits">
+      <PageHead title="Produits">
         <Button onClick={() => open()}>+ Ajouter un produit</Button>
       </PageHead>
 

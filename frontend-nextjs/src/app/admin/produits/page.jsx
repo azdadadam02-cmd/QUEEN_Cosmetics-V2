@@ -5,7 +5,7 @@ import ProductsTable from '@/components/layout/ProductsTable';
 export default function AdminProduitsPage() {
   return (
     <>
-      <PageHead eyebrow="Administration" title="Produits & stock" note="Lecture seule — l'ajout et la modification sont faits par le responsable produits" />
+      <PageHead title="Produits & stock" note="Lecture seule — l'ajout et la modification sont faits par le responsable produits" />
       <ProductsTable />
     </>
   );

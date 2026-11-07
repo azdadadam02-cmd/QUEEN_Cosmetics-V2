@@ -14,7 +14,7 @@ import { toast } from '@/store/toastStore';
 const EMPTY = { nom: '', description: '', prix_promo: '', couleur_fond: '#735A65', couleur_texte: '#FFFFFF', texte_bouton: 'Voir le pack', est_actif: true };
 
 /** Créer et personnaliser les packs (contenu, prix, image, couleurs, bouton) : responsable produits et admin */
-export default function PacksManager({ eyebrow }) {
+export default function PacksManager() {
   const [packs, setPacks] = useState(null);
   const [catalog, setCatalog] = useState([]);
   const [editing, setEditing] = useState(null);
@@ -92,7 +92,7 @@ export default function PacksManager({ eyebrow }) {
 
   return (
     <>
-      <PageHead eyebrow={eyebrow} title="Packs">
+      <PageHead title="Packs">
         <Button onClick={() => open()}>+ Ajouter un pack</Button>
       </PageHead>
 

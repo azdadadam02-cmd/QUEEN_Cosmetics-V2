@@ -80,11 +80,10 @@ function Shell({ children }) {
 
   return (
     <>
-      <Link href="/" className="pf-logo" aria-label="Retour à l'accueil">
-        <Image src="/images/logo.webp" alt="QUEEN Cosmetics" width={87} height={58} priority />
-      </Link>
-
       <aside className="pf-side">
+        <Link href="/" className="pf-logo" aria-label="Retour à l'accueil">
+          <Image src="/images/logo.webp" alt="QUEEN Cosmetics" width={87} height={58} priority />
+        </Link>
         <nav className="pf-nav" aria-label="Mon compte">
           {NAV.map(([href, label, icon]) => (
             <Link key={href} href={href} className={pathname === href ? 'active' : ''} aria-current={pathname === href ? 'page' : undefined}>

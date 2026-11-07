@@ -53,7 +53,6 @@ export default function CartPage() {
   return (
     <>
       <div className="page-head">
-        <span className="eyebrow">Votre sélection</span>
         <h1 className="h-serif">Mon panier</h1>
       </div>
 
@@ -125,7 +124,7 @@ export default function CartPage() {
             ) : (
               <Button href={checkoutHref} block aria-disabled={!checked}>Confirmer la commande</Button>
             )}
-            <Link href="/products" className="sum-link">← Continuer mes achats</Link>
+            <Link href="/products" className="sum-link">Continuer mes achats</Link>
           </aside>
         </div>
       )}

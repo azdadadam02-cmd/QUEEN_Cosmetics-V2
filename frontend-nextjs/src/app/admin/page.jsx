@@ -18,7 +18,7 @@ export default function AdminDashboard() {
   const o = d.orders || {};
   return (
     <>
-      <PageHead eyebrow="Administration" title="Tableau de bord" />
+      <PageHead title="Tableau de bord" />
       <div className="stats">
         <div className="stat gold"><span className="stat-label">Encaissé</span><strong>{money(d.finance.encaisse)}</strong><small>dont {money(d.finance.mois)} ce mois</small></div>
         <div className="stat"><span className="stat-label">À encaisser</span><strong>{money(d.finance.a_encaisser)}</strong><small>commandes acceptées</small></div>
@@ -28,9 +28,9 @@ export default function AdminDashboard() {
         <div className="stat warn"><span className="stat-label">Alertes stock</span><strong>{d.products.rupture + d.products.faible}</strong><small>{d.products.rupture} en rupture · {d.products.faible} faibles</small></div>
       </div>
       <div className="shortcuts">
-        <Link className="short" href="/admin/finances"><b>Finances</b><span>Paiements encaissés et à encaisser →</span></Link>
-        <Link className="short" href="/admin/publicites"><b>Publicités</b><span>Carrousel de l&apos;accueil et promotions →</span></Link>
-        <Link className="short" href="/admin/utilisateurs"><b>Utilisateurs</b><span>Clients et responsables →</span></Link>
+        <Link className="short" href="/admin/finances"><b>Finances</b><span>Paiements encaissés et à encaisser</span></Link>
+        <Link className="short" href="/admin/publicites"><b>Publicités</b><span>Carrousel de l&apos;accueil et promotions</span></Link>
+        <Link className="short" href="/admin/utilisateurs"><b>Utilisateurs</b><span>Clients et responsables</span></Link>
       </div>
     </>
   );

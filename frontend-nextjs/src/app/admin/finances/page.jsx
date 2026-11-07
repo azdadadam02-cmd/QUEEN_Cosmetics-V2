@@ -26,7 +26,7 @@ export default function FinancesPage() {
 
   return (
     <>
-      <PageHead eyebrow="Administration" title="Finances" note="Paiement à la livraison : l'argent est encaissé quand la commande est livrée" />
+      <PageHead title="Finances" note="Paiement à la livraison : l'argent est encaissé quand la commande est livrée" />
       <div className="stats">
         <div className="stat gold"><span className="stat-label">Total encaissé</span><strong>{money(s.encaisse)}</strong><small>{s.nb_payes} commande(s) payée(s)</small></div>
         <div className="stat"><span className="stat-label">Encaissé ce mois</span><strong>{money(s.mois)}</strong><small>panier moyen {money(s.panier_moyen)}</small></div>

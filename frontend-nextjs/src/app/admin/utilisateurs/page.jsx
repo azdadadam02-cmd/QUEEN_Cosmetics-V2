@@ -64,7 +64,7 @@ export default function UtilisateursPage() {
 
   return (
     <>
-      <PageHead eyebrow="Administration" title="Utilisateurs" note="Les comptes administrateur ne sont pas modifiables ici">
+      <PageHead title="Utilisateurs" note="Les comptes administrateur ne sont pas modifiables ici">
         <Button onClick={() => open()}>+ Nouvel utilisateur</Button>
       </PageHead>
       <div className="panel tablewrap">

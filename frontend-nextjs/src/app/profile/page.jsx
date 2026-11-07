@@ -121,13 +121,20 @@ export default function AccountPage() {
 
   return (
     <>
-      <button type="button" className="pf-avatar" onClick={() => setAskPhoto(true)} disabled={uploading} aria-label="Changer la photo de profil">
-        {profile.image_url ? (
-          <Image src={profile.image_url} alt="" fill sizes="140px" />
-        ) : (
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.6" /><path d="M5 20a7.2 7.2 0 0 1 14 0 9.6 9.6 0 0 1-14 0z" /></svg>
-        )}
-      </button>
+      <header className="pf-head">
+        <button type="button" className="pf-avatar" onClick={() => setAskPhoto(true)} disabled={uploading} aria-label="Changer la photo de profil">
+          {profile.image_url ? (
+            <Image src={profile.image_url} alt="" fill sizes="140px" />
+          ) : (
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.6" /><path d="M5 20a7.2 7.2 0 0 1 14 0 9.6 9.6 0 0 1-14 0z" /></svg>
+          )}
+        </button>
+        <div>
+          <h1 className="pf-title">{profile.name}</h1>
+          <p className="pf-email">{profile.email}</p>
+          <button type="button" className="pf-photo-link" onClick={() => setAskPhoto(true)} disabled={uploading}>Changer la photo</button>
+        </div>
+      </header>
       <input ref={fileRef} type="file" hidden accept="image/jpeg,image/png,image/webp,image/gif" onChange={onPhoto} />
 
       <form className="pf-form" onSubmit={save} noValidate>
@@ -145,10 +152,16 @@ export default function AccountPage() {
             <input id="date_naissance" type="date" autoComplete="bday" value={form.date_naissance} onChange={set('date_naissance')} />
           </PfField>
         </div>
-        <button type="submit" className="pf-save" disabled={saving}>{saving ? 'Enregistrement…' : 'Save'}</button>
+        <button type="submit" className="pf-save" disabled={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</button>
       </form>
 
-      <button type="button" className="pf-delete" onClick={() => setAskDelete(true)}>Supprimer mon compte</button>
+      <section className="pf-danger">
+        <div>
+          <strong>Supprimer mon compte</strong>
+          <p>Vos informations, favoris et avis seront effacés définitivement.</p>
+        </div>
+        <button type="button" className="pf-delete" onClick={() => setAskDelete(true)}>Supprimer mon compte</button>
+      </section>
 
       <Modal open={askPhoto} onClose={() => setAskPhoto(false)} title="Photo de profil">
         <p>Voulez-vous changer votre photo ?</p>

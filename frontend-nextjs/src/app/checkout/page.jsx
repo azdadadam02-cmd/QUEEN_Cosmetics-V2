@@ -72,7 +72,6 @@ function Checkout() {
   return (
     <>
       <div className="page-head">
-        <span className="eyebrow">Dernière étape</span>
         <h1 className="h-serif">Confirmation</h1>
         <p className="lead">Vous réglez en espèces à la réception de votre colis.</p>
       </div>

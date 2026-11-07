@@ -130,7 +130,7 @@ export default function BarresPage() {
 
   return (
     <>
-      <PageHead eyebrow="Administration" title="Barres du haut" note="Au-dessus de la navbar, côté client. Elles défilent avec la page." />
+      <PageHead title="Barres du haut" note="Au-dessus de la navbar, côté client. Elles défilent avec la page." />
 
       <h2 className="h-serif" style={{ margin: '8px 0 14px' }}>Avantages (barre grise)</h2>
       <div style={{ marginBottom: 14 }}><Button onClick={() => open('usp')}>+ Nouvel avantage</Button></div>

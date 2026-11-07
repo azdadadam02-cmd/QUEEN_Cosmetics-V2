@@ -1179,3 +1179,16 @@ html.lenis{scroll-behavior:auto}
   .pf-row{grid-template-columns:minmax(0,1fr)}
   .pf-danger{padding:18px}
 }
+
+/* Titre des pages du compte : l'espace sous le titre ; dans l'en-tête du profil c'est .pf-head qui le gère */
+.pf-title{margin:0 0 22px}
+.pf-head .pf-title{margin:0}
+/* Favoris : cartes de même hauteur, boutons Retirer alignés */
+.pf-grid{align-items:stretch}
+/* Report */
+.pf-field textarea{width:100%;min-width:0;padding:10px;border:1px solid #cdbfc3;border-radius:8px;background:#fff;font:500 14px/1.5 var(--sans);color:var(--ink);resize:vertical}
+.pf-field textarea:focus{border-color:#735a65;outline:none;box-shadow:0 0 0 1px #735a65}
+.pf-actions{display:flex;align-items:center;gap:10px}
+.pf-actions .pf-save{justify-self:auto}
+.pf-actions .btn-ghost{height:44px;padding:0 22px;font-size:14px}
+.report-msg{min-width:280px;white-space:pre-line;overflow-wrap:anywhere}

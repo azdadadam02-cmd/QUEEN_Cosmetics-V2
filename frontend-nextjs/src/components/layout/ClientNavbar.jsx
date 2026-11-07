@@ -19,7 +19,6 @@ const Icon = {
   cart: <><circle cx="9" cy="20" r="1.4" /><circle cx="18" cy="20" r="1.4" /><path d="M2.5 3h2.6l2.4 12.2a1 1 0 0 0 1 .8h9.4a1 1 0 0 0 1-.8L20.5 7H6" /></>,
   account: <><circle cx="12" cy="12" r="10" /><circle cx="12" cy="10" r="3" /><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" /></>,
   login: <><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><path d="m10 17 5-5-5-5" /><path d="M15 12H3" /></>,
-  report: <><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M16 13H8" /><path d="M16 17H8" /><path d="M10 9H8" /></>,
   logout: <><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><path d="m16 17 5-5-5-5" /><path d="M21 12H9" /></>,
 };
 const Svg = ({ name }) => <svg viewBox="0 0 24 24" aria-hidden="true">{Icon[name]}</svg>;
@@ -146,10 +145,6 @@ export default function ClientNavbar() {
                     <Svg name="account" /> Profile
                   </Link>
                 )}
-                {/* shortcut: report sans page pour l'instant, à relier quand il existera en base */}
-                <button type="button" className="cnav-item" onClick={() => setMenuOpen(false)}>
-                  <Svg name="report" /> report
-                </button>
                 <button type="button" className="cnav-item" onClick={onLogout}>
                   <Svg name="logout" /> Logout
                 </button>

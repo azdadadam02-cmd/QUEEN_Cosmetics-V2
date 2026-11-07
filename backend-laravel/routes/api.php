@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\OrderManagementController;
 use App\Http\Controllers\Api\PackController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\TopBarController;
 use App\Http\Controllers\Api\UserController;
@@ -54,6 +55,7 @@ Route::middleware('throttle:api')->group(function () {
             Route::get('/products/{product}/reviews/mine', [ReviewController::class, 'mine'])->whereNumber('product');
             Route::get('/favorites', [FavoriteController::class, 'index']);
             Route::get('/favorites/products', [FavoriteController::class, 'products']);
+            Route::post('/reports', [ReportController::class, 'store'])->middleware('throttle:5,1');
             Route::get('/profile', [ProfileController::class, 'show']);
             Route::put('/profile', [ProfileController::class, 'update']);
             Route::post('/profile/image', [ProfileController::class, 'updateImage'])->middleware('throttle:uploads');
@@ -105,6 +107,8 @@ Route::middleware('throttle:api')->group(function () {
             Route::delete('/promos/{promo}', [TopBarController::class, 'promoDestroy'])->whereNumber('promo');
             Route::put('/header', [TopBarController::class, 'headerUpdate']);
             Route::put('/service-links', [TopBarController::class, 'serviceLinksUpdate']);
+
+            Route::get('/reports', [ReportController::class, 'adminIndex']);
 
             Route::get('/reviews', [ReviewController::class, 'adminIndex']);
             Route::patch('/reviews/{review}', [ReviewController::class, 'adminUpdate'])->whereNumber('review');

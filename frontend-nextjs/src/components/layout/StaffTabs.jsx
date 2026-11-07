@@ -13,6 +13,7 @@ const TABS = {
     ['/admin/publicites', 'Publicités'],
     ['/admin/barres', 'Barres du haut'],
     ['/admin/avis', 'Avis'],
+    ['/admin/reports', 'Reports'],
     ['/admin/utilisateurs', 'Utilisateurs'],
   ],
   responsable_produits: [['/gestion/produits', 'Produits'], ['/gestion/packs', 'Packs']],

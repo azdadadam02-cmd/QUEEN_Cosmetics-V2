@@ -15,6 +15,7 @@ const NAV = [
   ['/profile', 'Account Details', <Svg key="a"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="10" r="3" /><path d="M7 20.7V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.7" /></Svg>],
   ['/profile/orders', 'My Orders', <Svg key="o"><path d="M21 8 12 3 3 8v8l9 5 9-5z" /><path d="m3 8 9 5 9-5M12 13v8" /></Svg>],
   ['/profile/favorites', 'Mon favoris', <Svg key="f" fill><path d="M12 21C5 15.5 2 12.3 2 8.5A5.3 5.3 0 0 1 7.5 3 5.6 5.6 0 0 1 12 5.3 5.6 5.6 0 0 1 16.5 3 5.3 5.3 0 0 1 22 8.5c0 3.8-3 7-10 12.5z" /></Svg>],
+  ['/profile/report', 'Report', <Svg key="r"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M16 13H8" /><path d="M16 17H8" /></Svg>],
 ];
 
 const SERVICES = [

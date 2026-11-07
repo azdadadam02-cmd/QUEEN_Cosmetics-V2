@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -86,6 +87,13 @@ class Product extends Model
         $pc = $this->promoPercent();
 
         return $pc > 0 ? round($this->prix * (100 - $pc) / 100, 2) : (float) $this->prix;
+    }
+
+    /** « Sans image » = champ vide OU fichier absent de public/images (produits importés sans leurs photos) */
+    public static function sansImage(): Collection
+    {
+        return static::orderBy('id')->get(['id', 'nom', 'marque', 'sous_categorie', 'image'])
+            ->filter(fn ($p) => ! $p->image || ! is_file(public_path('images/'.$p->image)));
     }
 
     public function imageUrl(): ?string

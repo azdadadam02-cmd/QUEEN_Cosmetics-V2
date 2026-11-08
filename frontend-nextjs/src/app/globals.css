@@ -167,7 +167,8 @@ a.promo-bar:hover .promo-text{text-decoration:underline}
 .pm-item.danger{color:var(--burgundy)}
 .pm-item.danger:hover{background:#fbeaee}
 @keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
-.ads{position:relative;width:calc(100vw - 40px);margin:30px 0 64px calc(50% - 50vw + 20px);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+/* Pleine largeur : sort du conteneur centré ; body{overflow-x:clip} empêche le défilement horizontal dû à la barre de défilement */
+.ads{position:relative;width:100vw;margin:30px 0 64px calc(50% - 50vw);border-radius:0;overflow:hidden;box-shadow:none}
 .ads-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
 .ads-track::-webkit-scrollbar{display:none}
 .ad-slide{position:relative;flex:0 0 100%;scroll-snap-align:start;height:clamp(224px,28vw,544px);display:flex;align-items:center;color:#fff;isolation:isolate}
@@ -536,7 +537,7 @@ button{font-family:inherit}
 .perks li::before{content:"✦";color:var(--gold);margin-right:10px}
 @media (max-width:860px){.product-page{grid-template-columns:1fr;gap:28px}}
 .skeleton{background:linear-gradient(90deg,#eee8ea 0%,#faf6ee 50%,#eee8ea 100%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:var(--r)}
-.sk-ads{height:clamp(280px,35vw,430px);margin:30px 0 64px;border-radius:10px}
+.sk-ads{width:100vw;height:clamp(224px,28vw,544px);margin:30px 0 64px calc(50% - 50vw);border-radius:0}
 .sk-card{aspect-ratio:.72}
 @keyframes shimmer{to{background-position:-200% 0}}
 .login-split{width:min(1060px,100%);margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;min-height:600px;overflow:hidden;border-radius:16px;background:var(--cream-2);box-shadow:0 30px 70px -32px rgba(59,42,54,.5)}
@@ -891,7 +892,6 @@ html.lenis{scroll-behavior:auto}
 .eyebrow.gold{font-size:14px;border-radius:8px;color:#fff;border-color:rgba(255,255,255,.55);backdrop-filter:none}
 .lead{font-size:15px}
 .readonly-note{display:block;padding:0;margin-top:4px;background:none;border-radius:0;color:var(--muted);font-size:13.5px;font-weight:500}
-.ads{box-shadow:none;border-radius:8px}
 .ad-content h2{text-shadow:none;font-weight:600}
 .ad-slide:nth-child(odd){background:#5d4852}
 .ads-dots button.on{background:#fff}
@@ -1131,7 +1131,6 @@ html.lenis{scroll-behavior:auto}
 .pack-save{flex-basis:100%;font:400 12px/1.25 var(--sans)}
 .pack-cta{justify-self:start;margin-top:8px;padding:12px 24px;border:1px solid currentColor;border-radius:4px;font:700 14px/1.25 var(--sans)}
 @media (min-width:761px) and (max-width:1100px){.packs-section .pack-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
-.ads{border-radius:8px;box-shadow:none}
 .ad-shade{background:linear-gradient(90deg,rgba(32,20,30,.78) 0%,rgba(32,20,30,.35) 60%,rgba(32,20,30,0) 100%)}
 .ad-content{max-width:760px;gap:16px}
 .ad-content .eyebrow{padding:4px 12px;border:0;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:none;font:700 12px/1.25 var(--sans);letter-spacing:0;text-transform:none;color:#fff}

@@ -756,7 +756,9 @@ a.see-more{display:inline-block}
 .pd-size{min-width:96px;padding:7px 14px;background:#fff;border:2px solid #111;border-left-width:5px;border-right-width:5px;cursor:pointer;font:500 clamp(13px,1.2vw,18px)/1.2 var(--serif);color:#111;transition:background .2s,color .2s}
 .pd-size:hover{background:#f1ece6}
 .pd-size.on{background:#111;color:#fff}
-.pd-swatch.empty,.pd-size.empty{opacity:.35}
+/* Variante épuisée : estompée et barrée (ne pas l'appeler « empty » : cette classe est celle des messages « Aucun produit », avec 50px de padding) */
+.pd-swatch.soldout,.pd-size.soldout{position:relative;opacity:.4}
+.pd-swatch.soldout::after{content:"";position:absolute;inset:0;border-radius:inherit;mix-blend-mode:difference;background:linear-gradient(to top right,transparent calc(50% - 1px),#fff 50%,transparent calc(50% + 1px))}
 .pd-chosen{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font:500 clamp(13px,1.2vw,18px)/1.2 var(--serif)}
 .pd-buy-info{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px;margin-top:auto}
 .pd-price{display:grid;font:700 clamp(24px,2.4vw,37px)/1.1 var(--serif);color:#111}

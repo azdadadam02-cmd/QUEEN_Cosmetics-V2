@@ -107,7 +107,7 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
               <button
                 key={c}
                 type="button"
-                className={`pd-swatch${selected?.color === c ? ' on' : ''}${variants.some((v) => v.color === c && v.stock > 0) ? '' : ' empty'}`}
+                className={`pd-swatch${selected?.color === c ? ' on' : ''}${variants.some((v) => v.color === c && v.stock > 0) ? '' : ' soldout'}`}
                 style={{ background: c }}
                 onClick={() => pick('color', c)}
                 aria-label={`Couleur ${c}`}
@@ -127,7 +127,7 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
                 <button
                   key={s}
                   type="button"
-                  className={`pd-size${selected?.size === s ? ' on' : ''}${inColor.some((v) => v.stock > 0) ? '' : ' empty'}`}
+                  className={`pd-size${selected?.size === s ? ' on' : ''}${inColor.some((v) => v.stock > 0) ? '' : ' soldout'}`}
                   onClick={() => pick('size', s)}
                   aria-pressed={selected?.size === s}
                 >{s}</button>

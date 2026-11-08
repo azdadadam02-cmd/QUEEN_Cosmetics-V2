@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { initial } from '@/lib/format';
 
-export default function ProductGallery({ images, name, brand, promo }) {
+/** children : affiché sous l'image principale (étoiles, achats, favoris), centré sur elle et non sur les vignettes */
+export default function ProductGallery({ images, name, brand, promo, children }) {
   const [index, setIndex] = useState(0);
   const move = (step) => setIndex((i) => (i + step + images.length) % images.length);
 
@@ -31,6 +32,7 @@ export default function ProductGallery({ images, name, brand, promo }) {
             </>
           )}
         </div>
+        {children}
       </div>
     </div>
   );

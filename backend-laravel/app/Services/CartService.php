@@ -101,7 +101,7 @@ class CartService
                 $out['warnings'][] = "Quantité de « {$p->nom} » ajustée au stock disponible ({$stock}).";
             }
 
-            $prix = $p->finalPrice();
+            $prix = $p->finalPrice($v);
             $out['lines'][] = [
                 'id'             => $p->id,
                 'variant_id'     => $v?->id,
@@ -111,7 +111,7 @@ class CartService
                 'category'       => $p->categorie,
                 'image_url'      => $p->imageUrl(),
                 'price'          => $prix,
-                'original_price' => (float) $p->prix,
+                'original_price' => $p->basePrice($v),
                 'promo'          => $p->promoPercent(),
                 'quantity'       => $qte,
                 'stock'          => $stock,

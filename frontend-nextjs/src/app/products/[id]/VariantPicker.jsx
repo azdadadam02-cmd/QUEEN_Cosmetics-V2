@@ -1,28 +1,26 @@
 'use client';
 import VariantTag from '@/components/ui/VariantTag';
-import { pickVariant } from '@/lib/variants';
 
-const unique = (values) => [...new Set(values.filter(Boolean))];
-
+/** Couleurs et tailles indépendantes : chaque bouton est une version vendue à part (son prix, son stock) */
 export default function VariantPicker({ variants, selected, onSelect, productName }) {
-  const colors = unique(variants.map((v) => v.color));
-  const sizes = unique(variants.map((v) => v.size));
-  const pick = (key, value) => onSelect(pickVariant(variants, selected, key, value));
+  const colors = variants.filter((v) => v.color);
+  const sizes = variants.filter((v) => !v.color && v.size);
+  const on = (v) => selected?.id === v.id;
 
   return (
     <>
       {colors.length > 0 && (
         <div className="pd-option">
           <span className="pd-label">Couleurs :</span>
-          {colors.map((c) => (
+          {colors.map((v) => (
             <button
-              key={c}
+              key={v.id}
               type="button"
-              className={`pd-swatch${selected?.color === c ? ' on' : ''}${variants.some((v) => v.color === c && v.stock > 0) ? '' : ' soldout'}`}
-              style={{ background: c }}
-              onClick={() => pick('color', c)}
-              aria-label={`Couleur ${c}`}
-              aria-pressed={selected?.color === c}
+              className={`pd-swatch${on(v) ? ' on' : ''}${v.stock > 0 ? '' : ' soldout'}`}
+              style={{ background: v.color }}
+              onClick={() => onSelect(v)}
+              aria-label={`Couleur ${v.color}`}
+              aria-pressed={on(v)}
             />
           ))}
         </div>
@@ -31,19 +29,11 @@ export default function VariantPicker({ variants, selected, onSelect, productNam
       {sizes.length > 0 && (
         <div className="pd-option">
           <span className="pd-label">Taille :</span>
-          {sizes.map((s) => {
-            // La taille n'est disponible que dans la couleur choisie, s'il y en a une
-            const inColor = variants.filter((v) => v.size === s && (!selected?.color || v.color === selected.color));
-            return (
-              <button
-                key={s}
-                type="button"
-                className={`pd-size${selected?.size === s ? ' on' : ''}${inColor.some((v) => v.stock > 0) ? '' : ' soldout'}`}
-                onClick={() => pick('size', s)}
-                aria-pressed={selected?.size === s}
-              >{s}</button>
-            );
-          })}
+          {sizes.map((v) => (
+            <button key={v.id} type="button" className={`pd-size${on(v) ? ' on' : ''}${v.stock > 0 ? '' : ' soldout'}`} onClick={() => onSelect(v)} aria-pressed={on(v)}>
+              {v.size}
+            </button>
+          ))}
         </div>
       )}
 

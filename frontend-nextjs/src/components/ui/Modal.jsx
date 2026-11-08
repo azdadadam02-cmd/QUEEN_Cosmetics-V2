@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 
-export default function Modal({ open, onClose, title, children }) {
+export default function Modal({ open, onClose, title, children, wide = false }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === 'Escape' && onClose?.();
@@ -12,7 +12,7 @@ export default function Modal({ open, onClose, title, children }) {
   if (!open) return null;
   return (
     <div className="modal-backdrop" data-lenis-prevent onMouseDown={(e) => e.target === e.currentTarget && onClose?.()}>
-      <div className="dialog" role="dialog" aria-modal="true" aria-label={title}>
+      <div className={`dialog${wide ? ' dialog-wide' : ''}`} role="dialog" aria-modal="true" aria-label={title}>
         {title && <h3>{title}</h3>}
         {children}
       </div>

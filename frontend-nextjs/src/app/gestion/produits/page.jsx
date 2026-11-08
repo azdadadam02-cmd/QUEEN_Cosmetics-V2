@@ -62,7 +62,7 @@ export default function GestionProduitsPage() {
 
       <ProductsTable onEdit={open} reloadKey={reloadKey} onLoaded={(d) => setCategories(d.categories)} />
 
-      <Modal open={editing !== null} onClose={() => setEditing(null)} title={editing?.id ? `Modifier « ${editing.name} »` : 'Nouveau produit'}>
+      <Modal wide open={editing !== null} onClose={() => setEditing(null)} title={editing?.id ? `Modifier « ${editing.name} »` : 'Nouveau produit'}>
         <form onSubmit={save} noValidate>
           <Field id="nom" label="Nom" type="text" value={form.nom} onChange={set('nom')} error={errors.nom} required />
           <Field id="marque" label="Marque" hint="(optionnel)" type="text" value={form.marque} onChange={set('marque')} error={errors.marque} />
@@ -81,7 +81,7 @@ export default function GestionProduitsPage() {
           </div>
           <Field id="promotion" label="Promotion %" hint="(0 à 90, vide = aucune)" type="number" min="0" max="90" value={form.promotion} onChange={set('promotion')} error={errors.promotion} />
 
-          <VariantsEditor variants={variants} onChange={setVariants} errors={errors} currentStock={form.stock} />
+          <VariantsEditor variants={variants} onChange={setVariants} errors={errors} currentStock={form.stock} basePrice={form.prix} />
 
           <ImageInput file={file} onChange={setFile} current={editing?.image_url} />
           {errors.image && <span className="error-text">{errors.image}</span>}

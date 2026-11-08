@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import FormError from '@/components/ui/FormError';
+import { latestAdultBirthDate } from '@/lib/adultDate';
 import { api, errorMessage } from '@/lib/api';
 import { useSubmit } from '@/lib/useSubmit';
 import { useAuthStore } from '@/store/authStore';
@@ -59,7 +60,7 @@ export default function AccountPage() {
             <input id="adresse" type="text" autoComplete="street-address" value={form.adresse} onChange={set('adresse')} />
           </PfField>
           <PfField id="date_naissance" label="Date de naissance" error={errors.date_naissance}>
-            <input id="date_naissance" type="date" autoComplete="bday" value={form.date_naissance} onChange={set('date_naissance')} />
+            <input id="date_naissance" type="date" autoComplete="bday" min="1900-01-01" max={latestAdultBirthDate()} value={form.date_naissance} onChange={set('date_naissance')} />
           </PfField>
         </div>
         <FormError message={details.error} success={details.success} />

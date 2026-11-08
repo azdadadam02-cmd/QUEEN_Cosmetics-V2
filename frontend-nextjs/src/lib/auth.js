@@ -1,4 +1,5 @@
 import { api } from '@/lib/api';
+import { safeInternalPath } from '@/lib/safePath';
 import { useAuthStore } from '@/store/authStore';
 
 export async function login(email, password) {
@@ -9,8 +10,7 @@ export async function login(email, password) {
 
 /** Lit ?next=/checkout en n'acceptant QUE des chemins internes (pas de redirection ouverte) */
 export function nextPath() {
-  const n = new URLSearchParams(window.location.search).get('next');
-  return n && n.startsWith('/') && !n.startsWith('//') ? n : null;
+  return safeInternalPath(new URLSearchParams(window.location.search).get('next'), window.location.origin);
 }
 
 export async function register(payload) {

@@ -9,26 +9,30 @@ import { useSubmit } from '@/lib/useSubmit';
 import { useAuthStore } from '@/store/authStore';
 import { LeaveContext } from './ProfileShell';
 
-/** Suppression définitive du compte, après une case à cocher de confirmation */
+/** Suppression définitive du compte : case à cocher + mot de passe (un token volé ne suffit pas) */
 export default function DeleteAccount() {
   const router = useRouter();
   const leave = useContext(LeaveContext);
   const account = useSubmit();
   const [ask, setAsk] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
+  const [password, setPassword] = useState('');
 
   function close() {
     setAsk(false);
     setConfirmed(false);
+    setPassword('');
+    account.reset();
   }
 
-  async function remove() {
-    const done = await account.run(() => api.delete('/profile'), () => {
+  // En cas d'échec la fenêtre reste ouverte : le message s'affiche à côté du mot de passe
+  function remove(e) {
+    e.preventDefault();
+    account.run(() => api.delete('/profile', { data: { password } }), () => {
       leave();
       useAuthStore.getState().clear();
       router.replace('/');
     });
-    if (!done) close();
   }
 
   return (
@@ -38,7 +42,6 @@ export default function DeleteAccount() {
           <strong>Supprimer mon compte</strong>
           <p>Vos informations, favoris et avis seront effacés définitivement.</p>
         </div>
-        <FormError message={account.error} />
         <button type="button" className="pf-delete" onClick={() => setAsk(true)}>Supprimer mon compte</button>
       </section>
 
@@ -48,10 +51,17 @@ export default function DeleteAccount() {
           <span aria-hidden="true">{confirmed ? '✕' : ''}</span>
           Je confirme la suppression de mon compte
         </button>
-        <div className="dialog-actions">
-          <button type="button" className="btn-ghost" onClick={close}>Annuler</button>
-          <Button variant="danger" size="sm" disabled={!confirmed} loading={account.busy} onClick={remove}>Supprimer</Button>
-        </div>
+        <form onSubmit={remove}>
+          <div className="pf-field">
+            <label htmlFor="delete-password">Mot de passe</label>
+            <input id="delete-password" type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+          <FormError message={account.errors.password || account.error} />
+          <div className="dialog-actions">
+            <button type="button" className="btn-ghost" onClick={close}>Annuler</button>
+            <Button type="submit" variant="danger" size="sm" disabled={!confirmed || !password} loading={account.busy}>Supprimer</Button>
+          </div>
+        </form>
       </Modal>
     </>
   );

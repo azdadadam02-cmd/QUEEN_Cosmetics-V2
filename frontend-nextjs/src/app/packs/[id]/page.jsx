@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 import ScrollTop from '@/components/layout/ScrollTop';
 import Thumb from '@/components/ui/Thumb';
+import TrustBadges from '@/components/ui/TrustBadges';
 import { money } from '@/lib/format';
 import { apiGet } from '@/lib/serverApi';
 import PackBuy from './PackBuy';
@@ -44,14 +45,11 @@ async function PackDetail({ params }) {
         <div className="pd-info">
           <h1 className="pd-name">{p.name}</h1>
           {p.description && <p>{p.description}</p>}
+          <TrustBadges />
           <div className="pd-buy-info">
             <div className="pd-price">
               {p.value > p.price && <del>{money(p.value)}</del>}
               <strong>{money(p.price)}</strong>
-            </div>
-            <div className="pd-cod">
-              Paiement à la livraison
-              <svg viewBox="0 0 32 24" aria-hidden="true"><path d="M2 5h17v13H2zM19 9h6l5 5v4H19z" /><circle cx="8" cy="19" r="2.6" /><circle cx="24" cy="19" r="2.6" /></svg>
             </div>
           </div>
           <PackBuy pack={p} />

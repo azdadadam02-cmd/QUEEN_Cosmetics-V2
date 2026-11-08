@@ -18,7 +18,7 @@ use Illuminate\Validation\ValidationException;
 class TopBarController extends Controller
 {
     private const ICONS = ['truck', 'check', 'mail', 'gift', 'star', 'shield'];
-    private const LINK = '/^(\/|https?:\/\/)/';   // chemin interne ou http(s) : refuse javascript:
+    private const LINK = '#^(/(?![/\\\\])|https?://)#';   // chemin interne ou http(s) : refuse javascript: et « //site » ou « /\site » (autre domaine)
     private const COLOR = '/^#[0-9A-Fa-f]{6}$/';
 
     public function index(): JsonResponse

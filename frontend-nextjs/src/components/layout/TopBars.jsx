@@ -7,7 +7,7 @@ import { useLayoutPathname } from '@/lib/useHydrated';
 
 function Maybe({ href, children, ...props }) {
   if (!href) return <div {...props}>{children}</div>;
-  if (href.startsWith('/')) return <Link href={href} {...props}>{children}</Link>;
+  if (/^\/(?![/\\])/.test(href)) return <Link href={href} {...props}>{children}</Link>;   // « //site » ou « /\site » = autre domaine : lien externe
   return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
 }
 

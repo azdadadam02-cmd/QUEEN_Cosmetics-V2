@@ -669,21 +669,29 @@ a.see-more{display:inline-block}
 .pd-swatch.soldout,.pd-size.soldout{position:relative;opacity:.4}
 .pd-swatch.soldout::after{content:"";position:absolute;inset:0;border-radius:inherit;mix-blend-mode:difference;background:linear-gradient(to top right,transparent calc(50% - 1px),#fff 50%,transparent calc(50% + 1px))}
 .pd-chosen{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font:500 clamp(13px,1.2vw,18px)/1.2 var(--serif)}
-.pd-buy-info{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px;margin-top:auto}
+.pd-buy-info{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px}
+.pd-trust{margin-top:auto;display:grid;gap:10px}
+.pd-trust ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px}
+.pd-trust li{display:inline-flex;align-items:center;gap:8px;width:max-content;padding:6px 10px;border:2px solid #111;font:600 clamp(12px,1vw,15px)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.02em;color:#111}
+.pd-trust svg{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .pd-price{display:grid;font:700 clamp(24px,2.4vw,37px)/1.1 var(--serif);color:#111}
 .pd-price del{font-size:.5em;font-weight:500;color:#8b8186}
-.pd-cod{display:flex;align-items:center;gap:11px;padding:10px 16px;border:3px solid #111;font:500 clamp(13px,1.35vw,22px)/1.1 var(--serif);text-transform:uppercase;color:#111}
-.pd-cod svg{flex:none;width:37px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
 .pd-stats{display:flex;align-items:center;flex-wrap:wrap;gap:6px 13px;font:500 14px var(--serif);color:#111}
 .pd-stats>*+*{padding-left:13px;border-left:2px solid #111}
 .pd-stats .stars{font-size:21px}
 .pd-stats .stars .on{color:#000}
+.pd-main .pd-stats{justify-content:center;margin-top:14px;text-align:center}
 .pd-heart{font-size:14px}
-.pd-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px 22px}
+.pd-actions{grid-column:2;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px 22px}
 .pd-add{display:flex;gap:3px;color:#fff}
 .pd-add select,.pd-add button{height:42px;border:0;background:#735a65;color:#fff;font:500 15px var(--serif);cursor:pointer}
 .pd-add select{width:53px;padding:0 6px;border-radius:10px 0 0 10px}
 .pd-add select option{color:#111;background:#fff}
+.qty-input{display:flex;align-items:stretch;height:44px;border-radius:8px 0 0 8px;overflow:hidden;background:#735a65}
+.pd-add .qty-input button{min-width:0;width:34px;padding:0;border-radius:0;font:600 18px var(--sans)}
+.pd-add .qty-input button:disabled{opacity:.4}
+.qty-input input{width:44px;min-width:0;border:0;background:#fff;color:var(--ink);text-align:center;font:600 15px var(--sans)}
+.qty-input input:focus-visible{outline:2px solid #735a65;outline-offset:-2px}
 .pd-add button{min-width:176px;padding:0 19px;border-radius:0 10px 10px 0;transition:background .2s}
 .pd-add button:hover:not(:disabled){background:#5d4852}
 .pd-add button:disabled{opacity:.55;cursor:not-allowed}
@@ -714,9 +722,16 @@ a.see-more{display:inline-block}
 .form-group{display:grid;gap:10px;min-width:0;margin:14px 0;padding:14px;border:1px solid var(--line);border-radius:12px}
 .form-group legend{padding:0 6px;font-weight:600;font-size:14px}
 .form-group legend small{font-weight:400;color:var(--muted)}
-.variant-row{display:grid;grid-template-columns:66px minmax(0,1.4fr) repeat(4,minmax(0,1fr)) 28px;gap:4px;align-items:center}
+.variant-row{display:grid;gap:8px;align-items:center;margin-top:6px}
+.variant-row.color{grid-template-columns:56px minmax(0,1fr) minmax(0,110px) 34px}
+.variant-row.size{grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.8fr)) minmax(0,1fr) minmax(0,100px) 34px}
+.variant-row input[type=color]{width:100%;height:38px;padding:2px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.variants-editor{display:grid;gap:14px}
+.variants-note{font-size:13px}
+.legacy-dot{display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid var(--line);vertical-align:middle}
+.dialog.dialog-wide{width:min(920px,calc(100vw - 32px))}
 .variant-row .btn-danger{padding:4px;min-width:0}
-.variant-row input[type=text],.variant-row input[type=number]{width:100%;min-width:0;padding:8px 4px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans)}
+.variant-row input[type=text],.variant-row input[type=number]{width:100%;min-width:0;padding:10px 8px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans)}
 .variant-color{display:flex;align-items:center;gap:6px}
 .variant-color input[type=color]{width:34px;height:30px;padding:0;border:1px solid var(--line);border-radius:6px;background:none}
 .variant-color input[type=color]:disabled{opacity:.3}
@@ -731,11 +746,15 @@ a.see-more{display:inline-block}
   .pd-thumbs{display:flex;flex:none;overflow-x:auto;padding:8px;gap:8px}
   .pd-thumbs button{flex:0 0 72px}
   .pd-info{order:0}
-  .pd-actions{justify-content:flex-start}
+  .pd-actions{grid-column:auto;justify-content:flex-start}
+  .pd-trust,.pd-trust ul{gap:6px}
+  .pd-trust li{gap:5px;padding:5px 6px;font-size:10px;letter-spacing:0}
+  .pd-trust svg{width:14px;height:14px}
   .pd-add{flex:1 1 100%}
   .pd-add button{flex:1;min-width:0}
   .review-grid{grid-template-columns:minmax(0,1fr)}
-  .variant-row{grid-template-columns:72px repeat(2,minmax(0,1fr)) 34px}
+  .variant-row.size{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .variant-row.size.variant-head{display:none}
 }
 .ci-info .variant-tag,.ml-info .variant-tag{display:flex;margin:2px 0}
 body:has(.pf-shell:not(.pf-left)) :is(.usp-bar,.promo-bar,.brand-bar,.cnav-wrap,.site-footer){display:none}
@@ -918,7 +937,6 @@ html.lenis{scroll-behavior:auto}
 .pd-thumbs button.on,.pd-thumbs button:hover{outline-color:#735a65}
 .pd-size{border-width:1px;border-radius:8px}
 .pd-swatch{border-radius:999px;width:38px;height:38px}
-.pd-cod{border-width:1px;text-transform:none;border-radius:8px;font-size:clamp(14px,1.1vw,16px)}
 .pd-fav{border-width:1px;border-color:var(--line);border-radius:8px}
 .pd-fav:hover{border-color:#d3261c}
 .pd-add select,.pd-add button{border-radius:0}
@@ -1084,8 +1102,6 @@ html.lenis{scroll-behavior:auto}
 .pd-stats>*+*{border-left-width:1px}
 .pd-price{font:700 20px/1.25 var(--serif)}
 .pd-price del{font:400 14px/1.25 var(--serif);color:var(--text-2)}
-.pd-cod{padding:12px 16px;border-width:1px;border-radius:8px;font:400 14px/1.25 var(--serif);text-transform:none}
-.pd-cod svg{width:28px}
 .pd-add select,.pd-add button,.pd-fav{height:44px;font:700 14px/1.25 var(--serif)}
 .pd-fav{font-weight:400}
 .pd-section{padding:24px 0}

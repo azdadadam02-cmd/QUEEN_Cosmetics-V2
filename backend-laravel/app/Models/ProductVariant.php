@@ -10,11 +10,11 @@ class ProductVariant extends Model
     protected $table = 'variantes_produits';
     public $timestamps = false;
 
-    protected $fillable = ['produit_id', 'couleur', 'taille', 'volume_ml', 'poids_g', 'quantite_pieces', 'quantite_stock'];
+    protected $fillable = ['produit_id', 'couleur', 'taille', 'volume_ml', 'poids_g', 'quantite_pieces', 'quantite_stock', 'prix'];
 
     protected function casts(): array
     {
-        return ['volume_ml' => 'integer', 'poids_g' => 'integer', 'quantite_pieces' => 'integer', 'quantite_stock' => 'integer'];
+        return ['volume_ml' => 'integer', 'poids_g' => 'integer', 'quantite_pieces' => 'integer', 'quantite_stock' => 'integer', 'prix' => 'float'];
     }
 
     public function product(): BelongsTo

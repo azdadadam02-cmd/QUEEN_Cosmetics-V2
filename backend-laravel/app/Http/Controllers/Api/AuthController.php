@@ -17,17 +17,23 @@ class AuthController extends Controller
 {
     private const LOGIN_MAX_PAR_EMAIL = 5;
     private const LOGIN_MAX_PAR_IP    = 30;
-    private const LOGIN_FENETRE       = 900;
+    private const LOGIN_FENETRE       = 300;   // 5 échecs → compte bloqué 5 minutes
+    private const LOGIN_FENETRE_IP    = 900;
 
     public function login(LoginRequest $request): JsonResponse
     {
         $email  = $request->input('email');
-        $kEmail = 'login:'.sha1($email.'|'.$request->ip());
+        // Compteur par compte, pas par compte + IP : changer d'IP (VPN, 4G) ne redonne pas d'essais
+        $kEmail = 'login:'.sha1($email);
         $kIp    = 'login-ip:'.$request->ip();
 
-        if (RateLimiter::tooManyAttempts($kEmail, self::LOGIN_MAX_PAR_EMAIL)
-            || RateLimiter::tooManyAttempts($kIp, self::LOGIN_MAX_PAR_IP)) {
-            $wait = max(RateLimiter::availableIn($kEmail), RateLimiter::availableIn($kIp));
+        $blocked = array_filter([
+            $kEmail => RateLimiter::tooManyAttempts($kEmail, self::LOGIN_MAX_PAR_EMAIL),
+            $kIp    => RateLimiter::tooManyAttempts($kIp, self::LOGIN_MAX_PAR_IP),
+        ]);
+        if ($blocked) {
+            // Seulement le(s) compteur(s) dépassé(s) : l'autre peut courir plus longtemps sans bloquer
+            $wait = max(array_map(fn ($k) => RateLimiter::availableIn($k), array_keys($blocked)));
             Log::channel('security')->warning('login_bloque', ['email' => $email, 'ip' => $request->ip()]);
 
             return response()->json([
@@ -42,7 +48,7 @@ class AuthController extends Controller
         $ok   = Hash::check($request->input('password'), $hash);
         if (! $user || ! $ok) {
             RateLimiter::hit($kEmail, self::LOGIN_FENETRE);
-            RateLimiter::hit($kIp, self::LOGIN_FENETRE);
+            RateLimiter::hit($kIp, self::LOGIN_FENETRE_IP);
             Log::channel('security')->info('login_echec', ['email' => $email, 'ip' => $request->ip()]);
 
             return response()->json(['message' => 'Email ou mot de passe incorrect.'], 422);

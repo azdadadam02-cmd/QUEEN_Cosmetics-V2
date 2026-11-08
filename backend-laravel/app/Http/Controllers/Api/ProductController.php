@@ -193,6 +193,7 @@ class ProductController extends Controller
                 'poids_g'         => $r['poids_g'] ?? null,
                 'quantite_pieces' => $r['quantite_pieces'] ?? null,
                 'quantite_stock'  => (int) $r['stock'],
+                'prix'            => isset($r['prix']) && $r['prix'] !== '' ? round((float) $r['prix'], 2) : null,
             ];
             $existing = ! empty($r['id']) ? $product->variants()->find((int) $r['id']) : null;   // jamais la variante d'un autre produit
             $existing ? $existing->update($values) : $product->variants()->create($values);

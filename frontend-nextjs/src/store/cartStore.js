@@ -32,7 +32,7 @@ export const useCartStore = create(
       items: [],
 
       add: (product, qty = 1, variant = null) => {
-        const wanted = { ...product, variant_id: variant?.id, variant_color: variant?.color, variant_size: variant?.size };
+        const wanted = { ...product, price: variant?.price ?? product.price, variant_id: variant?.id, variant_color: variant?.color, variant_size: variant?.size };
         const key = lineKey(wanted);
         const items = get().items;
         const found = items.find((i) => lineKey(i) === key);

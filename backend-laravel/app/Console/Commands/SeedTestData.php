@@ -58,7 +58,7 @@ class SeedTestData extends Command
             foreach ($products as $p) {
                 $backup['stocks'][$p->id] = (int) $p->quantite_stock;
                 $skip = in_array($p->id, $inPack) || in_array($p->id, $hasVar);
-                $recipe = $skip ? [] : $this->recipe($p);
+                $recipe = $skip ? [] : $this->separate($this->recipe($p), $p);
 
                 if ($recipe) {
                     foreach ($recipe as $row) {
@@ -174,6 +174,30 @@ class SeedTestData extends Command
      * Le NOM décide d'abord (les sous-catégories de la base sont mélangées : « Naked Palette » y est rangé en Eyeliner),
      * la sous-catégorie ne sert qu'aux noms qu'aucune règle ne reconnaît.
      */
+    /**
+     * Une variante = une couleur OU une taille, jamais les deux, sans doublon.
+     * Les couleurs gardent le prix du produit ; les tailles (dans l'ordre de la recette, du plus petit au plus grand) vont de 75 % à 150 % du prix.
+     */
+    private function separate(array $rows, Product $p): array
+    {
+        $sizeKeys = array_flip(['taille', 'volume_ml', 'poids_g', 'quantite_pieces']);
+        $out = [];
+        foreach ($rows as $r) {
+            $r = ! empty($r['couleur']) ? ['couleur' => $r['couleur']] : array_intersect_key($r, $sizeKeys);
+            if (array_filter($r)) {
+                $out[json_encode($r)] = $r;
+            }
+        }
+        $out = array_values($out);
+        $sizes = array_keys(array_filter($out, fn ($r) => empty($r['couleur'])));
+        $n = count($sizes);
+        foreach ($sizes as $rank => $i) {
+            $out[$i]['prix'] = $n > 1 ? round($p->prix * (0.75 + 0.75 * $rank / ($n - 1))) : null;
+        }
+
+        return $out;
+    }
+
     private function recipe(Product $p): array
     {
         return $this->byName($p) ?? $this->bySubCategory($p);

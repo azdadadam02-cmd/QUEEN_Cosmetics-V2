@@ -11,7 +11,6 @@ import { toast } from '@/store/toastStore';
 
 const EMPTY = { titre: '', reduction: '', produit_id: '' };
 
-/** Publicités du carrousel de l'accueil (+ promo sur un produit lié) */
 export default function PublicitesPage() {
   const [ads, setAds] = useState(null);
   const [products, setProducts] = useState([]);

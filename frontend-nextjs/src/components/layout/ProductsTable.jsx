@@ -7,7 +7,6 @@ import { api, errorMessage } from '@/lib/api';
 import { money } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
-/** Les 3 gestes sur un produit : chacun passe par une confirmation Oui / Non */
 const ACTIONS = {
   delete: {
     title: 'Supprimer le produit',
@@ -27,19 +26,18 @@ const ACTIONS = {
   },
 };
 
-/** Tableau des produits + stats. onEdit absent = lecture seule (admin) */
 export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
   const [data, setData] = useState(null);
   const [q, setQ] = useState('');
-  const [view, setView] = useState('');     // '' = catalogue | 'trash' = supprimés
-  const [cat, setCat] = useState('');       // catégorie choisie ; la sous-catégorie ne se choisit qu'ensuite
+  const [view, setView] = useState('');
+  const [cat, setCat] = useState('');
   const [sub, setSub] = useState('');
-  const [dispo, setDispo] = useState('');   // '' | 'dispo' | 'indispo'
-  const [stars, setStars] = useState('');   // '' | '0' (sans avis) … '5' : même arrondi que le composant Stars
-  const [promo, setPromo] = useState('');   // '' | 'yes' | 'no'
-  const [sort, setSort] = useState('');     // '' (récents) | 'asc' | 'desc' sur le prix payé
-  const [tick, setTick] = useState(0);      // recharge après une suppression / restauration
-  const [ask, setAsk] = useState(null);     // { kind, p } : geste en attente de confirmation
+  const [dispo, setDispo] = useState('');
+  const [stars, setStars] = useState('');
+  const [promo, setPromo] = useState('');
+  const [sort, setSort] = useState('');
+  const [tick, setTick] = useState(0);
+  const [ask, setAsk] = useState(null);
   const [busy, setBusy] = useState(false);
 
   const onLoadedRef = useRef(onLoaded);
@@ -47,7 +45,6 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
     onLoadedRef.current = onLoaded;
   });
 
-  // Recharge à l'ouverture, après chaque enregistrement (reloadKey) et après chaque suppression / restauration (tick)
   useEffect(() => {
     let alive = true;
     api
@@ -63,7 +60,6 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
     };
   }, [reloadKey, tick]);
 
-  // Catégories (puis sous-catégories de la catégorie choisie) proposées : celles des produits de la vue en cours
   const inView = useMemo(() => (data?.products || []).filter((p) => !!p.deleted === (view === 'trash')), [data, view]);
   const uniq = (values) => [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'fr'));
   const cats = useMemo(() => uniq(inView.map((p) => p.category)), [inView]);

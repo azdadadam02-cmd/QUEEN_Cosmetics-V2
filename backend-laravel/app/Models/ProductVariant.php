@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Variante vendable d'un produit : couleur et/ou taille, avec son propre stock (table « variantes_produits ») */
 class ProductVariant extends Model
 {
     protected $table = 'variantes_produits';
@@ -23,7 +22,6 @@ class ProductVariant extends Model
         return $this->belongsTo(Product::class, 'produit_id');
     }
 
-    /** « 12 mm · 50 ml · 30 g · 3 pcs » : ce que le client voit sur le bouton de taille */
     public function sizeLabel(): ?string
     {
         $parts = array_filter([

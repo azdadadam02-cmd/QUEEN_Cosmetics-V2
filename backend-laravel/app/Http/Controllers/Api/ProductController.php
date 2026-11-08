@@ -17,9 +17,6 @@ use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
-    /* ───────── Boutique (public) ───────── */
-
-    /** GET /api/products?category=Parfums&search=rose */
     public function index(Request $request): AnonymousResourceCollection
     {
         $q = Product::forShop();
@@ -34,11 +31,9 @@ class ProductController extends Controller
         return ProductResource::collection($q->get());
     }
 
-    /** GET /api/products/{product} */
     public function show(int $product): ProductResource
     {
         $p = Product::withPromo()->with(['variants', 'images'])->withCount('favorites as loves_count')->findOrFail($product);
-        // Clients différents ayant commandé ce produit (les commandes refusées ne comptent pas)
         $p->buyers_count = OrderItem::join('commandes', 'commandes.id', '=', 'details_commandes.commande_id')
             ->where('details_commandes.produit_id', $p->id)
             ->where('commandes.statut', '<>', Order::REFUSEE)
@@ -48,13 +43,11 @@ class ProductController extends Controller
         return new ProductResource($p);
     }
 
-    /** GET /api/products/suggestions?ids=1,2 : mêmes sous-catégories que le panier (sinon mêmes catégories), hors panier et en stock */
     public function suggestions(Request $request): AnonymousResourceCollection
     {
         $ids = collect(explode(',', (string) $request->query('ids')))->map(fn ($v) => (int) $v)->filter()->unique()->take(30)->values();
         $cart = Product::whereIn('id', $ids)->get(['sous_categorie', 'categorie']);
 
-        // Les mieux notés d'abord (puis les plus d'avis, puis les plus récents) ; 6 par défaut, ?limit=7 permet de savoir s'il en reste
         $max  = min(12, max(1, (int) $request->query('limit', 6)));
         $find = fn (string $column) => Product::forShop()
             ->whereIn($column, $cart->pluck($column)->filter()->unique()->values())
@@ -69,7 +62,6 @@ class ProductController extends Controller
         return ProductResource::collection($products->isNotEmpty() ? $products : $find('categorie'));
     }
 
-    /** GET /api/categories */
     public function categories(): JsonResponse
     {
         return response()->json(
@@ -78,12 +70,8 @@ class ProductController extends Controller
         );
     }
 
-    /* ───────── Back-office ───────── */
-
-    /** GET /api/manage/products — liste complète + stats (responsable produits & admin en lecture) */
     public function manageIndex(): JsonResponse
     {
-        // Corbeille comprise (flag « deleted ») ; catégories et stats ne parlent que du catalogue actif
         $all      = Product::withTrashed()->withPromo()->with(['variants', 'images'])->orderByDesc('id')->get();
         $products = $all->reject->trashed();
 
@@ -100,7 +88,6 @@ class ProductController extends Controller
         ]);
     }
 
-    /** DELETE /api/manage/products/{product} : met en corbeille (récupérable) */
     public function destroy(Product $product): JsonResponse
     {
         $product->delete();
@@ -108,7 +95,6 @@ class ProductController extends Controller
         return response()->json(['message' => "Produit « {$product->nom} » mis dans les supprimés."]);
     }
 
-    /** POST /api/manage/products/{id}/restore */
     public function restore(int $id): JsonResponse
     {
         $product = Product::onlyTrashed()->findOrFail($id);
@@ -117,7 +103,6 @@ class ProductController extends Controller
         return response()->json(['message' => "Produit « {$product->nom} » restauré."]);
     }
 
-    /** DELETE /api/manage/products/{id}/force : définitif, seulement depuis la corbeille et si aucune commande ne le contient */
     public function forceDestroy(int $id): JsonResponse
     {
         $product = Product::onlyTrashed()->findOrFail($id);
@@ -128,12 +113,11 @@ class ProductController extends Controller
             ], 409);
         }
 
-        $product->forceDelete();   // variantes, galerie, avis et favoris partent avec (clés étrangères en cascade)
+        $product->forceDelete();
 
         return response()->json(['message' => "Produit « {$product->nom} » supprimé définitivement."]);
     }
 
-    /** POST /api/manage/products (multipart/form-data) */
     public function store(ProductRequest $request, ImageUploader $uploader): JsonResponse
     {
         $product = DB::transaction(function () use ($request, $uploader) {
@@ -149,7 +133,6 @@ class ProductController extends Controller
         ], 201);
     }
 
-    /** POST /api/manage/products/{product} (multipart — sans image, l'ancienne est gardée) */
     public function update(ProductRequest $request, Product $product, ImageUploader $uploader): JsonResponse
     {
         DB::transaction(function () use ($request, $product, $uploader) {
@@ -182,7 +165,6 @@ class ProductController extends Controller
         ];
     }
 
-    /** Galerie + variantes. Les variantes gardées conservent leur id : les commandes passées restent liées. */
     private function syncExtras(Product $product, ProductRequest $request, ImageUploader $uploader): void
     {
         $product->images()->whereIn('id', $request->input('remove_images', []))->delete();
@@ -207,7 +189,7 @@ class ProductController extends Controller
                 'quantite_pieces' => $r['quantite_pieces'] ?? null,
                 'quantite_stock'  => (int) $r['stock'],
             ];
-            $existing = ! empty($r['id']) ? $product->variants()->find((int) $r['id']) : null;   // jamais la variante d'un autre produit
+            $existing = ! empty($r['id']) ? $product->variants()->find((int) $r['id']) : null;
             $existing ? $existing->update($values) : $product->variants()->create($values);
         }
         $product->syncVariantStock();

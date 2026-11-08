@@ -9,7 +9,6 @@ import { api, errorMessage, fieldErrors } from '@/lib/api';
 import { useAuthStore } from '@/store/authStore';
 import { toast } from '@/store/toastStore';
 
-/** Account Details : photo, nom, téléphone, adresse, date de naissance, suppression du compte */
 export default function AccountPage() {
   const router = useRouter();
   const leave = useContext(LeaveContext);
@@ -28,7 +27,7 @@ export default function AccountPage() {
     setProfile(p);
     setForm({ nom: p.name, telephone: p.phone, adresse: p.address, date_naissance: p.birth_date });
     const store = useAuthStore.getState();
-    store.setUser({ ...store.user, name: p.name, image_url: p.image_url });   // navbar à jour tout de suite
+    store.setUser({ ...store.user, name: p.name, image_url: p.image_url });
   }
 
   useEffect(() => {
@@ -60,7 +59,7 @@ export default function AccountPage() {
 
   async function onPhoto(e) {
     const file = e.target.files?.[0];
-    e.target.value = '';   // permet de rechoisir le même fichier après une erreur
+    e.target.value = '';
     if (!file) return;
     setUploading(true);
     const fd = new FormData();
@@ -76,7 +75,6 @@ export default function AccountPage() {
     }
   }
 
-  // Change seulement la photo : ne perd pas la saisie en cours dans le formulaire
   function keepTyping(p) {
     setProfile(p);
     const store = useAuthStore.getState();
@@ -111,7 +109,7 @@ export default function AccountPage() {
       toast.success(data.message);
       router.replace('/');
     } catch (err) {
-      closeDelete();   // sinon le message reste caché derrière la fenêtre
+      closeDelete();
       toast.error(errorMessage(err));
       setDeleting(false);
     }

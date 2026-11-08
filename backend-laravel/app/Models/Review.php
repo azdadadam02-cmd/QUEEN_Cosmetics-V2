@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Avis client sur un produit (table « avis_produits »). Invisible tant que l'admin ne l'a pas approuvé. */
 class Review extends Model
 {
     protected $table = 'avis_produits';

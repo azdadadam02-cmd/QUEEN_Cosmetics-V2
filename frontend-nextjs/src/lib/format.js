@@ -1,4 +1,3 @@
-/** 1234.5 → « 1 234,50 DH » (même format que l'ancien site) */
 export function money(n) {
   const v = Number(n || 0).toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   return `${v.replace(/ | /g, ' ')} DH`;
@@ -9,14 +8,12 @@ export function dateTime(iso) {
   return new Date(iso).toLocaleString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
-/** Pour comparer sans accents ni majuscules (toutes les recherches) */
 export const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 export function initial(s) {
   return (s || '?').trim().charAt(0).toUpperCase() || '?';
 }
 
-/** Statut de commande → libellé + classe CSS (pill-…) */
 export const STATUS = {
   'En attente': { label: 'En attente', cls: 'attente' },
   Acceptee: { label: 'Acceptée', cls: 'acceptee' },

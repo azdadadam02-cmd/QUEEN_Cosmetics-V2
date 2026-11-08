@@ -14,7 +14,6 @@ export async function generateMetadata({ params }) {
   return { title: p?.name || 'Pack introuvable' };
 }
 
-/** Fiche d'un pack : image, produits inclus, prix unique, ajout au panier */
 export default function PackPage({ params }) {
   return (
     <>

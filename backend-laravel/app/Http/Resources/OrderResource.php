@@ -5,10 +5,8 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Order */
 class OrderResource extends JsonResource
 {
-    /** Messages affichés au client dans « Notifications » */
     private const MESSAGES = [
         'En attente' => 'Votre commande a bien été reçue. Elle attend la validation de notre équipe.',
         'Acceptee'   => 'Bonne nouvelle ! Votre commande a été acceptée et est en préparation.',
@@ -24,7 +22,7 @@ class OrderResource extends JsonResource
             'total'          => (float) $this->total,
             'status'         => $this->statut,
             'status_message' => self::MESSAGES[$this->statut] ?? '',
-            'is_new'         => $this->statut_vu !== $this->statut,     // badge notifications
+            'is_new'         => $this->statut_vu !== $this->statut,
             'next_statuses'  => \App\Models\Order::TRANSITIONS[$this->statut] ?? [],
             'delivery'       => [
                 'name'    => $this->nom_livraison,

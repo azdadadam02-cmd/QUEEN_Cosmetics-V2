@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Ligne de commande (table « details_commandes ») */
 class OrderItem extends Model
 {
     protected $table = 'details_commandes';
@@ -20,7 +19,7 @@ class OrderItem extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'produit_id')->withTrashed();   // l'historique des commandes garde le nom et la photo
+        return $this->belongsTo(Product::class, 'produit_id')->withTrashed();
     }
 
     public function pack(): BelongsTo

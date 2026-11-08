@@ -11,28 +11,23 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\DB;
 
-/** Packs : boutique en lecture, responsable produits et admin en écriture */
 class PackController extends Controller
 {
-    /** GET /api/packs : actifs, les plus récents d'abord */
     public function index(): AnonymousResourceCollection
     {
         return PackResource::collection(Pack::withDetails()->where('est_actif', true)->orderByDesc('id')->get());
     }
 
-    /** GET /api/packs/{pack} : 404 tant qu'il est désactivé */
     public function show(int $pack): PackResource
     {
         return new PackResource(Pack::withDetails()->where('est_actif', true)->findOrFail($pack));
     }
 
-    /** GET /api/manage/packs */
     public function manageIndex(): AnonymousResourceCollection
     {
         return PackResource::collection(Pack::withDetails()->orderByDesc('id')->get());
     }
 
-    /** POST /api/manage/packs (multipart) */
     public function store(PackRequest $request, ImageUploader $uploader): JsonResponse
     {
         $pack = DB::transaction(function () use ($request, $uploader) {
@@ -45,7 +40,6 @@ class PackController extends Controller
         return response()->json(['message' => "Pack « {$pack->nom} » créé.", 'id' => $pack->id], 201);
     }
 
-    /** POST /api/manage/packs/{pack} (multipart : sans image, l'ancienne est gardée) */
     public function update(PackRequest $request, Pack $pack, ImageUploader $uploader): JsonResponse
     {
         DB::transaction(function () use ($request, $pack, $uploader) {
@@ -60,7 +54,6 @@ class PackController extends Controller
         return response()->json(['message' => "Pack « {$pack->nom} » mis à jour."]);
     }
 
-    /** DELETE /api/manage/packs/{pack} : les commandes passées gardent leurs produits et leurs prix */
     public function destroy(Pack $pack): JsonResponse
     {
         $pack->delete();

@@ -8,10 +8,8 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
-/** Admin : gestion de tous les utilisateurs SAUF les comptes admin */
 class UserController extends Controller
 {
-    /** GET /api/admin/users */
     public function index(): JsonResponse
     {
         $users = User::where('role', '<>', 'admin')->withCount('orders')->orderByDesc('id')->get();
@@ -19,7 +17,6 @@ class UserController extends Controller
         return response()->json(UserResource::collection($users)->resolve());
     }
 
-    /** POST /api/admin/users */
     public function store(UserRequest $request): JsonResponse
     {
         $user = User::create([
@@ -32,7 +29,6 @@ class UserController extends Controller
         return response()->json(['message' => "Utilisateur « {$user->nom} » créé.", 'user' => new UserResource($user)], 201);
     }
 
-    /** PUT /api/admin/users/{user} — mot de passe inchangé si vide */
     public function update(UserRequest $request, User $user): JsonResponse
     {
         $this->abortIfAdmin($user);
@@ -42,12 +38,11 @@ class UserController extends Controller
             $data['mot_de_passe'] = $request->input('password');
         }
         $user->update($data);
-        $user->tokens()->delete();   // force une reconnexion (rôle / mot de passe changés)
+        $user->tokens()->delete();
 
         return response()->json(['message' => "Utilisateur « {$user->nom} » mis à jour.", 'user' => new UserResource($user)]);
     }
 
-    /** DELETE /api/admin/users/{user} — refusé s'il a déjà passé des commandes */
     public function destroy(User $user): JsonResponse
     {
         $this->abortIfAdmin($user);

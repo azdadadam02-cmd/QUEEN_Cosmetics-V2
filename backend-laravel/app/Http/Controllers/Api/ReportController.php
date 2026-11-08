@@ -7,10 +7,8 @@ use App\Models\Report;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/** Le client envoie un report depuis son profil, seul l'admin les lit */
 class ReportController extends Controller
 {
-    /** POST /api/reports */
     public function store(Request $request): JsonResponse
     {
         $request->merge(['sujet' => trim((string) $request->input('sujet')), 'message' => trim((string) $request->input('message'))]);
@@ -27,7 +25,6 @@ class ReportController extends Controller
         return response()->json(['message' => 'Votre report a été envoyé.'], 201);
     }
 
-    /** GET /api/admin/reports : les plus récents d'abord */
     public function adminIndex(): JsonResponse
     {
         $rows = Report::with('user:id,nom,email')->orderByDesc('id')->limit(300)->get();

@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useMemo } from 'react';
 
-/** Zone d'envoi d'image avec aperçu (le vrai contrôle du fichier est fait par Laravel) */
 export default function ImageInput({ file, onChange, current, label = 'Image' }) {
   const preview = useMemo(() => (file ? URL.createObjectURL(file) : null), [file]);
   useEffect(() => () => preview && URL.revokeObjectURL(preview), [preview]);

@@ -9,14 +9,13 @@ import { useHydrated } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
 import { toast } from '@/store/toastStore';
 
-/** Avis approuvés par l'admin + formulaire pour les clients connectés (l'avis envoyé attend la validation) */
 export default function Reviews({ productId, reviews }) {
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);
   const [note, setNote] = useState(0);
   const [commentaire, setCommentaire] = useState('');
   const [sending, setSending] = useState(false);
-  const [mine, setMine] = useState(null);   // l'avis du client : il le voit même avant la validation
+  const [mine, setMine] = useState(null);
   const isClient = hydrated && user?.role === 'client';
 
   useEffect(() => {

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/** Liens « Service » du profil client (table « liens_service », une seule ligne) */
 class ServiceLink extends Model
 {
     protected $table = 'liens_service';

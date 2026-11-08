@@ -10,10 +10,8 @@ use App\Services\FinanceService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/** Admin : tableau de bord + finances (lecture seule) */
 class AdminController extends Controller
 {
-    /** GET /api/admin/dashboard */
     public function dashboard(FinanceService $finance): JsonResponse
     {
         $orders = Order::query()->selectRaw('statut, COUNT(*) as n')->groupBy('statut')->pluck('n', 'statut');
@@ -34,7 +32,6 @@ class AdminController extends Controller
         ]);
     }
 
-    /** GET /api/admin/finances?filter=paye|encaisser */
     public function finances(Request $request, FinanceService $finance): JsonResponse
     {
         $filter = in_array($request->query('filter'), ['paye', 'encaisser'], true) ? $request->query('filter') : '';

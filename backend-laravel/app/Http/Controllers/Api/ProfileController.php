@@ -14,16 +14,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-/** Profil du client connecté : informations, photo, suppression du compte */
 class ProfileController extends Controller
 {
-    /** GET /api/profile */
     public function show(Request $request): JsonResponse
     {
         return response()->json($this->payload($request->user()));
     }
 
-    /** PUT /api/profile : téléphone et adresse vont dans l'adresse principale (adresses_livraison) */
     public function update(Request $request): JsonResponse
     {
         $request->merge([
@@ -53,7 +50,6 @@ class ProfileController extends Controller
             if ($phone === '' && $address === '') {
                 Address::where($key)->delete();
             } else {
-                // ville est NOT NULL mais absente de ce formulaire : la commande la redemande à la livraison
                 $existing = Address::where($key)->first();
                 Address::updateOrCreate($key, ['telephone' => $phone, 'adresse_complete' => $address, 'ville' => $existing?->ville ?? '']);
             }
@@ -62,7 +58,6 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Vos informations sont enregistrées.', 'profile' => $this->payload($user->fresh())]);
     }
 
-    /** POST /api/profile/image (multipart) */
     public function updateImage(Request $request, ImageUploader $uploader): JsonResponse
     {
         $request->validate(
@@ -77,7 +72,6 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Photo de profil mise à jour.', 'profile' => $this->payload($user->fresh())]);
     }
 
-    /** DELETE /api/profile/image */
     public function destroyImage(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -87,10 +81,6 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Photo de profil supprimée.', 'profile' => $this->payload($user->fresh())]);
     }
 
-    /**
-     * DELETE /api/profile : suppression définitive.
-     * Avec un historique de commandes, le compte est anonymisé : les commandes restent pour la comptabilité.
-     */
     public function destroy(Request $request): JsonResponse
     {
         $user = $request->user();

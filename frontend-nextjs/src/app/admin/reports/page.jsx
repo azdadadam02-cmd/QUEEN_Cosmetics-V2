@@ -5,7 +5,6 @@ import { api, errorMessage } from '@/lib/api';
 import { dateTime } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
-/** Lecture des reports envoyés par les clients */
 export default function AdminReportsPage() {
   const [rows, setRows] = useState(null);
 

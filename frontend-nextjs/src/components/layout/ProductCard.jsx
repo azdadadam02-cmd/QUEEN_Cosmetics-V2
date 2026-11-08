@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Stars from '@/components/ui/Stars';
 import { initial, money } from '@/lib/format';
 
-/** Carte produit : promo, image, marque, nom, étoiles (avis approuvés), prix ; « Rupture de stock » si épuisé. Pas de description : le détail est sur la fiche. */
 export default function ProductCard({ product: p }) {
   const out = !p.in_stock;
   return (

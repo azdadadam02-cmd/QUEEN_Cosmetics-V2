@@ -5,7 +5,6 @@ import Stars from '@/components/ui/Stars';
 import { api, errorMessage } from '@/lib/api';
 import { toast } from '@/store/toastStore';
 
-/** Modération des avis : un avis n'apparaît sur le site qu'une fois approuvé */
 export default function AvisPage() {
   const [rows, setRows] = useState(null);
 

@@ -3,7 +3,6 @@ import PackCard from './PackCard';
 
 const SHOWN = 3;
 
-/** Les packs de l'accueil : une seule section titrée (3 cartes), avec un lien vers tous s'il y en a davantage */
 export default function PacksSection({ packs }) {
   return (
     <section className="packs-section" aria-labelledby="packs-title">

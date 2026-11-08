@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { money } from '@/lib/format';
 
-/** Carte pack : image, nom, description, prix (valeur séparée barrée + économie), bouton. Les couleurs du bloc sont choisies par le responsable produits. */
 export default function PackCard({ pack: p }) {
   const saving = p.value > p.price ? p.value - p.price : 0;
   return (

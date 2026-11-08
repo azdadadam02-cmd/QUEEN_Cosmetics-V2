@@ -1,9 +1,5 @@
 <?php
 
-/*
-| CORS : seul le site Next.js (FRONTEND_URL) peut appeler l'API depuis le navigateur.
-| Plusieurs adresses ? Sépare-les par des virgules dans .env
-*/
 return [
     'paths' => ['api/*'],
     'allowed_methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],

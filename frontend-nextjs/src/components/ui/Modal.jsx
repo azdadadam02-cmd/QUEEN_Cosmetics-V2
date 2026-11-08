@@ -1,7 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 
-/** Fenêtre modale simple (fermeture : Échap ou clic sur le fond) */
 export default function Modal({ open, onClose, title, children }) {
   useEffect(() => {
     if (!open) return;

@@ -4,11 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * Fiche produit (schéma de Database.txt) : variantes, galerie, favoris, champs « About ».
- * Les tables peuvent déjà exister (import SQL) : chaque ajout est gardé.
- * produits.id est INT après import SQL et BIGINT après migrations : les clés suivent le type réel.
- */
 return new class extends Migration
 {
     private function ref(Blueprint $table, string $column, string $target): void
@@ -77,7 +72,6 @@ return new class extends Migration
         }
     }
 
-    /** Ne supprime que la colonne de commande : les tables peuvent venir de l'import SQL */
     public function down(): void
     {
         if (Schema::hasColumn('details_commandes', 'variante_id')) {

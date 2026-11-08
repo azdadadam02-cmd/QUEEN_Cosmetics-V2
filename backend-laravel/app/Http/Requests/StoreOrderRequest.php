@@ -5,10 +5,6 @@ namespace App\Http\Requests;
 use App\Services\CartService;
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Validation de la commande (paiement à la livraison) :
- * articles du panier + infos de livraison + case « +18 » obligatoire.
- */
 class StoreOrderRequest extends FormRequest
 {
     public function authorize(): bool
@@ -16,7 +12,6 @@ class StoreOrderRequest extends FormRequest
         return $this->user()?->role === 'client';
     }
 
-    /** Nettoie le téléphone avant validation : « 06 12-34.56 78 » → « 0612345678 » */
     protected function prepareForValidation(): void
     {
         $this->merge([

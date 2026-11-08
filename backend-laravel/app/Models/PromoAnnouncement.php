@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/** Annonce de la barre promotionnelle (table « annonces_promo ») ; date_fin sert au compte à rebours */
 class PromoAnnouncement extends Model
 {
     protected $table = 'annonces_promo';

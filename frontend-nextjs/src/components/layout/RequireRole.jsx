@@ -4,10 +4,6 @@ import { useEffect } from 'react';
 import { useHydrated } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
 
-/**
- * Protège une page côté Next.js (confort d'affichage).
- * La VRAIE protection est dans Laravel (middleware role:…) : sans le bon rôle, l'API répond 403.
- */
 export default function RequireRole({ roles, children }) {
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);

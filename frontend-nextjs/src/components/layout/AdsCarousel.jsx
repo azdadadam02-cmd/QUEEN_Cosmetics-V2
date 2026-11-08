@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useEntrance } from '@/lib/useReveal';
 
-/** Bandeau publicitaire à défilement automatique (table « publicites ») */
 export default function AdsCarousel({ ads }) {
   const track = useRef(null);
   const [index, setIndex] = useState(0);

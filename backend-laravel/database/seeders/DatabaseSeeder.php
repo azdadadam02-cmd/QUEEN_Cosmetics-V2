@@ -9,10 +9,6 @@ use App\Models\Usp;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-/**
- * php artisan migrate --seed
- * Comptes de test (mot de passe pour tous : Queen2026) — ne remplace jamais un compte existant.
- */
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
@@ -27,7 +23,6 @@ class DatabaseSeeder extends Seeder
             User::firstOrCreate(['email' => $email], ['nom' => $nom, 'mot_de_passe' => 'Queen2026', 'role' => $role]);
         }
 
-        // Barres du haut : exemples, seulement si les tables sont vides (l'admin les modifie ensuite)
         if (Usp::count() === 0) {
             foreach ([
                 ['truck', 'Livraison partout au Maroc'],
@@ -43,7 +38,7 @@ class DatabaseSeeder extends Seeder
         }
 
         if (Product::count() > 0) {
-            return;   // queen_db déjà remplie : on ne touche pas au catalogue
+            return;
         }
 
         $produits = [

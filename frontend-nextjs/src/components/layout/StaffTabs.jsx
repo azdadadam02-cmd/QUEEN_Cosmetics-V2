@@ -20,7 +20,6 @@ const TABS = {
   responsable_commandes: [['/gestion/commandes', 'Commandes']],
 };
 
-/** Onglets de l'espace personnel selon le rôle */
 export default function StaffTabs() {
   const pathname = usePathname();
   const role = useAuthStore((s) => s.user?.role);

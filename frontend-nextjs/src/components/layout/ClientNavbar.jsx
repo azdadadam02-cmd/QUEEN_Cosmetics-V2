@@ -23,7 +23,6 @@ const Icon = {
 };
 const Svg = ({ name }) => <svg viewBox="0 0 24 24" aria-hidden="true">{Icon[name]}</svg>;
 
-/** Navbar de l'espace client : recherche qui s'élargit + menu compte */
 export default function ClientNavbar() {
   const pathname = useLayoutPathname();
   const router = useRouter();
@@ -93,7 +92,6 @@ export default function ClientNavbar() {
   return (
     <header className={`cnav-wrap${searchOpen ? ' search-open' : ''}`}>
       <nav className="cnav" aria-label="Navigation principale">
-        {/* shortcut: icône seule, site en français uniquement ; à brancher quand le multilingue arrivera */}
         <button type="button" className="cnav-lang" aria-label="Langue" title="Langue">
           <Svg name="language" />
         </button>

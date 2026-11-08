@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-/** Offre groupée (tables « packs » et « pack_produit »), vendue à un prix unique */
 class Pack extends Model
 {
     protected $table = 'packs';
@@ -29,13 +28,8 @@ class Pack extends Model
         return $q->with(['products' => fn ($p) => $p->withPromo(), 'products.variants']);
     }
 
-    /**
-     * Combien de packs peuvent être vendus avec le stock actuel.
-     * Un produit à variantes bloque le pack : le pack ne saurait pas quelle couleur ou taille retirer du stock.
-     */
     public function availableCount(): int
     {
-        // Un produit en corbeille rend le pack indisponible (sinon il se vendrait amputé) jusqu'à sa restauration
         if ($this->products->isEmpty() || $this->products->contains(fn ($p) => $p->trashed() || $p->variants->isNotEmpty())) {
             return 0;
         }
@@ -43,17 +37,11 @@ class Pack extends Model
         return (int) $this->products->map(fn ($p) => intdiv((int) $p->quantite_stock, max(1, (int) $p->pivot->quantite)))->min();
     }
 
-    /** Valeur des produits achetés séparément (prix barré) */
     public function separateValue(): float
     {
         return round($this->products->sum(fn ($p) => $p->finalPrice() * $p->pivot->quantite), 2);
     }
 
-    /**
-     * Répartit le prix du pack sur ses produits, au prorata de leur prix.
-     *
-     * @return array<int, array{0: Product, 1: int, 2: float}> [produit, quantité totale, prix unitaire]
-     */
     public function splitForOrder(int $qty): array
     {
         $weights = $this->products->map(fn ($p) => (float) $p->prix * (int) $p->pivot->quantite);

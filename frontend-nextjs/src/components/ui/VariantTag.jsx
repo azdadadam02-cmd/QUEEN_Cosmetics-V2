@@ -1,4 +1,3 @@
-/** Couleur (pastille) et taille d'une ligne de panier ou de commande */
 export default function VariantTag({ color, size }) {
   if (!color && !size) return null;
   return (

@@ -11,7 +11,6 @@ import { toast } from '@/store/toastStore';
 const STEPS = ['Reçue', 'Acceptée', 'Livrée'];
 const stepIndex = { 'En attente': 0, Acceptee: 1, Livree: 2, Refusee: 1 };
 
-/** My Orders : suivi des commandes, reçue → acceptée → livrée (ou refusée) */
 export default function OrdersPage() {
   const [orders, setOrders] = useState(null);
 

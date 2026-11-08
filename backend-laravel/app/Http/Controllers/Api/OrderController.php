@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\RateLimiter;
 
-/** Espace client : passer commande + notifications (suivi des commandes) */
 class OrderController extends Controller
 {
-    /** POST /api/orders */
     public function store(StoreOrderRequest $request, OrderService $service): JsonResponse
     {
         $user = $request->user();
@@ -43,7 +41,6 @@ class OrderController extends Controller
         ], 201);
     }
 
-    /** GET /api/notifications — commandes du client (avec is_new), puis tout est marqué comme lu */
     public function notifications(Request $request): JsonResponse
     {
         $orders = $request->user()->orders()
@@ -60,7 +57,6 @@ class OrderController extends Controller
         return response()->json($data);
     }
 
-    /** GET /api/notifications/count — pour le badge de la navbar */
     public function notificationsCount(Request $request): JsonResponse
     {
         $n = $request->user()->orders()

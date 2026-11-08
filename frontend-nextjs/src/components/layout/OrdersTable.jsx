@@ -13,7 +13,6 @@ const ACTIONS = {
   Refusee: ['btn-danger', 'Refuser'],
 };
 
-/** Liste des commandes. readOnly = admin (consultation), sinon responsable commandes (actions) */
 export default function OrdersTable({ readOnly = false }) {
   const [filter, setFilter] = useState('');
   const [data, setData] = useState(null);
@@ -22,7 +21,6 @@ export default function OrdersTable({ readOnly = false }) {
 
   const [reloadKey, setReloadKey] = useState(0);
 
-  // Recharge quand le filtre change ou après une action
   useEffect(() => {
     let alive = true;
     api

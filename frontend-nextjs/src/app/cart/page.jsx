@@ -12,7 +12,6 @@ import { useAuthStore } from '@/store/authStore';
 import { lineKey, MAX_QTE, useCartStore } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
 
-/** Panier : +, −, retirer, vider. Les prix et le stock sont relus depuis Laravel à l'ouverture. */
 export default function CartPage() {
   const hydrated = useHydrated();
   const { items, setQuantity, remove, clear, syncFromServer, payload } = useCartStore();
@@ -21,7 +20,6 @@ export default function CartPage() {
   const [suggestions, setSuggestions] = useState([]);
   const [openPack, setOpenPack] = useState(null);
 
-  // Vérifie le panier auprès de l'API (prix réduits, stock, produits supprimés)
   useEffect(() => {
     if (!hydrated) return;
     const body = payload();
@@ -37,7 +35,6 @@ export default function CartPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated]);
 
-  // Produits des mêmes sous-catégories que le panier
   const cartIds = [...new Set(items.flatMap((i) => (i.pack_id ? (i.products || []).map((it) => it.id) : [i.id])))].sort((a, b) => a - b).join(',');
   useEffect(() => {
     if (!hydrated || !cartIds) return;

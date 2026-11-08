@@ -13,17 +13,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\RateLimiter;
 
-/**
- * Connexion par token (Laravel Sanctum).
- * Next.js garde le token et l'envoie dans « Authorization: Bearer <token> ».
- */
 class AuthController extends Controller
 {
-    private const LOGIN_MAX_PAR_EMAIL = 5;     // échecs
+    private const LOGIN_MAX_PAR_EMAIL = 5;
     private const LOGIN_MAX_PAR_IP    = 30;
-    private const LOGIN_FENETRE       = 900;   // 15 min
+    private const LOGIN_FENETRE       = 900;
 
-    /** POST /api/auth/login */
     public function login(LoginRequest $request): JsonResponse
     {
         $email  = $request->input('email');
@@ -42,7 +37,6 @@ class AuthController extends Controller
 
         $user = User::where('email', $email)->first();
 
-        // Même message (et même calcul) que l'email existe ou non
         $hash = $user?->mot_de_passe ?? Hash::make('queen-timing-dummy');
         $ok   = Hash::check($request->input('password'), $hash);
         if (! $user || ! $ok) {
@@ -62,26 +56,23 @@ class AuthController extends Controller
         return $this->tokenResponse($user, 'Bienvenue '.$user->nom.' !');
     }
 
-    /** POST /api/auth/register — crée un compte CLIENT et le connecte directement */
     public function register(RegisterRequest $request): JsonResponse
     {
         $user = User::create([
             'nom'          => $request->input('nom'),
             'email'        => $request->input('email'),
-            'mot_de_passe' => $request->input('password'),   // hashé par le cast « hashed »
+            'mot_de_passe' => $request->input('password'),
             'role'         => 'client',
         ]);
 
         return $this->tokenResponse($user, 'Compte créé, bienvenue '.$user->nom.' !', 201);
     }
 
-    /** GET /api/auth/me — l'utilisateur connecté (rôle relu en base) */
     public function me(Request $request): UserResource
     {
         return new UserResource($request->user());
     }
 
-    /** POST /api/auth/logout — supprime le token utilisé */
     public function logout(Request $request): JsonResponse
     {
         $request->user()->currentAccessToken()?->delete();

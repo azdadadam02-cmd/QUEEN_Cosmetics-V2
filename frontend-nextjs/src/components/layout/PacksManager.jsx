@@ -13,15 +13,14 @@ import { toast } from '@/store/toastStore';
 
 const EMPTY = { nom: '', description: '', prix_promo: '', couleur_fond: '#735A65', couleur_texte: '#FFFFFF', texte_bouton: 'Voir le pack', est_actif: true };
 
-/** Créer et personnaliser les packs (contenu, prix, image, couleurs, bouton) : responsable produits et admin */
 export default function PacksManager() {
   const [packs, setPacks] = useState(null);
   const [catalog, setCatalog] = useState([]);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [file, setFile] = useState(null);
-  const [lines, setLines] = useState([]);   // [{ id, quantite }]
-  const [pq, setPq] = useState('');   // recherche qui filtre la liste des produits à ajouter
+  const [lines, setLines] = useState([]);
+  const [pq, setPq] = useState('');
   const [picked, setPicked] = useState('');
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
@@ -31,7 +30,6 @@ export default function PacksManager() {
   }, []);
   useEffect(() => {
     load();
-    // Un pack ne peut pas contenir de produit à variantes : il ne saurait pas quelle couleur retirer du stock
     api.get('/manage/products').then(({ data }) => setCatalog(data.products.filter((p) => !p.deleted && !p.variants?.length))).catch((e) => toast.error(errorMessage(e)));
   }, [load]);
 
@@ -57,7 +55,6 @@ export default function PacksManager() {
     setPicked('');
   }
 
-  // Liste proposée : chaque mot cherché doit se trouver dans le nom, la marque ou les catégories ; ceux déjà dans le pack sont exclus
   const options = useMemo(() => {
     const terms = norm(pq).split(/\s+/).filter(Boolean);
     return catalog.filter((p) => !lines.some((l) => l.id === p.id)
@@ -126,7 +123,7 @@ export default function PacksManager() {
                 onChange={(e) => { setPq(e.target.value); setPicked(''); }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    e.preventDefault();   // Entrée ajoute le premier produit de la liste, sans envoyer le formulaire
+                    e.preventDefault();
                     if (options[0] && pq.trim()) addLine(options[0].id);
                   }
                 }}

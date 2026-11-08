@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/** Adresse de livraison d'un client (table « adresses_livraison ») */
 class Address extends Model
 {
     protected $table = 'adresses_livraison';

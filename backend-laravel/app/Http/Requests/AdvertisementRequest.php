@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
-/** Publicité du carrousel (admin) : titre, réduction %, image, produit lié (promo) */
 class AdvertisementRequest extends FormRequest
 {
     public function authorize(): bool

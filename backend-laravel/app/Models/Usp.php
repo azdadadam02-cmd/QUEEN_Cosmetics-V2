@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/** Avantage affiché dans la barre grise au-dessus de la navbar (table « usps ») */
 class Usp extends Model
 {
     protected $table = 'usps';

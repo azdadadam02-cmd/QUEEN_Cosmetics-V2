@@ -5,13 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-// Ne retire que ce que l'animation pose : les couleurs inline des packs doivent rester
 const CLEAR = 'transform,opacity,visibility,transition';
 const FROM = { autoAlpha: 0, y: 24, transition: 'none' };
 const TO = { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out', clearProps: CLEAR };
 const OK_MOTION = '(prefers-reduced-motion: no-preference)';
 
-/** Fait apparaître les éléments quand ils arrivent à l'écran. dependencies : rejoue quand la liste change. */
 export function useScrollReveal(scope, selector, dependencies = []) {
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -28,7 +26,6 @@ export function useScrollReveal(scope, selector, dependencies = []) {
   }, { scope, dependencies, revertOnUpdate: true });
 }
 
-/** Entrée en cascade au chargement du composant */
 export function useEntrance(scope, selector) {
   useGSAP(() => {
     const mm = gsap.matchMedia();

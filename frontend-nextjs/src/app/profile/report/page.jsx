@@ -7,7 +7,6 @@ import { toast } from '@/store/toastStore';
 
 const EMPTY = { sujet: '', message: '' };
 
-/** Report : le client écrit, confirme, et seul l'admin peut lire */
 export default function ReportPage() {
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});

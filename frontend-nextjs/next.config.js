@@ -1,6 +1,3 @@
-/** @type {import('next').NextConfig} */
-
-// Adresse de l'API Laravel (php artisan serve → http://localhost:8000)
 const apiUrl = new URL(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 const apiIsLocal = ['localhost', '127.0.0.1', '::1'].includes(apiUrl.hostname);
 
@@ -9,7 +6,6 @@ const nextConfig = {
   partialPrefetching: true,
 
   images: {
-    // Autorise les images des produits / publicités servies par Laravel (public/images)
     remotePatterns: [
       {
         protocol: apiUrl.protocol.replace(':', ''),
@@ -18,12 +14,9 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
-    // En local, Next.js refuse d'optimiser les images d'une IP locale (sécurité) :
-    // on les affiche telles quelles. En production (vrai domaine), l'optimisation est active.
     unoptimized: apiIsLocal,
   },
 
-  // En-têtes de sécurité du site (équivalent des en-têtes de l'ancien security.php)
   async headers() {
     return [
       {

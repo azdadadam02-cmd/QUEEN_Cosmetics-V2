@@ -10,11 +10,6 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-/**
- * Données de test : variantes (couleurs / tailles) cohérentes avec chaque produit, stocks variés, notes de 2 à 5.
- * Ne touche ni aux produits qui ont déjà des variantes, ni à ceux d'un pack (un pack refuse les produits à variantes).
- * Tout ce qui est ajouté est noté dans un fichier : `--undo` le retire et remet les anciens stocks.
- */
 class SeedTestData extends Command
 {
     protected $signature = 'products:fake-data {--undo : retire ce qui a été généré et remet les anciens stocks}';
@@ -43,7 +38,7 @@ class SeedTestData extends Command
 
             return self::FAILURE;
         }
-        mt_srand(2026);   // mêmes données à chaque génération
+        mt_srand(2026);
 
         $inPack   = DB::table('pack_produit')->pluck('produit_id')->all();
         $hasVar   = ProductVariant::distinct()->pluck('produit_id')->all();
@@ -67,12 +62,10 @@ class SeedTestData extends Command
                     }
                     $variantProducts[] = $p->id;
                 } elseif (! in_array($p->id, $hasVar)) {
-                    // Sans variantes : stock simple (jamais 0 pour les produits d'un pack, sinon le pack devient indisponible)
                     $p->update(['quantite_stock' => max($this->stock($p, false), in_array($p->id, $inPack) ? 10 : 0)]);
                 }
             }
 
-            // Cas à tester : 3 produits en rupture, 4 en stock faible (total ≤ 5)
             shuffle($variantProducts);
             foreach (array_slice($variantProducts, 0, 3) as $id) {
                 ProductVariant::where('produit_id', $id)->update(['quantite_stock' => 0]);
@@ -87,7 +80,6 @@ class SeedTestData extends Command
                 Product::find($id)->syncVariantStock();
             }
 
-            // Notes : chaque produit vise 2, 3, 4 ou 5 étoiles (moyenne arrondie), avec 1 à 5 avis de clients différents
             if ($clients) {
                 foreach ($products as $p) {
                     if ($p->trashed() || in_array($p->id, $reviewed)) {
@@ -142,7 +134,6 @@ class SeedTestData extends Command
         return self::SUCCESS;
     }
 
-    /** Stock selon le prix : un produit bon marché se vend (et se stocke) plus qu'un produit cher ; quelques variantes à 0 ou presque */
     private function stock(Product $p, bool $variant): int
     {
         $base  = $p->prix < 100 ? 120 : ($p->prix < 200 ? 60 : ($p->prix < 300 ? 30 : 14));
@@ -172,11 +163,6 @@ class SeedTestData extends Command
         return array_map(fn ($v) => [$field => $v], $this->pick($values, $min, count($values)));
     }
 
-    /**
-     * Variantes logiques ; [] = pas de variantes pour ce produit.
-     * Le NOM décide d'abord (les sous-catégories de la base sont mélangées : « Naked Palette » y est rangé en Eyeliner),
-     * la sous-catégorie ne sert qu'aux noms qu'aucune règle ne reconnaît.
-     */
     private function recipe(Product $p): array
     {
         return $this->byName($p) ?? $this->bySubCategory($p);
@@ -189,7 +175,7 @@ class SeedTestData extends Command
         $any = fn (array $words) => collect($words)->contains(fn ($w) => str_contains($n, $w));
 
         return match (true) {
-            $any(['recourbe'])                  => [],   // un seul modèle
+            $any(['recourbe'])                  => [],
             $any(['nettoyant pinceaux'])        => $this->sizes('volume_ml', [100, 200]),
             $any(['kit pinceaux'])              => $this->sizes('quantite_pieces', [5, 8, 12]),
             $any(['blender', 'eponge'])         => $this->combos([['#f1c9cf', 1], ['#e9bf9a', 2], ['#111111', 4], ['#f1c9cf', 4]], 'quantite_pieces'),
@@ -261,7 +247,6 @@ class SeedTestData extends Command
         };
     }
 
-    /** [[couleur, valeur]] → lignes de variantes (la valeur va dans $field) */
     private function combos(array $pairs, string $field): array
     {
         return array_map(fn ($pair) => ['couleur' => $pair[0], $field => $pair[1]], $this->pick($pairs, 3, count($pairs)));

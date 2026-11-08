@@ -6,7 +6,6 @@ import { useLayoutPathname } from '@/lib/useHydrated';
 
 const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
 
-/** Lien interne (Link), externe (nouvel onglet) ou simple bloc quand l'admin n'a mis aucun lien */
 function Maybe({ href, children, ...props }) {
   if (!href) return <div {...props}>{children}</div>;
   if (href.startsWith('/')) return <Link href={href} {...props}>{children}</Link>;
@@ -22,7 +21,6 @@ function countdown(ms) {
 
 function PromoBar({ promo }) {
   const end = promo.ends_at ? new Date(promo.ends_at).getTime() : null;
-  // null tant que le navigateur n'a pas affiché : le serveur ne rend jamais l'heure (évite un décalage d'hydratation)
   const [now, setNow] = useState(null);
   useEffect(() => {
     if (end === null) return;
@@ -35,7 +33,7 @@ function PromoBar({ promo }) {
     };
   }, [end]);
 
-  if (end !== null && now !== null && now >= end) return null;   // promo terminée pendant que la page était ouverte
+  if (end !== null && now !== null && now >= end) return null;
   return (
     <Maybe href={promo.link} className="promo-bar" style={{ background: promo.background, color: promo.color }}>
       <span className="promo-text">{promo.text}</span>
@@ -44,10 +42,9 @@ function PromoBar({ promo }) {
   );
 }
 
-/** Barre des avantages (grise) + barre promo, au-dessus de la navbar. Elles défilent avec la page, seule la navbar reste collée. */
 export default function TopBars({ usps, promo, brand }) {
   const pathname = useLayoutPathname();
-  if (isStaffPath(pathname)) return null;   // pas dans les espaces de gestion
+  if (isStaffPath(pathname)) return null;
   return (
     <>
       {usps.length > 0 && (

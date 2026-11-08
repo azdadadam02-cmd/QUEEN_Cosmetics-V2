@@ -8,7 +8,6 @@ import { toast } from '@/store/toastStore';
 
 const FILTERS = [['', 'Tous'], ['paye', 'Encaissés'], ['encaisser', 'À encaisser']];
 
-/** Finances : l'argent est encaissé uniquement à la livraison */
 export default function FinancesPage() {
   const [filter, setFilter] = useState('');
   const [d, setD] = useState(null);

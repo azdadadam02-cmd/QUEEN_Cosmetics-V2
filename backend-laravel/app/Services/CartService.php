@@ -5,24 +5,15 @@ namespace App\Services;
 use App\Models\Pack;
 use App\Models\Product;
 
-/**
- * Le panier vit dans le navigateur (Zustand) ; ici on le RE-CALCULE toujours
- * depuis la base : prix (promo comprise) et stock à jour, lignes invalides retirées.
- */
 class CartService
 {
-    public const MAX_LIGNES = 30;   // produits différents
-    public const MAX_QTE    = 20;   // par produit
+    public const MAX_LIGNES = 30;
+    public const MAX_QTE    = 20;
 
-    /**
-     * @param  array<int, array{id:int, quantity:int}>  $items
-     * @return array{lines: array, total: float, count: int, warnings: string[]}
-     */
     public function lines(array $items): array
     {
         $out = ['lines' => [], 'total' => 0.0, 'count' => 0, 'warnings' => []];
 
-        // Regroupe les doublons et applique les limites
         $wanted = [];
         foreach ($items as $it) {
             $id = (int) ($it['id'] ?? 0);

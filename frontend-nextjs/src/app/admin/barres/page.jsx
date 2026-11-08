@@ -11,7 +11,6 @@ import { toast } from '@/store/toastStore';
 const EMPTY_USP = { icone: '', texte: '', lien: '', ordre_affichage: '', est_actif: true };
 const EMPTY_PROMO = { texte: '', lien: '', couleur_fond: '#725A65', couleur_texte: '#FFFFFF', date_debut: '', date_fin: '', est_actif: true };
 
-// <input type="datetime-local"> ↔ ISO (le navigateur gère le fuseau, Laravel le convertit)
 const pad = (n) => String(n).padStart(2, '0');
 const toInput = (iso) => {
   if (!iso) return '';
@@ -23,15 +22,14 @@ const fmt = (iso) => (iso ? new Date(iso).toLocaleString('fr-FR', { dateStyle: '
 
 const StatePill = ({ on }) => <span className={`pill ${on ? 'pill-livree' : 'pill-role'}`}>{on ? 'Actif' : 'Inactif'}</span>;
 
-/** Barres au-dessus de la navbar : avantages (barre grise) + annonce promo (barre colorée) */
 export default function BarresPage() {
   const [data, setData] = useState(null);
-  const [editing, setEditing] = useState(null);   // { kind: 'usp' | 'promo', row }
+  const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
-  const [brand, setBrand] = useState(null);     // barre de marque (parametres_header)
+  const [brand, setBrand] = useState(null);
   const [brandErrors, setBrandErrors] = useState({});
 
   const load = useCallback(() => {
@@ -52,7 +50,7 @@ export default function BarresPage() {
       toast.error(errorMessage(err));
     }
   }
-  const [links, setLinks] = useState(null);     // liens « Service » du profil client
+  const [links, setLinks] = useState(null);
   const [linkErrors, setLinkErrors] = useState({});
   useEffect(() => {
     api.get('/service-links').then(({ data: d }) => setLinks({ whatsapp: d.whatsapp || '', facebook: d.facebook || '', instagram: d.instagram || '', twitter: d.twitter || '', gmail: d.gmail || '' })).catch((e) => toast.error(errorMessage(e)));

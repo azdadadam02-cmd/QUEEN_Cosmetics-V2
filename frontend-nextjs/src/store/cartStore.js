@@ -1,21 +1,15 @@
-/**
- * Panier : reste enregistré même si on change de page ou qu'on ferme l'onglet (localStorage).
- * ⚠ Les prix ici servent seulement à l'affichage : Laravel recalcule TOUT (prix, promo, stock)
- *   via /api/cart/check et au moment de la commande.
- */
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-export const MAX_LIGNES = 30; // lignes différentes
-export const MAX_QTE = 20; // par ligne
+export const MAX_LIGNES = 30;
+export const MAX_QTE = 20;
 
-/** Une ligne = un produit + sa variante (rouge et noir du même rouge à lèvres font deux lignes) */
 export const lineKey = (i) => (i.pack_id ? `pack:${i.pack_id}` : `${i.id}:${i.variant_id || 0}`);
 
 const toLine = (l, stock, quantity) => ({
   id: l.id ?? null,
   pack_id: l.pack_id || null,
-  products: l.products || null,   // contenu du pack (« Détail » dans le panier)
+  products: l.products || null,
   variant_id: l.variant_id || null,
   variant_color: l.variant_color || null,
   variant_size: l.variant_size || null,
@@ -31,7 +25,6 @@ export const useCartStore = create(
     (set, get) => ({
       items: [],
 
-      /** @returns {{ok: boolean, message: string}} */
       add: (product, qty = 1, variant = null) => {
         const wanted = { ...product, variant_id: variant?.id, variant_color: variant?.color, variant_size: variant?.size };
         const key = lineKey(wanted);
@@ -50,7 +43,6 @@ export const useCartStore = create(
         return { ok: true, message: `« ${product.name} » ajouté au panier.` };
       },
 
-      /** @returns {{ok: boolean, message: string}} */
       addPack: (pack, qty = 1) => {
         const wanted = { ...pack, pack_id: pack.id, id: null };
         const key = lineKey(wanted);
@@ -78,15 +70,12 @@ export const useCartStore = create(
       remove: (key) => set({ items: get().items.filter((i) => lineKey(i) !== key) }),
       clear: () => set({ items: [] }),
 
-      /** Remplace le panier par la version vérifiée par Laravel (prix / stock à jour) */
       syncFromServer: (lines) => set({ items: lines.map((l) => toLine(l, l.stock, l.quantity)) }),
 
-      /** Format envoyé à l'API */
       payload: () => get().items.map(({ id, pack_id, variant_id, quantity }) => (pack_id ? { pack_id, quantity } : { id, variant_id: variant_id || null, quantity })),
     }),
     { name: 'queen-cart', storage: createJSONStorage(() => localStorage) }
   )
 );
 
-/** Nombre total d'articles (pour le badge de la navbar) */
 export const useCartCount = () => useCartStore((s) => s.items.reduce((n, i) => n + i.quantity, 0));

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { MAX_QTE, useCartStore } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
 
-/** Quantité + ajout du pack au panier */
 export default function PackBuy({ pack }) {
   const addPack = useCartStore((s) => s.addPack);
   const max = Math.min(pack.stock, MAX_QTE);

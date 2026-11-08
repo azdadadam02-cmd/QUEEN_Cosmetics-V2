@@ -2,7 +2,6 @@
 import Thumb from '@/components/ui/Thumb';
 import { money } from '@/lib/format';
 
-/** Tableau des packs. onEdit absent = lecture seule (admin) */
 export default function PacksTable({ packs, onEdit, onDelete }) {
   return (
     <div className="panel tablewrap">

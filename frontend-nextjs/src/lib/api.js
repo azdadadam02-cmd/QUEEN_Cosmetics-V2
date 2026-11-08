@@ -1,9 +1,3 @@
-/**
- * Communication avec l'API Laravel.
- *  - api      : instance Axios pour les composants client (ajoute le token automatiquement)
- *  (côté serveur — Server Components — voir lib/serverApi.js)
- *  - errorMessage : transforme une erreur Laravel (422, 429…) en texte lisible
- */
 import axios from 'axios';
 import { useAuthStore } from '@/store/authStore';
 
@@ -17,14 +11,12 @@ export const api = axios.create({
   timeout: 15000,
 });
 
-// Ajoute « Authorization: Bearer <token> » à chaque requête
 api.interceptors.request.use((config) => {
   const token = useAuthStore.getState().token;
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
-// Token expiré / supprimé → on déconnecte proprement côté navigateur
 api.interceptors.response.use(
   (res) => res,
   (error) => {
@@ -35,7 +27,6 @@ api.interceptors.response.use(
   }
 );
 
-/** Message d'erreur lisible à partir d'une réponse Laravel */
 export function errorMessage(error, fallback = 'Une erreur est survenue. Réessayez.') {
   const data = error?.response?.data;
   if (data?.errors) return Object.values(data.errors).flat().join(' ');
@@ -44,7 +35,6 @@ export function errorMessage(error, fallback = 'Une erreur est survenue. Réessa
   return fallback;
 }
 
-/** Erreurs de validation champ par champ : { nom: '…', telephone: '…' } */
 export function fieldErrors(error) {
   const errs = error?.response?.data?.errors || {};
   return Object.fromEntries(Object.entries(errs).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]));

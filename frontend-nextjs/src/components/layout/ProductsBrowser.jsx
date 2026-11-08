@@ -9,8 +9,8 @@ import PackCard from './PackCard';
 import PacksSection from './PacksSection';
 import ProductCard from './ProductCard';
 
-const ROW = 6;        // produits par rangée
-const PER_PAGE = 12;  // produits par page (2 lignes)
+const ROW = 6;
+const PER_PAGE = 12;
 const ROWS_PER_PAGE = 4;
 const NONE = 'Autres';
 
@@ -20,14 +20,9 @@ function groupBy(items, keyOf) {
     const key = keyOf(p) || NONE;
     groups.set(key, [...(groups.get(key) || []), p]);
   });
-  return [...groups].sort(([a], [b]) => a.localeCompare(b, 'fr'));   // même ordre que la barre de catégories
+  return [...groups].sort(([a], [b]) => a.localeCompare(b, 'fr'));
 }
 
-/**
- * Barre de catégories + produits. L'état vit dans l'URL : retour navigateur et rechargement gardent la page.
- * Tous → une rangée par catégorie ; ?cat → une rangée par sous-catégorie ; VOIR PLUS ou recherche → 12 par page.
- * shortcut: tout le catalogue est envoyé au navigateur, passer à une pagination Laravel au-delà de ~1000 produits.
- */
 export default function ProductsBrowser({ products, categories, packs = [], searchPacks = packs, guidance = false }) {
   const pathname = usePathname();
   const params = useSearchParams();
@@ -47,7 +42,6 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
     if (scroll) sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Recherche : chaque mot doit se trouver dans le nom, la marque, la catégorie ou la sous-catégorie (sans accents ni majuscules)
   const terms = norm(q).split(/\s+/).filter(Boolean);
   const matches = (...fields) => {
     const hay = norm(fields.join(' '));
@@ -56,13 +50,12 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
   const list = products.filter((p) => (!cat || (p.category || NONE) === cat)
     && (!sub || (p.sub_category || NONE) === sub)
     && (!terms.length || matches(p.name, p.brand, p.category, p.sub_category)));
-  // Un pack ressort par son nom ou par n'importe quel produit qu'il contient
   const foundPacks = terms.length && !cat && !sub
     ? searchPacks.filter((k) => matches(k.name, k.description, ...(k.products || []).flatMap((x) => [x.name, x.brand, x.category, x.sub_category])))
     : [];
 
   const groups = sub || showAll || q ? [] : groupBy(list, (p) => (cat ? p.sub_category : p.category));
-  const rows = groups.length > 1 ? groups : null;   // catégorie sans sous-catégories : directement la liste paginée
+  const rows = groups.length > 1 ? groups : null;
 
   const pageSize = rows ? ROWS_PER_PAGE : PER_PAGE;
   const pages = Math.max(1, Math.ceil((rows || list).length / pageSize));
@@ -70,12 +63,10 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
   const pageRows = rows ? rows.slice((page - 1) * pageSize, page * pageSize) : [];
   const goPage = (n) => go({ cat, sub, all: showAll ? '1' : null, page: n > 1 ? String(n) : null });
 
-  // Catégorie choisie toujours visible dans la barre, même arrivé par un lien
   useEffect(() => {
     activeRef.current?.scrollIntoView({ inline: 'center', block: 'nearest' });
   }, [cat]);
 
-  // Sans barre de défilement, la souris a besoin de flèches pour voir les catégories cachées
   const barRef = useRef(null);
   const [barOverflows, setBarOverflows] = useState(false);
   useEffect(() => {
@@ -88,7 +79,6 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
 
   useScrollReveal(sectionRef, '.pc, .pack-card', [cat, sub, showAll, page, q]);
 
-  // Une recherche amène directement les résultats à l'écran (sinon ils restent sous la page, à remonter à la main)
   useEffect(() => {
     if (q) sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [q]);
@@ -123,11 +113,9 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
         foundPacks.length === 0 && <p className="empty">Aucun produit ni pack ne correspond à votre recherche.</p>
       ) : rows ? (
         pageRows.map(([name, items], i) => {
-          // Accueil, page 1, vue « Tous » : les packs forment UNE section titrée, juste après la 2e rangée
           const showPacks = page === 1 && !cat && packs.length > 0 && i === Math.min(1, pageRows.length - 1);
           return (
           <Fragment key={name}>
-          {/* Accueil, page 1, vue « Tous » : le bandeau de raccourcis passe juste avant la dernière rangée */}
           {guidance && page === 1 && !cat && pageRows.length > 1 && i === pageRows.length - 1 && <GuidanceStrip categories={categories} hasPacks={packs.length > 0} />}
           <div className="pc-row">
             <h2 className="pc-row-title">{name}</h2>

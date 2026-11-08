@@ -1,4 +1,3 @@
-/** Messages éphémères (succès / erreur / info) — remplace les « flash » de l'ancien site */
 import { create } from 'zustand';
 
 let id = 0;

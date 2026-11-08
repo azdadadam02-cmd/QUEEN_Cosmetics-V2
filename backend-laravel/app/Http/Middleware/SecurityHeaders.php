@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/** En-têtes de sécurité sur toutes les réponses de l'API (JSON, jamais mis en cache) */
 class SecurityHeaders
 {
     public function handle(Request $request, Closure $next): Response

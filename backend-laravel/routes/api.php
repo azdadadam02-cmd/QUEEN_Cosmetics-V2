@@ -16,18 +16,8 @@ use App\Http\Controllers\Api\TopBarController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| QUEEN Cosmetics — API consommée par Next.js   (préfixe automatique : /api)
-|--------------------------------------------------------------------------
-| Public           : boutique, publicités, vérification du panier, login/register
-| auth:sanctum     : token « Authorization: Bearer … »
-| role:xxx         : rôle relu en base à chaque requête (app/Http/Middleware/EnsureRole.php)
-*/
-
 Route::middleware('throttle:api')->group(function () {
 
-    /* ── BOUTIQUE (public) ───────────────────────────────── */
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/suggestions', [ProductController::class, 'suggestions']);
     Route::get('/products/{product}', [ProductController::class, 'show'])->whereNumber('product');
@@ -40,14 +30,12 @@ Route::middleware('throttle:api')->group(function () {
     Route::get('/service-links', [TopBarController::class, 'serviceLinks']);
     Route::post('/cart/check', [CartController::class, 'check']);
 
-    /* ── AUTHENTIFICATION ────────────────────────────────── */
     Route::post('/auth/login', [AuthController::class, 'login']);
     Route::post('/auth/register', [AuthController::class, 'register'])->middleware('throttle:register');
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/auth/me', [AuthController::class, 'me']);
         Route::post('/auth/logout', [AuthController::class, 'logout']);
 
-        /* ── ESPACE CLIENT ───────────────────────────────── */
         Route::middleware('role:client')->group(function () {
             Route::post('/orders', [OrderController::class, 'store']);
             Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])->whereNumber('product');
@@ -65,7 +53,6 @@ Route::middleware('throttle:api')->group(function () {
             Route::get('/notifications/count', [OrderController::class, 'notificationsCount']);
         });
 
-        /* ── RESPONSABLE PRODUITS (+ admin en lecture) ───── */
         Route::get('/manage/products', [ProductController::class, 'manageIndex'])->middleware('role:responsable_produits,admin');
         Route::get('/manage/packs', [PackController::class, 'manageIndex'])->middleware('role:responsable_produits,admin');
         Route::delete('/manage/packs/{pack}', [PackController::class, 'destroy'])->whereNumber('pack')->middleware('role:responsable_produits,admin');
@@ -81,12 +68,10 @@ Route::middleware('throttle:api')->group(function () {
             Route::delete('/manage/products/{id}/force', [ProductController::class, 'forceDestroy'])->whereNumber('id');
         });
 
-        /* ── RESPONSABLE COMMANDES (+ admin en lecture) ──── */
         Route::get('/manage/orders', [OrderManagementController::class, 'index'])->middleware('role:responsable_commandes,admin');
         Route::patch('/manage/orders/{order}/status', [OrderManagementController::class, 'updateStatus'])
             ->whereNumber('order')->middleware('role:responsable_commandes');
 
-        /* ── ADMIN ───────────────────────────────────────── */
         Route::middleware('role:admin')->prefix('admin')->group(function () {
             Route::get('/dashboard', [AdminController::class, 'dashboard']);
             Route::get('/finances', [AdminController::class, 'finances']);

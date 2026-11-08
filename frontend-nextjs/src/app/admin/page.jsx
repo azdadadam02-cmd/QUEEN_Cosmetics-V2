@@ -6,7 +6,6 @@ import { api, errorMessage } from '@/lib/api';
 import { money } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
-/** Tableau de bord de l'admin */
 export default function AdminDashboard() {
   const [d, setD] = useState(null);
 

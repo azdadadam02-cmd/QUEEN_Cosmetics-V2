@@ -4,7 +4,6 @@ import PacksBrowser from './PacksBrowser';
 
 export const metadata = { title: 'Les Packs' };
 
-/** Tous les packs : 6 par page (2 lignes de 3) */
 export default function PacksPage() {
   return (
     <>

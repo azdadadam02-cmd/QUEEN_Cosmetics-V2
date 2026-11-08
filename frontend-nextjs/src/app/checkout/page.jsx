@@ -20,7 +20,6 @@ export default function CheckoutPage() {
   );
 }
 
-/** Confirmation : paiement à la livraison + adresse + case « +18 » (revérifiée par Laravel) */
 function Checkout() {
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
@@ -30,7 +29,6 @@ function Checkout() {
   const [sending, setSending] = useState(false);
   const [lines, setLines] = useState(null);
 
-  // Récapitulatif calculé par l'API (prix réels)
   useEffect(() => {
     const body = payload();
     if (!body.length) {

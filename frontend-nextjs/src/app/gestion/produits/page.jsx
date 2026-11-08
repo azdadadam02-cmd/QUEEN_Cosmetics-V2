@@ -14,14 +14,13 @@ const EMPTY = { nom: '', marque: '', categorie: '', sous_categorie: '', tranche_
 const EMPTY_VARIANT = { id: null, hasColor: false, couleur: '#b5736a', taille: '', volume_ml: '', poids_g: '', quantite_pieces: '', stock: '' };
 const num = (v) => (v === '' || v === null ? null : Number(v));
 
-/** Responsable produits : fiche complète du produit, variantes (couleur, taille, stock) et galerie */
 export default function GestionProduitsPage() {
-  const [editing, setEditing] = useState(null); // null = fermé, {} = nouveau, produit = modification
+  const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [file, setFile] = useState(null);
   const [variants, setVariants] = useState([]);
-  const [gallery, setGallery] = useState([]);       // images déjà enregistrées
-  const [removed, setRemoved] = useState([]);       // ids à retirer à l'enregistrement
+  const [gallery, setGallery] = useState([]);
+  const [removed, setRemoved] = useState([]);
   const [newImages, setNewImages] = useState([]);
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
@@ -58,7 +57,7 @@ export default function GestionProduitsPage() {
     setSaving(true);
     setErrors({});
     const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => fd.append(k, k === 'stock' && variants.length ? '0' : v));   // avec variantes, Laravel calcule le total
+    Object.entries(form).forEach(([k, v]) => fd.append(k, k === 'stock' && variants.length ? '0' : v));
     if (file) fd.append('image', file);
     fd.append('variants', JSON.stringify(variants.map((v) => ({
       id: v.id,
@@ -67,7 +66,7 @@ export default function GestionProduitsPage() {
       volume_ml: num(v.volume_ml),
       poids_g: num(v.poids_g),
       quantite_pieces: num(v.quantite_pieces),
-      stock: num(v.stock),   // vide = erreur de Laravel, jamais un 0 silencieux
+      stock: num(v.stock),
     }))));
     newImages.forEach((f) => fd.append('gallery[]', f));
     removed.forEach((id) => fd.append('remove_images[]', id));
@@ -138,7 +137,6 @@ export default function GestionProduitsPage() {
               </div>
             ))}
             {variantError && <span className="error-text">{variantError}</span>}
-            {/* La première variante reprend le stock déjà saisi : le champ Stock disparaît, la quantité ne doit pas se perdre */}
             <button type="button" className="btn-ghost" onClick={() => setVariants((l) => [...l, { ...EMPTY_VARIANT, stock: l.length === 0 ? form.stock : '' }])}>+ Ajouter une variante</button>
           </fieldset>
 

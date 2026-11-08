@@ -12,7 +12,6 @@ export const metadata = {
   icons: { icon: '/images/logo.webp' },
 };
 
-/** Gabarit commun à toutes les pages : navbar + contenu + footer */
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
@@ -26,7 +25,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {/* Barres avant la navbar : elles partent avec le scroll, la navbar (sticky) reste en haut */}
         <Suspense fallback={<NavbarFallback />}>
           <Chrome>
             <Suspense fallback={null}>

@@ -6,10 +6,6 @@ use App\Models\Product;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-/**
- * Remplit en une fois l'image des produits qui n'en ont pas : chaque fichier du dossier
- * est associé au produit dont l'id OU le nom (slug) correspond au nom du fichier.
- */
 class ImportProductImages extends Command
 {
     protected $signature = 'products:import-images {dir? : dossier des images} {--list : affiche id;nom des produits sans image}';
@@ -44,7 +40,6 @@ class ImportProductImages extends Command
             $cle = pathinfo($f, PATHINFO_FILENAME);
             $p   = $cible[$cle] ?? $cible[Str::slug($cle)] ?? null;
 
-            // Un fichier qui n'est pas une vraie image est ignoré (getimagesize renvoie false)
             if (! $p || isset($fait_ids[$p->id]) || ! @getimagesize($f)) {
                 $orphelins++;
                 $this->warn('Ignoré : '.basename($f));

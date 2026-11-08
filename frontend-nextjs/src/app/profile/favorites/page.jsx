@@ -5,7 +5,6 @@ import Button from '@/components/ui/Button';
 import { api, errorMessage } from '@/lib/api';
 import { toast } from '@/store/toastStore';
 
-/** Mon favoris : tous les produits mis en favori par le client */
 export default function FavoritesPage() {
   const [products, setProducts] = useState(null);
 

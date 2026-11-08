@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Publicité du carrousel de l'accueil (table « publicites »), éventuellement liée à un produit en promo */
 class Advertisement extends Model
 {
     protected $table = 'publicites';

@@ -7,11 +7,6 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-/**
- * Télécharge, pour chaque produit sans image, la photo trouvée sur Open Beauty Facts (base ouverte)
- * dans un dossier « <id>.jpg » + report.csv. Ne touche pas à la base : on vérifie le dossier,
- * puis `products:import-images <dossier>` fait l'association.
- */
 class FetchProductImages extends Command
 {
     protected $signature = 'products:fetch-images {dir? : dossier de sortie (défaut storage/app/product-images-import)} {--limit=0 : nombre max de produits} {--souple : accepte une photo approximative (nom ou catégorie seulement)}';
@@ -49,13 +44,12 @@ class FetchProductImages extends Command
         return self::SUCCESS;
     }
 
-    /** Cherche « nom marque » puis « nom » ; ne garde qu'un résultat dont le nom contient tous les mots du produit */
     private function find(Product $p): array
     {
         $mots = array_filter(explode('-', Str::slug($p->nom)));
         $essais = $this->option('souple') ? [$p->nom, $p->sous_categorie] : [trim($p->nom.' '.$p->marque), $p->nom];
         foreach (array_filter(array_unique($essais)) as $q) {
-            usleep(6_500_000); // Open Beauty Facts demande ~10 recherches/minute max
+            usleep(6_500_000);
 
             $r = Http::timeout(30)->withUserAgent('QueenCosmetics-import/1.0')->get('https://world.openbeautyfacts.org/cgi/search.pl', [
                 'search_simple' => 1, 'action' => 'process', 'json' => 1, 'page_size' => 10,
@@ -64,13 +58,12 @@ class FetchProductImages extends Command
 
             foreach ($r->json('products') ?? [] as $x) {
                 $slug = Str::slug($x['product_name'] ?? '');
-                // Marque connue des deux côtés : elles doivent se contenir (« LOreal » ⊂ « L'OREAL NORGE AS »)
                 $norm   = fn ($s) => preg_replace('/[^a-z0-9]/', '', Str::lower(Str::ascii((string) $s)));
                 $marque = $norm($p->marque);
                 $brand  = $norm($x['brands'] ?? '');
                 $ok     = ! $marque || ! $brand || str_contains($brand, $marque) || str_contains($marque, $brand);
 
-                $souple = $this->option('souple'); // n'importe quelle photo proche : on préfère une photo approximative à rien
+                $souple = $this->option('souple');
 
                 if (! empty($x['image_front_url']) && ($souple || ($ok && ! array_diff($mots, explode('-', $slug))))) {
                     return [true, ['url' => $x['image_front_url'], 'brand' => $x['brands'] ?? '', 'name' => $x['product_name'] ?? '']];

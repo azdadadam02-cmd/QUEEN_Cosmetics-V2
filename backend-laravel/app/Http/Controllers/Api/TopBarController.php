@@ -15,14 +15,12 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
-/** Barres au-dessus de la navbar : avantages (usps) + annonce promo. Public en lecture, admin en écriture. */
 class TopBarController extends Controller
 {
     private const ICONS = ['truck', 'check', 'mail', 'gift', 'star', 'shield'];
-    private const LINK = '/^(\/|https?:\/\/)/';   // chemin interne ou http(s) : refuse javascript:
+    private const LINK = '/^(\/|https?:\/\/)/';
     private const COLOR = '/^#[0-9A-Fa-f]{6}$/';
 
-    /** GET /api/top-bars : seulement ce qui doit s'afficher maintenant */
     public function index(): JsonResponse
     {
         $promo = PromoAnnouncement::where('est_actif', true)
@@ -38,13 +36,11 @@ class TopBarController extends Controller
         ]);
     }
 
-    /** GET /api/service-links : liens « Service » affichés dans le profil client */
     public function serviceLinks(): JsonResponse
     {
         return response()->json((ServiceLink::first() ?? new ServiceLink())->toApi());
     }
 
-    /** PUT /api/admin/service-links */
     public function serviceLinksUpdate(Request $request): JsonResponse
     {
         $url  = ['nullable', 'string', 'max:255', 'url', 'regex:/^https?:\/\//'];
@@ -68,7 +64,6 @@ class TopBarController extends Controller
         return response()->json(['message' => 'Liens Service mis à jour.', 'links' => $links->toApi()]);
     }
 
-    /** PUT /api/admin/header : la ligne unique de parametres_header (créée si absente) */
     public function headerUpdate(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -84,7 +79,6 @@ class TopBarController extends Controller
         return response()->json(['message' => 'Barre de marque mise à jour.', 'header' => $header->toApi()]);
     }
 
-    /** GET /api/admin/top-bars : tout, actif ou non */
     public function adminIndex(): JsonResponse
     {
         return response()->json([
@@ -162,7 +156,6 @@ class TopBarController extends Controller
             'est_actif'     => ['required', 'boolean'],
         ], $this->messages());
 
-        // Les dates arrivent en ISO (avec fuseau) : on les range dans le fuseau de l'application
         foreach (['date_debut', 'date_fin'] as $k) {
             $data[$k] = isset($data[$k]) ? Carbon::parse($data[$k])->setTimezone(config('app.timezone')) : null;
         }

@@ -22,7 +22,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(SecurityHeaders::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        // L'API répond toujours en JSON (jamais de page HTML d'erreur)
         $exceptions->shouldRenderJsonWhen(fn (Request $r) => $r->is('api/*') || $r->expectsJson());
 
         $exceptions->render(function (AuthenticationException $e, Request $r) {

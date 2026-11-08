@@ -14,7 +14,6 @@ import { toast } from '@/store/toastStore';
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
-/** Haut de la fiche produit : galerie, couleurs, tailles, prix, quantité, panier, favoris */
 export default function ProductHero({ product: p, moreHref = '#description' }) {
   const router = useRouter();
   const heroRef = useRef(null);
@@ -32,7 +31,6 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
   const sizes = unique(variants.map((v) => v.size));
   const [selected, setSelected] = useState(() => variants.find((v) => v.stock > 0) || variants[0] || null);
 
-  // Garde l'autre choix si la combinaison existe, sinon prend la première variante de cette option
   const pick = (key, value) => {
     const same = variants.filter((v) => v[key] === value);
     const other = key === 'color' ? 'size' : 'color';
@@ -54,7 +52,7 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
   }, [isClient, p.id]);
 
   async function toggleFav() {
-    if (!user) return window.open(`/login?next=/products/${p.id}`, '_blank', 'noopener');   // la connexion s'ouvre dans un nouvel onglet, la fiche reste ouverte
+    if (!user) return window.open(`/login?next=/products/${p.id}`, '_blank', 'noopener');
     try {
       const { data } = await api.post(`/products/${p.id}/favorite`);
       setFav(data.favorite);
@@ -121,7 +119,6 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
           <div className="pd-option">
             <span className="pd-label">Taille :</span>
             {sizes.map((s) => {
-              // La taille n'est disponible que dans la couleur choisie, s'il y en a une
               const inColor = variants.filter((v) => v.size === s && (!selected?.color || v.color === selected.color));
               return (
                 <button

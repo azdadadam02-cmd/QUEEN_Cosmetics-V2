@@ -3,14 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { homeFor, logout, refreshMe, ROLE_LABELS } from '@/lib/auth';
+import { homeFor, isStaffPath, logout, refreshMe, ROLE_LABELS } from '@/lib/auth';
 import Avatar from '@/components/ui/Avatar';
 import { useHydrated, useLayoutPathname } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
 import { toast } from '@/store/toastStore';
 import ClientNavbar from './ClientNavbar';
-
-const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
 
 /** Espace client → ClientNavbar ; espaces de gestion → StaffNavbar. Le personnel n'a pas accès à l'espace client. */
 export default function Navbar() {

@@ -3,6 +3,17 @@ export function money(n) {
   return `${v.replace(/ | /g, ' ')} DH`;
 }
 
+const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+/**
+ * « 8 novembre 2026 » à partir de l'ISO de Laravel, déjà dans le fuseau de la boutique : on lit le jour tel quel.
+ * Pas de conversion JS : Node, les navigateurs et PHP n'ont pas les mêmes règles pour Africa/Casablanca.
+ */
+export function dayDate(iso) {
+  const [y, m, d] = String(iso ?? '').slice(0, 10).split('-').map(Number);
+  return y && m && d ? `${d} ${MONTHS[m - 1]} ${y}` : '';
+}
+
 export function dateTime(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });

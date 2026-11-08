@@ -49,3 +49,5 @@ export const ROLE_LABELS = {
 export function homeFor(user) {
   return user?.home || '/';
 }
+
+export const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);

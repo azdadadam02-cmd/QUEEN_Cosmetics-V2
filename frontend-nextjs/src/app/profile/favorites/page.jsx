@@ -2,14 +2,15 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '@/components/layout/ProductCard';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 import { api, errorMessage } from '@/lib/api';
-import { toast } from '@/store/toastStore';
 
 export default function FavoritesPage() {
   const [products, setProducts] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
-    api.get('/favorites/products').then(({ data }) => setProducts(data.data ?? data)).catch((e) => toast.error(errorMessage(e)));
+    api.get('/favorites/products').then(({ data }) => setProducts(data.data ?? data)).catch((e) => setLoadError(errorMessage(e)));
   }, []);
 
   async function remove(id) {
@@ -17,13 +18,14 @@ export default function FavoritesPage() {
       await api.post(`/products/${id}/favorite`);
       setProducts((list) => list.filter((p) => p.id !== id));
     } catch (err) {
-      toast.error(errorMessage(err));
+      setLoadError(errorMessage(err));
     }
   }
 
   return (
     <>
       <h1 className="pf-title">Mon favoris</h1>
+      <FormError message={loadError} />
 
       {!products && <p className="loading-line">Chargement…</p>}
       {products?.length === 0 && (

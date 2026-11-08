@@ -1,10 +1,9 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { isStaffPath } from '@/lib/auth';
 import { BarIcon } from '@/lib/barIcons';
 import { useLayoutPathname } from '@/lib/useHydrated';
-
-const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
 
 function Maybe({ href, children, ...props }) {
   if (!href) return <div {...props}>{children}</div>;

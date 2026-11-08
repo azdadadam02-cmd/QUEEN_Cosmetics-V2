@@ -2,15 +2,16 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
+import FormError from '@/components/ui/FormError';
 import { api, errorMessage } from '@/lib/api';
 import { money } from '@/lib/format';
-import { toast } from '@/store/toastStore';
 
 export default function AdminDashboard() {
   const [d, setD] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
-    api.get('/admin/dashboard').then(({ data }) => setD(data)).catch((e) => toast.error(errorMessage(e)));
+    api.get('/admin/dashboard').then(({ data }) => setD(data)).catch((e) => setLoadError(errorMessage(e)));
   }, []);
 
   if (!d) return <p className="loading-line">Chargement…</p>;
@@ -18,6 +19,7 @@ export default function AdminDashboard() {
   return (
     <>
       <PageHead title="Tableau de bord" />
+      <FormError message={loadError} />
       <div className="stats">
         <div className="stat gold"><span className="stat-label">Encaissé</span><strong>{money(d.finance.encaisse)}</strong><small>dont {money(d.finance.mois)} ce mois</small></div>
         <div className="stat"><span className="stat-label">À encaisser</span><strong>{money(d.finance.a_encaisser)}</strong><small>commandes acceptées</small></div>

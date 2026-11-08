@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /** Avis produits : le client écrit, l'admin valide, le public ne voit que les avis approuvés. */
 class ReviewController extends Controller
@@ -26,11 +27,14 @@ class ReviewController extends Controller
         ]));
     }
 
-    public function mine(Request $request, int $product): JsonResponse
+    public function mine(Request $request, int $product): JsonResponse|Response
     {
         $r = Review::where('produit_id', $product)->where('utilisateur_id', $request->user()->id)->first();
 
-        return response()->json($r ? ['rating' => $r->note, 'comment' => $r->commentaire, 'approved' => $r->est_approuve] : null);
+        // 204 sans corps : response()->json(null) renverrait « {} », que Next.js prendrait pour un avis existant
+        return $r
+            ? response()->json(['rating' => $r->note, 'comment' => $r->commentaire, 'approved' => $r->est_approuve, 'date' => $r->date_avis?->toIso8601String()])
+            : response()->noContent();
     }
 
     /** POST /api/products/{product}/reviews : un avis par client et produit ; un nouvel envoi repasse en modération */
@@ -71,6 +75,16 @@ class ReviewController extends Controller
         $review->update(['est_approuve' => $request->validate(['approved' => ['required', 'boolean']])['approved']]);
 
         return response()->json(['message' => $review->est_approuve ? 'Avis approuvé : il est visible sur le site.' : 'Avis retiré du site.']);
+    }
+
+    /** DELETE /api/products/{product}/reviews/mine : le client retire son propre avis (jamais celui d'un autre) */
+    public function destroyMine(Request $request, int $product): JsonResponse
+    {
+        $deleted = Review::where('produit_id', $product)->where('utilisateur_id', $request->user()->id)->delete();
+
+        return $deleted
+            ? response()->json(['message' => 'Votre avis a été supprimé.'])
+            : response()->json(['message' => "Vous n'avez pas d'avis sur ce produit."], 404);
     }
 
     public function adminDestroy(Review $review): JsonResponse

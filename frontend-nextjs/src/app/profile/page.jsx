@@ -1,140 +1,51 @@
 'use client';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { LeaveContext } from './ProfileShell';
-import Button from '@/components/ui/Button';
-import Modal from '@/components/ui/Modal';
-import { api, errorMessage, fieldErrors } from '@/lib/api';
+import { useEffect, useState } from 'react';
+import FormError from '@/components/ui/FormError';
+import { api, errorMessage } from '@/lib/api';
+import { useSubmit } from '@/lib/useSubmit';
 import { useAuthStore } from '@/store/authStore';
-import { toast } from '@/store/toastStore';
+import DeleteAccount from './DeleteAccount';
+import ProfilePhoto from './ProfilePhoto';
+
+const syncNavbar = (patch) => {
+  const store = useAuthStore.getState();
+  store.setUser({ ...store.user, ...patch });
+};
 
 export default function AccountPage() {
-  const router = useRouter();
-  const leave = useContext(LeaveContext);
   const [profile, setProfile] = useState(null);
   const [form, setForm] = useState({ nom: '', telephone: '', adresse: '', date_naissance: '' });
-  const [errors, setErrors] = useState({});
-  const [saving, setSaving] = useState(false);
-  const [askPhoto, setAskPhoto] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [askDelete, setAskDelete] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
-  const [deleting, setDeleting] = useState(false);
-  const fileRef = useRef(null);
+  const details = useSubmit();
+  const { errors, busy: saving, setError: setLoadError } = details;
 
   function apply(p) {
     setProfile(p);
     setForm({ nom: p.name, telephone: p.phone, adresse: p.address, date_naissance: p.birth_date });
-    const store = useAuthStore.getState();
-    store.setUser({ ...store.user, name: p.name, image_url: p.image_url });
-  }
-
-  useEffect(() => {
-    api.get('/profile').then(({ data }) => apply(data)).catch((e) => toast.error(errorMessage(e)));
-  }, []);
-
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-
-  async function save(e) {
-    e.preventDefault();
-    setSaving(true);
-    setErrors({});
-    try {
-      const { data } = await api.put('/profile', form);
-      apply(data.profile);
-      toast.success(data.message);
-    } catch (err) {
-      setErrors(fieldErrors(err));
-      toast.error(errorMessage(err));
-    } finally {
-      setSaving(false);
-    }
-  }
-
-  function choosePhoto() {
-    setAskPhoto(false);
-    fileRef.current?.click();
-  }
-
-  async function onPhoto(e) {
-    const file = e.target.files?.[0];
-    e.target.value = '';   // permet de rechoisir le même fichier après une erreur
-    if (!file) return;
-    setUploading(true);
-    const fd = new FormData();
-    fd.append('image', file);
-    try {
-      const { data } = await api.post('/profile/image', fd);
-      keepTyping(data.profile);
-      toast.success(data.message);
-    } catch (err) {
-      toast.error(errorMessage(err));
-    } finally {
-      setUploading(false);
-    }
+    syncNavbar({ name: p.name, image_url: p.image_url });
   }
 
   // Change seulement la photo : ne perd pas la saisie en cours dans le formulaire
-  function keepTyping(p) {
+  function photoChanged(p) {
     setProfile(p);
-    const store = useAuthStore.getState();
-    store.setUser({ ...store.user, image_url: p.image_url });
+    syncNavbar({ image_url: p.image_url });
   }
 
-  async function removePhoto() {
-    setAskPhoto(false);
-    setUploading(true);
-    try {
-      const { data } = await api.delete('/profile/image');
-      keepTyping(data.profile);
-      toast.success(data.message);
-    } catch (err) {
-      toast.error(errorMessage(err));
-    } finally {
-      setUploading(false);
-    }
+  useEffect(() => {
+    api.get('/profile').then(({ data }) => apply(data)).catch((e) => setLoadError(errorMessage(e)));
+  }, [setLoadError]);
+
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  function save(e) {
+    e.preventDefault();
+    details.run(() => api.put('/profile', form), (data) => apply(data.profile));
   }
 
-  function closeDelete() {
-    setAskDelete(false);
-    setConfirmed(false);
-  }
-
-  async function removeAccount() {
-    setDeleting(true);
-    try {
-      const { data } = await api.delete('/profile');
-      leave();
-      useAuthStore.getState().clear();
-      toast.success(data.message);
-      router.replace('/');
-    } catch (err) {
-      closeDelete();
-      toast.error(errorMessage(err));
-      setDeleting(false);
-    }
-  }
-
-  if (!profile) return <p className="loading-line">Chargement…</p>;
+  if (!profile) return details.error ? <FormError message={details.error} /> : <p className="loading-line">Chargement…</p>;
 
   return (
     <>
-      <header className="pf-head">
-        <button type="button" className="pf-avatar" onClick={() => setAskPhoto(true)} disabled={uploading} aria-label="Changer la photo de profil">
-          {profile.image_url ? (
-            <Image src={profile.image_url} alt="" fill sizes="140px" />
-          ) : (
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.6" /><path d="M5 20a7.2 7.2 0 0 1 14 0 9.6 9.6 0 0 1-14 0z" /></svg>
-          )}
-        </button>
-        <div>
-          <h1 className="pf-title">{profile.name}</h1>
-          <p className="pf-email">{profile.email}</p>
-          <button type="button" className="pf-photo-link" onClick={() => setAskPhoto(true)} disabled={uploading}>Changer la photo</button>
-        </div>
-      </header>
-      <input ref={fileRef} type="file" hidden accept="image/jpeg,image/png,image/webp,image/gif" onChange={onPhoto} />
+      <ProfilePhoto profile={profile} onChange={photoChanged} />
 
       <form className="pf-form" onSubmit={save} noValidate>
         <PfField id="nom" label="Nom complet" error={errors.nom}>
@@ -151,37 +62,11 @@ export default function AccountPage() {
             <input id="date_naissance" type="date" autoComplete="bday" value={form.date_naissance} onChange={set('date_naissance')} />
           </PfField>
         </div>
+        <FormError message={details.error} success={details.success} />
         <button type="submit" className="pf-save" disabled={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</button>
       </form>
 
-      <section className="pf-danger">
-        <div>
-          <strong>Supprimer mon compte</strong>
-          <p>Vos informations, favoris et avis seront effacés définitivement.</p>
-        </div>
-        <button type="button" className="pf-delete" onClick={() => setAskDelete(true)}>Supprimer mon compte</button>
-      </section>
-
-      <Modal open={askPhoto} onClose={() => setAskPhoto(false)} title="Photo de profil">
-        <p>Voulez-vous changer votre photo ?</p>
-        <div className="dialog-actions">
-          {profile.image_url && <button type="button" className="btn-danger" onClick={removePhoto}>Supprimer la photo</button>}
-          <button type="button" className="btn-ghost" onClick={() => setAskPhoto(false)}>Non</button>
-          <Button size="sm" onClick={choosePhoto}>Oui</Button>
-        </div>
-      </Modal>
-
-      <Modal open={askDelete} onClose={closeDelete} title="Supprimer mon compte">
-        <p>Voulez-vous vraiment supprimer votre compte ? Cette action est définitive.</p>
-        <button type="button" className={`pf-x${confirmed ? ' on' : ''}`} role="checkbox" aria-checked={confirmed} onClick={() => setConfirmed((c) => !c)}>
-          <span aria-hidden="true">{confirmed ? '✕' : ''}</span>
-          Je confirme la suppression de mon compte
-        </button>
-        <div className="dialog-actions">
-          <button type="button" className="btn-ghost" onClick={closeDelete}>Annuler</button>
-          <Button variant="danger" size="sm" disabled={!confirmed} loading={deleting} onClick={removeAccount}>Supprimer</Button>
-        </div>
-      </Modal>
+      <DeleteAccount />
     </>
   );
 }

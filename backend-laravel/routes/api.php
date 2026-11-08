@@ -43,6 +43,7 @@ Route::middleware('throttle:api')->group(function () {
             Route::post('/orders', [OrderController::class, 'store']);
             Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])->whereNumber('product');
             Route::get('/products/{product}/reviews/mine', [ReviewController::class, 'mine'])->whereNumber('product');
+            Route::delete('/products/{product}/reviews/mine', [ReviewController::class, 'destroyMine'])->whereNumber('product');
             Route::get('/favorites', [FavoriteController::class, 'index']);
             Route::get('/favorites/products', [FavoriteController::class, 'products']);
             Route::post('/reports', [ReportController::class, 'store'])->middleware('throttle:5,1');

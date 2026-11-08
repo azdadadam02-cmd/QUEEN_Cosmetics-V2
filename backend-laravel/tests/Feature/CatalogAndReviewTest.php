@@ -33,7 +33,7 @@ class CatalogAndReviewTest extends TestCase
 
         $this->postJson("/api/products/{$p->id}/reviews", ['note' => 5, 'commentaire' => 'Très bien'])->assertCreated();
         $this->getJson("/api/products/{$p->id}/reviews")->assertOk()->assertJsonCount(0);
-        $this->getJson("/api/products/{$p->id}/reviews/mine")->assertOk()->assertJsonPath('rating', 5);
+        $this->getJson("/api/products/{$p->id}/reviews/mine")->assertOk()->assertJsonPath('rating', 5)->assertJsonStructure(['date']);
 
         Sanctum::actingAs($this->user('admin'));
         $review = Review::firstOrFail();
@@ -42,7 +42,8 @@ class CatalogAndReviewTest extends TestCase
         $this->getJson("/api/products/{$p->id}/reviews")
             ->assertOk()
             ->assertJsonCount(1)
-            ->assertJsonPath('0.author', 'Salma');
+            ->assertJsonPath('0.author', 'Salma')
+            ->assertJsonStructure([['date']]);
     }
 
     public function test_a_new_review_from_the_same_client_goes_back_to_moderation(): void
@@ -69,6 +70,39 @@ class CatalogAndReviewTest extends TestCase
         $this->postJson("/api/products/{$p->id}/reviews", ['note' => 5])->assertCreated();
 
         $this->assertTrue(Review::first()->date_avis->gt(now()->subMinute()));
+    }
+
+    public function test_a_client_can_delete_only_their_own_review(): void
+    {
+        $p = $this->product();
+        $me = $this->user('client');
+        $other = $this->user('client');
+        Review::create(['produit_id' => $p->id, 'utilisateur_id' => $me->id, 'note' => 4, 'est_approuve' => true]);
+        Review::create(['produit_id' => $p->id, 'utilisateur_id' => $other->id, 'note' => 2, 'est_approuve' => true]);
+
+        Sanctum::actingAs($me);
+        $this->deleteJson("/api/products/{$p->id}/reviews/mine")->assertOk();
+        $this->deleteJson("/api/products/{$p->id}/reviews/mine")->assertNotFound();
+
+        $this->assertSame([$other->id], Review::pluck('utilisateur_id')->all());
+        $this->getJson("/api/products/{$p->id}/reviews/mine")->assertNoContent();
+    }
+
+    public function test_mine_has_an_empty_body_when_the_client_has_no_review(): void
+    {
+        $p = $this->product();
+        Sanctum::actingAs($this->user('client'));
+
+        $res = $this->getJson("/api/products/{$p->id}/reviews/mine")->assertNoContent();
+        $this->assertSame('', $res->getContent());
+    }
+
+    public function test_staff_cannot_use_the_client_review_delete(): void
+    {
+        $p = $this->product();
+        Sanctum::actingAs($this->user('admin'));
+
+        $this->deleteJson("/api/products/{$p->id}/reviews/mine")->assertForbidden();
     }
 
     public function test_a_review_needs_a_rating_between_1_and_5(): void

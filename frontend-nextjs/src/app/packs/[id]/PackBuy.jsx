@@ -1,16 +1,16 @@
 'use client';
 import { useState } from 'react';
+import FormError from '@/components/ui/FormError';
 import { MAX_QTE, useCartStore } from '@/store/cartStore';
-import { toast } from '@/store/toastStore';
 
 export default function PackBuy({ pack }) {
   const addPack = useCartStore((s) => s.addPack);
   const max = Math.min(pack.stock, MAX_QTE);
   const [qty, setQty] = useState(1);
+  const [notice, setNotice] = useState(null);
 
   function add() {
-    const { ok, message } = addPack(pack, qty);
-    (ok ? toast.success : toast.error)(message);
+    setNotice(addPack(pack, qty));
   }
 
   return (
@@ -23,6 +23,7 @@ export default function PackBuy({ pack }) {
         </select>
         <button type="button" onClick={add} disabled={max <= 0}>{max > 0 ? 'Ajouter' : 'Indisponible'}</button>
       </div>
+      <FormError message={notice?.ok ? '' : notice?.message} success={notice?.ok ? notice.message : ''} />
     </>
   );
 }

@@ -12,6 +12,7 @@ class StoreOrderRequest extends FormRequest
         return $this->user()?->role === 'client';
     }
 
+    /** Nettoie le téléphone avant validation : « 06 12-34.56 78 » → « 0612345678 » */
     protected function prepareForValidation(): void
     {
         $this->merge([

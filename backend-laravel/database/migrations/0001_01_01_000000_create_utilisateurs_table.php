@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Table « utilisateurs » — même structure que l'ancienne base queen_db
+ * (nom, email, mot_de_passe, role) pour pouvoir garder les comptes existants.
+ */
 return new class extends Migration
 {
     public function up(): void

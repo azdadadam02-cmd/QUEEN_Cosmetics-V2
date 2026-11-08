@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/** Paiement à la livraison (table « paiements ») : « Non paye » → « Paye » quand la commande est livrée */
 class Payment extends Model
 {
     public const NON_PAYE = 'Non paye';

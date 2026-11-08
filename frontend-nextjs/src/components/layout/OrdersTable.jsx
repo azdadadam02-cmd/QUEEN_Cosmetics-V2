@@ -13,6 +13,7 @@ const ACTIONS = {
   Refusee: ['btn-danger', 'Refuser'],
 };
 
+/** Liste des commandes. readOnly = admin (consultation), sinon responsable commandes (actions) */
 export default function OrdersTable({ readOnly = false }) {
   const [filter, setFilter] = useState('');
   const [data, setData] = useState(null);

@@ -29,6 +29,7 @@ const SERVICES = [
 export const LeaveContext = createContext(() => {});
 
 export default function ProfileShell({ children }) {
+  // Next garde la page quittée dans le DOM (masquée) : sans ce marqueur, le CSS :has(.pf-shell) cacherait encore la navbar
   const shellRef = useRef(null);
   const [leaving, setLeaving] = useState(false);
   useLayoutEffect(() => {
@@ -40,6 +41,7 @@ export default function ProfileShell({ children }) {
     };
   }, []);
 
+  // Déconnexion volontaire : RequireRole ne doit pas rediriger vers /login en voyant la session disparaître
   return (
     <div className="pf-shell" ref={shellRef}>
       <LeaveContext.Provider value={() => setLeaving(true)}>

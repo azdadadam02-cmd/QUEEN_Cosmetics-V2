@@ -57,7 +57,7 @@ export default function GestionProduitsPage() {
     setSaving(true);
     setErrors({});
     const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => fd.append(k, k === 'stock' && variants.length ? '0' : v));
+    Object.entries(form).forEach(([k, v]) => fd.append(k, k === 'stock' && variants.length ? '0' : v));   // avec variantes, Laravel calcule le total
     if (file) fd.append('image', file);
     fd.append('variants', JSON.stringify(variants.map((v) => ({
       id: v.id,
@@ -66,7 +66,7 @@ export default function GestionProduitsPage() {
       volume_ml: num(v.volume_ml),
       poids_g: num(v.poids_g),
       quantite_pieces: num(v.quantite_pieces),
-      stock: num(v.stock),
+      stock: num(v.stock),   // vide = erreur de Laravel, jamais un 0 silencieux
     }))));
     newImages.forEach((f) => fd.append('gallery[]', f));
     removed.forEach((id) => fd.append('remove_images[]', id));
@@ -137,6 +137,7 @@ export default function GestionProduitsPage() {
               </div>
             ))}
             {variantError && <span className="error-text">{variantError}</span>}
+            {/* La première variante reprend le stock déjà saisi : le champ Stock disparaît, la quantité ne doit pas se perdre */}
             <button type="button" className="btn-ghost" onClick={() => setVariants((l) => [...l, { ...EMPTY_VARIANT, stock: l.length === 0 ? form.stock : '' }])}>+ Ajouter une variante</button>
           </fieldset>
 

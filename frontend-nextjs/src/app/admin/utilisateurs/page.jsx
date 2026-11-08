@@ -12,6 +12,7 @@ import { toast } from '@/store/toastStore';
 const ROLES = ['client', 'responsable_produits', 'responsable_commandes'];
 const EMPTY = { nom: '', email: '', role: 'client', password: '' };
 
+/** Gestion des utilisateurs (sauf comptes admin) */
 export default function UtilisateursPage() {
   const [users, setUsers] = useState(null);
   const [editing, setEditing] = useState(null);

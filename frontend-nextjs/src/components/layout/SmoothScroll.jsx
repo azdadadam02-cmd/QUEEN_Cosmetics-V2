@@ -7,10 +7,12 @@ import { useEffect } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/** Défilement fluide sur tout le site, piloté par GSAP pour rester synchronisé avec ScrollTrigger */
 export default function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // anchors : « voir plus » de la fiche produit, décalé sous la navbar collée
     const lenis = new Lenis({ anchors: { offset: -72 } });
     lenis.on('scroll', ScrollTrigger.update);
     const tick = (time) => lenis.raf(time * 1000);

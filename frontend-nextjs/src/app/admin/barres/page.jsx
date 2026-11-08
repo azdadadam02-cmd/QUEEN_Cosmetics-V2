@@ -11,6 +11,7 @@ import { toast } from '@/store/toastStore';
 const EMPTY_USP = { icone: '', texte: '', lien: '', ordre_affichage: '', est_actif: true };
 const EMPTY_PROMO = { texte: '', lien: '', couleur_fond: '#725A65', couleur_texte: '#FFFFFF', date_debut: '', date_fin: '', est_actif: true };
 
+// <input type="datetime-local"> ↔ ISO (le navigateur gère le fuseau, Laravel le convertit)
 const pad = (n) => String(n).padStart(2, '0');
 const toInput = (iso) => {
   if (!iso) return '';

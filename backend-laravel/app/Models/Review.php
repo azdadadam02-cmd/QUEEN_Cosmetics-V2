@@ -10,7 +10,7 @@ class Review extends Model
     protected $table = 'avis_produits';
     public $timestamps = false;
 
-    protected $fillable = ['produit_id', 'utilisateur_id', 'note', 'commentaire', 'est_approuve'];
+    protected $fillable = ['produit_id', 'utilisateur_id', 'note', 'commentaire', 'est_approuve', 'date_avis'];
 
     protected function casts(): array
     {

@@ -1,19 +1,19 @@
 {
   "version": 3,
   "created": "2026-11-08T15:36:13+00:00",
-  "last_scan": "2026-11-08T16:03:35+00:00",
-  "scan_count": 3,
-  "overall_score": 20.3,
-  "objective_score": 81.2,
+  "last_scan": "2026-11-08T16:22:40+00:00",
+  "scan_count": 4,
+  "overall_score": 20.5,
+  "objective_score": 81.9,
   "strict_score": 20.3,
-  "verified_strict_score": 81.2,
+  "verified_strict_score": 81.9,
   "stats": {
     "total": 136,
-    "auto_resolved": 0,
+    "auto_resolved": 5,
     "deferred": 0,
     "false_positive": 0,
     "fixed": 0,
-    "open": 136,
+    "open": 131,
     "triaged_out": 0,
     "wontfix": 0,
     "by_tier": {
@@ -27,11 +27,11 @@
         "wontfix": 0
       },
       "3": {
-        "auto_resolved": 0,
+        "auto_resolved": 5,
         "deferred": 0,
         "false_positive": 0,
         "fixed": 0,
-        "open": 120,
+        "open": 115,
         "triaged_out": 0,
         "wontfix": 0
       }
@@ -53,12 +53,12 @@
           "cyclomatic complexity 21",
           "1 params"
         ],
-        "loc": 123
+        "loc": 127
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -76,22 +76,22 @@
       "file": "backend-laravel/app/Services/OrderService.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Large file: complexity score 58",
+      "summary": "Large file: complexity score 64",
       "detail": {
-        "complexity_score": 58,
+        "complexity_score": 64,
         "complexity_signals": [
           "nesting depth 2",
-          "longest function 98 LOC",
+          "longest function 100 LOC",
           "cyclomatic complexity 17",
           "4 params",
           "callback depth 2"
         ],
-        "loc": 147
+        "loc": 161
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -109,22 +109,22 @@
       "file": "backend-laravel/app/Console/Commands/SeedTestData.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Large file: complexity score 52",
+      "summary": "Large file: complexity score 55",
       "detail": {
-        "complexity_score": 52,
+        "complexity_score": 55,
         "complexity_signals": [
           "nesting depth 2",
-          "longest function 80 LOC",
+          "longest function 81 LOC",
           "cyclomatic complexity 41",
           "4 params",
           "callback depth 2"
         ],
-        "loc": 254
+        "loc": 265
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -147,7 +147,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -156,7 +156,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "signature::*"
     },
     "signature::backend-laravel/app/Http/Controllers/Api/AdvertisementController.php::signature_variance::destroy": {
@@ -170,7 +170,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -179,7 +179,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "signature::*"
     },
     "signature::backend-laravel/app/Http/Controllers/Api/AdvertisementController.php::signature_variance::update": {
@@ -193,7 +193,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -202,7 +202,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "signature::*"
     },
     "signature::backend-laravel/app/Http/Controllers/Api/AdvertisementController.php::signature_variance::index": {
@@ -216,7 +216,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -225,7 +225,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "signature::*"
     },
     "signature::backend-laravel/app/Http/Controllers/Api/PackController.php::signature_variance::show": {
@@ -239,7 +239,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -248,7 +248,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "signature::*"
     },
     "orphaned::backend-laravel/app/Services/OrderService.php": {
@@ -257,14 +257,14 @@
       "file": "backend-laravel/app/Services/OrderService.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Orphaned file (147 LOC): zero importers, not an entry point",
+      "summary": "Orphaned file (161 LOC): zero importers, not an entry point",
       "detail": {
-        "loc": 147
+        "loc": 161
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -273,7 +273,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Services/CartService.php": {
@@ -282,14 +282,14 @@
       "file": "backend-laravel/app/Services/CartService.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Orphaned file (123 LOC): zero importers, not an entry point",
+      "summary": "Orphaned file (127 LOC): zero importers, not an entry point",
       "detail": {
-        "loc": 123
+        "loc": 127
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -298,7 +298,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Services/FinanceService.php": {
@@ -314,7 +314,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -323,7 +323,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/ProductResource.php": {
@@ -332,14 +332,14 @@
       "file": "backend-laravel/app/Http/Resources/ProductResource.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Orphaned file (50 LOC): zero importers, not an entry point",
+      "summary": "Orphaned file (56 LOC): zero importers, not an entry point",
       "detail": {
-        "loc": 50
+        "loc": 56
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -348,7 +348,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/OrderResource.php": {
@@ -364,7 +364,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -373,7 +373,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/PackResource.php": {
@@ -389,7 +389,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -398,7 +398,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Services/ImageUploader.php": {
@@ -407,14 +407,14 @@
       "file": "backend-laravel/app/Services/ImageUploader.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Orphaned file (24 LOC): zero importers, not an entry point",
+      "summary": "Orphaned file (28 LOC): zero importers, not an entry point",
       "detail": {
-        "loc": 24
+        "loc": 28
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -423,7 +423,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/OrderItemResource.php": {
@@ -439,7 +439,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -448,7 +448,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/PromoResource.php": {
@@ -464,7 +464,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -473,7 +473,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/UserResource.php": {
@@ -482,14 +482,14 @@
       "file": "backend-laravel/app/Http/Resources/UserResource.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Orphaned file (22 LOC): zero importers, not an entry point",
+      "summary": "Orphaned file (23 LOC): zero importers, not an entry point",
       "detail": {
-        "loc": 22
+        "loc": 23
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -498,7 +498,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/AdvertisementResource.php": {
@@ -514,7 +514,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -523,7 +523,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "orphaned::backend-laravel/app/Http/Resources/UspResource.php": {
@@ -539,7 +539,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -548,7 +548,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "orphaned::*"
     },
     "test_coverage::backend-laravel/app/Http/Resources/PromoResource.php::untested_module": {
@@ -567,7 +567,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -585,17 +585,17 @@
       "file": "backend-laravel/app/Http/Resources/UserResource.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (22 LOC, 0 importers)",
+      "summary": "Untested module (23 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 22,
+        "loc": 23,
         "importer_count": 0,
-        "loc_weight": 4.69041575982343
+        "loc_weight": 4.795831523312719
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -623,7 +623,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -641,17 +641,17 @@
       "file": "backend-laravel/database/seeders/DatabaseSeeder.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (63 LOC, 0 importers)",
+      "summary": "Untested module (67 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 63,
+        "loc": 67,
         "importer_count": 0,
-        "loc_weight": 7.937253933193772
+        "loc_weight": 8.18535277187245
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -679,7 +679,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -707,7 +707,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -735,7 +735,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -763,7 +763,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -791,7 +791,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -819,7 +819,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -847,7 +847,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -875,7 +875,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -903,7 +903,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -931,7 +931,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -959,7 +959,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -977,17 +977,17 @@
       "file": "backend-laravel/app/Http/Requests/StoreOrderRequest.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (59 LOC, 0 importers)",
+      "summary": "Untested module (60 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 59,
+        "loc": 60,
         "importer_count": 0,
-        "loc_weight": 7.681145747868608
+        "loc_weight": 7.745966692414834
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1012,11 +1012,11 @@
         "importer_count": 0,
         "loc_weight": 10.04987562112089
       },
-      "status": "open",
-      "note": null,
+      "status": "auto_resolved",
+      "note": "Auto-resolved: absent from latest detector output",
       "first_seen": "2026-11-08T15:36:39+00:00",
       "last_seen": "2026-11-08T16:03:35+00:00",
-      "resolved_at": null,
+      "resolved_at": "2026-11-08T16:22:40+00:00",
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
       "issue_kind": "mechanical_defect",
@@ -1033,17 +1033,17 @@
       "file": "backend-laravel/app/Models/Pack.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (62 LOC, 0 importers)",
+      "summary": "Untested module (72 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 62,
+        "loc": 72,
         "importer_count": 0,
-        "loc_weight": 7.874007874011811
+        "loc_weight": 8.48528137423857
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1071,7 +1071,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1089,17 +1089,17 @@
       "file": "backend-laravel/app/Http/Requests/ProductRequest.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (107 LOC, 0 importers)",
+      "summary": "Untested module (109 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 107,
+        "loc": 109,
         "importer_count": 0,
-        "loc_weight": 10.344080432788601
+        "loc_weight": 10.44030650891055
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1127,7 +1127,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1145,17 +1145,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/UserController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (63 LOC, 0 importers)",
+      "summary": "Untested module (65 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 63,
+        "loc": 65,
         "importer_count": 0,
-        "loc_weight": 7.937253933193772
+        "loc_weight": 8.06225774829855
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1183,7 +1183,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1201,17 +1201,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/ReviewController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (80 LOC, 0 importers)",
+      "summary": "Untested module (82 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 80,
+        "loc": 82,
         "importer_count": 0,
-        "loc_weight": 8.94427190999916
+        "loc_weight": 9.055385138137417
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1239,7 +1239,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1257,17 +1257,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/TopBarController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (181 LOC, 0 importers)",
+      "summary": "Untested module (182 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 181,
+        "loc": 182,
         "importer_count": 0,
-        "loc_weight": 13.45362404707371
+        "loc_weight": 13.490737563232042
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1292,11 +1292,11 @@
         "importer_count": 0,
         "loc_weight": 5.196152422706632
       },
-      "status": "open",
-      "note": null,
+      "status": "auto_resolved",
+      "note": "Auto-resolved: absent from latest detector output",
       "first_seen": "2026-11-08T15:36:39+00:00",
       "last_seen": "2026-11-08T16:03:35+00:00",
-      "resolved_at": null,
+      "resolved_at": "2026-11-08T16:22:40+00:00",
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
       "issue_kind": "mechanical_defect",
@@ -1313,18 +1313,18 @@
       "file": "backend-laravel/app/Services/OrderService.php",
       "tier": 2,
       "confidence": "high",
-      "summary": "Untested critical module (147 LOC, 0 importers) \u2014 high blast radius",
+      "summary": "Untested critical module (161 LOC, 0 importers) \u2014 high blast radius",
       "detail": {
         "kind": "untested_critical",
-        "loc": 147,
+        "loc": 161,
         "importer_count": 0,
-        "loc_weight": 12.12435565298214,
-        "complexity_score": 58
+        "loc_weight": 12.68857754044952,
+        "complexity_score": 64
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1342,17 +1342,17 @@
       "file": "backend-laravel/app/Services/ImageUploader.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (24 LOC, 0 importers)",
+      "summary": "Untested module (28 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 24,
+        "loc": 28,
         "importer_count": 0,
-        "loc_weight": 4.898979485566356
+        "loc_weight": 5.291502622129181
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1380,7 +1380,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1398,18 +1398,18 @@
       "file": "backend-laravel/app/Console/Commands/SeedTestData.php",
       "tier": 2,
       "confidence": "high",
-      "summary": "Untested critical module (254 LOC, 0 importers) \u2014 high blast radius",
+      "summary": "Untested critical module (265 LOC, 0 importers) \u2014 high blast radius",
       "detail": {
         "kind": "untested_critical",
-        "loc": 254,
+        "loc": 265,
         "importer_count": 0,
-        "loc_weight": 15.937377450509228,
-        "complexity_score": 52
+        "loc_weight": 16.278820596099706,
+        "complexity_score": 55
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1427,17 +1427,17 @@
       "file": "backend-laravel/app/Console/Commands/ImportProductImages.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (62 LOC, 0 importers)",
+      "summary": "Untested module (66 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 62,
+        "loc": 66,
         "importer_count": 0,
-        "loc_weight": 7.874007874011811
+        "loc_weight": 8.12403840463596
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1455,17 +1455,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/ProductController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (197 LOC, 0 importers)",
+      "summary": "Untested module (202 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 197,
+        "loc": 202,
         "importer_count": 0,
-        "loc_weight": 14.035668847618199
+        "loc_weight": 14.212670403551895
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1493,7 +1493,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1518,11 +1518,11 @@
         "importer_count": 0,
         "loc_weight": 6.928203230275509
       },
-      "status": "open",
-      "note": null,
+      "status": "auto_resolved",
+      "note": "Auto-resolved: absent from latest detector output",
       "first_seen": "2026-11-08T15:36:39+00:00",
       "last_seen": "2026-11-08T16:03:35+00:00",
-      "resolved_at": null,
+      "resolved_at": "2026-11-08T16:22:40+00:00",
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
       "issue_kind": "mechanical_defect",
@@ -1549,7 +1549,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1567,17 +1567,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/AuthController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (94 LOC, 0 importers)",
+      "summary": "Untested module (95 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 94,
+        "loc": 95,
         "importer_count": 0,
-        "loc_weight": 9.695359714832659
+        "loc_weight": 9.746794344808963
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1602,11 +1602,11 @@
         "importer_count": 0,
         "loc_weight": 7.483314773547883
       },
-      "status": "open",
-      "note": null,
+      "status": "auto_resolved",
+      "note": "Auto-resolved: absent from latest detector output",
       "first_seen": "2026-11-08T15:36:39+00:00",
       "last_seen": "2026-11-08T16:03:35+00:00",
-      "resolved_at": null,
+      "resolved_at": "2026-11-08T16:22:40+00:00",
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
       "issue_kind": "mechanical_defect",
@@ -1623,17 +1623,17 @@
       "file": "backend-laravel/app/Http/Resources/ProductResource.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (50 LOC, 0 importers)",
+      "summary": "Untested module (56 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 50,
+        "loc": 56,
         "importer_count": 0,
-        "loc_weight": 7.0710678118654755
+        "loc_weight": 7.483314773547883
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1661,7 +1661,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1689,7 +1689,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1707,17 +1707,17 @@
       "file": "backend-laravel/app/Providers/AppServiceProvider.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (28 LOC, 0 importers)",
+      "summary": "Untested module (29 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 28,
+        "loc": 29,
         "importer_count": 0,
-        "loc_weight": 5.291502622129181
+        "loc_weight": 5.385164807134504
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1735,17 +1735,17 @@
       "file": "backend-laravel/app/Console/Commands/FetchProductImages.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (76 LOC, 0 importers)",
+      "summary": "Untested module (82 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 76,
+        "loc": 82,
         "importer_count": 0,
-        "loc_weight": 8.717797887081348
+        "loc_weight": 9.055385138137417
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1773,7 +1773,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1791,17 +1791,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/PackController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (81 LOC, 0 importers)",
+      "summary": "Untested module (83 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 81,
+        "loc": 83,
         "importer_count": 0,
-        "loc_weight": 9.0
+        "loc_weight": 9.1104335791443
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1829,7 +1829,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1847,17 +1847,17 @@
       "file": "backend-laravel/app/Http/Controllers/Api/ProfileController.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (137 LOC, 0 importers)",
+      "summary": "Untested module (142 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 137,
+        "loc": 142,
         "importer_count": 0,
-        "loc_weight": 11.704699910719626
+        "loc_weight": 11.916375287812984
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1885,7 +1885,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1910,11 +1910,11 @@
         "importer_count": 0,
         "loc_weight": 5.385164807134504
       },
-      "status": "open",
-      "note": null,
+      "status": "auto_resolved",
+      "note": "Auto-resolved: absent from latest detector output",
       "first_seen": "2026-11-08T15:36:39+00:00",
       "last_seen": "2026-11-08T16:03:35+00:00",
-      "resolved_at": null,
+      "resolved_at": "2026-11-08T16:22:40+00:00",
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
       "issue_kind": "mechanical_defect",
@@ -1941,7 +1941,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1969,7 +1969,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -1997,7 +1997,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2015,18 +2015,18 @@
       "file": "backend-laravel/app/Services/CartService.php",
       "tier": 2,
       "confidence": "high",
-      "summary": "Untested critical module (123 LOC, 0 importers) \u2014 high blast radius",
+      "summary": "Untested critical module (127 LOC, 0 importers) \u2014 high blast radius",
       "detail": {
         "kind": "untested_critical",
-        "loc": 123,
+        "loc": 127,
         "importer_count": 0,
-        "loc_weight": 11.090536506409418,
+        "loc_weight": 11.269427669584644,
         "complexity_score": 102
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2054,7 +2054,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2082,7 +2082,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2100,17 +2100,17 @@
       "file": "backend-laravel/app/Http/Middleware/EnsureRole.php",
       "tier": 3,
       "confidence": "high",
-      "summary": "Untested module (30 LOC, 0 importers)",
+      "summary": "Untested module (34 LOC, 0 importers)",
       "detail": {
         "kind": "untested_module",
-        "loc": 30,
+        "loc": 34,
         "importer_count": 0,
-        "loc_weight": 5.477225575051661
+        "loc_weight": 5.830951894845301
       },
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:39+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2340,7 +2340,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:40+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2349,7 +2349,7 @@
       "lang": "php",
       "zone": "production",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "boilerplate_duplication::backend-laravel/app/Http/Requests/*"
     },
     "boilerplate_duplication::backend-laravel/app/Http/Controllers/Api/PackController.php::f43470cb6da6a9b7": {
@@ -2358,18 +2358,18 @@
       "file": "backend-laravel/app/Http/Controllers/Api/PackController.php",
       "tier": 3,
       "confidence": "medium",
-      "summary": "Boilerplate block repeated across 2 files (window 6 lines): backend-laravel/app/Http/Controllers/Api/PackController.php:45, backend-laravel/app/Http/Controllers/Api/ProductController.php:138",
+      "summary": "Boilerplate block repeated across 2 files (window 6 lines): backend-laravel/app/Http/Controllers/Api/PackController.php:46, backend-laravel/app/Http/Controllers/Api/ProductController.php:142",
       "detail": {
         "distinct_files": 2,
         "window_size": 6,
         "locations": [
           {
             "file": "backend-laravel/app/Http/Controllers/Api/PackController.php",
-            "line": 45
+            "line": 46
           },
           {
             "file": "backend-laravel/app/Http/Controllers/Api/ProductController.php",
-            "line": 138
+            "line": 142
           }
         ],
         "sample": [
@@ -2382,7 +2382,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:40+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2408,7 +2408,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:40+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2416,7 +2416,7 @@
       "origin": "scan",
       "lang": "php",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "stale_exclude::*"
     },
     "stale_exclude::.playwright-mcp::.playwright-mcp": {
@@ -2433,7 +2433,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T15:36:40+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -2441,7 +2441,7 @@
       "origin": "scan",
       "lang": "php",
       "suppressed": true,
-      "suppressed_at": "2026-11-08T16:03:35+00:00",
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
       "suppression_pattern": "stale_exclude::*"
     },
     "structural::frontend-nextjs/src/app/admin/barres/page.jsx": {
@@ -6779,7 +6779,7 @@
       "status": "open",
       "note": null,
       "first_seen": "2026-11-08T16:03:35+00:00",
-      "last_seen": "2026-11-08T16:03:35+00:00",
+      "last_seen": "2026-11-08T16:22:40+00:00",
       "resolved_at": null,
       "reopen_count": 0,
       "work_item_kind": "mechanical_defect",
@@ -6790,6 +6790,52 @@
       "suppressed": false,
       "suppressed_at": null,
       "suppression_pattern": null
+    },
+    "signature::backend-laravel/app/Models/Advertisement.php::signature_variance::product": {
+      "id": "signature::backend-laravel/app/Models/Advertisement.php::signature_variance::product",
+      "detector": "signature",
+      "file": "backend-laravel/app/Models/Advertisement.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'product' has 2 different signatures across 5 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-08T16:22:39+00:00",
+      "last_seen": "2026-11-08T16:22:39+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": true,
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
+      "suppression_pattern": "signature::*"
+    },
+    "signature::backend-laravel/app/Models/Report.php::signature_variance::user": {
+      "id": "signature::backend-laravel/app/Models/Report.php::signature_variance::user",
+      "detector": "signature",
+      "file": "backend-laravel/app/Models/Report.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'user' has 2 different signatures across 3 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-08T16:22:39+00:00",
+      "last_seen": "2026-11-08T16:22:39+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": true,
+      "suppressed_at": "2026-11-08T16:22:40+00:00",
+      "suppression_pattern": "signature::*"
     }
   },
   "scan_coverage": {
@@ -6830,7 +6876,7 @@
           "reason": "tool_not_found"
         }
       ],
-      "updated_at": "2026-11-08T16:03:35+00:00"
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "javascript": {
       "status": "reduced",
@@ -7276,27 +7322,148 @@
           "strict": 0.0
         }
       }
+    },
+    {
+      "timestamp": "2026-11-08T16:22:40+00:00",
+      "lang": "php",
+      "strict_score": 20.3,
+      "verified_strict_score": 81.9,
+      "objective_score": 81.9,
+      "overall_score": 20.5,
+      "open": 131,
+      "diff_new": 0,
+      "diff_resolved": 5,
+      "ignored": 22,
+      "raw_issues": 78,
+      "suppressed_pct": 28.2,
+      "ignore_patterns": 7,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 85.0
+      },
+      "score_confidence": {
+        "status": "full",
+        "confidence": 1.0,
+        "detector_count": 0,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "Code quality": {
+          "score": 99.7,
+          "strict": 99.7
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "File health": {
+          "score": 92.9,
+          "strict": 92.9
+        },
+        "Duplication": {
+          "score": 97.7,
+          "strict": 97.7
+        },
+        "Test health": {
+          "score": 13.8,
+          "strict": 10.0
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "API coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Auth consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Contracts": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Stale migration": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Init coupling": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Logic clarity": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Naming quality": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Type safety": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
     }
   ],
   "review_cache": {
     "detectors": {
       "boilerplate": {
         "version": 1,
-        "fingerprint": "a7d8233e6939ea7cf53b049507ca2219d6f50fe5",
+        "fingerprint": "74018b8ca7bfa6cf18ebc10dc719140deeac7fc2",
         "entries": [
           {
             "id": "b58f858a5764d5de",
-            "distinct_files": 6,
+            "distinct_files": 4,
             "window_size": 11,
             "locations": [
-              {
-                "file": "backend-laravel/database/migrations/0001_01_01_000000_create_utilisateurs_table.php",
-                "line": 1
-              },
-              {
-                "file": "backend-laravel/database/migrations/2026_01_01_000001_create_queen_tables.php",
-                "line": 1
-              },
               {
                 "file": "backend-laravel/database/migrations/2026_11_05_000001_create_top_bars_tables.php",
                 "line": 1
@@ -7336,7 +7503,7 @@
               },
               {
                 "file": "frontend-nextjs/src/components/layout/PacksManager.jsx",
-                "line": 62
+                "line": 63
               }
             ],
             "sample": [
@@ -7353,7 +7520,7 @@
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/admin/barres/page.jsx",
-                "line": 239
+                "line": 240
               },
               {
                 "file": "frontend-nextjs/src/app/admin/publicites/page.jsx",
@@ -7361,7 +7528,7 @@
               },
               {
                 "file": "frontend-nextjs/src/app/admin/utilisateurs/page.jsx",
-                "line": 99
+                "line": 100
               }
             ],
             "sample": [
@@ -7382,11 +7549,11 @@
               },
               {
                 "file": "frontend-nextjs/src/app/admin/utilisateurs/page.jsx",
-                "line": 41
+                "line": 42
               },
               {
                 "file": "frontend-nextjs/src/components/layout/PacksManager.jsx",
-                "line": 73
+                "line": 74
               }
             ],
             "sample": [
@@ -7403,11 +7570,11 @@
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/admin/barres/page.jsx",
-                "line": 240
+                "line": 241
               },
               {
                 "file": "frontend-nextjs/src/app/gestion/produits/page.jsx",
-                "line": 163
+                "line": 164
               }
             ],
             "sample": [
@@ -7418,34 +7585,13 @@
             ]
           },
           {
-            "id": "3b6a545a2a24ec31",
-            "distinct_files": 2,
-            "window_size": 9,
-            "locations": [
-              {
-                "file": "backend-laravel/database/migrations/2026_11_06_000001_add_product_variants_gallery_favorites.php",
-                "line": 1
-              },
-              {
-                "file": "backend-laravel/database/migrations/2026_11_07_000003_add_pack_customization_and_orders.php",
-                "line": 1
-              }
-            ],
-            "sample": [
-              "<?php",
-              "",
-              "use Illuminate\\Database\\Migrations\\Migration;",
-              "use Illuminate\\Database\\Schema\\Blueprint;"
-            ]
-          },
-          {
             "id": "3d0ea5aa120fa969",
             "distinct_files": 2,
             "window_size": 12,
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/admin/barres/page.jsx",
-                "line": 98
+                "line": 99
               },
               {
                 "file": "frontend-nextjs/src/app/admin/publicites/page.jsx",
@@ -7466,11 +7612,11 @@
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/gestion/produits/page.jsx",
-                "line": 160
+                "line": 161
               },
               {
                 "file": "frontend-nextjs/src/components/layout/PacksManager.jsx",
-                "line": 166
+                "line": 167
               }
             ],
             "sample": [
@@ -7533,7 +7679,7 @@
               },
               {
                 "file": "frontend-nextjs/src/app/admin/utilisateurs/page.jsx",
-                "line": 32
+                "line": 33
               }
             ],
             "sample": [
@@ -7550,11 +7696,11 @@
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/gestion/produits/page.jsx",
-                "line": 143
+                "line": 144
               },
               {
                 "file": "frontend-nextjs/src/components/layout/PacksManager.jsx",
-                "line": 111
+                "line": 112
               }
             ],
             "sample": [
@@ -7571,7 +7717,7 @@
             "locations": [
               {
                 "file": "frontend-nextjs/src/app/admin/utilisateurs/page.jsx",
-                "line": 34
+                "line": 35
               },
               {
                 "file": "frontend-nextjs/src/app/profile/page.jsx",
@@ -7596,7 +7742,7 @@
               },
               {
                 "file": "frontend-nextjs/src/components/layout/PacksManager.jsx",
-                "line": 64
+                "line": 65
               }
             ],
             "sample": [
@@ -7613,11 +7759,11 @@
             "locations": [
               {
                 "file": "backend-laravel/app/Http/Controllers/Api/PackController.php",
-                "line": 45
+                "line": 46
               },
               {
                 "file": "backend-laravel/app/Http/Controllers/Api/ProductController.php",
-                "line": 138
+                "line": 142
               }
             ],
             "sample": [
@@ -7631,7 +7777,7 @@
       },
       "security": {
         "version": 1,
-        "fingerprint": "790f7c0a017b949e4216c965873c88d9cb9a074c",
+        "fingerprint": "ea20b0ff408060e2d297fdfb9301d73a11bde0bb",
         "entries": [],
         "files_scanned": 0,
         "coverage": null
@@ -7640,63 +7786,63 @@
         "version": 1,
         "threshold": 0.9,
         "functions": {
-          "backend-laravel/app/Console/Commands/FetchProductImages.php:handle:15:45": {
+          "backend-laravel/app/Console/Commands/FetchProductImages.php:handle:20:50": {
             "body_hash": "f873c97e2e7f54223763084b78489e14",
             "loc": 31
           },
-          "backend-laravel/app/Console/Commands/FetchProductImages.php:find:47:75": {
-            "body_hash": "dc3408dd5d5e5baa81f11bfff91a1c34",
-            "loc": 29
+          "backend-laravel/app/Console/Commands/FetchProductImages.php:find:52:81": {
+            "body_hash": "8634774e6890dc3c0cf8577ec39c2182",
+            "loc": 30
           },
-          "backend-laravel/app/Console/Commands/ImportProductImages.php:handle:14:61": {
+          "backend-laravel/app/Console/Commands/ImportProductImages.php:handle:18:65": {
             "body_hash": "c35a20a4173be6674d800bc2fa639f31",
             "loc": 48
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:backupFile:24:27": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:backupFile:29:32": {
             "body_hash": "c1f2f0759bf1ef3a816387cb72dce16f",
             "loc": 4
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:handle:29:32": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:handle:34:37": {
             "body_hash": "852c23386cac3d0efac14dc5c27d174a",
             "loc": 4
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:generate:34:113": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:generate:39:119": {
             "body_hash": "56c28b927b3550a0ea961d4f1805560b",
-            "loc": 80
+            "loc": 81
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:undo:115:135": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:undo:121:141": {
             "body_hash": "4fc082c0cd4f18565a69926c6ab6fa49",
             "loc": 21
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:stock:137:147": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:stock:143:153": {
             "body_hash": "8579bc2ebe7533c326adf93b77dc1e4f",
             "loc": 11
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:pick:149:154": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:pick:155:160": {
             "body_hash": "b38d535fd6604c750a4d4d0d1e7728d0",
             "loc": 6
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:shades:156:159": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:shades:162:165": {
             "body_hash": "afbf5f2090b74f45c76159dfbc1284a1",
             "loc": 4
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:sizes:161:164": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:sizes:167:170": {
             "body_hash": "04776ed010d230a7f21d07bd81ca9dac",
             "loc": 4
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:recipe:166:169": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:recipe:177:180": {
             "body_hash": "dc1192309622611794b066eaa4c9366a",
             "loc": 4
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:byName:171:210": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:byName:182:221": {
             "body_hash": "d9c7a5aa6f2a27e83aecc08ba4e53107",
             "loc": 40
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:bySubCategory:212:248": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:bySubCategory:223:259": {
             "body_hash": "91abad00a9e9e658ce17420b82438b7b",
             "loc": 37
           },
-          "backend-laravel/app/Console/Commands/SeedTestData.php:combos:250:253": {
+          "backend-laravel/app/Console/Commands/SeedTestData.php:combos:261:264": {
             "body_hash": "cef92aec99d92ecc7ce09f4196ee7313",
             "loc": 4
           },
@@ -7724,23 +7870,23 @@
             "body_hash": "878c4a862d10866a2dff541d16157b18",
             "loc": 7
           },
-          "backend-laravel/app/Http/Controllers/Api/AuthController.php:login:22:57": {
+          "backend-laravel/app/Http/Controllers/Api/AuthController.php:login:22:58": {
             "body_hash": "733ef948f04ce1d1d7eea9a2ceb4cc5b",
-            "loc": 36
+            "loc": 37
           },
-          "backend-laravel/app/Http/Controllers/Api/AuthController.php:register:59:69": {
-            "body_hash": "74ef3c5e3fbe64fa74f90a988f105d2d",
+          "backend-laravel/app/Http/Controllers/Api/AuthController.php:register:60:70": {
+            "body_hash": "8c65c838252d52cd0b0c87345877e155",
             "loc": 11
           },
-          "backend-laravel/app/Http/Controllers/Api/AuthController.php:me:71:74": {
+          "backend-laravel/app/Http/Controllers/Api/AuthController.php:me:72:75": {
             "body_hash": "41dc8f63013bd4cc02e5f4fd018a5a9a",
             "loc": 4
           },
-          "backend-laravel/app/Http/Controllers/Api/AuthController.php:logout:76:81": {
+          "backend-laravel/app/Http/Controllers/Api/AuthController.php:logout:77:82": {
             "body_hash": "4196f0b8fe4754b1f6765439a93fb788",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/AuthController.php:tokenResponse:83:93": {
+          "backend-laravel/app/Http/Controllers/Api/AuthController.php:tokenResponse:84:94": {
             "body_hash": "7d508f0866b6e9d623ec686663205e89",
             "loc": 11
           },
@@ -7757,7 +7903,7 @@
             "loc": 6
           },
           "backend-laravel/app/Http/Controllers/Api/FavoriteController.php:toggle:27:39": {
-            "body_hash": "083be8699e830a1d900df415829b3e55",
+            "body_hash": "ac5b594e9bf75c2b42daddde3784714f",
             "loc": 13
           },
           "backend-laravel/app/Http/Controllers/Api/OrderController.php:store:18:42": {
@@ -7784,31 +7930,31 @@
             "body_hash": "6456b6253cf02d1db5853756a8b8a1ba",
             "loc": 4
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:show:21:24": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:show:22:25": {
             "body_hash": "fb61bab429b958c8ceec869f2f192dee",
             "loc": 4
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:manageIndex:26:29": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:manageIndex:27:30": {
             "body_hash": "682a919b4527b9d7da3a8f2b015c36b3",
             "loc": 4
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:store:31:41": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:store:32:42": {
             "body_hash": "df79eb1481c5e6dbef2ef3776953bc34",
             "loc": 11
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:update:43:55": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:update:44:56": {
             "body_hash": "b1a4f4f2f328a22be24251922aedc449",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:destroy:57:62": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:destroy:59:64": {
             "body_hash": "5fe892bf7e2cb10b10dbf88ff9895210",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:fields:64:75": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:fields:66:77": {
             "body_hash": "fecd18104ddc2a59a892a6cc4b17c0bd",
             "loc": 12
           },
-          "backend-laravel/app/Http/Controllers/Api/PackController.php:productLinks:77:80": {
+          "backend-laravel/app/Http/Controllers/Api/PackController.php:productLinks:79:82": {
             "body_hash": "f5b9dcb5322e7d24c3e56d622fbe2dac",
             "loc": 4
           },
@@ -7816,75 +7962,75 @@
             "body_hash": "3168216ca8f4682d14db149f20d97d70",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:show:34:44": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:show:34:45": {
             "body_hash": "a083a7f7dfaf5ac1d073f080b3c63407",
-            "loc": 11
+            "loc": 12
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:suggestions:46:63": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:suggestions:47:65": {
             "body_hash": "de12350881a29d9dc814300e115326c2",
-            "loc": 18
+            "loc": 19
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:categories:65:71": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:categories:67:73": {
             "body_hash": "a15b2582d80726e385eb622065cabdd9",
             "loc": 7
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:manageIndex:73:89": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:manageIndex:75:92": {
             "body_hash": "7120475b79023c943d373711dd890566",
-            "loc": 17
+            "loc": 18
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:destroy:91:96": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:destroy:94:99": {
             "body_hash": "c5e91aaafc103ede16546cdff2d7c6b6",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:restore:98:104": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:restore:101:107": {
             "body_hash": "c6afbec6fc0f63929b0994d8f040ee97",
             "loc": 7
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:forceDestroy:106:119": {
-            "body_hash": "15ad685927f13665ffc7e633a20f2564",
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:forceDestroy:110:123": {
+            "body_hash": "269b86858cc6d521522bdad18a077032",
             "loc": 14
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:store:121:134": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:store:125:138": {
             "body_hash": "1d5828e527f7753d65953be4a3229250",
             "loc": 14
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:update:136:151": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:update:140:155": {
             "body_hash": "26516e5cc0dd3d594d1f28f1a1a9ae34",
             "loc": 16
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:fields:153:166": {
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:fields:157:170": {
             "body_hash": "ab207e256ed1e3f54bb096179168e146",
             "loc": 14
           },
-          "backend-laravel/app/Http/Controllers/Api/ProductController.php:syncExtras:168:196": {
-            "body_hash": "004205dade724b235a49e00c14fc2656",
+          "backend-laravel/app/Http/Controllers/Api/ProductController.php:syncExtras:173:201": {
+            "body_hash": "39dfb0b824fba7c61b50d41280c6a017",
             "loc": 29
           },
           "backend-laravel/app/Http/Controllers/Api/ProfileController.php:show:19:22": {
             "body_hash": "3d60e152278e4bb4ba8d55ddac83077e",
             "loc": 4
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:update:24:59": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:update:24:60": {
             "body_hash": "4de75343f04d722550321ab1f41b083c",
-            "loc": 36
+            "loc": 37
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:updateImage:61:73": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:updateImage:62:74": {
             "body_hash": "eda452927e7c90f950cdbeec0356c04b",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:destroyImage:75:82": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:destroyImage:76:83": {
             "body_hash": "d70dc17d345b9d3720e6e21373487247",
             "loc": 8
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:destroy:84:114": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:destroy:89:119": {
             "body_hash": "f90322ae2fe38dc575e487aa547ceff0",
             "loc": 31
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:payload:116:128": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:payload:121:133": {
             "body_hash": "1ffe7bb8c778b0eff15079bc11171df6",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:deleteImage:130:136": {
+          "backend-laravel/app/Http/Controllers/Api/ProfileController.php:deleteImage:135:141": {
             "body_hash": "cf21d3c6b8f59f903ede6a8278120b5a",
             "loc": 7
           },
@@ -7896,27 +8042,27 @@
             "body_hash": "7de981daeb627306db26bcc059812a31",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:index:13:26": {
-            "body_hash": "b2f59ba878ba340c414779b229603e02",
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:index:14:27": {
+            "body_hash": "ead94c0780549f9fd924ded1d146555c",
             "loc": 14
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:mine:28:33": {
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:mine:29:34": {
             "body_hash": "a641ac4b22354fa9bcd160380a2d123d",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:store:35:49": {
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:store:37:51": {
             "body_hash": "982d49e14b449a69551ce6a2c58cb3b9",
             "loc": 15
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminIndex:51:65": {
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminIndex:53:67": {
             "body_hash": "30e361e5be701d12cae5d6da7403a115",
             "loc": 15
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminUpdate:67:72": {
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminUpdate:69:74": {
             "body_hash": "f019a0021cbeec5219373f0d4a49d3be",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminDestroy:74:79": {
+          "backend-laravel/app/Http/Controllers/Api/ReviewController.php:adminDestroy:76:81": {
             "body_hash": "1bcf481a6f685cfdbeb557e5c73dd674",
             "loc": 6
           },
@@ -7968,35 +8114,35 @@
             "body_hash": "9825a4ef1be9ce7613c3b7e0e31c2ca0",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/TopBarController.php:promoData:147:167": {
+          "backend-laravel/app/Http/Controllers/Api/TopBarController.php:promoData:147:168": {
             "body_hash": "3251dff5e553733b3845b40e3dad6ad6",
-            "loc": 21
+            "loc": 22
           },
-          "backend-laravel/app/Http/Controllers/Api/TopBarController.php:messages:169:180": {
+          "backend-laravel/app/Http/Controllers/Api/TopBarController.php:messages:170:181": {
             "body_hash": "ee775468325d0c13e7058770e6f3e21f",
             "loc": 12
           },
-          "backend-laravel/app/Http/Controllers/Api/UserController.php:index:13:18": {
+          "backend-laravel/app/Http/Controllers/Api/UserController.php:index:14:19": {
             "body_hash": "acf68d622e6b382d50d75fbb50a952da",
             "loc": 6
           },
-          "backend-laravel/app/Http/Controllers/Api/UserController.php:store:20:30": {
+          "backend-laravel/app/Http/Controllers/Api/UserController.php:store:21:31": {
             "body_hash": "047adceb4e78c761da367f83b86a8db1",
             "loc": 11
           },
-          "backend-laravel/app/Http/Controllers/Api/UserController.php:update:32:44": {
-            "body_hash": "25e3d439f18928a5aa34b21db22e85a7",
+          "backend-laravel/app/Http/Controllers/Api/UserController.php:update:33:45": {
+            "body_hash": "a35a00280398ca3344cff0a658809d4e",
             "loc": 13
           },
-          "backend-laravel/app/Http/Controllers/Api/UserController.php:destroy:46:57": {
+          "backend-laravel/app/Http/Controllers/Api/UserController.php:destroy:48:59": {
             "body_hash": "8ab2f3f5182bae855a7b164c3f116769",
             "loc": 12
           },
-          "backend-laravel/app/Http/Controllers/Api/UserController.php:abortIfAdmin:59:62": {
+          "backend-laravel/app/Http/Controllers/Api/UserController.php:abortIfAdmin:61:64": {
             "body_hash": "151dcc7ca6b4cb962dc7c9df856a7533",
             "loc": 4
           },
-          "backend-laravel/app/Http/Middleware/EnsureRole.php:handle:12:29": {
+          "backend-laravel/app/Http/Middleware/EnsureRole.php:handle:16:33": {
             "body_hash": "0b102a543c98d002e59f9d7628989711",
             "loc": 18
           },
@@ -8076,15 +8222,15 @@
             "body_hash": "fec5cb2ad8273f0e57a5a09253beb699",
             "loc": 17
           },
-          "backend-laravel/app/Http/Requests/ProductRequest.php:rules:36:63": {
+          "backend-laravel/app/Http/Requests/ProductRequest.php:rules:36:64": {
             "body_hash": "8bfcac3cee84cff8bc70500de3cf13e7",
-            "loc": 28
+            "loc": 29
           },
-          "backend-laravel/app/Http/Requests/ProductRequest.php:withValidator:65:82": {
+          "backend-laravel/app/Http/Requests/ProductRequest.php:withValidator:67:84": {
             "body_hash": "f5a9f1f2fc762e954c11f0a13f631b24",
             "loc": 18
           },
-          "backend-laravel/app/Http/Requests/ProductRequest.php:messages:84:106": {
+          "backend-laravel/app/Http/Requests/ProductRequest.php:messages:86:108": {
             "body_hash": "f4f1a859d962bd4522f078d0a8aeca73",
             "loc": 23
           },
@@ -8108,15 +8254,15 @@
             "body_hash": "ff786cea57f98b352ffa83effcbd30ce",
             "loc": 4
           },
-          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:prepareForValidation:15:23": {
+          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:prepareForValidation:16:24": {
             "body_hash": "bf9e7cf7a4b5828201b18abb62eb4775",
             "loc": 9
           },
-          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:rules:25:40": {
+          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:rules:26:41": {
             "body_hash": "f51f7b3d4aba2f306a9c58cfa4ffa9e1",
             "loc": 16
           },
-          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:messages:42:58": {
+          "backend-laravel/app/Http/Requests/StoreOrderRequest.php:messages:43:59": {
             "body_hash": "ea4374cfc5492858e04ed32acb1f68dd",
             "loc": 17
           },
@@ -8152,15 +8298,15 @@
             "body_hash": "66ac0dcd1f17c9d086917574118f0b0d",
             "loc": 26
           },
-          "backend-laravel/app/Http/Resources/ProductResource.php:toArray:10:49": {
-            "body_hash": "bd5e5e0df401442e1cc4a15f45297867",
+          "backend-laravel/app/Http/Resources/ProductResource.php:toArray:16:55": {
+            "body_hash": "36017afb2e9c8001e7fbbb4c3622d6c5",
             "loc": 40
           },
           "backend-laravel/app/Http/Resources/PromoResource.php:toArray:10:22": {
             "body_hash": "304cf5468cc274f0120a06d1128f1d0b",
             "loc": 13
           },
-          "backend-laravel/app/Http/Resources/UserResource.php:toArray:10:21": {
+          "backend-laravel/app/Http/Resources/UserResource.php:toArray:11:22": {
             "body_hash": "7139e5e6c9094922c213e000b6d331d7",
             "loc": 12
           },
@@ -8188,23 +8334,23 @@
             "body_hash": "7a756de909ea4004c9216340adb1554f",
             "loc": 4
           },
-          "backend-laravel/app/Models/Order.php:casts:32:35": {
+          "backend-laravel/app/Models/Order.php:casts:34:37": {
             "body_hash": "18fdd4c47c1bb7d56882fc5b5e5bf827",
             "loc": 4
           },
-          "backend-laravel/app/Models/Order.php:client:37:40": {
+          "backend-laravel/app/Models/Order.php:client:39:42": {
             "body_hash": "b5f21861d64415c487ec4954a4d097c4",
             "loc": 4
           },
-          "backend-laravel/app/Models/Order.php:items:42:45": {
+          "backend-laravel/app/Models/Order.php:items:44:47": {
             "body_hash": "d7d0ec284ee444a9ac52a9cfef9fdaf1",
             "loc": 4
           },
-          "backend-laravel/app/Models/Order.php:payment:47:50": {
+          "backend-laravel/app/Models/Order.php:payment:49:52": {
             "body_hash": "a9cb3a2e77c03516e468bdf977d719f7",
             "loc": 4
           },
-          "backend-laravel/app/Models/Order.php:canMoveTo:52:55": {
+          "backend-laravel/app/Models/Order.php:canMoveTo:54:57": {
             "body_hash": "9f2895e9c653e727a12b899b1c6607cb",
             "loc": 4
           },
@@ -8213,7 +8359,7 @@
             "loc": 4
           },
           "backend-laravel/app/Models/OrderItem.php:product:20:23": {
-            "body_hash": "2cda10564eddff6f95fb89837f693998",
+            "body_hash": "d1aef6e644eb9545ae5aebc3d8140150",
             "loc": 4
           },
           "backend-laravel/app/Models/OrderItem.php:pack:25:28": {
@@ -8236,23 +8382,23 @@
             "body_hash": "a1ad48154cbb9734543656105888a73f",
             "loc": 4
           },
-          "backend-laravel/app/Models/Pack.php:availableCount:31:38": {
+          "backend-laravel/app/Models/Pack.php:availableCount:35:43": {
             "body_hash": "5f17cd590c57acd0da6688ba651c631d",
-            "loc": 8
+            "loc": 9
           },
-          "backend-laravel/app/Models/Pack.php:separateValue:40:43": {
+          "backend-laravel/app/Models/Pack.php:separateValue:45:48": {
             "body_hash": "f9a0c142d740a0a0a530b8e3ecacab34",
             "loc": 4
           },
-          "backend-laravel/app/Models/Pack.php:splitForOrder:45:61": {
+          "backend-laravel/app/Models/Pack.php:splitForOrder:55:71": {
             "body_hash": "32a259937a398438070b598cdbb7dfd0",
             "loc": 17
           },
-          "backend-laravel/app/Models/Payment.php:casts:18:21": {
+          "backend-laravel/app/Models/Payment.php:casts:19:22": {
             "body_hash": "b6abda55842c91dc876deaf8f5b4c457",
             "loc": 4
           },
-          "backend-laravel/app/Models/Payment.php:order:23:26": {
+          "backend-laravel/app/Models/Payment.php:order:24:27": {
             "body_hash": "4c8b24bead70aa9cde14c2ee55dd14cf",
             "loc": 4
           },
@@ -8284,27 +8430,27 @@
             "body_hash": "db598e10ff8b9196a07a10a2dbde3b8e",
             "loc": 4
           },
-          "backend-laravel/app/Models/Product.php:syncVariantStock:63:68": {
+          "backend-laravel/app/Models/Product.php:syncVariantStock:64:69": {
             "body_hash": "ec549a70a94230325a7d34a20f37ba1b",
             "loc": 6
           },
-          "backend-laravel/app/Models/Product.php:scopeForShop:70:73": {
+          "backend-laravel/app/Models/Product.php:scopeForShop:71:74": {
             "body_hash": "afb2693114b06c535702b631222570e0",
             "loc": 4
           },
-          "backend-laravel/app/Models/Product.php:promoPercent:75:82": {
+          "backend-laravel/app/Models/Product.php:promoPercent:77:84": {
             "body_hash": "56eebcd31167aa2220ad37d4db3f4bc8",
             "loc": 8
           },
-          "backend-laravel/app/Models/Product.php:finalPrice:84:89": {
+          "backend-laravel/app/Models/Product.php:finalPrice:87:92": {
             "body_hash": "f64f550f20be0d05060ea8483c6e254e",
             "loc": 6
           },
-          "backend-laravel/app/Models/Product.php:sansImage:91:95": {
+          "backend-laravel/app/Models/Product.php:sansImage:95:99": {
             "body_hash": "6bcd5413b24dffff3c90872743f3dd48",
             "loc": 5
           },
-          "backend-laravel/app/Models/Product.php:imageUrl:97:100": {
+          "backend-laravel/app/Models/Product.php:imageUrl:101:104": {
             "body_hash": "ae492eeb1a2c57d5866d5d456d33328a",
             "loc": 4
           },
@@ -8348,19 +8494,19 @@
             "body_hash": "ef3511e6dba9527adfd89d8e549ffd38",
             "loc": 4
           },
-          "backend-laravel/app/Models/User.php:casts:25:28": {
+          "backend-laravel/app/Models/User.php:casts:27:30": {
             "body_hash": "a6d9b5aa09cdf0dc7eae7ec955716337",
             "loc": 4
           },
-          "backend-laravel/app/Models/User.php:orders:30:33": {
+          "backend-laravel/app/Models/User.php:orders:32:35": {
             "body_hash": "76dbf7e7e614959137b3844c3c137f1f",
             "loc": 4
           },
-          "backend-laravel/app/Models/User.php:isAdmin:35:38": {
+          "backend-laravel/app/Models/User.php:isAdmin:37:40": {
             "body_hash": "7c86971ce84dd891e7f3ddf01911b856",
             "loc": 4
           },
-          "backend-laravel/app/Models/User.php:homePath:40:47": {
+          "backend-laravel/app/Models/User.php:homePath:42:49": {
             "body_hash": "6af8ff7c3a5422840bcd1bc67e546ef1",
             "loc": 8
           },
@@ -8372,11 +8518,11 @@
             "body_hash": "965a4de28272e56bd9f1cc779990207d",
             "loc": 3
           },
-          "backend-laravel/app/Providers/AppServiceProvider.php:boot:17:27": {
+          "backend-laravel/app/Providers/AppServiceProvider.php:boot:17:28": {
             "body_hash": "b9b2977eded2e9d4c7bcccb3bd723126",
-            "loc": 11
+            "loc": 12
           },
-          "backend-laravel/app/Services/CartService.php:lines:13:122": {
+          "backend-laravel/app/Services/CartService.php:lines:17:126": {
             "body_hash": "e7b516b34a29c413056ad931397d43ad",
             "loc": 110
           },
@@ -8392,20 +8538,20 @@
             "body_hash": "2a5248eb78ac1c2749f97425ca1b35bc",
             "loc": 26
           },
-          "backend-laravel/app/Services/ImageUploader.php:store:10:23": {
+          "backend-laravel/app/Services/ImageUploader.php:store:14:27": {
             "body_hash": "edd96e8e7bd4515030a8f3e5b50b8443",
             "loc": 14
           },
-          "backend-laravel/app/Services/OrderService.php:create:17:114": {
+          "backend-laravel/app/Services/OrderService.php:create:25:124": {
             "body_hash": "8797fa642d73193ba9bc261d5126bcc3",
-            "loc": 98
+            "loc": 100
           },
-          "backend-laravel/app/Services/OrderService.php:changeStatus:116:146": {
-            "body_hash": "bddf6a6dbf4cbb1a24d8c0f49a502a92",
+          "backend-laravel/app/Services/OrderService.php:changeStatus:130:160": {
+            "body_hash": "5147739620aeac8180d56b264714ce92",
             "loc": 31
           },
-          "backend-laravel/database/seeders/DatabaseSeeder.php:run:14:62": {
-            "body_hash": "8991f31ab50dd32e8591e65a4e0c6b3f",
+          "backend-laravel/database/seeders/DatabaseSeeder.php:run:18:66": {
+            "body_hash": "9aa190fe49c7afdb176a0f6fa2df7a97",
             "loc": 49
           }
         },
@@ -8430,7 +8576,7 @@
     "generated": 14,
     "config": 12,
     "script": 1,
-    "test": 1
+    "test": 6
   },
   "tool_hash": "f62aad694b9e",
   "scan_path": ".",
@@ -8441,14 +8587,14 @@
   "potentials": {
     "php": {
       "structural": 65,
-      "flat_dirs": 22,
+      "flat_dirs": 23,
       "unused_imports": 1,
-      "signature": 5,
+      "signature": 7,
       "security": 65,
       "single_use": 0,
       "cycles": 65,
       "orphaned": 65,
-      "test_coverage": 404,
+      "test_coverage": 409,
       "boilerplate_duplication": 4,
       "dupes": 192,
       "stale_wontfix": 0
@@ -8470,9 +8616,9 @@
   },
   "codebase_metrics": {
     "php": {
-      "total_files": 92,
-      "total_loc": 5134,
-      "total_directories": 17
+      "total_files": 97,
+      "total_loc": 5707,
+      "total_directories": 18
     },
     "javascript": {
       "total_files": 84,
@@ -8485,7 +8631,7 @@
       "score": 99.7,
       "strict": 99.7,
       "verified_strict_score": 99.7,
-      "checks": 203,
+      "checks": 204,
       "failing": 1,
       "tier": 3,
       "detectors": {
@@ -8496,8 +8642,8 @@
           "weighted_failures": 0.0
         },
         "flat_dirs": {
-          "potential": 56,
-          "pass_rate": 0.9874999999999999,
+          "potential": 57,
+          "pass_rate": 0.987719298245614,
           "failing": 1,
           "weighted_failures": 0.7
         }
@@ -8564,18 +8710,18 @@
       }
     },
     "Test health": {
-      "score": 10.0,
+      "score": 13.8,
       "strict": 10.0,
-      "verified_strict_score": 10.0,
-      "checks": 920,
-      "failing": 106,
+      "verified_strict_score": 13.8,
+      "checks": 925,
+      "failing": 101,
       "tier": 4,
       "detectors": {
         "test_coverage": {
-          "potential": 920,
-          "pass_rate": 0.10018397032627605,
-          "failing": 106,
-          "weighted_failures": 827.830747299826
+          "potential": 925,
+          "pass_rate": 0.137662724485827,
+          "failing": 101,
+          "weighted_failures": 797.66197985061
         }
       }
     },
@@ -9002,8 +9148,9 @@
   },
   "reminder_history": {
     "zone_classification": 3,
-    "report_scores": 3,
-    "feedback_nudge": 2
+    "report_scores": 4,
+    "feedback_nudge": 3,
+    "stagnant_nudge": 22
   },
   "attestation_log": [
     {

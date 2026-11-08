@@ -17,6 +17,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Token expiré / supprimé → on déconnecte proprement côté navigateur
 api.interceptors.response.use(
   (res) => res,
   (error) => {

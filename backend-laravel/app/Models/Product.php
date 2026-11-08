@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes;   // « supprimer » = corbeille ; la suppression définitive est un second geste
 
     const DELETED_AT = 'supprime_le';
 
@@ -60,6 +60,7 @@ class Product extends Model
         return $this->hasMany(Favorite::class, 'produit_id');
     }
 
+    /** Avec des variantes, le stock du produit reste la somme de leurs stocks (catalogue, stats et admin le lisent) */
     public function syncVariantStock(): void
     {
         if ($this->variants()->exists()) {
@@ -72,6 +73,7 @@ class Product extends Model
         return $q->withPromo()->orderByRaw('quantite_stock <= 0')->orderByDesc('id');
     }
 
+    /** % de réduction appliqué : la promo du produit OU la pub liée, la plus forte des deux */
     public function promoPercent(): int
     {
         if (! array_key_exists('pub_reduction', $this->attributes)) {
@@ -81,6 +83,7 @@ class Product extends Model
         return max((int) $this->promotion, (int) $this->attributes['pub_reduction']);
     }
 
+    /** Prix réellement payé par le client (c'est lui qui entre dans le panier et la commande) */
     public function finalPrice(): float
     {
         $pc = $this->promoPercent();
@@ -88,6 +91,7 @@ class Product extends Model
         return $pc > 0 ? round($this->prix * (100 - $pc) / 100, 2) : (float) $this->prix;
     }
 
+    /** « Sans image » = champ vide OU fichier absent de public/images (produits importés sans leurs photos) */
     public static function sansImage(): Collection
     {
         return static::orderBy('id')->get(['id', 'nom', 'marque', 'sous_categorie', 'image'])

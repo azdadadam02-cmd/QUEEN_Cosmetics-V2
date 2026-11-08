@@ -50,6 +50,7 @@ class ProfileController extends Controller
             if ($phone === '' && $address === '') {
                 Address::where($key)->delete();
             } else {
+                // ville est NOT NULL mais absente de ce formulaire : la commande la redemande à la livraison
                 $existing = Address::where($key)->first();
                 Address::updateOrCreate($key, ['telephone' => $phone, 'adresse_complete' => $address, 'ville' => $existing?->ville ?? '']);
             }
@@ -81,6 +82,10 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Photo de profil supprimée.', 'profile' => $this->payload($user->fresh())]);
     }
 
+    /**
+     * DELETE /api/profile : suppression définitive.
+     * Avec un historique de commandes, le compte est anonymisé : les commandes restent pour la comptabilité.
+     */
     public function destroy(Request $request): JsonResponse
     {
         $user = $request->user();

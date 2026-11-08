@@ -18,7 +18,7 @@ use Illuminate\Validation\ValidationException;
 class TopBarController extends Controller
 {
     private const ICONS = ['truck', 'check', 'mail', 'gift', 'star', 'shield'];
-    private const LINK = '/^(\/|https?:\/\/)/';
+    private const LINK = '/^(\/|https?:\/\/)/';   // chemin interne ou http(s) : refuse javascript:
     private const COLOR = '/^#[0-9A-Fa-f]{6}$/';
 
     public function index(): JsonResponse
@@ -156,6 +156,7 @@ class TopBarController extends Controller
             'est_actif'     => ['required', 'boolean'],
         ], $this->messages());
 
+        // Les dates arrivent en ISO (avec fuseau) : on les range dans le fuseau de l'application
         foreach (['date_debut', 'date_fin'] as $k) {
             $data[$k] = isset($data[$k]) ? Carbon::parse($data[$k])->setTimezone(config('app.timezone')) : null;
         }

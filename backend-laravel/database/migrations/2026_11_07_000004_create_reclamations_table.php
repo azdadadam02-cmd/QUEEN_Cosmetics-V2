@@ -22,6 +22,7 @@ return new class extends Migration
         });
     }
 
+    /** Ne supprime rien : la table peut venir de l'import SQL et contenir de vrais reports */
     public function down(): void
     {
     }

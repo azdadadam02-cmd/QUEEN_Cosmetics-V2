@@ -23,6 +23,11 @@ function groupBy(items, keyOf) {
   return [...groups].sort(([a], [b]) => a.localeCompare(b, 'fr'));
 }
 
+/**
+ * Barre de catégories + produits. L'état vit dans l'URL : retour navigateur et rechargement gardent la page.
+ * Tous → une rangée par catégorie ; ?cat → une rangée par sous-catégorie ; VOIR PLUS ou recherche → 12 par page.
+ * shortcut: tout le catalogue est envoyé au navigateur, passer à une pagination Laravel au-delà de ~1000 produits.
+ */
 export default function ProductsBrowser({ products, categories, packs = [], searchPacks = packs, guidance = false }) {
   const pathname = usePathname();
   const params = useSearchParams();
@@ -42,6 +47,7 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
     if (scroll) sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  // Recherche : chaque mot doit se trouver dans le nom, la marque, la catégorie ou la sous-catégorie (sans accents ni majuscules)
   const terms = norm(q).split(/\s+/).filter(Boolean);
   const matches = (...fields) => {
     const hay = norm(fields.join(' '));
@@ -50,6 +56,7 @@ export default function ProductsBrowser({ products, categories, packs = [], sear
   const list = products.filter((p) => (!cat || (p.category || NONE) === cat)
     && (!sub || (p.sub_category || NONE) === sub)
     && (!terms.length || matches(p.name, p.brand, p.category, p.sub_category)));
+  // Un pack ressort par son nom ou par n'importe quel produit qu'il contient
   const foundPacks = terms.length && !cat && !sub
     ? searchPacks.filter((k) => matches(k.name, k.description, ...(k.products || []).flatMap((x) => [x.name, x.brand, x.category, x.sub_category])))
     : [];

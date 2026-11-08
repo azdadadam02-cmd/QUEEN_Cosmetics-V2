@@ -21,6 +21,7 @@ function countdown(ms) {
 
 function PromoBar({ promo }) {
   const end = promo.ends_at ? new Date(promo.ends_at).getTime() : null;
+  // null tant que le navigateur n'a pas affiché : le serveur ne rend jamais l'heure (évite un décalage d'hydratation)
   const [now, setNow] = useState(null);
   useEffect(() => {
     if (end === null) return;

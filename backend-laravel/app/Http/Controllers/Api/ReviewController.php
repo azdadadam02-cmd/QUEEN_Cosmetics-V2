@@ -8,6 +8,7 @@ use App\Models\Review;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/** Avis produits : le client écrit, l'admin valide, le public ne voit que les avis approuvés. */
 class ReviewController extends Controller
 {
     public function index(int $product): JsonResponse
@@ -17,7 +18,7 @@ class ReviewController extends Controller
 
         return response()->json($rows->map(fn (Review $r) => [
             'id'      => $r->id,
-            'author'  => explode(' ', trim($r->user?->nom ?? 'Client'))[0],
+            'author'  => explode(' ', trim($r->user?->nom ?? 'Client'))[0],   // prénom seulement
             'author_image' => $r->user?->image ? asset('images/'.$r->user->image) : null,
             'rating'  => $r->note,
             'comment' => $r->commentaire,
@@ -32,6 +33,7 @@ class ReviewController extends Controller
         return response()->json($r ? ['rating' => $r->note, 'comment' => $r->commentaire, 'approved' => $r->est_approuve] : null);
     }
 
+    /** POST /api/products/{product}/reviews : un avis par client et produit ; un nouvel envoi repasse en modération */
     public function store(Request $request, int $product): JsonResponse
     {
         Product::findOrFail($product);

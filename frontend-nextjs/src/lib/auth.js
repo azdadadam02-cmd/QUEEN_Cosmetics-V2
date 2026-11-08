@@ -7,6 +7,7 @@ export async function login(email, password) {
   return data;
 }
 
+/** Lit ?next=/checkout en n'acceptant QUE des chemins internes (pas de redirection ouverte) */
 export function nextPath() {
   const n = new URLSearchParams(window.location.search).get('next');
   return n && n.startsWith('/') && !n.startsWith('//') ? n : null;
@@ -22,6 +23,7 @@ export async function logout() {
   try {
     await api.post('/auth/logout');
   } catch {
+    /* token déjà invalide : rien à faire */
   }
   useAuthStore.getState().clear();
 }

@@ -12,6 +12,7 @@ import ClientNavbar from './ClientNavbar';
 
 const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
 
+/** Espace client → ClientNavbar ; espaces de gestion → StaffNavbar. Le personnel n'a pas accès à l'espace client. */
 export default function Navbar() {
   const pathname = useLayoutPathname();
   const router = useRouter();
@@ -20,6 +21,7 @@ export default function Navbar() {
   const isStaffUser = hydrated && !!user && user.role !== 'client';
   const blocked = isStaffUser && !isStaffPath(pathname);
 
+  // Rôle relu en base au chargement (comme l'ancien site à chaque requête)
   useEffect(() => {
     refreshMe();
   }, []);
@@ -30,6 +32,7 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Masqué ici car envelopper children avec usePathname exigerait un Suspense sur tout le site (cacheComponents) */}
       {blocked && <style>{'main,.site-footer,.usp-bar,.promo-bar,.brand-bar{visibility:hidden}'}</style>}
       {isStaffUser || isStaffPath(pathname) ? <StaffNavbar /> : <ClientNavbar />}
     </>

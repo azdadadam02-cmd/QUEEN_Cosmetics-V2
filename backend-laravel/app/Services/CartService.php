@@ -5,6 +5,10 @@ namespace App\Services;
 use App\Models\Pack;
 use App\Models\Product;
 
+/**
+ * Le panier vit dans le navigateur (Zustand) ; ici on le RE-CALCULE toujours
+ * depuis la base : prix (promo comprise) et stock à jour, lignes invalides retirées.
+ */
 class CartService
 {
     public const MAX_LIGNES = 30;

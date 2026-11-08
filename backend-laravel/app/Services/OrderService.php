@@ -14,6 +14,14 @@ use Illuminate\Validation\ValidationException;
 
 class OrderService
 {
+    /**
+     * Crée commande + détails + paiement (à la livraison) dans UNE transaction.
+     * Les prix viennent TOUJOURS de la base (jamais du navigateur) et le stock
+     * est décrémenté sans jamais passer sous 0.
+     *
+     * @param  array<int, array{id:int, quantity:int}>  $items
+     * @param  array{nom:string, telephone:string, ville:string, adresse:string}  $livraison
+     */
     public function create(User $client, array $items, array $livraison): Order
     {
         return DB::transaction(function () use ($client, $items, $livraison) {
@@ -29,6 +37,7 @@ class OrderService
             }
             $packs = Pack::withDetails()->whereIn('id', array_keys($wantedPacks))->get()->keyBy('id');
 
+            // Verrouille produits et variantes pendant la transaction (deux clients en même temps)
             $ids      = array_map(fn ($k) => (int) explode(':', $k)[0], array_keys($wanted));
             $ids      = array_merge($ids, $packs->flatMap(fn ($pack) => $pack->products->pluck('id'))->all());
             $products = Product::withPromo()->whereIn('id', $ids)->lockForUpdate()->get()->keyBy('id');
@@ -37,6 +46,7 @@ class OrderService
             $lignes = [];
             $total  = 0.0;
 
+            // Pack : prix unique, réparti sur ses produits ; le stock de chaque produit baisse
             foreach ($wantedPacks as $packId => $qte) {
                 $pack = $packs->get($packId);
                 if (! $pack || ! $pack->est_actif || $pack->products->isEmpty()) {
@@ -113,6 +123,10 @@ class OrderService
         });
     }
 
+    /**
+     * Accepter / refuser (annuler) / marquer livrée.
+     * Refus → stock remis en rayon. Livraison → paiement « Paye ».
+     */
     public function changeStatus(Order $order, string $nouveau): Order
     {
         return DB::transaction(function () use ($order, $nouveau) {
@@ -134,8 +148,8 @@ class OrderService
                     if ($item->variante_id) {
                         ProductVariant::whereKey($item->variante_id)->increment('quantite_stock', $item->quantite);
                     }
-                    Product::withTrashed()->whereKey($item->produit_id)->increment('quantite_stock', $item->quantite);
-                    $item->product?->syncVariantStock();
+                    Product::withTrashed()->whereKey($item->produit_id)->increment('quantite_stock', $item->quantite);   // même en corbeille : le stock revient si on le restaure
+                    $item->product?->syncVariantStock();   // variante supprimée entre-temps : le total reste juste
                 }
             } elseif ($nouveau === Order::LIVREE) {
                 Payment::where('commande_id', $order->id)->update(['statut' => Payment::PAYE]);

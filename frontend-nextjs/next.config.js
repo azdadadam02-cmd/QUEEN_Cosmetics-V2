@@ -14,6 +14,8 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
+    // En local, Next.js refuse d'optimiser les images d'une IP locale (sécurité) :
+    // on les affiche telles quelles. En production (vrai domaine), l'optimisation est active.
     unoptimized: apiIsLocal,
   },
 

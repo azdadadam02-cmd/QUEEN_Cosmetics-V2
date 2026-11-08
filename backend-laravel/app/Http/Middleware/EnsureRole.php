@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Route::middleware('role:admin,responsable_commandes')
+ * Le rôle est relu depuis la base à chaque requête (le token ne contient pas le rôle).
+ */
 class EnsureRole
 {
     public function handle(Request $request, Closure $next, string ...$roles): Response

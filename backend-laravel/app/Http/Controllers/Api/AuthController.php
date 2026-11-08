@@ -37,6 +37,7 @@ class AuthController extends Controller
 
         $user = User::where('email', $email)->first();
 
+        // Même message (et même calcul) que l'email existe ou non
         $hash = $user?->mot_de_passe ?? Hash::make('queen-timing-dummy');
         $ok   = Hash::check($request->input('password'), $hash);
         if (! $user || ! $ok) {
@@ -61,7 +62,7 @@ class AuthController extends Controller
         $user = User::create([
             'nom'          => $request->input('nom'),
             'email'        => $request->input('email'),
-            'mot_de_passe' => $request->input('password'),
+            'mot_de_passe' => $request->input('password'),   // hashé par le cast « hashed »
             'role'         => 'client',
         ]);
 

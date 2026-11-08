@@ -1,46 +1,46 @@
 {
   "command": "scan",
-  "overall_score": 20.3,
-  "objective_score": 81.2,
+  "overall_score": 20.5,
+  "objective_score": 81.9,
   "strict_score": 20.3,
-  "verified_strict_score": 81.2,
+  "verified_strict_score": 81.9,
   "prev_overall_score": 20.3,
-  "prev_objective_score": 81.1,
+  "prev_objective_score": 81.2,
   "prev_strict_score": 20.3,
-  "prev_verified_strict_score": 81.1,
+  "prev_verified_strict_score": 81.2,
   "profile": "objective",
   "noise_budget": 10,
   "noise_global_budget": 0,
   "hidden_by_detector": {
-    "test_coverage": 96,
+    "test_coverage": 91,
     "orphaned": 77,
     "structural": 5,
     "boilerplate_duplication": 3
   },
-  "hidden_total": 181,
+  "hidden_total": 176,
   "diff": {
-    "new": 1,
-    "auto_resolved": 4,
+    "new": 0,
+    "auto_resolved": 5,
     "reopened": 0,
-    "total_current": 81,
+    "total_current": 78,
     "suspect_detectors": [
       "smells"
     ],
     "chronic_reopeners": [],
     "skipped_other_lang": 154,
     "resolved_out_of_scope": 0,
-    "ignored": 20,
+    "ignored": 22,
     "ignore_patterns": 7,
-    "raw_issues": 81,
-    "suppressed_pct": 24.7
+    "raw_issues": 78,
+    "suppressed_pct": 28.2
   },
   "stats": {
     "total": 136,
-    "auto_resolved": 0,
+    "auto_resolved": 5,
     "deferred": 0,
     "false_positive": 0,
     "fixed": 0,
-    "open": 136,
+    "open": 131,
     "triaged_out": 0,
     "wontfix": 0,
     "by_tier": {
@@ -54,20 +54,20 @@
         "wontfix": 0
       },
       "3": {
-        "auto_resolved": 0,
+        "auto_resolved": 5,
         "deferred": 0,
         "false_positive": 0,
         "fixed": 0,
-        "open": 120,
+        "open": 115,
         "triaged_out": 0,
         "wontfix": 0
       }
     }
   },
   "open_scope": {
-    "in_scope": 136,
+    "in_scope": 131,
     "out_of_scope": 0,
-    "global": 136
+    "global": 131
   },
   "warnings": [
     "Coverage reduced (phpstan_error): phpstan tooling unavailable (tool_not_found) Repercussion: Detector results may be under-reported for this scan. Fix: Install/fix the tool command and rerun scan."
@@ -77,7 +77,7 @@
       "score": 99.7,
       "strict": 99.7,
       "verified_strict_score": 99.7,
-      "checks": 203,
+      "checks": 204,
       "failing": 1,
       "tier": 3,
       "detectors": {
@@ -88,8 +88,8 @@
           "weighted_failures": 0.0
         },
         "flat_dirs": {
-          "potential": 56,
-          "pass_rate": 0.9874999999999999,
+          "potential": 57,
+          "pass_rate": 0.987719298245614,
           "failing": 1,
           "weighted_failures": 0.7
         }
@@ -156,18 +156,18 @@
       }
     },
     "Test health": {
-      "score": 10.0,
+      "score": 13.8,
       "strict": 10.0,
-      "verified_strict_score": 10.0,
-      "checks": 920,
-      "failing": 106,
+      "verified_strict_score": 13.8,
+      "checks": 925,
+      "failing": 101,
       "tier": 4,
       "detectors": {
         "test_coverage": {
-          "potential": 920,
-          "pass_rate": 0.10018397032627605,
-          "failing": 106,
-          "weighted_failures": 827.830747299826
+          "potential": 925,
+          "pass_rate": 0.137662724485827,
+          "failing": 101,
+          "weighted_failures": 797.66197985061
         }
       }
     },
@@ -593,17 +593,17 @@
     }
   },
   "score_breakdown": {
-    "overall_score": 20.3,
+    "overall_score": 20.5,
     "mechanical_fraction": 0.25,
     "subjective_fraction": 0.75,
-    "mechanical_avg": 81.16325411334553,
+    "mechanical_avg": 81.85795246800733,
     "subjective_avg": 0.0,
     "entries": [
       {
         "name": "Code quality",
         "pool": "mechanical",
         "score": 99.7,
-        "checks": 203.0,
+        "checks": 204.0,
         "sample_factor": 1.0,
         "configured_weight": 1.0,
         "effective_weight": 1.0,
@@ -654,15 +654,15 @@
       {
         "name": "Test health",
         "pool": "mechanical",
-        "score": 10.0,
-        "checks": 920.0,
+        "score": 13.8,
+        "checks": 925.0,
         "sample_factor": 1.0,
         "configured_weight": 1.0,
         "effective_weight": 1.0,
         "pool_share": 0.18281535648994515,
         "overall_per_point": 0.04570383912248629,
-        "overall_contribution": 0.4570383912248629,
-        "overall_drag": 4.113345521023766
+        "overall_contribution": 0.6307129798903108,
+        "overall_drag": 3.939670932358318
       },
       {
         "name": "Abstraction fit",
@@ -942,14 +942,14 @@
   "potentials": {
     "php": {
       "structural": 65,
-      "flat_dirs": 22,
+      "flat_dirs": 23,
       "unused_imports": 1,
-      "signature": 5,
+      "signature": 7,
       "security": 65,
       "single_use": 0,
       "cycles": 65,
       "orphaned": 65,
-      "test_coverage": 404,
+      "test_coverage": 409,
       "boilerplate_duplication": 4,
       "dupes": 192,
       "stale_wontfix": 0
@@ -1007,7 +1007,7 @@
           "reason": "tool_not_found"
         }
       ],
-      "updated_at": "2026-11-08T16:03:35+00:00"
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "javascript": {
       "status": "reduced",
@@ -1054,11 +1054,11 @@
     "generated": 14,
     "config": 12,
     "script": 1,
-    "test": 1
+    "test": 6
   },
   "narrative": {
     "phase": "early_momentum",
-    "headline": "Score 20.3/100 with 136 issues open. Keep the momentum going.",
+    "headline": "Score 20.3/100 with 131 issues open. Keep the momentum going.",
     "dimensions": {
       "lowest_dimensions": [
         {
@@ -1086,8 +1086,127 @@
           "impact_description": "re-review to improve"
         }
       ],
-      "biggest_gap_dimensions": [],
-      "stagnant_dimensions": []
+      "biggest_gap_dimensions": [
+        {
+          "name": "Test health",
+          "lenient": 13.8,
+          "strict": 10.0,
+          "gap": 3.8,
+          "wontfix_count": 0
+        }
+      ],
+      "stagnant_dimensions": [
+        {
+          "name": "Security",
+          "strict": 100.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Duplication",
+          "strict": 97.7,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Abstraction fit",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "AI generated debt",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "API coherence",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Auth consistency",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Contracts",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Convention drift",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Cross-module arch",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Dep health",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Design coherence",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Error consistency",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "High elegance",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Stale migration",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Init coupling",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Logic clarity",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Low elegance",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Mid elegance",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Naming quality",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Structure nav",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Test strategy",
+          "strict": 0.0,
+          "stuck_scans": 3
+        },
+        {
+          "name": "Type safety",
+          "strict": 0.0,
+          "stuck_scans": 3
+        }
+      ]
     },
     "actions": [
       {
@@ -1115,8 +1234,8 @@
       {
         "type": "refactor",
         "detector": "test_coverage",
-        "count": 106,
-        "description": "106 test_coverage issues in 2 cluster(s) \u2014 run `desloppify next`",
+        "count": 101,
+        "description": "101 test_coverage issues in 2 cluster(s) \u2014 run `desloppify next`",
         "command": "desloppify next",
         "impact": 0.0,
         "dimension": "Test health",
@@ -1165,7 +1284,7 @@
     "strategy": {
       "fixer_leverage": {
         "auto_fixable_count": 0,
-        "total_count": 136,
+        "total_count": 131,
         "coverage": 0.0,
         "impact_ratio": 0.0,
         "recommendation": "none"
@@ -1212,7 +1331,7 @@
           "actions": [
             3
           ],
-          "file_count": 106,
+          "file_count": 101,
           "total_impact": 0.0,
           "automation": "manual",
           "run_first": false
@@ -1241,10 +1360,10 @@
       }
     },
     "debt": {
-      "overall_gap": 0.0,
+      "overall_gap": 0.2,
       "wontfix_count": 0,
-      "worst_dimension": null,
-      "worst_gap": 0.0,
+      "worst_dimension": "Test health",
+      "worst_gap": 3.8,
       "trend": "stable"
     },
     "milestone": null,
@@ -1267,9 +1386,156 @@
     },
     "reminders": [
       {
-        "type": "zone_classification",
-        "message": "28 of 92 files classified as non-production (12 config, 14 generated, 1 script, 1 test). Override with `desloppify zone set <file> production` if any are misclassified.",
-        "command": "desloppify zone show",
+        "type": "stagnant_nudge",
+        "message": "Security has been at 100.0% for 3 scans. The remaining items may be worth marking as wontfix if they're intentional.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Duplication has been stuck at 97.7% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Abstraction fit has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "AI generated debt has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "API coherence has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Auth consistency has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Contracts has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Convention drift has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Cross-module arch has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Dep health has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Design coherence has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Error consistency has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "High elegance has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Stale migration has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Init coupling has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Logic clarity has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Low elegance has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Mid elegance has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Naming quality has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Structure nav has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Test strategy has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
+        "priority": 2,
+        "severity": "medium"
+      },
+      {
+        "type": "stagnant_nudge",
+        "message": "Type safety has been stuck at 0.0% for 3 scans. Try tackling it from a different angle \u2014 run `desloppify next` to find the right entry point.",
+        "command": null,
         "priority": 2,
         "severity": "medium"
       },
@@ -1291,8 +1557,9 @@
     ],
     "reminder_history": {
       "zone_classification": 3,
-      "report_scores": 3,
-      "feedback_nudge": 2
+      "report_scores": 4,
+      "feedback_nudge": 3,
+      "stagnant_nudge": 22
     }
   },
   "config": {

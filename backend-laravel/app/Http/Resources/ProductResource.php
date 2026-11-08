@@ -5,6 +5,12 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Forme JSON d'un produit envoyée à Next.js.
+ * La base reste en français (nom, prix, quantite_stock…), l'API parle « propre ».
+ *
+ * @mixin \App\Models\Product
+ */
 class ProductResource extends JsonResource
 {
     public function toArray(Request $request): array
@@ -16,10 +22,10 @@ class ProductResource extends JsonResource
             'id'             => $this->id,
             'name'           => $this->nom,
             'category'       => $this->categorie,
-            'price'          => $this->finalPrice(),
-            'original_price' => (float) $this->prix,
-            'promo'          => $promo,
-            'own_promotion'  => (int) $this->promotion,
+            'price'          => $this->finalPrice(),          // prix payé (promo comprise)
+            'original_price' => (float) $this->prix,          // prix barré si promo > 0
+            'promo'          => $promo,                       // % (0 = pas de promo)
+            'own_promotion'  => (int) $this->promotion,       // promo saisie sur le produit (back-office)
             'details'        => $this->details,
             'brand'          => $this->marque,
             'sub_category'   => $this->sous_categorie,

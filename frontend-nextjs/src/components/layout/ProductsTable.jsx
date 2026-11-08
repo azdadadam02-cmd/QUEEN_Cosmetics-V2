@@ -26,6 +26,7 @@ const ACTIONS = {
   },
 };
 
+/** Tableau des produits + stats. onEdit absent = lecture seule (admin) */
 export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
   const [data, setData] = useState(null);
   const [q, setQ] = useState('');
@@ -33,7 +34,7 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
   const [cat, setCat] = useState('');
   const [sub, setSub] = useState('');
   const [dispo, setDispo] = useState('');
-  const [stars, setStars] = useState('');
+  const [stars, setStars] = useState('');   // '' | '0' (sans avis) … '5' : même arrondi que le composant Stars
   const [promo, setPromo] = useState('');
   const [sort, setSort] = useState('');
   const [tick, setTick] = useState(0);

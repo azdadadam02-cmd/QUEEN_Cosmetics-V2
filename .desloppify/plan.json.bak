@@ -1,29 +1,8 @@
 {
   "version": 8,
   "created": "2026-11-08T15:36:40+00:00",
-  "updated": "2026-11-08T15:36:40+00:00",
-  "queue_order": [
-    "subjective::abstraction_fitness",
-    "subjective::ai_generated_debt",
-    "subjective::api_surface_coherence",
-    "subjective::authorization_consistency",
-    "subjective::contract_coherence",
-    "subjective::convention_outlier",
-    "subjective::cross_module_architecture",
-    "subjective::dependency_health",
-    "subjective::design_coherence",
-    "subjective::error_consistency",
-    "subjective::high_level_elegance",
-    "subjective::incomplete_migration",
-    "subjective::initialization_coupling",
-    "subjective::logic_clarity",
-    "subjective::low_level_elegance",
-    "subjective::mid_level_elegance",
-    "subjective::naming_quality",
-    "subjective::package_organization",
-    "subjective::test_strategy",
-    "subjective::type_safety"
-  ],
+  "updated": "2026-11-08T15:36:52+00:00",
+  "queue_order": [],
   "deferred": [],
   "skipped": {},
   "active_cluster": null,
@@ -691,6 +670,17 @@
       "actor": "system",
       "note": null,
       "detail": {}
+    },
+    {
+      "timestamp": "2026-11-08T15:36:52+00:00",
+      "action": "sync_subjective",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
     }
   ],
   "epic_triage_meta": {},

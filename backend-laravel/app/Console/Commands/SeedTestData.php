@@ -10,6 +10,11 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+/**
+ * Données de test : variantes (couleurs / tailles) cohérentes avec chaque produit, stocks variés, notes de 2 à 5.
+ * Ne touche ni aux produits qui ont déjà des variantes, ni à ceux d'un pack (un pack refuse les produits à variantes).
+ * Tout ce qui est ajouté est noté dans un fichier : `--undo` le retire et remet les anciens stocks.
+ */
 class SeedTestData extends Command
 {
     protected $signature = 'products:fake-data {--undo : retire ce qui a été généré et remet les anciens stocks}';
@@ -62,6 +67,7 @@ class SeedTestData extends Command
                     }
                     $variantProducts[] = $p->id;
                 } elseif (! in_array($p->id, $hasVar)) {
+                    // Sans variantes : stock simple (jamais 0 pour les produits d'un pack, sinon le pack devient indisponible)
                     $p->update(['quantite_stock' => max($this->stock($p, false), in_array($p->id, $inPack) ? 10 : 0)]);
                 }
             }
@@ -163,6 +169,11 @@ class SeedTestData extends Command
         return array_map(fn ($v) => [$field => $v], $this->pick($values, $min, count($values)));
     }
 
+    /**
+     * Variantes logiques ; [] = pas de variantes pour ce produit.
+     * Le NOM décide d'abord (les sous-catégories de la base sont mélangées : « Naked Palette » y est rangé en Eyeliner),
+     * la sous-catégorie ne sert qu'aux noms qu'aucune règle ne reconnaît.
+     */
     private function recipe(Product $p): array
     {
         return $this->byName($p) ?? $this->bySubCategory($p);

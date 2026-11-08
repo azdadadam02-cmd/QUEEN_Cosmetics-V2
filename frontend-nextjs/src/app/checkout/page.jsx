@@ -20,6 +20,7 @@ export default function CheckoutPage() {
   );
 }
 
+/** Confirmation : paiement à la livraison + adresse + case « +18 » (revérifiée par Laravel) */
 function Checkout() {
   const router = useRouter();
   const user = useAuthStore((s) => s.user);

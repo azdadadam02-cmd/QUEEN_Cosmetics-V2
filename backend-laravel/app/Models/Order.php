@@ -16,11 +16,13 @@ class Order extends Model
 
     public const STATUTS = [self::EN_ATTENTE, self::ACCEPTEE, self::LIVREE, self::REFUSEE];
 
+    /** Transitions autorisées pour le responsable des commandes */
     public const TRANSITIONS = [
         self::EN_ATTENTE => [self::ACCEPTEE, self::REFUSEE],
-        self::ACCEPTEE   => [self::LIVREE, self::REFUSEE],
+        self::ACCEPTEE   => [self::LIVREE, self::REFUSEE],   // Refusee depuis Acceptee = « Annuler »
     ];
 
+    /** Limites anti-abus (identiques à l'ancien site) */
     public const MAX_EN_ATTENTE_PAR_CLIENT = 5;
     public const MAX_PAR_HEURE = 10;
 

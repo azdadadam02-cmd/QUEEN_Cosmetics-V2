@@ -9,6 +9,10 @@ use App\Models\Usp;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
+/**
+ * php artisan migrate --seed
+ * Comptes de test (mot de passe pour tous : Queen2026) — ne remplace jamais un compte existant.
+ */
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
@@ -38,7 +42,7 @@ class DatabaseSeeder extends Seeder
         }
 
         if (Product::count() > 0) {
-            return;
+            return;   // queen_db déjà remplie : on ne touche pas au catalogue
         }
 
         $produits = [

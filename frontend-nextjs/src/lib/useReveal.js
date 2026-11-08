@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+// Ne retire que ce que l'animation pose : les couleurs inline des packs doivent rester
 const CLEAR = 'transform,opacity,visibility,transition';
 const FROM = { autoAlpha: 0, y: 24, transition: 'none' };
 const TO = { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out', clearProps: CLEAR };

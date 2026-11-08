@@ -29,6 +29,7 @@ async function ProductDetail({ params }) {
   if (!/^\d+$/.test(id)) notFound();
   const [p, reviews, suggested] = await Promise.all([apiGet(`/products/${id}`), apiGet(`/products/${id}/reviews`), apiGet(`/products/suggestions?ids=${id}&limit=7`).catch(() => [])]);
   if (!p) notFound();
+  // Même sous-catégorie, les mieux notés d'abord (calculé par l'API) : 6 affichés, le 7e demandé sert seulement à savoir s'il en reste
   const found = Array.isArray(suggested) ? suggested : suggested?.data || [];
   const similar = found.slice(0, 6);
   const moreUrl = `/products?cat=${encodeURIComponent(p.category || '')}${p.sub_category ? `&sub=${encodeURIComponent(p.sub_category)}` : ''}`;

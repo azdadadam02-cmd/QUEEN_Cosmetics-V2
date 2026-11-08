@@ -1,7 +1,7 @@
 {
   "version": 8,
   "created": "2026-11-08T15:36:40+00:00",
-  "updated": "2026-11-08T15:36:52+00:00",
+  "updated": "2026-11-08T16:22:40+00:00",
   "queue_order": [],
   "deferred": [],
   "skipped": {},
@@ -106,8 +106,8 @@
     "test_coverage::backend-laravel/app/Models/Product.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Product.php::untested_module",
       "created_at": "2026-11-08T15:36:40+00:00",
-      "cluster": "auto/test_coverage-untested_module",
-      "updated_at": "2026-11-08T15:36:40+00:00"
+      "cluster": null,
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "test_coverage::backend-laravel/app/Models/Pack.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Pack.php::untested_module",
@@ -166,8 +166,8 @@
     "test_coverage::backend-laravel/app/Models/Payment.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Payment.php::untested_module",
       "created_at": "2026-11-08T15:36:40+00:00",
-      "cluster": "auto/test_coverage-untested_module",
-      "updated_at": "2026-11-08T15:36:40+00:00"
+      "cluster": null,
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "test_coverage::backend-laravel/app/Services/ImageUploader.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Services/ImageUploader.php::untested_module",
@@ -202,8 +202,8 @@
     "test_coverage::backend-laravel/app/Models/User.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/User.php::untested_module",
       "created_at": "2026-11-08T15:36:40+00:00",
-      "cluster": "auto/test_coverage-untested_module",
-      "updated_at": "2026-11-08T15:36:40+00:00"
+      "cluster": null,
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "test_coverage::backend-laravel/app/Models/Usp.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Usp.php::untested_module",
@@ -220,8 +220,8 @@
     "test_coverage::backend-laravel/app/Models/Order.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Order.php::untested_module",
       "created_at": "2026-11-08T15:36:40+00:00",
-      "cluster": "auto/test_coverage-untested_module",
-      "updated_at": "2026-11-08T15:36:40+00:00"
+      "cluster": null,
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "test_coverage::backend-laravel/app/Http/Resources/ProductResource.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Http/Resources/ProductResource.php::untested_module",
@@ -286,8 +286,8 @@
     "test_coverage::backend-laravel/app/Models/Review.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Models/Review.php::untested_module",
       "created_at": "2026-11-08T15:36:40+00:00",
-      "cluster": "auto/test_coverage-untested_module",
-      "updated_at": "2026-11-08T15:36:40+00:00"
+      "cluster": null,
+      "updated_at": "2026-11-08T16:22:40+00:00"
     },
     "test_coverage::backend-laravel/app/Http/Requests/UserRequest.php::untested_module": {
       "issue_id": "test_coverage::backend-laravel/app/Http/Requests/UserRequest.php::untested_module",
@@ -497,7 +497,6 @@
         "test_coverage::backend-laravel/app/Models/Advertisement.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Requests/PackRequest.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Requests/StoreOrderRequest.php::untested_module",
-        "test_coverage::backend-laravel/app/Models/Product.php::untested_module",
         "test_coverage::backend-laravel/app/Models/Pack.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Resources/OrderItemResource.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Requests/ProductRequest.php::untested_module",
@@ -507,16 +506,13 @@
         "test_coverage::backend-laravel/app/Http/Controllers/Api/ReviewController.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/CartController.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/TopBarController.php::untested_module",
-        "test_coverage::backend-laravel/app/Models/Payment.php::untested_module",
         "test_coverage::backend-laravel/app/Services/ImageUploader.php::untested_module",
         "test_coverage::backend-laravel/app/Models/PromoAnnouncement.php::untested_module",
         "test_coverage::backend-laravel/app/Console/Commands/ImportProductImages.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/ProductController.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Middleware/SecurityHeaders.php::untested_module",
-        "test_coverage::backend-laravel/app/Models/User.php::untested_module",
         "test_coverage::backend-laravel/app/Models/Usp.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/AuthController.php::untested_module",
-        "test_coverage::backend-laravel/app/Models/Order.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Resources/ProductResource.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/FavoriteController.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Resources/OrderResource.php::untested_module",
@@ -527,7 +523,6 @@
         "test_coverage::backend-laravel/app/Http/Resources/PackResource.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Controllers/Api/ProfileController.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Requests/CartCheckRequest.php::untested_module",
-        "test_coverage::backend-laravel/app/Models/Review.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Requests/UserRequest.php::untested_module",
         "test_coverage::backend-laravel/app/Http/Resources/AdvertisementResource.php::untested_module",
         "test_coverage::backend-laravel/app/Models/OrderItem.php::untested_module",
@@ -616,7 +611,58 @@
       "execution_policy": "planned_only"
     }
   },
-  "superseded": {},
+  "superseded": {
+    "test_coverage::backend-laravel/app/Models/Order.php::untested_module": {
+      "original_id": "test_coverage::backend-laravel/app/Models/Order.php::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "backend-laravel/app/Models/Order.php",
+      "original_summary": "Untested module (56 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-11-08T16:22:40+00:00",
+      "remapped_to": null,
+      "candidates": []
+    },
+    "test_coverage::backend-laravel/app/Models/Payment.php::untested_module": {
+      "original_id": "test_coverage::backend-laravel/app/Models/Payment.php::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "backend-laravel/app/Models/Payment.php",
+      "original_summary": "Untested module (27 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-11-08T16:22:40+00:00",
+      "remapped_to": null,
+      "candidates": []
+    },
+    "test_coverage::backend-laravel/app/Models/Product.php::untested_module": {
+      "original_id": "test_coverage::backend-laravel/app/Models/Product.php::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "backend-laravel/app/Models/Product.php",
+      "original_summary": "Untested module (101 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-11-08T16:22:40+00:00",
+      "remapped_to": null,
+      "candidates": []
+    },
+    "test_coverage::backend-laravel/app/Models/Review.php::untested_module": {
+      "original_id": "test_coverage::backend-laravel/app/Models/Review.php::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "backend-laravel/app/Models/Review.php",
+      "original_summary": "Untested module (29 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-11-08T16:22:40+00:00",
+      "remapped_to": null,
+      "candidates": []
+    },
+    "test_coverage::backend-laravel/app/Models/User.php::untested_module": {
+      "original_id": "test_coverage::backend-laravel/app/Models/User.php::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "backend-laravel/app/Models/User.php",
+      "original_summary": "Untested module (48 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-11-08T16:22:40+00:00",
+      "remapped_to": null,
+      "candidates": []
+    }
+  },
   "promoted_ids": [],
   "plan_start_scores": {
     "strict": 17.7,
@@ -680,6 +726,26 @@
       "note": null,
       "detail": {
         "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-11-08T16:22:40+00:00",
+      "action": "reconcile",
+      "issue_ids": [
+        "test_coverage::backend-laravel/app/Models/Order.php::untested_module",
+        "test_coverage::backend-laravel/app/Models/Payment.php::untested_module",
+        "test_coverage::backend-laravel/app/Models/Product.php::untested_module",
+        "test_coverage::backend-laravel/app/Models/Review.php::untested_module",
+        "test_coverage::backend-laravel/app/Models/User.php::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "superseded_count": 5,
+        "pruned_count": 0,
+        "resurfaced_count": 0,
+        "clusters_completed_count": 0
       }
     }
   ],

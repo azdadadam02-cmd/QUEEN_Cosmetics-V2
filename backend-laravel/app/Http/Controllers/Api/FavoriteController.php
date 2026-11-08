@@ -29,7 +29,7 @@ class FavoriteController extends Controller
         $key = ['utilisateur_id' => $request->user()->id, 'produit_id' => $product->id];
         $removed = Favorite::where($key)->delete() > 0;
         if (! $removed) {
-            Favorite::firstOrCreate($key);
+            Favorite::firstOrCreate($key);   // double clic simultané : la contrainte UNIQUE ne doit pas planter
         }
 
         return response()->json([

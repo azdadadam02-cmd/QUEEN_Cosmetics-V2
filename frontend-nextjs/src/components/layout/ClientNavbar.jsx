@@ -92,6 +92,7 @@ export default function ClientNavbar() {
   return (
     <header className={`cnav-wrap${searchOpen ? ' search-open' : ''}`}>
       <nav className="cnav" aria-label="Navigation principale">
+        {/* shortcut: icône seule, site en français uniquement ; à brancher quand le multilingue arrivera */}
         <button type="button" className="cnav-lang" aria-label="Langue" title="Langue">
           <Svg name="language" />
         </button>

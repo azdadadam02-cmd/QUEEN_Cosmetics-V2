@@ -1,9 +1,15 @@
+/**
+ * Panier : reste enregistré même si on change de page ou qu'on ferme l'onglet (localStorage).
+ * ⚠ Les prix ici servent seulement à l'affichage : Laravel recalcule TOUT (prix, promo, stock)
+ *   via /api/cart/check et au moment de la commande.
+ */
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const MAX_LIGNES = 30;
 export const MAX_QTE = 20;
 
+/** Une ligne = un produit + sa variante (rouge et noir du même rouge à lèvres font deux lignes) */
 export const lineKey = (i) => (i.pack_id ? `pack:${i.pack_id}` : `${i.id}:${i.variant_id || 0}`);
 
 const toLine = (l, stock, quantity) => ({

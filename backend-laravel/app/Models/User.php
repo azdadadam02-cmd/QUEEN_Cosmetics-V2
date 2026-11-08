@@ -12,11 +12,13 @@ class User extends Authenticatable
 
     public const ROLES = ['client', 'admin', 'responsable_produits', 'responsable_commandes'];
 
+    /** Rôles que l'admin peut créer / modifier (jamais « admin ») */
     public const ROLES_GERABLES = ['client', 'responsable_produits', 'responsable_commandes'];
 
     protected $table = 'utilisateurs';
     public $timestamps = false;
 
+    /** La colonne du mot de passe s'appelle « mot_de_passe » et non « password » */
     protected $authPasswordName = 'mot_de_passe';
 
     protected $fillable = ['nom', 'email', 'mot_de_passe', 'role', 'date_naissance', 'image'];

@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Les Resources renvoient directement l'objet / le tableau (sans clé « data »)
         JsonResource::withoutWrapping();
 
         RateLimiter::for('api', fn (Request $r) => Limit::perMinute(120)->by($r->user()?->id ?: $r->ip()));

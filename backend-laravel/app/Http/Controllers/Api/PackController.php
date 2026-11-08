@@ -18,6 +18,7 @@ class PackController extends Controller
         return PackResource::collection(Pack::withDetails()->where('est_actif', true)->orderByDesc('id')->get());
     }
 
+    /** GET /api/packs/{pack} : 404 tant qu'il est désactivé */
     public function show(int $pack): PackResource
     {
         return new PackResource(Pack::withDetails()->where('est_actif', true)->findOrFail($pack));
@@ -54,6 +55,7 @@ class PackController extends Controller
         return response()->json(['message' => "Pack « {$pack->nom} » mis à jour."]);
     }
 
+    /** DELETE /api/manage/packs/{pack} : les commandes passées gardent leurs produits et leurs prix */
     public function destroy(Pack $pack): JsonResponse
     {
         $pack->delete();

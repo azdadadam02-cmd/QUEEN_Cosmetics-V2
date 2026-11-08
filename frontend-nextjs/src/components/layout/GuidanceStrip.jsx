@@ -10,6 +10,7 @@ const ICONS = {
   sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
 };
 
+// Chaque carte mène à une page qui existe déjà : les packs, ou une catégorie du catalogue (affichée seulement si elle existe)
 const ITEMS = [
   { label: 'Les Packs', href: '/packs', icon: 'gift', color: '#e86a6a', packs: true },
   { label: 'Parfums', cat: 'Parfums', icon: 'perfume', color: '#6fb0ab' },

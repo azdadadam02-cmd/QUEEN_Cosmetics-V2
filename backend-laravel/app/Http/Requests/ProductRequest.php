@@ -45,6 +45,7 @@ class ProductRequest extends FormRequest
             'prix'           => ['required', 'numeric', 'gt:0', 'max:99999999'],
             'stock'          => ['required', 'integer', 'min:0', 'max:1000000'],
             'promotion'      => ['integer', 'min:0', 'max:90'],
+            // Vrai contrôle d'image (contenu, pas l'extension) : 3 Mo max, 6000 px max
             'image'          => ['nullable', ...self::IMAGE],
             'gallery'        => ['array', 'max:'.self::MAX_GALLERY],
             'gallery.*'      => self::IMAGE,
@@ -62,6 +63,7 @@ class ProductRequest extends FormRequest
         ];
     }
 
+    /** Une variante sans couleur ni taille, ou deux variantes identiques, ne peuvent pas être choisies par le client */
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $v) {

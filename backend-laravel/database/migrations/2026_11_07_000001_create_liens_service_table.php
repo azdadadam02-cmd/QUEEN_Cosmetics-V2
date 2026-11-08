@@ -18,6 +18,7 @@ return new class extends Migration
             });
         }
 
+        // Une base créée par les migrations seules n'a pas ces colonnes (elles viennent de Database.txt)
         Schema::table('utilisateurs', function (Blueprint $table) {
             if (! Schema::hasColumn('utilisateurs', 'date_naissance')) {
                 $table->date('date_naissance')->nullable();
@@ -41,6 +42,7 @@ return new class extends Migration
         }
     }
 
+    /** Ne retire que sa propre table : les autres peuvent venir de l'import SQL */
     public function down(): void
     {
         Schema::dropIfExists('liens_service');

@@ -5,6 +5,10 @@ namespace App\Services;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 
+/**
+ * Enregistre une image validée (voir les règles dans les FormRequest : mimes, taille, dimensions)
+ * dans public/images avec un nom aléatoire. Retourne le nom du fichier.
+ */
 class ImageUploader
 {
     public function store(?UploadedFile $file, string $nom): ?string

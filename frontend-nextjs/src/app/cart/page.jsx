@@ -12,6 +12,7 @@ import { useAuthStore } from '@/store/authStore';
 import { lineKey, MAX_QTE, useCartStore } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
 
+/** Panier : +, −, retirer, vider. Les prix et le stock sont relus depuis Laravel à l'ouverture. */
 export default function CartPage() {
   const hydrated = useHydrated();
   const { items, setQuantity, remove, clear, syncFromServer, payload } = useCartStore();

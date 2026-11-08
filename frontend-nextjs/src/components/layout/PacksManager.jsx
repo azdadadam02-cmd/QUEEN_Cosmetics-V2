@@ -30,6 +30,7 @@ export default function PacksManager() {
   }, []);
   useEffect(() => {
     load();
+    // Un pack ne peut pas contenir de produit à variantes : il ne saurait pas quelle couleur retirer du stock
     api.get('/manage/products').then(({ data }) => setCatalog(data.products.filter((p) => !p.deleted && !p.variants?.length))).catch((e) => toast.error(errorMessage(e)));
   }, [load]);
 

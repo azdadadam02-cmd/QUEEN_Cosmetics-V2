@@ -15,7 +15,7 @@ export default function Reviews({ productId, reviews }) {
   const [note, setNote] = useState(0);
   const [commentaire, setCommentaire] = useState('');
   const [sending, setSending] = useState(false);
-  const [mine, setMine] = useState(null);
+  const [mine, setMine] = useState(null);   // l'avis du client : il le voit même avant la validation
   const isClient = hydrated && user?.role === 'client';
 
   useEffect(() => {

@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Packs : personnalisation de la carte (couleurs, texte du bouton) et lien commande → pack.
+ * Les tables peuvent déjà exister (import SQL) : chaque ajout est gardé.
+ */
 return new class extends Migration
 {
     private function ref(Blueprint $table, string $column, string $target, bool $nullable = false): void

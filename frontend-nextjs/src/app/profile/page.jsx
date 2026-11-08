@@ -59,7 +59,7 @@ export default function AccountPage() {
 
   async function onPhoto(e) {
     const file = e.target.files?.[0];
-    e.target.value = '';
+    e.target.value = '';   // permet de rechoisir le même fichier après une erreur
     if (!file) return;
     setUploading(true);
     const fd = new FormData();
@@ -75,6 +75,7 @@ export default function AccountPage() {
     }
   }
 
+  // Change seulement la photo : ne perd pas la saisie en cours dans le formulaire
   function keepTyping(p) {
     setProfile(p);
     const store = useAuthStore.getState();

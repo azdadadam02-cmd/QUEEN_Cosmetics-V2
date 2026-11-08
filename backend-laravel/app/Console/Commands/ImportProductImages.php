@@ -6,6 +6,10 @@ use App\Models\Product;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
+/**
+ * Remplit en une fois l'image des produits qui n'en ont pas : chaque fichier du dossier
+ * est associé au produit dont l'id OU le nom (slug) correspond au nom du fichier.
+ */
 class ImportProductImages extends Command
 {
     protected $signature = 'products:import-images {dir? : dossier des images} {--list : affiche id;nom des produits sans image}';

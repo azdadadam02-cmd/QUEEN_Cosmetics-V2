@@ -72,6 +72,7 @@ return new class extends Migration
         }
     }
 
+    /** Ne supprime que la colonne de commande : les tables peuvent venir de l'import SQL */
     public function down(): void
     {
         if (Schema::hasColumn('details_commandes', 'variante_id')) {

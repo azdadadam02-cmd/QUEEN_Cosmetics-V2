@@ -1,3 +1,7 @@
+/**
+ * Lecture de l'API Laravel depuis les Server Components (accueil, catalogue, fiche produit).
+ * Pas de cache : prix, promos et stock doivent toujours être à jour.
+ */
 export const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 
 export async function apiGet(path) {

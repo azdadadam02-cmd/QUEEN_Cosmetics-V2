@@ -4,6 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Tables métier de QUEEN Cosmetics — mêmes noms que l'ancien site PHP MVC :
+ * produits, publicites, commandes, details_commandes, paiements.
+ *
+ * Fonctionne dans les deux cas :
+ *  - base vide      → crée toutes les tables ;
+ *  - queen_db existante (avec tes données) → ne touche à rien, ajoute seulement
+ *    les colonnes qui manquent (promotion, produit_id, livraison, statut_vu).
+ */
 return new class extends Migration
 {
     public function up(): void

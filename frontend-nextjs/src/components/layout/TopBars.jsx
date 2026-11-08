@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BarIcon } from '@/lib/barIcons';
+import { useLayoutPathname } from '@/lib/useHydrated';
 
 const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
 
@@ -46,7 +46,7 @@ function PromoBar({ promo }) {
 
 /** Barre des avantages (grise) + barre promo, au-dessus de la navbar. Elles défilent avec la page, seule la navbar reste collée. */
 export default function TopBars({ usps, promo, brand }) {
-  const pathname = usePathname();
+  const pathname = useLayoutPathname();
   if (isStaffPath(pathname)) return null;   // pas dans les espaces de gestion
   return (
     <>

@@ -4,7 +4,6 @@ import Footer from '@/components/layout/Footer';
 import Navbar, { NavbarFallback } from '@/components/layout/Navbar';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import TopBarsLoader from '@/components/layout/TopBarsLoader';
-import Toaster from '@/components/ui/Toaster';
 import './globals.css';
 
 export const metadata = {
@@ -39,7 +38,6 @@ export default function RootLayout({ children }) {
           </Chrome>
         </Suspense>
         <SmoothScroll />
-        <Toaster />
         <main className="container">{children}</main>
         <Footer />
       </body>

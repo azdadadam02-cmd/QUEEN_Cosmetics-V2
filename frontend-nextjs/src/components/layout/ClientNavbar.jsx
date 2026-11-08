@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import Avatar from '@/components/ui/Avatar';
 import { api } from '@/lib/api';
 import { logout } from '@/lib/auth';
-import { useHydrated } from '@/lib/useHydrated';
+import { useHydrated, useLayoutPathname } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
 import { useCartCount } from '@/store/cartStore';
 import { toast } from '@/store/toastStore';
@@ -25,7 +25,7 @@ const Svg = ({ name }) => <svg viewBox="0 0 24 24" aria-hidden="true">{Icon[name
 
 /** Navbar de l'espace client : recherche qui s'élargit + menu compte */
 export default function ClientNavbar() {
-  const pathname = usePathname();
+  const pathname = useLayoutPathname();
   const router = useRouter();
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);

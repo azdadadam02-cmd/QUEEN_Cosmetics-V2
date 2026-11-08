@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import ImageInput from '@/components/layout/ImageInput';
 import PackCard from '@/components/layout/PackCard';
 import PacksTable from '@/components/layout/PacksTable';
@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 import Field from '@/components/ui/Field';
 import Modal from '@/components/ui/Modal';
 import { api, errorMessage, fieldErrors } from '@/lib/api';
-import { money } from '@/lib/format';
+import { money, norm } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
 const EMPTY = { nom: '', description: '', prix_promo: '', couleur_fond: '#735A65', couleur_texte: '#FFFFFF', texte_bouton: 'Voir le pack', est_actif: true };
@@ -21,6 +21,7 @@ export default function PacksManager() {
   const [form, setForm] = useState(EMPTY);
   const [file, setFile] = useState(null);
   const [lines, setLines] = useState([]);   // [{ id, quantite }]
+  const [pq, setPq] = useState('');   // recherche qui filtre la liste des produits à ajouter
   const [picked, setPicked] = useState('');
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
@@ -31,13 +32,14 @@ export default function PacksManager() {
   useEffect(() => {
     load();
     // Un pack ne peut pas contenir de produit à variantes : il ne saurait pas quelle couleur retirer du stock
-    api.get('/manage/products').then(({ data }) => setCatalog(data.products.filter((p) => !p.variants?.length))).catch((e) => toast.error(errorMessage(e)));
+    api.get('/manage/products').then(({ data }) => setCatalog(data.products.filter((p) => !p.deleted && !p.variants?.length))).catch((e) => toast.error(errorMessage(e)));
   }, [load]);
 
   function open(p = {}) {
     setEditing(p);
     setFile(null);
     setErrors({});
+    setPq('');
     setPicked('');
     setLines((p.products || []).map((it) => ({ id: it.id, quantite: it.quantity })));
     setForm(p.id
@@ -48,12 +50,19 @@ export default function PacksManager() {
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
   const productOf = (id) => catalog.find((p) => p.id === id) || editing?.products?.find((p) => p.id === id);
 
-  function addLine() {
-    const id = Number(picked);
+  function addLine(id) {
     if (!id || lines.some((l) => l.id === id)) return;
     setLines((l) => [...l, { id, quantite: 1 }]);
+    setPq('');
     setPicked('');
   }
+
+  // Liste proposée : chaque mot cherché doit se trouver dans le nom, la marque ou les catégories ; ceux déjà dans le pack sont exclus
+  const options = useMemo(() => {
+    const terms = norm(pq).split(/\s+/).filter(Boolean);
+    return catalog.filter((p) => !lines.some((l) => l.id === p.id)
+      && terms.every((t) => norm([p.name, p.brand, p.category, p.sub_category].join(' ')).includes(t)));
+  }, [catalog, lines, pq]);
 
   async function save(e) {
     e.preventDefault();
@@ -108,11 +117,27 @@ export default function PacksManager() {
           <fieldset className="form-group">
             <legend>Produits du pack</legend>
             <div className="pack-pick">
-              <select value={picked} onChange={(e) => setPicked(e.target.value)} aria-label="Choisir un produit">
-                <option value="">Choisir un produit…</option>
-                {catalog.filter((p) => !lines.some((l) => l.id === p.id)).map((p) => <option key={p.id} value={p.id}>{p.name} — {p.category || 'Sans catégorie'} — {money(p.price)}</option>)}
-              </select>
-              <button type="button" className="btn-ghost" onClick={addLine}>Ajouter</button>
+              <input
+                type="search"
+                value={pq}
+                placeholder="Rechercher un produit (nom, marque, catégorie)…"
+                aria-label="Rechercher un produit à ajouter au pack"
+                autoComplete="off"
+                onChange={(e) => { setPq(e.target.value); setPicked(''); }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();   // Entrée ajoute le premier produit de la liste, sans envoyer le formulaire
+                    if (options[0] && pq.trim()) addLine(options[0].id);
+                  }
+                }}
+              />
+              <div className="pack-pick-row">
+                <select value={picked} onChange={(e) => setPicked(e.target.value)} aria-label="Choisir un produit">
+                  <option value="">{options.length ? `Choisir un produit… (${options.length})` : 'Aucun produit trouvé'}</option>
+                  {options.map((p) => <option key={p.id} value={p.id}>{p.name} — {p.category || 'Sans catégorie'} — {money(p.price)}</option>)}
+                </select>
+                <button type="button" className="btn-ghost" onClick={() => addLine(Number(picked))}>Ajouter</button>
+              </div>
             </div>
             {lines.map((l) => (
               <div className="pack-line" key={l.id}>

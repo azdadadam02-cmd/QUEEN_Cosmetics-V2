@@ -15,7 +15,7 @@ import { toast } from '@/store/toastStore';
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
 /** Haut de la fiche produit : galerie, couleurs, tailles, prix, quantité, panier, favoris */
-export default function ProductHero({ product: p }) {
+export default function ProductHero({ product: p, moreHref = '#description' }) {
   const router = useRouter();
   const heroRef = useRef(null);
   useEntrance(heroRef, '.pd-gallery, .pd-info, .pd-stats, .pd-actions');
@@ -54,7 +54,7 @@ export default function ProductHero({ product: p }) {
   }, [isClient, p.id]);
 
   async function toggleFav() {
-    if (!user) return router.push(`/login?next=/products/${p.id}`);
+    if (!user) return window.open(`/login?next=/products/${p.id}`, '_blank', 'noopener');   // la connexion s'ouvre dans un nouvel onglet, la fiche reste ouverte
     try {
       const { data } = await api.post(`/products/${p.id}/favorite`);
       setFav(data.favorite);
@@ -170,7 +170,7 @@ export default function ProductHero({ product: p }) {
         <button type="button" className={`pd-fav${fav ? ' on' : ''}`} onClick={toggleFav} aria-pressed={fav}>
           <span aria-hidden="true">{fav ? '♥' : '♡'}</span> Favoris
         </button>
-        <a href="#description" className="pd-more">voir plus &gt;</a>
+        <a href={moreHref} className="pd-more">voir plus &gt;</a>
       </div>
     </div>
   );

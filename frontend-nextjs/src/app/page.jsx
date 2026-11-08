@@ -17,7 +17,7 @@ async function HomeContent() {
   return (
     <>
       <AdsCarousel ads={ads || []} />
-      <ProductsBrowser products={products || []} categories={categories || []} packs={packs || []} />
+      <ProductsBrowser products={products || []} categories={categories || []} packs={packs || []} guidance />
     </>
   );
 }

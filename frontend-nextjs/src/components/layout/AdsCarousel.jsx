@@ -53,8 +53,6 @@ export default function AdsCarousel({ ads }) {
       </div>
       {multi && (
         <>
-          <button type="button" className="ads-arrow prev" aria-label="Publicité précédente" onClick={() => go(index - 1)}>‹</button>
-          <button type="button" className="ads-arrow next" aria-label="Publicité suivante" onClick={() => go(index + 1)}>›</button>
           <div className="ads-dots">
             {slides.map((ad, i) => (
               <button key={ad.id} type="button" className={i === index ? 'on' : ''} aria-label={`Publicité ${i + 1}`} onClick={() => go(i)} />

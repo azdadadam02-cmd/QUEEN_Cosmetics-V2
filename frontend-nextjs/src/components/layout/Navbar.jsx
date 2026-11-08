@@ -96,7 +96,7 @@ function StaffNavbar() {
               </div>
             </div>
           ) : (
-            <Link href="/login" className="btn btn-gold btn-sm">Connexion</Link>
+            <Link href="/login" target="_blank" rel="noopener" className="btn btn-gold btn-sm">Connexion</Link>
           )}
         </div>
       </nav>

@@ -204,21 +204,6 @@ a.promo-bar:hover .promo-text{text-decoration:underline}
 .ad-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(32,20,30,.82) 0%,rgba(32,20,30,.42) 55%,rgba(32,20,30,.08) 100%)}
 .ad-content{padding:0 clamp(26px,6vw,110px);max-width:1040px;display:grid;gap:clamp(20px,2vw,36px);justify-items:start}
 .ad-content h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.8vw,74px);line-height:1.08;text-shadow:0 4px 24px rgba(0,0,0,.35)}
-.ad-badge{
-  position:absolute;right:clamp(22px,6vw,80px);top:50%;transform:translateY(-50%) rotate(-6deg);
-  width:clamp(104px,11.2vw,216px);aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;
-  background:radial-gradient(circle at 30% 25%,#e7d98f,#b9a55a 55%,#8f7b32);color:var(--plum-3);
-  box-shadow:0 20px 40px -16px rgba(0,0,0,.6),inset 0 0 0 4px rgba(255,255,255,.35);
-}
-.ad-badge small{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.ad-badge strong{font:700 clamp(30px,3.6vw,70px)/1 var(--serif)}
-.ads-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;cursor:pointer;
-  border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);backdrop-filter:blur(8px);color:#fff;font-size:28px;line-height:1;
-  transition:background .25s,transform .25s;
-}
-.ads-arrow:hover{background:rgba(255,255,255,.3);transform:translateY(-50%) scale(1.08)}
-.ads-arrow.prev{left:18px} .ads-arrow.next{right:18px}
 .ads-dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:8px}
 .ads-dots button{width:9px;height:9px;border-radius:999px;border:0;padding:0;cursor:pointer;background:rgba(255,255,255,.5);transition:width .35s var(--ease),background .3s}
 .ads-dots button.on{width:30px;background:var(--gold-soft)}
@@ -404,8 +389,6 @@ a.promo-bar:hover .promo-text{text-decoration:underline}
   .nav-link{padding:11px 13px}
   .nav-link.active span{display:inline}
   .nav-link .badge{position:absolute;top:-3px;right:-3px}
-  .ad-badge{display:none}
-  .ads-arrow{display:none}
   .ad-slide{height:300px}
   .cart-item{grid-template-columns:72px 1fr;gap:14px 16px;padding:14px}
   .cart-item .thumb{width:72px;height:72px}
@@ -476,6 +459,10 @@ button.pm-item{width:100%;background:none;border:0;cursor:pointer;font:inherit;f
 .tablewrap{padding:0;overflow:hidden}
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 22px;border-bottom:1px solid var(--line)}
 .toolbar .search input{width:min(340px,70vw);padding-top:12px;padding-bottom:12px}
+.row-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.filters{display:flex;gap:10px;flex-wrap:wrap;flex:1 0 100%;order:-1}   /* ligne à part, au-dessus de la recherche */
+.filters select{padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;font:500 13.5px var(--sans);color:var(--ink);outline:none;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.filters select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(131,109,118,.2)}
 .count{font-size:12.5px;color:var(--muted);font-weight:600}
 .tbl{width:100%;border-collapse:collapse;font-size:13.5px}
 .tablewrap{overflow-x:auto}
@@ -628,12 +615,33 @@ button{font-family:inherit}
 @keyframes shimmer{to{background-position:-200% 0}}
 
 /* Pages connexion / inscription */
-.auth-wrap{display:grid;place-items:center;padding:60px 0}
-.auth-card{width:min(460px,100%);display:grid;gap:18px;padding:38px 34px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
-.auth-card h1{font-size:40px;line-height:1.05}
-.auth-card form{display:grid;gap:16px}
-.auth-card .switch{font-size:13px;color:var(--muted);text-align:center}
-.auth-card .switch a{color:var(--gold-2);font-weight:700}
+/* Une carte centrée (photo à gauche, formulaire à droite) ; la navbar est masquée sur ces pages (voir Chrome).
+   Elle se centre elle-même dans le conteneur : aucun style sur <main>, donc rien ne reste appliqué à l'accueil après la connexion. */
+.login-split{width:min(1060px,100%);margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;min-height:600px;overflow:hidden;border-radius:16px;background:var(--cream-2);box-shadow:0 30px 70px -32px rgba(59,42,54,.5)}
+.login-art{background:#f1ece8 url('/images/login.png') center/cover no-repeat}
+.login-pane{display:grid;place-items:center;padding:28px 22px}
+.login-card{width:min(400px,100%);padding:28px 32px 24px;text-align:center;background:var(--cream);border-radius:8px}
+.login-card h1{margin:0 0 6px;font:500 28px/1.1 var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--plum)}
+.login-sub{margin:0 0 24px;font-size:13px;color:var(--muted)}
+.login-form{display:grid;gap:8px;text-align:left}
+.login-form label{margin-top:8px;font-size:12.5px;font-weight:600;color:var(--plum)}
+.login-form input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;font:500 14px var(--sans);color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.login-form input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(131,109,118,.2)}
+.login-pass{position:relative}
+.login-pass input{padding-right:46px}
+.login-pass button{position:absolute;top:50%;right:6px;transform:translateY(-50%);display:grid;place-items:center;width:36px;height:36px;border:0;background:none;border-radius:8px;cursor:pointer}
+.login-pass button:hover{background:var(--cream-2)}
+.login-pass svg{width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.login-submit{margin-top:14px;padding:15px;border:0;border-radius:999px;background:var(--plum-3);color:#fff;font:600 13px var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s}
+.login-submit:hover{background:var(--plum)}
+.login-submit:active{transform:translateY(1px)}
+.login-submit:disabled{opacity:.6;cursor:not-allowed}
+.login-switch{margin:22px 0 0;font-size:13px;color:var(--muted)}
+.login-switch a{color:var(--plum);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:860px){
+  .login-split{width:calc(100% + 32px);margin:0 -16px;grid-template-columns:1fr;grid-template-rows:170px auto;border-radius:0;box-shadow:none}
+  .login-card{padding:26px 22px}
+}
 .demo{font-size:12px;color:var(--muted);background:var(--cream);border-radius:10px;padding:12px 14px;line-height:1.7}
 .demo code{font-size:11.5px;color:var(--plum)}
 
@@ -692,6 +700,7 @@ body{overflow-x:clip}
 .pgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
 .see-more{margin-top:14px;background:none;border:0;padding:0;cursor:pointer;color:#4a67d6;font:500 16px var(--sans);letter-spacing:.04em;text-transform:uppercase}
 .see-more:hover{text-decoration:underline}
+a.see-more{display:inline-block}
 .pc{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.14);transition:transform .3s var(--ease),box-shadow .3s}
 .pc:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(0,0,0,.2)}
 .pc-link{display:flex;flex-direction:column;gap:8px;flex:1;padding:14px 13px 13px}
@@ -899,8 +908,15 @@ body:has(.pf-shell:not(.pf-left)) main.container{max-width:none;padding:0}
 .summary .btn-gold:hover{background:var(--gold-soft)}
 
 /* ───────── Packs : carte image + bandeau, largeur selon le nombre de packs ───────── */
-.pack-band{display:flex;gap:2%;margin:6px 0 34px}
-.pack-band .pack-card{flex:1 1 0;min-width:0}
+.search-packs{margin-bottom:34px}
+.guide{display:grid;grid-template-columns:minmax(190px,1fr) 3.4fr;gap:28px;align-items:center;margin:6px 0 34px;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.guide h2{margin:0 0 6px;font:700 22px/1.25 var(--serif);color:#111}
+.guide p{margin:0;font-size:14px;color:var(--muted)}
+.guide-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px}
+.guide-card{display:flex;flex-direction:column;justify-content:space-between;min-height:150px;padding:12px;background:#fff;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.12);color:#111;font:500 14px/1.3 var(--sans);transition:transform .25s var(--ease),box-shadow .25s}
+.guide-card:hover,.guide-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 22px -12px rgba(0,0,0,.4)}
+.guide-card svg{align-self:flex-end;width:56px;height:56px;fill:none;stroke:var(--ic);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.guide{grid-template-columns:1fr;gap:16px;padding:26px 0}}
 .pack-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .pack-card{display:flex;flex-direction:column;min-height:100%;border-radius:8px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s}
 .pack-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.2)}
@@ -919,22 +935,22 @@ body:has(.pf-shell:not(.pf-left)) main.container{max-width:none;padding:0}
 .pack-lines{grid-column:1/-1;list-style:none;margin:6px 0 0;padding:10px 0 0;border-top:1px solid var(--line);display:grid;gap:8px}
 .pack-lines a{display:flex;align-items:center;gap:10px;font-size:13.5px}
 .pack-tag{display:inline-block;margin:0 4px;padding:1px 7px;border-radius:5px;background:var(--gold-soft);color:var(--plum-2);font-size:11px;font-weight:600}
-.pack-pick{display:flex;gap:6px}
-.pack-pick select{flex:1;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans);background:#fff}
+.pack-pick input{border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans);background:#fff}
 .pack-line{display:grid;grid-template-columns:minmax(0,1fr) 60px 28px;gap:6px;align-items:center;font-size:13.5px}
 .pack-line input{width:100%;padding:6px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans)}
 .pack-line .btn-danger{padding:4px;min-width:0}
 .pack-preview{margin-top:6px}
 .pack-preview .pack-img{height:80px}
 @media (max-width:760px){
-  .pack-band{flex-direction:column;gap:14px}
   .pack-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (min-width:761px) and (max-width:1100px){.pack-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Les longs noms de produits ne doivent pas élargir la fenêtre du formulaire */
 .pack-pick{min-width:0}
-.pack-pick select{width:0}
-.pack-pick button{flex:none}
+.pack-pick input{width:100%;padding:10px 12px}
+.pack-pick-row{display:flex;gap:6px;margin-top:6px}
+.pack-pick-row select{flex:1;width:0;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;font:500 13px var(--sans);background:#fff}
+.pack-pick-row button{flex:none}
 /* Variantes : en-têtes de colonnes et stock obligatoire visible */
 .variant-head{font-size:11px;color:var(--muted)}
 .variant-head strong{color:var(--ink)}
@@ -974,8 +990,6 @@ html.lenis{scroll-behavior:auto}
 .ads{box-shadow:none;border-radius:8px}
 .ad-content h2{text-shadow:none;font-weight:600}
 .ad-slide:nth-child(odd){background:#5d4852}
-.ad-badge small{letter-spacing:0;text-transform:none;font-size:13px}
-.ads-arrow{backdrop-filter:none}
 .ads-dots button.on{background:#fff}
 
 /* Navbar et barres */
@@ -1092,8 +1106,6 @@ html.lenis{scroll-behavior:auto}
 .dialog{border-radius:12px;box-shadow:0 12px 32px rgba(42,29,39,.25)}
 .dialog h3,.form-panel h3{font-size:22px;font-weight:600}
 .toast{border-radius:8px;box-shadow:0 8px 20px rgba(59,42,54,.15);border-left-width:3px}
-.auth-card{border-radius:12px;box-shadow:none}
-.auth-card .switch a{color:#735a65}
 
 /* Compte client */
 .pf-logout,.pf-service a,.pf-service .pf-off,.pf-field label,.pf-save,.pf-delete,.pf-nav a:first-child{text-transform:none}
@@ -1192,3 +1204,85 @@ html.lenis{scroll-behavior:auto}
 .pf-actions .pf-save{justify-self:auto}
 .pf-actions .btn-ghost{height:44px;padding:0 22px;font-size:14px}
 .report-msg{min-width:280px;white-space:pre-line;overflow-wrap:anywhere}
+
+/* ───────── Règles typographiques (mesurées sur sephora.com, dernière couche : elle gagne sur les anciennes) ─────────
+   Tailles : 12 · 14 · 16 · 20 · 24, jamais en clamp() ni en demi-pixel (une même chose garde la même taille sur toutes les largeurs)
+   Poids : 400 et 700 seulement      Interligne : 1.25 pour titres et libellés, 1.5–1.6 pour les paragraphes
+   Espaces : multiples de 4 (4 · 8 · 12 · 16 · 24 · 32)      Texte secondaire : #666, jamais en majuscules */
+:root{--text-2:#666}
+
+/* Carte produit : marque · nom (2 lignes) · étoiles · prix. Rien d'autre. */
+.pc-link{gap:0;padding:16px}
+.pc-img{margin:0 0 16px}
+.pc-brand{margin-bottom:4px;font:700 12px/1.25 var(--sans);color:#111}
+.pc-name{display:-webkit-box;min-height:2.5em;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font:400 14px/1.25 var(--sans)}
+.pc .stars{justify-content:flex-start;margin-top:8px;font-size:14px}
+.pc-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:auto;padding-top:12px;font:700 16px/1.25 var(--sans);white-space:nowrap}
+.pc-price del{font:400 12px/1.25 var(--sans);color:var(--text-2)}
+.pc-row-title{margin:0 0 16px;font:700 20px/1.25 var(--serif)}
+
+/* Fiche produit */
+.pd-brand{margin-bottom:12px;font:700 14px/1.25 var(--serif)}
+.pd-name{font:700 24px/1.25 var(--serif)}
+.pd-label{min-width:80px;font:700 14px/1.25 var(--serif)}
+.pd-size{padding:8px 16px;border-width:1px;border-radius:4px;font:400 14px/1.25 var(--serif)}
+.pd-chosen,.pd-stats,.pd-more{font:400 14px/1.25 var(--serif)}
+.pd-stats>*+*{border-left-width:1px}
+.pd-price{font:700 20px/1.25 var(--serif)}
+.pd-price del{font:400 14px/1.25 var(--serif);color:var(--text-2)}
+.pd-cod{padding:12px 16px;border-width:1px;border-radius:8px;font:400 14px/1.25 var(--serif);text-transform:none}
+.pd-cod svg{width:28px}
+.pd-add select,.pd-add button,.pd-fav{height:44px;font:700 14px/1.25 var(--serif)}
+.pd-fav{font-weight:400}
+.pd-section{padding:24px 0}
+.pd-section h2{margin-bottom:16px;font:700 20px/1.25 var(--serif)}
+.pd-section>p,.pd-about{font:400 16px/1.6 var(--serif)}
+.pd-about dt{font-weight:700}
+.see-more{font:400 14px/1.25 var(--sans);letter-spacing:0;text-transform:none}
+
+/* Mes ajouts récents alignés sur le même barème */
+.guide h2{font-size:20px}
+.login-card h1{font-size:24px}
+.login-sub,.login-switch{font-size:14px}
+.login-form label{font:700 14px/1.25 var(--sans)}
+.login-submit{font-size:14px}
+.pd-price strong{font-weight:700}
+.pd-stats .stars,.pd-fav>span{font-size:16px}
+
+/* Packs : une seule section titrée (3 cartes sur une grille fixe), carte avec prix, économie et vrai bouton */
+.packs-section{margin:48px 0;padding:32px 0;border-block:1px solid var(--line)}
+.packs-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:24px}
+.packs-head h2{font:700 20px/1.25 var(--serif)}
+.packs-head p{margin:4px 0 0;font:400 14px/1.5 var(--serif);color:var(--text-2)}
+.packs-head a{font:400 14px/1.25 var(--serif);text-decoration:underline;text-underline-offset:4px}
+.pack-img{height:auto;aspect-ratio:4/3}
+.pack-body{gap:8px;padding:16px 16px 24px}
+.pack-body strong{font:700 16px/1.25 var(--sans)}
+.pack-desc{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font:400 14px/1.5 var(--sans)}
+.pack-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-top:4px}
+.pack-price b{font:700 16px/1.25 var(--sans)}
+.pack-price del{font:400 12px/1.25 var(--sans);opacity:.75}
+.pack-save{flex-basis:100%;font:400 12px/1.25 var(--sans)}
+.pack-cta{justify-self:start;margin-top:8px;padding:12px 24px;border:1px solid currentColor;border-radius:4px;font:700 14px/1.25 var(--sans)}
+@media (min-width:761px) and (max-width:1100px){.packs-section .pack-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+
+/* Bandeau des promotions : textes selon le barème (12/14/16/32) ; dimensions d origine, sans pastille ni flèches */
+.ads{border-radius:8px;box-shadow:none}
+.ad-shade{background:linear-gradient(90deg,rgba(32,20,30,.78) 0%,rgba(32,20,30,.35) 60%,rgba(32,20,30,0) 100%)}
+.ad-content{max-width:760px;gap:16px}
+.ad-content .eyebrow{padding:4px 12px;border:0;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:none;font:700 12px/1.25 var(--sans);letter-spacing:0;text-transform:none;color:#fff}
+.ad-content h2{font:700 32px/1.25 var(--serif);text-shadow:none}
+.ad-content .btn{min-height:44px;padding:0 24px;font:700 14px/1.25 var(--sans)}
+.ads-dots{bottom:16px}
+.ads-dots button{width:8px;height:8px}
+.ads-dots button.on{width:24px}
+@media (max-width:760px){.ad-content{gap:12px}.ad-content h2{font-size:20px}}
+.filters select:disabled{opacity:.5;cursor:not-allowed}
+
+/* Bandeau : angles droits (aucun rayon) ; pastille de réduction rétablie, plus grande, en étiquette suspendue au bord haut */
+.ads,.sk-ads{border-radius:0}
+.ad-content .eyebrow,.ad-content .btn{border-radius:0}
+.ad-badge{position:absolute;top:0;right:48px;display:grid;justify-items:center;gap:4px;padding:20px 24px 16px;background:#d3261c;color:#fff;text-align:center}
+.ad-badge small{font:400 12px/1.25 var(--sans)}
+.ad-badge strong{font:700 32px/1.25 var(--serif)}
+@media (max-width:760px){.ad-badge{right:16px;padding:12px 16px 10px}.ad-badge strong{font-size:20px}}

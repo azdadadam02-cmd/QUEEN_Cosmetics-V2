@@ -20,7 +20,7 @@ class Review extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'produit_id');
+        return $this->belongsTo(Product::class, 'produit_id')->withTrashed();
     }
 
     public function user(): BelongsTo

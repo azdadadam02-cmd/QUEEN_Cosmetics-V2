@@ -148,7 +148,7 @@ class OrderService
                     if ($item->variante_id) {
                         ProductVariant::whereKey($item->variante_id)->increment('quantite_stock', $item->quantite);
                     }
-                    Product::whereKey($item->produit_id)->increment('quantite_stock', $item->quantite);
+                    Product::withTrashed()->whereKey($item->produit_id)->increment('quantite_stock', $item->quantite);   // même en corbeille : le stock revient si on le restaure
                     $item->product?->syncVariantStock();   // variante supprimée entre-temps : le total reste juste
                 }
             } elseif ($nouveau === Order::LIVREE) {

@@ -54,11 +54,14 @@ class ProductController extends Controller
         $ids = collect(explode(',', (string) $request->query('ids')))->map(fn ($v) => (int) $v)->filter()->unique()->take(30)->values();
         $cart = Product::whereIn('id', $ids)->get(['sous_categorie', 'categorie']);
 
+        // Les mieux notés d'abord (puis les plus d'avis, puis les plus récents) ; 6 par défaut, ?limit=7 permet de savoir s'il en reste
+        $max  = min(12, max(1, (int) $request->query('limit', 6)));
         $find = fn (string $column) => Product::forShop()
             ->whereIn($column, $cart->pluck($column)->filter()->unique()->values())
             ->whereNotIn('id', $ids)
             ->where('quantite_stock', '>', 0)
-            ->limit(6)
+            ->reorder()->orderByDesc('rating_avg')->orderByDesc('rating_count')->orderByDesc('id')
+            ->limit($max)
             ->get();
 
         $products = $find('sous_categorie');
@@ -80,18 +83,54 @@ class ProductController extends Controller
     /** GET /api/manage/products — liste complète + stats (responsable produits & admin en lecture) */
     public function manageIndex(): JsonResponse
     {
-        $products = Product::withPromo()->with(['variants', 'images'])->orderByDesc('id')->get();
+        // Corbeille comprise (flag « deleted ») ; catégories et stats ne parlent que du catalogue actif
+        $all      = Product::withTrashed()->withPromo()->with(['variants', 'images'])->orderByDesc('id')->get();
+        $products = $all->reject->trashed();
 
         return response()->json([
-            'products'   => ProductResource::collection($products),
+            'products'   => ProductResource::collection($all),
             'categories' => $products->pluck('categorie')->filter()->unique()->sort()->values(),
             'stats'      => [
                 'total'   => $products->count(),
                 'rupture' => $products->where('quantite_stock', '<=', 0)->count(),
                 'faible'  => $products->filter(fn ($p) => $p->quantite_stock > 0 && $p->quantite_stock <= 5)->count(),
                 'unites'  => (int) $products->sum('quantite_stock'),
+                'corbeille' => $all->count() - $products->count(),
             ],
         ]);
+    }
+
+    /** DELETE /api/manage/products/{product} : met en corbeille (récupérable) */
+    public function destroy(Product $product): JsonResponse
+    {
+        $product->delete();
+
+        return response()->json(['message' => "Produit « {$product->nom} » mis dans les supprimés."]);
+    }
+
+    /** POST /api/manage/products/{id}/restore */
+    public function restore(int $id): JsonResponse
+    {
+        $product = Product::onlyTrashed()->findOrFail($id);
+        $product->restore();
+
+        return response()->json(['message' => "Produit « {$product->nom} » restauré."]);
+    }
+
+    /** DELETE /api/manage/products/{id}/force : définitif, seulement depuis la corbeille et si aucune commande ne le contient */
+    public function forceDestroy(int $id): JsonResponse
+    {
+        $product = Product::onlyTrashed()->findOrFail($id);
+
+        if ($n = OrderItem::where('produit_id', $id)->distinct()->count('commande_id')) {
+            return response()->json([
+                'message' => "Suppression définitive impossible : « {$product->nom} » figure dans {$n} commande(s). Il reste dans les supprimés pour garder l'historique.",
+            ], 409);
+        }
+
+        $product->forceDelete();   // variantes, galerie, avis et favoris partent avec (clés étrangères en cascade)
+
+        return response()->json(['message' => "Produit « {$product->nom} » supprimé définitivement."]);
     }
 
     /** POST /api/manage/products (multipart/form-data) */

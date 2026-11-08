@@ -46,6 +46,7 @@ class ProductResource extends JsonResource
             'rating'         => round((float) ($this->rating_avg ?? 0), 1),   // moyenne des avis approuvés
             'rating_count'   => (int) ($this->rating_count ?? 0),
             'stock'          => $stock,
+            'deleted'        => $this->trashed(),             // en corbeille (visible seulement au back-office)
             'in_stock'       => $stock > 0,
             'low_stock'      => $stock > 0 && $stock <= 5,
             'image'          => $this->image,

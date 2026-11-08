@@ -107,7 +107,7 @@ export default function ClientNavbar() {
                 <input
                   ref={inputRef}
                   type="search"
-                  placeholder="Search"
+                  placeholder="Rechercher"
                   aria-label="Rechercher un produit"
                   autoComplete="off"
                   value={q}
@@ -130,7 +130,7 @@ export default function ClientNavbar() {
               {me?.image_url ? <Avatar src={me.image_url} name={me.name} className="cnav-photo" /> : <Svg name="account" />}
               {isClient && notif > 0 && <b className="badge">{notif}</b>}
             </span>
-            <span className="cnav-label">account</span>
+            <span className="cnav-label">Compte</span>
           </button>
 
           <div className={`cnav-menu${menuOpen ? ' open' : ''}`}>
@@ -142,16 +142,16 @@ export default function ClientNavbar() {
                 </div>
                 {isClient && (
                   <Link href="/profile" className="cnav-item" onClick={() => setMenuOpen(false)}>
-                    <Svg name="account" /> Profile
+                    <Svg name="account" /> Profil
                   </Link>
                 )}
                 <button type="button" className="cnav-item" onClick={onLogout}>
-                  <Svg name="logout" /> Logout
+                  <Svg name="logout" /> Déconnexion
                 </button>
               </>
             ) : (
-              <Link href="/login" className="cnav-item" onClick={() => setMenuOpen(false)}>
-                <Svg name="login" /> Login
+              <Link href="/login" target="_blank" rel="noopener" className="cnav-item" onClick={() => setMenuOpen(false)}>
+                <Svg name="login" /> Connexion
               </Link>
             )}
           </div>

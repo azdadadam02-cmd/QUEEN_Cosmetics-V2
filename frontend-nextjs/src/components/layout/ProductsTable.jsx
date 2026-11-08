@@ -1,21 +1,53 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Button from '@/components/ui/Button';
+import Modal from '@/components/ui/Modal';
 import Thumb from '@/components/ui/Thumb';
 import { api, errorMessage } from '@/lib/api';
 import { money } from '@/lib/format';
 import { toast } from '@/store/toastStore';
 
+/** Les 3 gestes sur un produit : chacun passe par une confirmation Oui / Non */
+const ACTIONS = {
+  delete: {
+    title: 'Supprimer le produit',
+    text: (p) => `Voulez-vous supprimer « ${p.name} » ? Il disparaît de la boutique et va dans les supprimés, où vous pourrez le restaurer.`,
+    run: (p) => api.delete(`/manage/products/${p.id}`),
+  },
+  restore: {
+    title: 'Restaurer le produit',
+    text: (p) => `Voulez-vous restaurer « ${p.name} » ? Il redevient visible dans la boutique.`,
+    run: (p) => api.post(`/manage/products/${p.id}/restore`),
+  },
+  force: {
+    title: 'Supprimer définitivement',
+    text: (p) => `Voulez-vous supprimer « ${p.name} » définitivement ? Action irréversible : ses variantes, sa galerie, ses avis et ses favoris seront effacés.`,
+    run: (p) => api.delete(`/manage/products/${p.id}/force`),
+    danger: true,
+  },
+};
+
 /** Tableau des produits + stats. onEdit absent = lecture seule (admin) */
 export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
   const [data, setData] = useState(null);
   const [q, setQ] = useState('');
+  const [view, setView] = useState('');     // '' = catalogue | 'trash' = supprimés
+  const [cat, setCat] = useState('');       // catégorie choisie ; la sous-catégorie ne se choisit qu'ensuite
+  const [sub, setSub] = useState('');
+  const [dispo, setDispo] = useState('');   // '' | 'dispo' | 'indispo'
+  const [stars, setStars] = useState('');   // '' | '0' (sans avis) … '5' : même arrondi que le composant Stars
+  const [promo, setPromo] = useState('');   // '' | 'yes' | 'no'
+  const [sort, setSort] = useState('');     // '' (récents) | 'asc' | 'desc' sur le prix payé
+  const [tick, setTick] = useState(0);      // recharge après une suppression / restauration
+  const [ask, setAsk] = useState(null);     // { kind, p } : geste en attente de confirmation
+  const [busy, setBusy] = useState(false);
 
   const onLoadedRef = useRef(onLoaded);
   useEffect(() => {
     onLoadedRef.current = onLoaded;
   });
 
-  // Recharge à l'ouverture et après chaque enregistrement (reloadKey change)
+  // Recharge à l'ouverture, après chaque enregistrement (reloadKey) et après chaque suppression / restauration (tick)
   useEffect(() => {
     let alive = true;
     api
@@ -29,14 +61,42 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
     return () => {
       alive = false;
     };
-  }, [reloadKey]);
+  }, [reloadKey, tick]);
+
+  // Catégories (puis sous-catégories de la catégorie choisie) proposées : celles des produits de la vue en cours
+  const inView = useMemo(() => (data?.products || []).filter((p) => !!p.deleted === (view === 'trash')), [data, view]);
+  const uniq = (values) => [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'fr'));
+  const cats = useMemo(() => uniq(inView.map((p) => p.category)), [inView]);
+  const subs = useMemo(() => uniq(inView.filter((p) => p.category === cat).map((p) => p.sub_category)), [inView, cat]);
 
   const list = useMemo(() => {
     const s = q.trim().toLowerCase();
-    return (data?.products || []).filter((p) => !s || p.name.toLowerCase().includes(s) || (p.category || '').toLowerCase().includes(s));
-  }, [data, q]);
+    const rows = inView.filter((p) =>
+      (!cat || p.category === cat) &&
+      (!sub || p.sub_category === sub) &&
+      (!s || p.name.toLowerCase().includes(s) || (p.category || '').toLowerCase().includes(s)) &&
+      (!dispo || (dispo === 'dispo') === !!p.in_stock) &&
+      (stars === '' || (p.rating_count > 0 ? Math.round(p.rating) : 0) === Number(stars)) &&
+      (!promo || (promo === 'yes') === p.promo > 0));
+    return sort ? [...rows].sort((a, b) => (sort === 'asc' ? a.price - b.price : b.price - a.price)) : rows;
+  }, [inView, q, cat, sub, dispo, stars, promo, sort]);
+
+  async function confirm() {
+    setBusy(true);
+    try {
+      const { data } = await ACTIONS[ask.kind].run(ask.p);
+      toast.success(data.message);
+      setTick((t) => t + 1);
+    } catch (e) {
+      toast.error(errorMessage(e));
+    } finally {
+      setAsk(null);
+      setBusy(false);
+    }
+  }
 
   const st = data?.stats;
+  const action = ask && ACTIONS[ask.kind];
   return (
     <>
       {st && (
@@ -53,6 +113,40 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4-4" /></svg>
             <input type="search" placeholder="Rechercher…" value={q} onChange={(e) => setQ(e.target.value)} />
           </label>
+          <div className="filters">
+            <select value={view} onChange={(e) => { setView(e.target.value); setCat(''); setSub(''); }} aria-label="Catalogue ou produits supprimés">
+              <option value="">Produits du catalogue</option>
+              <option value="trash">Supprimés ({st?.corbeille ?? 0})</option>
+            </select>
+            <select value={cat} onChange={(e) => { setCat(e.target.value); setSub(''); }} aria-label="Filtrer par catégorie">
+              <option value="">Catégorie : toutes</option>
+              {cats.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select value={sub} onChange={(e) => setSub(e.target.value)} disabled={!cat} aria-label="Filtrer par sous-catégorie">
+              <option value="">Sous-catégorie : toutes</option>
+              {subs.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+            <select value={dispo} onChange={(e) => setDispo(e.target.value)} aria-label="Filtrer par disponibilité">
+              <option value="">Disponibilité : toutes</option>
+              <option value="dispo">Disponibles</option>
+              <option value="indispo">Indisponibles (rupture)</option>
+            </select>
+            <select value={stars} onChange={(e) => setStars(e.target.value)} aria-label="Filtrer par nombre d'étoiles">
+              <option value="">Étoiles : toutes</option>
+              {[5, 4, 3, 2, 1].map((n) => <option key={n} value={n}>{n} ★</option>)}
+              <option value="0">Sans avis</option>
+            </select>
+            <select value={promo} onChange={(e) => setPromo(e.target.value)} aria-label="Filtrer par promotion">
+              <option value="">Promotions : toutes</option>
+              <option value="yes">En promotion</option>
+              <option value="no">Sans promotion</option>
+            </select>
+            <select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Trier par prix">
+              <option value="">Tri : plus récents</option>
+              <option value="asc">Prix croissant</option>
+              <option value="desc">Prix décroissant</option>
+            </select>
+          </div>
           <span className="count">{list.length} produit(s)</span>
         </div>
         <table className="tbl">
@@ -61,7 +155,7 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
           </thead>
           <tbody>
             {!data && <tr><td colSpan={7} className="empty-row">Chargement…</td></tr>}
-            {data && list.length === 0 && <tr><td colSpan={7} className="empty-row">Aucun produit.</td></tr>}
+            {data && list.length === 0 && <tr><td colSpan={7} className="empty-row">{view === 'trash' ? 'Aucun produit supprimé.' : 'Aucun produit.'}</td></tr>}
             {list.map((p) => (
               <tr key={p.id}>
                 <td><span className="cell-prod"><Thumb src={p.image_url} name={p.name} size="xs" /><strong>{p.name}</strong></span></td>
@@ -73,16 +167,38 @@ export default function ProductsTable({ onEdit, reloadKey = 0, onLoaded }) {
                 <td className="num">{p.promo > 0 ? <span className="pill pill-promo">-{p.promo}%</span> : '—'}</td>
                 <td className="num"><strong>{p.stock}</strong></td>
                 <td>
-                  <span className={`status ${!p.in_stock ? 'out' : p.low_stock ? 'low' : 'ok'}`}>
-                    {!p.in_stock ? 'Rupture' : p.low_stock ? 'Stock faible' : 'Disponible'}
+                  <span className={`status ${p.deleted || !p.in_stock ? 'out' : p.low_stock ? 'low' : 'ok'}`}>
+                    {p.deleted ? 'Supprimé' : !p.in_stock ? 'Rupture' : p.low_stock ? 'Stock faible' : 'Disponible'}
                   </span>
                 </td>
-                {onEdit && <td className="right"><button type="button" className="btn-ghost" onClick={() => onEdit(p)}>Modifier</button></td>}
+                {onEdit && (
+                  <td className="right"><div className="row-actions">
+                    {p.deleted ? (
+                      <>
+                        <button type="button" className="btn-ok" onClick={() => setAsk({ kind: 'restore', p })}>Restaurer</button>
+                        <button type="button" className="btn-danger" onClick={() => setAsk({ kind: 'force', p })}>Supprimer définitivement</button>
+                      </>
+                    ) : (
+                      <>
+                        <button type="button" className="btn-ghost" onClick={() => onEdit(p)}>Modifier</button>
+                        <button type="button" className="btn-danger" onClick={() => setAsk({ kind: 'delete', p })}>Supprimer</button>
+                      </>
+                    )}
+                  </div></td>
+                )}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      <Modal open={!!ask} onClose={() => !busy && setAsk(null)} title={action?.title}>
+        {ask && <p>{action.text(ask.p)}</p>}
+        <div className="dialog-actions">
+          <button type="button" className="btn-ghost" onClick={() => setAsk(null)} disabled={busy}>Non</button>
+          <Button variant={action?.danger ? 'danger' : 'gold'} size="sm" loading={busy} onClick={confirm}>Oui</Button>
+        </div>
+      </Modal>
     </>
   );
 }

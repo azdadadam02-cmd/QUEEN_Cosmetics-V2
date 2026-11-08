@@ -84,7 +84,7 @@ export default function Reviews({ productId, reviews }) {
           <small className="muted">Les avis sont publiés après validation{mine ? ' : une modification repasse en attente' : ''}.</small>
         </form>
       )}
-      {hydrated && !user && <p className="muted" style={{ marginTop: 22 }}><Link href="/login" style={{ textDecoration: 'underline' }}>Connectez-vous</Link> pour laisser un avis.</p>}
+      {hydrated && !user && <p className="muted" style={{ marginTop: 22 }}><Link href="/login" target="_blank" rel="noopener" style={{ textDecoration: 'underline' }}>Connectez-vous</Link> pour laisser un avis.</p>}
     </section>
   );
 }

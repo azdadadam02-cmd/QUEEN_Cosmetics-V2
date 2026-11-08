@@ -122,7 +122,7 @@ export default function CartPage() {
             {user && user.role !== 'client' ? (
               <p className="sum-link">Connecté en tant que personnel : la commande est réservée aux comptes clients.</p>
             ) : (
-              <Button href={checkoutHref} block aria-disabled={!checked}>Confirmer la commande</Button>
+              <Button href={checkoutHref} target={user ? undefined : '_blank'} rel={user ? undefined : 'noopener'} block aria-disabled={!checked}>Confirmer la commande</Button>
             )}
             <Link href="/products" className="sum-link">Continuer mes achats</Link>
           </aside>

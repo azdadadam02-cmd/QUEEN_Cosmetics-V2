@@ -20,7 +20,7 @@ class OrderItem extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'produit_id');
+        return $this->belongsTo(Product::class, 'produit_id')->withTrashed();   // l'historique des commandes garde le nom et la photo
     }
 
     public function pack(): BelongsTo

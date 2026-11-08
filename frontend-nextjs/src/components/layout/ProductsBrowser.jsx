@@ -2,15 +2,16 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Pager from '@/components/ui/Pager';
+import { norm } from '@/lib/format';
 import { useScrollReveal } from '@/lib/useReveal';
+import GuidanceStrip from './GuidanceStrip';
 import PackCard from './PackCard';
+import PacksSection from './PacksSection';
 import ProductCard from './ProductCard';
 
 const ROW = 6;        // produits par rangée
 const PER_PAGE = 12;  // produits par page (2 lignes)
 const ROWS_PER_PAGE = 4;
-const PACK_EVERY = 2;      // une bande de packs toutes les 2 rangées
-const PACKS_PER_BAND = 3;
 const NONE = 'Autres';
 
 function groupBy(items, keyOf) {
@@ -27,7 +28,7 @@ function groupBy(items, keyOf) {
  * Tous → une rangée par catégorie ; ?cat → une rangée par sous-catégorie ; VOIR PLUS ou recherche → 12 par page.
  * shortcut: tout le catalogue est envoyé au navigateur, passer à une pagination Laravel au-delà de ~1000 produits.
  */
-export default function ProductsBrowser({ products, categories, packs = [] }) {
+export default function ProductsBrowser({ products, categories, packs = [], searchPacks = packs, guidance = false }) {
   const pathname = usePathname();
   const params = useSearchParams();
   const q = (params.get('q') || '').trim();
@@ -46,10 +47,19 @@ export default function ProductsBrowser({ products, categories, packs = [] }) {
     if (scroll) sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
-  const search = q.toLowerCase();
+  // Recherche : chaque mot doit se trouver dans le nom, la marque, la catégorie ou la sous-catégorie (sans accents ni majuscules)
+  const terms = norm(q).split(/\s+/).filter(Boolean);
+  const matches = (...fields) => {
+    const hay = norm(fields.join(' '));
+    return terms.every((t) => hay.includes(t));
+  };
   const list = products.filter((p) => (!cat || (p.category || NONE) === cat)
     && (!sub || (p.sub_category || NONE) === sub)
-    && (!search || p.name.toLowerCase().includes(search)));
+    && (!terms.length || matches(p.name, p.brand, p.category, p.sub_category)));
+  // Un pack ressort par son nom ou par n'importe quel produit qu'il contient
+  const foundPacks = terms.length && !cat && !sub
+    ? searchPacks.filter((k) => matches(k.name, k.description, ...(k.products || []).flatMap((x) => [x.name, x.brand, x.category, x.sub_category])))
+    : [];
 
   const groups = sub || showAll || q ? [] : groupBy(list, (p) => (cat ? p.sub_category : p.category));
   const rows = groups.length > 1 ? groups : null;   // catégorie sans sous-catégories : directement la liste paginée
@@ -57,6 +67,7 @@ export default function ProductsBrowser({ products, categories, packs = [] }) {
   const pageSize = rows ? ROWS_PER_PAGE : PER_PAGE;
   const pages = Math.max(1, Math.ceil((rows || list).length / pageSize));
   const page = Math.min(pages, Math.max(1, Number(params.get('page')) || 1));
+  const pageRows = rows ? rows.slice((page - 1) * pageSize, page * pageSize) : [];
   const goPage = (n) => go({ cat, sub, all: showAll ? '1' : null, page: n > 1 ? String(n) : null });
 
   // Catégorie choisie toujours visible dans la barre, même arrivé par un lien
@@ -77,6 +88,11 @@ export default function ProductsBrowser({ products, categories, packs = [] }) {
 
   useScrollReveal(sectionRef, '.pc, .pack-card', [cat, sub, showAll, page, q]);
 
+  // Une recherche amène directement les résultats à l'écran (sinon ils restent sous la page, à remonter à la main)
+  useEffect(() => {
+    if (q) sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [q]);
+
   const back = sub ? { cat } : {};
 
   return (
@@ -95,21 +111,24 @@ export default function ProductsBrowser({ products, categories, packs = [] }) {
         </div>
       )}
 
-      {q && <p className="search-note">Résultats pour « {q} » : {list.length}</p>}
+      {q && <p className="search-note">Résultats pour « {q} » : {list.length} produit{list.length > 1 ? 's' : ''}{foundPacks.length > 0 && ` et ${foundPacks.length} pack${foundPacks.length > 1 ? 's' : ''}`}</p>}
+
+      {foundPacks.length > 0 && (
+        <div className="pack-grid search-packs">{foundPacks.map((k) => <PackCard key={k.id} pack={k} />)}</div>
+      )}
 
       {products.length === 0 ? (
         <p className="empty">Aucun produit pour le moment. Revenez très bientôt ✦</p>
       ) : list.length === 0 ? (
-        <p className="empty">Aucun produit ne correspond à votre recherche.</p>
+        foundPacks.length === 0 && <p className="empty">Aucun produit ni pack ne correspond à votre recherche.</p>
       ) : rows ? (
-        rows.slice((page - 1) * pageSize, page * pageSize).map(([name, items], i) => {
-          const rowNumber = (page - 1) * pageSize + i + 1;
-          // Après chaque 2 rangées (vue Tous) : les 3 packs suivants, jusqu'à épuisement
-          const band = !cat && rowNumber % PACK_EVERY === 0
-            ? packs.slice((rowNumber / PACK_EVERY - 1) * PACKS_PER_BAND, (rowNumber / PACK_EVERY) * PACKS_PER_BAND)
-            : [];
+        pageRows.map(([name, items], i) => {
+          // Accueil, page 1, vue « Tous » : les packs forment UNE section titrée, juste après la 2e rangée
+          const showPacks = page === 1 && !cat && packs.length > 0 && i === Math.min(1, pageRows.length - 1);
           return (
           <Fragment key={name}>
+          {/* Accueil, page 1, vue « Tous » : le bandeau de raccourcis passe juste avant la dernière rangée */}
+          {guidance && page === 1 && !cat && pageRows.length > 1 && i === pageRows.length - 1 && <GuidanceStrip categories={categories} hasPacks={packs.length > 0} />}
           <div className="pc-row">
             <h2 className="pc-row-title">{name}</h2>
             <div className="pgrid">
@@ -121,11 +140,7 @@ export default function ProductsBrowser({ products, categories, packs = [] }) {
               </button>
             )}
           </div>
-          {band.length > 0 && (
-            <div className="pack-band">
-              {band.map((pack) => <PackCard key={pack.id} pack={pack} />)}
-            </div>
-          )}
+          {showPacks && <PacksSection packs={packs} />}
           </Fragment>
           );
         })

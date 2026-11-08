@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Chrome from '@/components/layout/Chrome';
 import Footer from '@/components/layout/Footer';
 import Navbar, { NavbarFallback } from '@/components/layout/Navbar';
 import SmoothScroll from '@/components/layout/SmoothScroll';
@@ -27,11 +28,15 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {/* Barres avant la navbar : elles partent avec le scroll, la navbar (sticky) reste en haut */}
-        <Suspense fallback={null}>
-          <TopBarsLoader />
-        </Suspense>
         <Suspense fallback={<NavbarFallback />}>
-          <Navbar />
+          <Chrome>
+            <Suspense fallback={null}>
+              <TopBarsLoader />
+            </Suspense>
+            <Suspense fallback={<NavbarFallback />}>
+              <Navbar />
+            </Suspense>
+          </Chrome>
         </Suspense>
         <SmoothScroll />
         <Toaster />

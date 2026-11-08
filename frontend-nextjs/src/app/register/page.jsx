@@ -2,8 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
-import Field from '@/components/ui/Field';
+import AuthShell, { AuthField } from '@/components/layout/AuthShell';
 import { errorMessage, fieldErrors } from '@/lib/api';
 import { register } from '@/lib/auth';
 import { toast } from '@/store/toastStore';
@@ -33,19 +32,19 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="auth-wrap">
-      <div className="auth-card">
-        <h1 className="h-serif">Créer un compte</h1>
-        <form onSubmit={submit}>
-          <Field id="nom" label="Nom complet" type="text" value={form.nom} onChange={set('nom')} error={errors.nom} autoComplete="name" required />
-          <Field id="email" label="Email" type="email" value={form.email} onChange={set('email')} error={errors.email} autoComplete="email" required />
-          <Field id="password" label="Mot de passe" hint="(8 caractères min., 1 majuscule)" type="password" value={form.password} onChange={set('password')} error={errors.password} autoComplete="new-password" required />
-          <Field id="password_confirmation" label="Confirmer le mot de passe" type="password" value={form.password_confirmation} onChange={set('password_confirmation')} autoComplete="new-password" required />
-          {errors.global && <p className="error-text">{errors.global}</p>}
-          <Button type="submit" block loading={loading}>{loading ? 'Création…' : 'Créer mon compte'}</Button>
-        </form>
-        <p className="switch">Déjà inscrit ? <Link href="/login">Se connecter</Link></p>
-      </div>
-    </div>
+    <AuthShell
+      title="Créer un compte"
+      subtitle="Rejoignez QUEEN pour commander et garder vos favoris."
+      bottom={<>Déjà inscrit ? <Link href="/login">Se connecter</Link></>}
+    >
+      <form onSubmit={submit} className="login-form">
+        <AuthField id="nom" label="Nom complet" value={form.nom} onChange={set('nom')} error={errors.nom} autoComplete="name" required />
+        <AuthField id="email" label="Adresse email" type="email" placeholder="votre@email.com" value={form.email} onChange={set('email')} error={errors.email} autoComplete="email" required />
+        <AuthField id="password" label="Mot de passe" hint="(8 caractères min., 1 majuscule)" type="password" value={form.password} onChange={set('password')} error={errors.password} autoComplete="new-password" required />
+        <AuthField id="password_confirmation" label="Confirmer le mot de passe" type="password" value={form.password_confirmation} onChange={set('password_confirmation')} autoComplete="new-password" required />
+        {errors.global && <p className="error-text" role="alert">{errors.global}</p>}
+        <button type="submit" className="login-submit" disabled={loading}>{loading ? 'Création…' : 'Créer mon compte'}</button>
+      </form>
+    </AuthShell>
   );
 }

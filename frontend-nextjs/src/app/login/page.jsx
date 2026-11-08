@@ -2,17 +2,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
-import Field from '@/components/ui/Field';
+import AuthShell, { AuthField } from '@/components/layout/AuthShell';
 import { errorMessage } from '@/lib/api';
-import { homeFor, login } from '@/lib/auth';
+import { homeFor, login, nextPath } from '@/lib/auth';
 import { toast } from '@/store/toastStore';
-
-/** Lit ?next=/checkout en n'acceptant QUE des chemins internes (pas de redirection ouverte) */
-function nextPath() {
-  const n = new URLSearchParams(window.location.search).get('next');
-  return n && n.startsWith('/') && !n.startsWith('//') ? n : null;
-}
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,17 +31,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="auth-wrap">
-      <div className="auth-card">
-        <h1 className="h-serif">Connexion</h1>
-        <form onSubmit={submit}>
-          <Field id="email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required />
-          <Field id="password" label="Mot de passe" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" required />
-          {error && <p className="error-text">{error}</p>}
-          <Button type="submit" block loading={loading}>{loading ? 'Connexion…' : 'Se connecter'}</Button>
-        </form>
-        <p className="switch">Pas encore de compte ? <Link href="/register">Créer un compte</Link></p>
-      </div>
-    </div>
+    <AuthShell
+      title="Bon retour"
+      subtitle="Connectez-vous pour retrouver vos favoris et vos commandes."
+      bottom={<>Pas encore de compte ? <Link href="/register">Créer un compte</Link></>}
+    >
+      <form onSubmit={submit} className="login-form">
+        <AuthField id="email" label="Adresse email" type="email" placeholder="votre@email.com" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required />
+        <AuthField id="password" label="Mot de passe" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" required />
+        {error && <p className="error-text" role="alert">{error}</p>}
+        <button type="submit" className="login-submit" disabled={loading}>{loading ? 'Connexion…' : 'Se connecter'}</button>
+      </form>
+    </AuthShell>
   );
 }

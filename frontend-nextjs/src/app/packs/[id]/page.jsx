@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import ScrollTop from '@/components/layout/ScrollTop';
 import Thumb from '@/components/ui/Thumb';
 import { money } from '@/lib/format';
 import { apiGet } from '@/lib/serverApi';
@@ -16,9 +17,12 @@ export async function generateMetadata({ params }) {
 /** Fiche d'un pack : image, produits inclus, prix unique, ajout au panier */
 export default function PackPage({ params }) {
   return (
-    <Suspense fallback={<div className="pd-hero"><div className="skeleton" style={{ height: 420 }} /><div className="skeleton" style={{ height: 420 }} /></div>}>
-      <PackDetail params={params} />
-    </Suspense>
+    <>
+      <ScrollTop />
+      <Suspense fallback={<div className="pd-hero"><div className="skeleton" style={{ height: 420 }} /><div className="skeleton" style={{ height: 420 }} /></div>}>
+        <PackDetail params={params} />
+      </Suspense>
+    </>
   );
 }
 

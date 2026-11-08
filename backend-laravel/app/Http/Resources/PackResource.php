@@ -25,6 +25,9 @@ class PackResource extends JsonResource
             'products'    => $this->products->map(fn ($p) => [
                 'id'        => $p->id,
                 'name'      => $p->nom,
+                'brand'        => $p->marque,          // la recherche client trouve un pack par ses produits
+                'category'     => $p->categorie,
+                'sub_category' => $p->sous_categorie,
                 'image_url' => $p->imageUrl(),
                 'price'     => $p->finalPrice(),
                 'quantity'  => (int) $p->pivot->quantite,

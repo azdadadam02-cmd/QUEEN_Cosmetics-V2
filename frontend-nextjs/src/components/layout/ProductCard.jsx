@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Stars from '@/components/ui/Stars';
 import { initial, money } from '@/lib/format';
 
-/** Carte produit : promo, image, nom, description, étoiles (avis approuvés), prix ; « Out of stock » si rupture */
+/** Carte produit : promo, image, marque, nom, étoiles (avis approuvés), prix ; « Rupture de stock » si épuisé. Pas de description : le détail est sur la fiche. */
 export default function ProductCard({ product: p }) {
   const out = !p.in_stock;
   return (
@@ -15,14 +15,14 @@ export default function ProductCard({ product: p }) {
           <span className="ph" aria-hidden="true">{initial(p.name)}</span>
           {p.image_url && <Image src={p.image_url} alt="" fill sizes="(max-width: 760px) 50vw, 240px" onError={(e) => { e.currentTarget.style.display = 'none'; }} />}
         </span>
+        {p.brand && <span className="pc-brand">{p.brand}</span>}
         <h3 className="pc-name">{p.name}</h3>
-        {p.details && <p className="pc-desc">{p.details}</p>}
         <Stars value={p.rating} count={p.rating_count} />
         <span className="pc-price">
           {p.promo > 0 && <del>{money(p.original_price)}</del>} {money(p.price)}
         </span>
       </Link>
-      {out && <span className="pc-out">Out of stock</span>}
+      {out && <span className="pc-out">Rupture de stock</span>}
     </article>
   );
 }

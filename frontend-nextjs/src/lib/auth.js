@@ -11,6 +11,12 @@ export async function login(email, password) {
   return data; // { message, token, user }
 }
 
+/** Lit ?next=/checkout en n'acceptant QUE des chemins internes (pas de redirection ouverte) */
+export function nextPath() {
+  const n = new URLSearchParams(window.location.search).get('next');
+  return n && n.startsWith('/') && !n.startsWith('//') ? n : null;
+}
+
 export async function register(payload) {
   // payload : { nom, email, password, password_confirmation }
   const { data } = await api.post('/auth/register', payload);

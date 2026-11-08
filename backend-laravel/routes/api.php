@@ -43,7 +43,6 @@ Route::middleware('throttle:api')->group(function () {
     /* ── AUTHENTIFICATION ────────────────────────────────── */
     Route::post('/auth/login', [AuthController::class, 'login']);
     Route::post('/auth/register', [AuthController::class, 'register'])->middleware('throttle:register');
-
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/auth/me', [AuthController::class, 'me']);
         Route::post('/auth/logout', [AuthController::class, 'logout']);
@@ -77,6 +76,9 @@ Route::middleware('throttle:api')->group(function () {
         Route::middleware(['role:responsable_produits', 'throttle:uploads'])->group(function () {
             Route::post('/manage/products', [ProductController::class, 'store']);
             Route::post('/manage/products/{product}', [ProductController::class, 'update'])->whereNumber('product');
+            Route::delete('/manage/products/{product}', [ProductController::class, 'destroy'])->whereNumber('product');
+            Route::post('/manage/products/{id}/restore', [ProductController::class, 'restore'])->whereNumber('id');
+            Route::delete('/manage/products/{id}/force', [ProductController::class, 'forceDestroy'])->whereNumber('id');
         });
 
         /* ── RESPONSABLE COMMANDES (+ admin en lecture) ──── */

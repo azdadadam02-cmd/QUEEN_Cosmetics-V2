@@ -9,6 +9,9 @@ export function dateTime(iso) {
   return new Date(iso).toLocaleString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
+/** Pour comparer sans accents ni majuscules (toutes les recherches) */
+export const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
 export function initial(s) {
   return (s || '?').trim().charAt(0).toUpperCase() || '?';
 }

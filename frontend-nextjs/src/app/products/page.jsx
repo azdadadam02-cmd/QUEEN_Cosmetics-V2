@@ -17,6 +17,6 @@ export default function ProductsPage() {
 }
 
 async function Catalogue() {
-  const [products, categories] = await Promise.all([apiGet('/products'), apiGet('/categories')]);
-  return <ProductsBrowser products={products || []} categories={categories || []} />;
+  const [products, categories, packs] = await Promise.all([apiGet('/products'), apiGet('/categories'), apiGet('/packs').catch(() => [])]);
+  return <ProductsBrowser products={products || []} categories={categories || []} searchPacks={packs || []} />;
 }

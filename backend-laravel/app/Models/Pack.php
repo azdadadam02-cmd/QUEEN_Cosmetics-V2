@@ -21,7 +21,7 @@ class Pack extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'pack_produit', 'pack_id', 'produit_id')->withPivot('quantite');
+        return $this->belongsToMany(Product::class, 'pack_produit', 'pack_id', 'produit_id')->withPivot('quantite')->withTrashed();
     }
 
     public function scopeWithDetails(Builder $q): Builder
@@ -35,7 +35,8 @@ class Pack extends Model
      */
     public function availableCount(): int
     {
-        if ($this->products->isEmpty() || $this->products->contains(fn ($p) => $p->variants->isNotEmpty())) {
+        // Un produit en corbeille rend le pack indisponible (sinon il se vendrait amputé) jusqu'à sa restauration
+        if ($this->products->isEmpty() || $this->products->contains(fn ($p) => $p->trashed() || $p->variants->isNotEmpty())) {
             return 0;
         }
 

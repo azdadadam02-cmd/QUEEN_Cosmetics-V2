@@ -12,6 +12,7 @@ const TABS = {
     ['/admin/finances', 'Finances'],
     ['/admin/publicites', 'Publicités'],
     ['/admin/barres', 'Barres du haut'],
+    ['/admin/apparence', 'Apparence'],
     ['/admin/avis', 'Avis'],
     ['/admin/reports', 'Reports'],
     ['/admin/utilisateurs', 'Utilisateurs'],

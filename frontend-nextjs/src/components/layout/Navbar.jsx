@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -11,7 +10,7 @@ import { toast } from '@/store/toastStore';
 import ClientNavbar from './ClientNavbar';
 
 /** Espace client → ClientNavbar ; espaces de gestion → StaffNavbar. Le personnel n'a pas accès à l'espace client. */
-export default function Navbar() {
+export default function Navbar({ logo }) {
   const pathname = useLayoutPathname();
   const router = useRouter();
   const hydrated = useHydrated();
@@ -32,12 +31,12 @@ export default function Navbar() {
     <>
       {/* Masqué ici car envelopper children avec usePathname exigerait un Suspense sur tout le site (cacheComponents) */}
       {blocked && <style>{'main,.site-footer,.usp-bar,.promo-bar,.brand-bar{visibility:hidden}'}</style>}
-      {isStaffUser || isStaffPath(pathname) ? <StaffNavbar /> : <ClientNavbar />}
+      {isStaffUser || isStaffPath(pathname) ? <StaffNavbar logo={logo} /> : <ClientNavbar />}
     </>
   );
 }
 
-function StaffNavbar() {
+function StaffNavbar({ logo }) {
   const router = useRouter();
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);
@@ -63,7 +62,7 @@ function StaffNavbar() {
     <header className="nav-wrap">
       <nav className="nav" aria-label="Navigation principale">
         <Link href={homeFor(me)} className="brand" aria-label="QUEEN Cosmetics — mon espace">
-          <Image src="/images/logo.webp" alt="QUEEN Cosmetics" width={87} height={58} priority />
+          {logo}
         </Link>
         <span />
 

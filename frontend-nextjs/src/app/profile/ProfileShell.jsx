@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
@@ -28,7 +27,7 @@ const SERVICES = [
 
 export const LeaveContext = createContext(() => {});
 
-export default function ProfileShell({ children }) {
+export default function ProfileShell({ children, logo }) {
   // Next garde la page quittée dans le DOM (masquée) : sans ce marqueur, le CSS :has(.pf-shell) cacherait encore la navbar
   const shellRef = useRef(null);
   const [leaving, setLeaving] = useState(false);
@@ -47,7 +46,7 @@ export default function ProfileShell({ children }) {
       <LeaveContext.Provider value={() => setLeaving(true)}>
         {!leaving && (
           <RequireRole roles={['client']}>
-            <Shell>{children}</Shell>
+            <Shell logo={logo}>{children}</Shell>
           </RequireRole>
         )}
       </LeaveContext.Provider>
@@ -55,7 +54,7 @@ export default function ProfileShell({ children }) {
   );
 }
 
-function Shell({ children }) {
+function Shell({ children, logo }) {
   const pathname = usePathname();
   const router = useRouter();
   const leave = useContext(LeaveContext);
@@ -82,7 +81,7 @@ function Shell({ children }) {
     <>
       <aside className="pf-side">
         <Link href="/" className="pf-logo" aria-label="Retour à l'accueil">
-          <Image src="/images/logo.webp" alt="QUEEN Cosmetics" width={87} height={58} priority />
+          {logo}
         </Link>
         <nav className="pf-nav" aria-label="Mon compte">
           {NAV.map(([href, label, icon]) => (

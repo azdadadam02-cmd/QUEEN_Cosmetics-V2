@@ -2,18 +2,18 @@
 import { useRef, useState } from 'react';
 import FormError from '@/components/ui/FormError';
 import QuantityInput from '@/components/ui/QuantityInput';
-import TrustBadges from '@/components/ui/TrustBadges';
 import Stars from '@/components/ui/Stars';
 import { money } from '@/lib/format';
 import { useEntrance } from '@/lib/useReveal';
 import { MAX_QTE, useCartStore } from '@/store/cartStore';
 import ProductGallery from './ProductGallery';
+import RatingSummary from './RatingSummary';
 import VariantPicker from './VariantPicker';
 import { useFavorite } from './useFavorite';
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
-export default function ProductHero({ product: p, moreHref = '#description' }) {
+export default function ProductHero({ product: p, reviews = [], moreHref = '#description' }) {
   const heroRef = useRef(null);
   useEntrance(heroRef, '.pd-gallery, .pd-info, .pd-stats, .pd-actions');
   const add = useCartStore((s) => s.add);
@@ -46,8 +46,7 @@ export default function ProductHero({ product: p, moreHref = '#description' }) {
         <h1 className="pd-name">{p.name}</h1>
         <VariantPicker variants={variants} selected={selected} onSelect={setSelected} productName={p.name} />
 
-        {/* L'espace au-dessus reste libre : un produit peut avoir des couleurs ET des tailles */}
-        <TrustBadges />
+        <RatingSummary rating={p.rating} count={p.rating_count} reviews={reviews} />
         <div className="pd-buy-info">
           <div className="pd-price">
             {p.promo > 0 && <del>{money(originalPrice)}</del>}

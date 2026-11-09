@@ -34,16 +34,17 @@ export default function ProfilePhoto({ profile, onChange }) {
 
   return (
     <>
-      <header className="pf-head">
+      <header className="pf-head pf-card">
         <button type="button" className="pf-avatar" onClick={() => setAsk(true)} disabled={photo.busy} aria-label="Changer la photo de profil">
           {profile.image_url ? (
             <Image src={profile.image_url} alt="" fill sizes="140px" />
           ) : (
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.6" /><path d="M5 20a7.2 7.2 0 0 1 14 0 9.6 9.6 0 0 1-14 0z" /></svg>
           )}
+          <span className="pf-cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.2" /></svg></span>
         </button>
         <div>
-          <h1 className="pf-title">{profile.name}</h1>
+          <h1 className="pf-title">{profile.name} <span className="pf-chip">Client</span></h1>
           <p className="pf-email">{profile.email}</p>
           <button type="button" className="pf-photo-link" onClick={() => setAsk(true)} disabled={photo.busy}>Changer la photo</button>
         </div>

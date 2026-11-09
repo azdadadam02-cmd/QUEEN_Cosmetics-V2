@@ -1,7 +1,8 @@
-import RequireRole from '@/components/layout/RequireRole';
+import SiteLogo from '@/components/layout/SiteLogo';
+import StaffShell from '@/components/layout/StaffShell';
 
 export const metadata = { title: 'Gestion des commandes' };
 
 export default function Layout({ children }) {
-  return <RequireRole roles={['responsable_commandes']}><div className="staff">{children}</div></RequireRole>;
+  return <StaffShell roles={['responsable_commandes']} logo={<SiteLogo />}>{children}</StaffShell>;
 }

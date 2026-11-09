@@ -18,6 +18,7 @@ export default function AccountPage() {
   const [form, setForm] = useState({ nom: '', telephone: '', adresse: '', date_naissance: '' });
   const details = useSubmit();
   const { errors, busy: saving, setError: setLoadError } = details;
+  const [editing, setEditing] = useState(false);
 
   function apply(p) {
     setProfile(p);
@@ -39,7 +40,13 @@ export default function AccountPage() {
 
   function save(e) {
     e.preventDefault();
-    details.run(() => api.put('/profile', form), (data) => apply(data.profile));
+    details.run(() => api.put('/profile', form), (data) => { apply(data.profile); setEditing(false); });
+  }
+
+  function cancel() {
+    apply(profile);
+    details.reset();
+    setEditing(false);
   }
 
   if (!profile) return details.error ? <FormError message={details.error} /> : <p className="loading-line">Chargement…</p>;
@@ -48,7 +55,27 @@ export default function AccountPage() {
     <>
       <ProfilePhoto profile={profile} onChange={photoChanged} />
 
-      <form className="pf-form" onSubmit={save} noValidate>
+      {!editing ? (
+        <section className="pf-card">
+          <div className="pf-card-head">
+            <h2>Informations personnelles</h2>
+            <button type="button" className="pf-edit" onClick={() => { details.reset(); setEditing(true); }}>
+              Modifier
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="m13.5 6.5 4 4" /></svg>
+            </button>
+          </div>
+          <dl className="pf-info">
+            <Info label="Nom complet" value={profile.name} />
+            <Info label="Email" value={profile.email} />
+            <Info label="Téléphone" value={profile.phone} />
+            <Info label="Date de naissance" value={profile.birth_date?.split('-').reverse().join('/')} />
+            <Info label="Adresse" value={profile.address} />
+          </dl>
+          <FormError success={details.success} />
+        </section>
+      ) : (
+      <form className="pf-form pf-card" onSubmit={save} noValidate>
+        <div className="pf-card-head"><h2>Modifier mes informations</h2></div>
         <PfField id="nom" label="Nom complet" error={errors.nom}>
           <input id="nom" type="text" autoComplete="name" value={form.nom} onChange={set('nom')} required />
         </PfField>
@@ -64,11 +91,24 @@ export default function AccountPage() {
           </PfField>
         </div>
         <FormError message={details.error} success={details.success} />
-        <button type="submit" className="pf-save" disabled={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</button>
+        <div className="pf-actions">
+          <button type="submit" className="pf-save" disabled={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</button>
+          <button type="button" className="btn-ghost" onClick={cancel} disabled={saving}>Annuler</button>
+        </div>
       </form>
+      )}
 
       <DeleteAccount />
     </>
+  );
+}
+
+function Info({ label, value }) {
+  return (
+    <div>
+      <dt>{label}</dt>
+      <dd>{value || <span className="pf-empty">Non renseigné</span>}</dd>
+    </div>
   );
 }
 

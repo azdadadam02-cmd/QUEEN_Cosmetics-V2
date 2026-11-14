@@ -1,24 +1,19 @@
-/**
- * Connexion / inscription / déconnexion.
- * Le token Sanctum est gardé dans le store auth (persisté dans le navigateur).
- */
 import { api } from '@/lib/api';
+import { safeInternalPath } from '@/lib/safePath';
 import { useAuthStore } from '@/store/authStore';
 
 export async function login(email, password) {
   const { data } = await api.post('/auth/login', { email, password });
   useAuthStore.getState().setSession(data.token, data.user);
-  return data; // { message, token, user }
+  return data;
 }
 
 /** Lit ?next=/checkout en n'acceptant QUE des chemins internes (pas de redirection ouverte) */
 export function nextPath() {
-  const n = new URLSearchParams(window.location.search).get('next');
-  return n && n.startsWith('/') && !n.startsWith('//') ? n : null;
+  return safeInternalPath(new URLSearchParams(window.location.search).get('next'), window.location.origin);
 }
 
 export async function register(payload) {
-  // payload : { nom, email, password, password_confirmation }
   const { data } = await api.post('/auth/register', payload);
   useAuthStore.getState().setSession(data.token, data.user);
   return data;
@@ -33,7 +28,6 @@ export async function logout() {
   useAuthStore.getState().clear();
 }
 
-/** Relit l'utilisateur (et son rôle) depuis la base */
 export async function refreshMe() {
   if (!useAuthStore.getState().token) return null;
   try {
@@ -52,7 +46,8 @@ export const ROLE_LABELS = {
   responsable_commandes: 'Responsable commandes',
 };
 
-/** Page d'accueil de chaque rôle */
 export function homeFor(user) {
   return user?.home || '/';
 }
+
+export const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);

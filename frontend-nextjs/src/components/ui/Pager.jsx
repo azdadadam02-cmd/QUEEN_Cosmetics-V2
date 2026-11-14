@@ -1,4 +1,3 @@
-/** Pagination : Précédent, numéros, Suivant */
 export default function Pager({ page, pages, onChange }) {
   if (pages <= 1) return null;
   return (

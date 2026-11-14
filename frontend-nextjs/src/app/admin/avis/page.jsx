@@ -1,37 +1,33 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
+import FormError from '@/components/ui/FormError';
 import Stars from '@/components/ui/Stars';
 import { api, errorMessage } from '@/lib/api';
-import { toast } from '@/store/toastStore';
+import { dateTime } from '@/lib/format';
+import { useSubmit } from '@/lib/useSubmit';
 
 /** Modération des avis : un avis n'apparaît sur le site qu'une fois approuvé */
 export default function AvisPage() {
   const [rows, setRows] = useState(null);
+  const req = useSubmit();
+  const { setError: setLoadError } = req;
 
   const load = useCallback(() => {
-    api.get('/admin/reviews').then(({ data }) => setRows(data)).catch((e) => toast.error(errorMessage(e)));
-  }, []);
+    api.get('/admin/reviews').then(({ data }) => setRows(data)).catch((e) => setLoadError(errorMessage(e)));
+  }, [setLoadError]);
   useEffect(() => {
     load();
   }, [load]);
 
-  async function act(promise) {
-    try {
-      const { data } = await promise;
-      toast.success(data.message);
-      load();
-    } catch (err) {
-      toast.error(errorMessage(err));
-    }
-  }
-  const setApproved = (r, approved) => act(api.patch(`/admin/reviews/${r.id}`, { approved }));
-  const destroy = (r) => window.confirm('Supprimer cet avis ?') && act(api.delete(`/admin/reviews/${r.id}`));
+  const setApproved = (r, approved) => req.run(() => api.patch(`/admin/reviews/${r.id}`, { approved }), load);
+  const destroy = (r) => window.confirm('Supprimer cet avis ?') && req.run(() => api.delete(`/admin/reviews/${r.id}`), load);
 
   const pending = rows?.filter((r) => !r.approved).length ?? 0;
   return (
     <>
       <PageHead title="Avis clients" note={rows ? `${pending} en attente de validation` : ''} />
+      <FormError message={req.error} />
       <div className="panel tablewrap">
         <table className="tbl">
           <thead><tr><th>Produit</th><th>Client</th><th>Avis</th><th>État</th><th className="right">Actions</th></tr></thead>
@@ -42,7 +38,7 @@ export default function AvisPage() {
               <tr key={r.id}>
                 <td><strong>{r.product}</strong></td>
                 <td>{r.author}<small style={{ display: 'block' }}>{r.email}</small></td>
-                <td style={{ maxWidth: 360 }}><Stars value={r.rating} count={1} className="stars-sm" /><div>{r.comment || <em className="muted">Sans commentaire</em>}</div></td>
+                <td style={{ maxWidth: 360 }}><Stars value={r.rating} count={1} className="stars-sm" /><div>{r.comment || <em className="muted">Sans commentaire</em>}</div>{r.date && <small className="muted">{dateTime(r.date)}</small>}</td>
                 <td><span className={`pill ${r.approved ? 'pill-livree' : 'pill-role'}`}>{r.approved ? 'Approuvé' : 'En attente'}</span></td>
                 <td className="act right">
                   {r.approved

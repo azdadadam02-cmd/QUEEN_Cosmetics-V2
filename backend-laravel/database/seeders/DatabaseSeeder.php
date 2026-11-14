@@ -8,10 +8,12 @@ use App\Models\PromoAnnouncement;
 use App\Models\Usp;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 /**
  * php artisan migrate --seed
- * Comptes de test (mot de passe pour tous : Queen2026) — ne remplace jamais un compte existant.
+ * Comptes de test — ne remplace jamais un compte existant.
+ * Mot de passe : SEED_PASSWORD du .env, sinon un mot de passe aléatoire affiché une seule fois (jamais écrit dans le code).
  */
 class DatabaseSeeder extends Seeder
 {
@@ -23,11 +25,15 @@ class DatabaseSeeder extends Seeder
             ['Responsable Commandes', 'commandes@queen.ma', 'responsable_commandes'],
             ['Client Test', 'client@queen.ma', 'client'],
         ];
+        $password = env('SEED_PASSWORD') ?: Str::password(16);
+        $created = 0;
         foreach ($comptes as [$nom, $email, $role]) {
-            User::firstOrCreate(['email' => $email], ['nom' => $nom, 'mot_de_passe' => 'Queen2026', 'role' => $role]);
+            $created += (int) User::firstOrCreate(['email' => $email], ['nom' => $nom, 'mot_de_passe' => $password, 'role' => $role])->wasRecentlyCreated;
+        }
+        if ($created && ! env('SEED_PASSWORD')) {
+            $this->command?->warn("Comptes de test créés. Mot de passe (affiché une seule fois) : {$password}");
         }
 
-        // Barres du haut : exemples, seulement si les tables sont vides (l'admin les modifie ensuite)
         if (Usp::count() === 0) {
             foreach ([
                 ['truck', 'Livraison partout au Maroc'],

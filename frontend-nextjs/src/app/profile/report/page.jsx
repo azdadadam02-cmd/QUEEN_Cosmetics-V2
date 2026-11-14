@@ -1,18 +1,18 @@
 'use client';
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 import Modal from '@/components/ui/Modal';
-import { api, errorMessage, fieldErrors } from '@/lib/api';
-import { toast } from '@/store/toastStore';
+import { api } from '@/lib/api';
+import { useSubmit } from '@/lib/useSubmit';
 
 const EMPTY = { sujet: '', message: '' };
 
-/** Report : le client écrit, confirme, et seul l'admin peut lire */
 export default function ReportPage() {
   const [form, setForm] = useState(EMPTY);
-  const [errors, setErrors] = useState({});
+  const req = useSubmit();
+  const { errors, setErrors, busy: sending } = req;
   const [asking, setAsking] = useState(false);
-  const [sending, setSending] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -31,18 +31,8 @@ export default function ReportPage() {
   }
 
   async function send() {
-    setSending(true);
-    try {
-      const { data } = await api.post('/reports', form);
-      setForm(EMPTY);
-      toast.success(data.message);
-    } catch (err) {
-      setErrors(fieldErrors(err));
-      toast.error(errorMessage(err));
-    } finally {
-      setSending(false);
-      setAsking(false);
-    }
+    await req.run(() => api.post('/reports', form), () => setForm(EMPTY));
+    setAsking(false);
   }
 
   return (
@@ -59,6 +49,7 @@ export default function ReportPage() {
           <textarea id="message" rows={7} maxLength={2000} value={form.message} onChange={set('message')} required />
           {errors.message && <span className="error-text">{errors.message}</span>}
         </div>
+        <FormError message={req.error} success={req.success} />
         <div className="pf-actions">
           <button type="submit" className="pf-save">Envoyer</button>
           <button type="button" className="btn-ghost" onClick={cancel}>Annuler</button>

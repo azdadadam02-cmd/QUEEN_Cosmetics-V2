@@ -1,20 +1,17 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { homeFor, logout, refreshMe, ROLE_LABELS } from '@/lib/auth';
+import { homeFor, isStaffPath, logout, refreshMe, ROLE_LABELS } from '@/lib/auth';
 import Avatar from '@/components/ui/Avatar';
-import { useHydrated } from '@/lib/useHydrated';
+import { useHydrated, useLayoutPathname } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
 import { toast } from '@/store/toastStore';
 import ClientNavbar from './ClientNavbar';
 
-const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
-
 /** Espace client → ClientNavbar ; espaces de gestion → StaffNavbar. Le personnel n'a pas accès à l'espace client. */
-export default function Navbar() {
-  const pathname = usePathname();
+export default function Navbar({ logo }) {
+  const pathname = useLayoutPathname();
   const router = useRouter();
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);
@@ -34,12 +31,12 @@ export default function Navbar() {
     <>
       {/* Masqué ici car envelopper children avec usePathname exigerait un Suspense sur tout le site (cacheComponents) */}
       {blocked && <style>{'main,.site-footer,.usp-bar,.promo-bar,.brand-bar{visibility:hidden}'}</style>}
-      {isStaffUser || isStaffPath(pathname) ? <StaffNavbar /> : <ClientNavbar />}
+      {isStaffUser || isStaffPath(pathname) ? <StaffNavbar logo={logo} /> : <ClientNavbar />}
     </>
   );
 }
 
-function StaffNavbar() {
+function StaffNavbar({ logo }) {
   const router = useRouter();
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);
@@ -48,7 +45,6 @@ function StaffNavbar() {
 
   const me = hydrated ? user : null;
 
-  // Ferme le menu profil au clic extérieur
   useEffect(() => {
     const close = (e) => menuRef.current && !menuRef.current.contains(e.target) && setOpen(false);
     document.addEventListener('mousedown', close);
@@ -66,7 +62,7 @@ function StaffNavbar() {
     <header className="nav-wrap">
       <nav className="nav" aria-label="Navigation principale">
         <Link href={homeFor(me)} className="brand" aria-label="QUEEN Cosmetics — mon espace">
-          <Image src="/images/logo.webp" alt="QUEEN Cosmetics" width={87} height={58} priority />
+          {logo}
         </Link>
         <span />
 
@@ -104,7 +100,6 @@ function StaffNavbar() {
   );
 }
 
-/** Barre neutre affichée le temps que la navbar (qui dépend de l'URL) se charge */
 export function NavbarFallback() {
   return (
     <header className="cnav-wrap">

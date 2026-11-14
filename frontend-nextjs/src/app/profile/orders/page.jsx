@@ -1,27 +1,28 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 import StatusPill from '@/components/ui/StatusPill';
 import Thumb from '@/components/ui/Thumb';
 import VariantTag from '@/components/ui/VariantTag';
 import { api, errorMessage } from '@/lib/api';
 import { dateTime, money } from '@/lib/format';
-import { toast } from '@/store/toastStore';
 
 const STEPS = ['Reçue', 'Acceptée', 'Livrée'];
 const stepIndex = { 'En attente': 0, Acceptee: 1, Livree: 2, Refusee: 1 };
 
-/** My Orders : suivi des commandes, reçue → acceptée → livrée (ou refusée) */
 export default function OrdersPage() {
   const [orders, setOrders] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
-    api.get('/notifications').then(({ data }) => setOrders(data)).catch((e) => toast.error(errorMessage(e)));
+    api.get('/notifications').then(({ data }) => setOrders(data)).catch((e) => setLoadError(errorMessage(e)));
   }, []);
 
   return (
     <>
       <h1 className="pf-title">My Orders</h1>
+      <FormError message={loadError} />
 
       {!orders && <p className="loading-line">Chargement…</p>}
       {orders?.length === 0 && (

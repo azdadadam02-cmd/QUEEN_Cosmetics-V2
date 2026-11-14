@@ -1,21 +1,22 @@
 'use client';
 import { useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
+import FormError from '@/components/ui/FormError';
 import { api, errorMessage } from '@/lib/api';
 import { dateTime } from '@/lib/format';
-import { toast } from '@/store/toastStore';
 
-/** Lecture des reports envoyés par les clients */
 export default function AdminReportsPage() {
   const [rows, setRows] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
-    api.get('/admin/reports').then(({ data }) => setRows(data)).catch((e) => toast.error(errorMessage(e)));
+    api.get('/admin/reports').then(({ data }) => setRows(data)).catch((e) => setLoadError(errorMessage(e)));
   }, []);
 
   return (
     <>
       <PageHead title="Reports" note={rows ? `${rows.length} report${rows.length > 1 ? 's' : ''}` : ''} />
+      <FormError message={loadError} />
       <div className="panel tablewrap">
         <table className="tbl">
           <thead><tr><th>Date</th><th>Client</th><th>Sujet</th><th>Message</th></tr></thead>

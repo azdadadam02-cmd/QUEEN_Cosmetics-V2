@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Ligne de commande (table « details_commandes ») */
 class OrderItem extends Model
 {
     protected $table = 'details_commandes';

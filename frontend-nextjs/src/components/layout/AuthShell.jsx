@@ -1,11 +1,9 @@
 'use client';
 import { useState } from 'react';
 
-/** Cadre commun connexion / inscription : photo à gauche, carte du formulaire à droite (sous la navbar, avant le footer) */
 export default function AuthShell({ title, subtitle, children, bottom }) {
   return (
     <div className="login-split">
-      {/* Photo : public/images/login.png (à côté du logo) */}
       <div className="login-art" aria-hidden="true" />
 
       <div className="login-pane">
@@ -20,7 +18,6 @@ export default function AuthShell({ title, subtitle, children, bottom }) {
   );
 }
 
-/** Champ du formulaire : étiquette, saisie, erreur ; un mot de passe a son bouton « œil » */
 export function AuthField({ id, label, hint, type = 'text', error, ...props }) {
   const [show, setShow] = useState(false);
   const pass = type === 'password';

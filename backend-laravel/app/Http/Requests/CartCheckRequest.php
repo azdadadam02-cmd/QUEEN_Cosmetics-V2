@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/** Le panier Zustand envoie [{id, quantity}] ; l'API renvoie les prix et le stock à jour */
 class CartCheckRequest extends FormRequest
 {
     public function authorize(): bool

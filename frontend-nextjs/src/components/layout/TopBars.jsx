@@ -1,15 +1,13 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { isStaffPath } from '@/lib/auth';
 import { BarIcon } from '@/lib/barIcons';
+import { useLayoutPathname } from '@/lib/useHydrated';
 
-const isStaffPath = (pathname) => /^\/(admin|gestion)(\/|$)/.test(pathname);
-
-/** Lien interne (Link), externe (nouvel onglet) ou simple bloc quand l'admin n'a mis aucun lien */
 function Maybe({ href, children, ...props }) {
   if (!href) return <div {...props}>{children}</div>;
-  if (href.startsWith('/')) return <Link href={href} {...props}>{children}</Link>;
+  if (/^\/(?![/\\])/.test(href)) return <Link href={href} {...props}>{children}</Link>;   // « //site » ou « /\site » = autre domaine : lien externe
   return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
 }
 
@@ -35,7 +33,7 @@ function PromoBar({ promo }) {
     };
   }, [end]);
 
-  if (end !== null && now !== null && now >= end) return null;   // promo terminée pendant que la page était ouverte
+  if (end !== null && now !== null && now >= end) return null;
   return (
     <Maybe href={promo.link} className="promo-bar" style={{ background: promo.background, color: promo.color }}>
       <span className="promo-text">{promo.text}</span>
@@ -44,10 +42,9 @@ function PromoBar({ promo }) {
   );
 }
 
-/** Barre des avantages (grise) + barre promo, au-dessus de la navbar. Elles défilent avec la page, seule la navbar reste collée. */
 export default function TopBars({ usps, promo, brand }) {
-  const pathname = usePathname();
-  if (isStaffPath(pathname)) return null;   // pas dans les espaces de gestion
+  const pathname = useLayoutPathname();
+  if (isStaffPath(pathname)) return null;
   return (
     <>
       {usps.length > 0 && (

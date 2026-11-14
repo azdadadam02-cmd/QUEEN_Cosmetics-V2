@@ -2,18 +2,25 @@ import { Suspense } from 'react';
 import Chrome from '@/components/layout/Chrome';
 import Footer from '@/components/layout/Footer';
 import Navbar, { NavbarFallback } from '@/components/layout/Navbar';
+import SiteLogo from '@/components/layout/SiteLogo';
 import SmoothScroll from '@/components/layout/SmoothScroll';
+import ThemeStyle from '@/components/layout/ThemeStyle';
+import { getTheme } from '@/lib/themeServer';
 import TopBarsLoader from '@/components/layout/TopBarsLoader';
-import Toaster from '@/components/ui/Toaster';
 import './globals.css';
 
-export const metadata = {
-  title: { default: 'QUEEN Cosmetics', template: '%s · QUEEN Cosmetics' },
-  description: "Parfums, soins et maquillage — paiement à la livraison partout au Maroc.",
-  icons: { icon: '/images/logo.webp' },
-};
+export async function generateMetadata() {
+  let icon = '/images/logo.webp';
+  try {
+    icon = (await getTheme()).logo_url || icon;
+  } catch {}   // API coupée : favicon d'origine
+  return {
+    title: { default: 'QUEEN Cosmetics', template: '%s · QUEEN Cosmetics' },
+    description: "Parfums, soins et maquillage — paiement à la livraison partout au Maroc.",
+    icons: { icon },
+  };
+}
 
-/** Gabarit commun à toutes les pages : navbar + contenu + footer */
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
@@ -27,19 +34,20 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {/* Barres avant la navbar : elles partent avec le scroll, la navbar (sticky) reste en haut */}
+        <Suspense fallback={null}>
+          <ThemeStyle />
+        </Suspense>
         <Suspense fallback={<NavbarFallback />}>
           <Chrome>
             <Suspense fallback={null}>
               <TopBarsLoader />
             </Suspense>
             <Suspense fallback={<NavbarFallback />}>
-              <Navbar />
+              <Navbar logo={<SiteLogo />} />
             </Suspense>
           </Chrome>
         </Suspense>
         <SmoothScroll />
-        <Toaster />
         <main className="container">{children}</main>
         <Footer />
       </body>

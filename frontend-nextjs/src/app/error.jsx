@@ -1,7 +1,6 @@
 'use client';
 import Button from '@/components/ui/Button';
 
-/** Affiché si l'API Laravel ne répond pas pendant le rendu d'une page */
 export default function Error({ reset }) {
   return (
     <div className="empty-state mt">

@@ -10,16 +10,13 @@ use App\Services\ImageUploader;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-/** Publicités du carrousel (public en lecture, admin en écriture) */
 class AdvertisementController extends Controller
 {
-    /** GET /api/advertisements */
     public function index(): AnonymousResourceCollection
     {
         return AdvertisementResource::collection(Advertisement::with('product')->orderByDesc('id')->get());
     }
 
-    /** POST /api/admin/advertisements (multipart) */
     public function store(AdvertisementRequest $request, ImageUploader $uploader): JsonResponse
     {
         $ad = Advertisement::create([
@@ -35,7 +32,6 @@ class AdvertisementController extends Controller
         ], 201);
     }
 
-    /** POST /api/admin/advertisements/{advertisement} (multipart — sans image, l'ancienne est gardée) */
     public function update(AdvertisementRequest $request, Advertisement $advertisement, ImageUploader $uploader): JsonResponse
     {
         $data = [
@@ -54,7 +50,6 @@ class AdvertisementController extends Controller
         ]);
     }
 
-    /** DELETE /api/admin/advertisements/{advertisement} */
     public function destroy(Advertisement $advertisement): JsonResponse
     {
         $titre = $advertisement->titre;

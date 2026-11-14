@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/** Barre de marque sous les barres du haut (table « parametres_header », une seule ligne) */
 class HeaderSetting extends Model
 {
     protected $table = 'parametres_header';

@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/** Liens « Service » du profil client (WhatsApp, Facebook, X, Gmail), saisis par l'admin. Une seule ligne. */
 return new class extends Migration
 {
     public function up(): void

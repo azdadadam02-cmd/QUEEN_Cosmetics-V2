@@ -1,4 +1,3 @@
-/** 5 étoiles : pleines selon la note arrondie ; grises tant qu'il n'y a aucun avis */
 export default function Stars({ value = 0, count = 0, className = '' }) {
   const full = count > 0 ? Math.round(value) : 0;
   return (

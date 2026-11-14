@@ -1,0 +1,54 @@
+- generic [active] [ref=f49e1]:
+  - banner [ref=f49e2]:
+    - navigation "Navigation principale" [ref=f49e3]:
+      - link "QUEEN Cosmetics — mon espace" [ref=f49e4] [cursor=pointer]:
+        - /url: /admin
+        - img "QUEEN Cosmetics" [ref=f49e5]
+      - generic [ref=f49e6]:
+        - link "Espace administrateur" [ref=f49e7] [cursor=pointer]:
+          - /url: /admin
+        - button "A admin@queen.ma" [ref=f49e9] [cursor=pointer]:
+          - generic [ref=f49e10]: A
+          - generic [ref=f49e11]: admin@queen.ma
+  - status
+  - main [ref=f49e14]:
+    - generic [ref=f49e15]:
+      - navigation "Espace personnel" [ref=f49e16]:
+        - link "Tableau de bord" [ref=f49e17] [cursor=pointer]:
+          - /url: /admin
+        - link "Produits & stock" [ref=f49e18] [cursor=pointer]:
+          - /url: /admin/produits
+        - link "Packs" [ref=f49e19] [cursor=pointer]:
+          - /url: /admin/packs
+        - link "Commandes" [ref=f49e20] [cursor=pointer]:
+          - /url: /admin/commandes
+        - link "Finances" [ref=f49e21] [cursor=pointer]:
+          - /url: /admin/finances
+        - link "Publicités" [ref=f49e22] [cursor=pointer]:
+          - /url: /admin/publicites
+        - link "Barres du haut" [ref=f49e23] [cursor=pointer]:
+          - /url: /admin/barres
+        - link "Avis" [ref=f49e24] [cursor=pointer]:
+          - /url: /admin/avis
+        - link "Reports" [ref=f49e25] [cursor=pointer]:
+          - /url: /admin/reports
+        - link "Utilisateurs" [ref=f49e26] [cursor=pointer]:
+          - /url: /admin/utilisateurs
+      - paragraph [ref=f49e27]: Chargement…
+  - contentinfo [ref=f49e28]:
+    - generic [ref=f49e29]:
+      - generic [ref=f49e30]:
+        - text: QUEEN
+        - emphasis [ref=f49e31]: Cosmetics
+      - generic [ref=f49e32]: Paiement à la livraison · Livraison partout au Maroc · Produits authentiques
+      - generic [ref=f49e33]: © QUEEN Cosmetics
+  - generic [ref=f49e38] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f49e39]
+    - generic [ref=f49e43]:
+      - button "Open issues overlay" [ref=f49e44]:
+        - generic [ref=f49e45]:
+          - generic [aria-hidden] [ref=f49e46]: "0"
+          - generic [ref=f49e47]: "1"
+        - generic [ref=f49e48]: Issue
+      - button "Collapse issues badge" [ref=f49e49]
+  - alert [ref=f49e52]

@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
-/** Ajout / modification d'un produit (responsable produits). Image optionnelle en modification. */
 class ProductRequest extends FormRequest
 {
     public const MAX_GALLERY = 10;
@@ -19,7 +18,6 @@ class ProductRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $clean = fn (string $k) => trim((string) $this->input($k)) ?: null;
-        // Formulaire multipart : les variantes arrivent en JSON
         $variants = json_decode((string) $this->input('variants', '[]'), true);
 
         $this->merge([
@@ -31,7 +29,8 @@ class ProductRequest extends FormRequest
             'details'        => $clean('details'),
             'prix'           => str_replace(',', '.', trim((string) $this->input('prix'))),
             'promotion'      => $this->filled('promotion') ? $this->input('promotion') : 0,
-            'variants'       => is_array($variants) ? $variants : [],
+            // Prix de variante : « 12,5 » accepté, vide = prix du produit
+            'variants'       => is_array($variants) ? array_map(fn ($r) => is_array($r) && isset($r['prix']) ? ['prix' => trim(str_replace(',', '.', (string) $r['prix'])) ?: null] + $r : $r, $variants) : [],
         ]);
     }
 
@@ -62,10 +61,11 @@ class ProductRequest extends FormRequest
             'variants.*.poids_g'         => ['nullable', 'integer', 'min:1', 'max:1000000'],
             'variants.*.quantite_pieces' => ['nullable', 'integer', 'min:1', 'max:1000000'],
             'variants.*.stock'           => ['required', 'integer', 'min:0', 'max:1000000'],
+            'variants.*.prix'            => ['nullable', 'numeric', 'min:0', 'max:1000000'],
         ];
     }
 
-    /** Une variante sans couleur ni taille, ou deux variantes identiques, ne peuvent pas être choisies par le client */
+    /** Une variante est SOIT une couleur, SOIT une taille (jamais les deux), et deux variantes identiques ne peuvent pas être choisies par le client */
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $v) {
@@ -75,8 +75,11 @@ class ProductRequest extends FormRequest
                     continue;
                 }
                 $sig = [$r['couleur'] ?? null, $r['taille'] ?? null, $r['volume_ml'] ?? null, $r['poids_g'] ?? null, $r['quantite_pieces'] ?? null];
+                $hasSize = (bool) array_filter(array_slice($sig, 1));
                 if (! array_filter($sig)) {
                     $v->errors()->add("variants.$i", 'Chaque variante doit avoir une couleur ou une taille.');
+                } elseif ($sig[0] && $hasSize) {
+                    $v->errors()->add("variants.$i", 'Une variante est soit une couleur, soit une taille : ajoutez-les dans deux lignes séparées.');
                 } elseif (in_array($sig, $seen)) {
                     $v->errors()->add("variants.$i", 'Deux variantes sont identiques.');
                 }
@@ -105,6 +108,7 @@ class ProductRequest extends FormRequest
             'variants.*.couleur.*' => 'Couleur de variante invalide.',
             'variants.*.taille.*'  => 'Taille de variante trop longue (20 caractères max).',
             'variants.*.stock.*'   => 'Indiquez le stock de chaque variante (0 ou plus).',
+            'variants.*.prix.*'    => 'Prix de variante invalide (nombre positif, vide = prix du produit).',
             'variants.*.*'         => 'Valeur de variante invalide (nombre entier positif attendu).',
         ];
     }

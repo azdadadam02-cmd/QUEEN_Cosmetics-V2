@@ -1,4 +1,3 @@
-/** Session de l'utilisateur : token Sanctum + infos (nom, email, rôle). Persisté dans le navigateur. */
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 

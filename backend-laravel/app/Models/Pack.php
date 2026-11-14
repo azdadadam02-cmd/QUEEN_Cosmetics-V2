@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-/** Offre groupée (tables « packs » et « pack_produit »), vendue à un prix unique */
 class Pack extends Model
 {
     protected $table = 'packs';
@@ -43,7 +42,6 @@ class Pack extends Model
         return (int) $this->products->map(fn ($p) => intdiv((int) $p->quantite_stock, max(1, (int) $p->pivot->quantite)))->min();
     }
 
-    /** Valeur des produits achetés séparément (prix barré) */
     public function separateValue(): float
     {
         return round($this->products->sum(fn ($p) => $p->finalPrice() * $p->pivot->quantite), 2);

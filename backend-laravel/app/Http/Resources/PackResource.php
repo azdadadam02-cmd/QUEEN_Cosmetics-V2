@@ -5,7 +5,6 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Pack */
 class PackResource extends JsonResource
 {
     public function toArray(Request $request): array
@@ -25,7 +24,7 @@ class PackResource extends JsonResource
             'products'    => $this->products->map(fn ($p) => [
                 'id'        => $p->id,
                 'name'      => $p->nom,
-                'brand'        => $p->marque,          // la recherche client trouve un pack par ses produits
+                'brand'        => $p->marque,
                 'category'     => $p->categorie,
                 'sub_category' => $p->sous_categorie,
                 'image_url' => $p->imageUrl(),

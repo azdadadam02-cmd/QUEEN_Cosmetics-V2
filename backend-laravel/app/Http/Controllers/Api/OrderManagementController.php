@@ -10,10 +10,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-/** Responsable commandes (et admin en lecture seule) */
 class OrderManagementController extends Controller
 {
-    /** GET /api/manage/orders?status=En attente */
     public function index(Request $request): JsonResponse
     {
         $status = in_array($request->query('status'), Order::STATUTS, true) ? $request->query('status') : null;
@@ -30,7 +28,6 @@ class OrderManagementController extends Controller
         ]);
     }
 
-    /** PATCH /api/manage/orders/{order}/status  { status: Acceptee|Refusee|Livree } */
     public function updateStatus(Request $request, Order $order, OrderService $service): JsonResponse
     {
         $data = $request->validate(

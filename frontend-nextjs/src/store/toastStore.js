@@ -1,4 +1,5 @@
-/** Messages éphémères (succès / erreur / info) — remplace les « flash » de l'ancien site */
+/** Messages succès / erreur / info : plus rien ne les affiche (<Toaster /> retiré du layout, à la demande).
+ *  Les appels toast.* sont gardés : remettre un composant qui lit useToastStore suffit pour les réactiver. */
 import { create } from 'zustand';
 
 let id = 0;

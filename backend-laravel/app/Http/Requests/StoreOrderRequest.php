@@ -5,10 +5,6 @@ namespace App\Http\Requests;
 use App\Services\CartService;
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Validation de la commande (paiement à la livraison) :
- * articles du panier + infos de livraison + case « +18 » obligatoire.
- */
 class StoreOrderRequest extends FormRequest
 {
     public function authorize(): bool

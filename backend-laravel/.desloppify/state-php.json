@@ -1,0 +1,3815 @@
+{
+  "version": 3,
+  "created": "2026-11-09T12:41:28+00:00",
+  "last_scan": "2026-11-09T12:41:30+00:00",
+  "scan_count": 1,
+  "overall_score": 18.7,
+  "objective_score": 74.8,
+  "strict_score": 18.7,
+  "verified_strict_score": 74.8,
+  "stats": {
+    "total": 76,
+    "auto_resolved": 0,
+    "deferred": 0,
+    "false_positive": 0,
+    "fixed": 0,
+    "open": 76,
+    "triaged_out": 0,
+    "wontfix": 0,
+    "by_tier": {
+      "2": {
+        "auto_resolved": 0,
+        "deferred": 0,
+        "false_positive": 0,
+        "fixed": 0,
+        "open": 3,
+        "triaged_out": 0,
+        "wontfix": 0
+      },
+      "3": {
+        "auto_resolved": 0,
+        "deferred": 0,
+        "false_positive": 0,
+        "fixed": 0,
+        "open": 73,
+        "triaged_out": 0,
+        "wontfix": 0
+      }
+    }
+  },
+  "work_items": {
+    "structural::app/Services/CartService.php": {
+      "id": "structural::app/Services/CartService.php",
+      "detector": "structural",
+      "file": "app/Services/CartService.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Large file: complexity score 102",
+      "detail": {
+        "complexity_score": 102,
+        "complexity_signals": [
+          "nesting depth 2",
+          "longest function 110 LOC",
+          "cyclomatic complexity 21",
+          "1 params"
+        ],
+        "loc": 127
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "structural::app/Services/OrderService.php": {
+      "id": "structural::app/Services/OrderService.php",
+      "detector": "structural",
+      "file": "app/Services/OrderService.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Large file: complexity score 64",
+      "detail": {
+        "complexity_score": 64,
+        "complexity_signals": [
+          "nesting depth 2",
+          "longest function 100 LOC",
+          "cyclomatic complexity 17",
+          "4 params",
+          "callback depth 2"
+        ],
+        "loc": 161
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "structural::app/Console/Commands/SeedTestData.php": {
+      "id": "structural::app/Console/Commands/SeedTestData.php",
+      "detector": "structural",
+      "file": "app/Console/Commands/SeedTestData.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Large file: complexity score 55",
+      "detail": {
+        "complexity_score": 55,
+        "complexity_signals": [
+          "nesting depth 2",
+          "longest function 81 LOC",
+          "cyclomatic complexity 41",
+          "4 params",
+          "callback depth 2"
+        ],
+        "loc": 289
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "unused::public/index.php::unused_import::3": {
+      "id": "unused::public/index.php::unused_import::3",
+      "detector": "unused",
+      "file": "public/index.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Unused import: Application",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::store": {
+      "id": "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::store",
+      "detector": "signature",
+      "file": "app/Http/Controllers/Api/AdvertisementController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'store' has 8 different signatures across 8 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::update": {
+      "id": "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::update",
+      "detector": "signature",
+      "file": "app/Http/Controllers/Api/AdvertisementController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'update' has 5 different signatures across 6 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::destroy": {
+      "id": "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::destroy",
+      "detector": "signature",
+      "file": "app/Http/Controllers/Api/AdvertisementController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'destroy' has 5 different signatures across 5 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Http/Controllers/Api/PackController.php::signature_variance::show": {
+      "id": "signature::app/Http/Controllers/Api/PackController.php::signature_variance::show",
+      "detector": "signature",
+      "file": "app/Http/Controllers/Api/PackController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'show' has 4 different signatures across 4 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::index": {
+      "id": "signature::app/Http/Controllers/Api/AdvertisementController.php::signature_variance::index",
+      "detector": "signature",
+      "file": "app/Http/Controllers/Api/AdvertisementController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'index' has 3 different signatures across 8 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Models/Advertisement.php::signature_variance::product": {
+      "id": "signature::app/Models/Advertisement.php::signature_variance::product",
+      "detector": "signature",
+      "file": "app/Models/Advertisement.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'product' has 2 different signatures across 5 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "signature::app/Models/Report.php::signature_variance::user": {
+      "id": "signature::app/Models/Report.php::signature_variance::user",
+      "detector": "signature",
+      "file": "app/Models/Report.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "'user' has 2 different signatures across 3 files",
+      "detail": {},
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Services/OrderService.php": {
+      "id": "orphaned::app/Services/OrderService.php",
+      "detector": "orphaned",
+      "file": "app/Services/OrderService.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (161 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 161
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Services/CartService.php": {
+      "id": "orphaned::app/Services/CartService.php",
+      "detector": "orphaned",
+      "file": "app/Services/CartService.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (127 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 127
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Services/FinanceService.php": {
+      "id": "orphaned::app/Services/FinanceService.php",
+      "detector": "orphaned",
+      "file": "app/Services/FinanceService.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (86 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 86
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/ProductResource.php": {
+      "id": "orphaned::app/Http/Resources/ProductResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/ProductResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (59 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 59
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/OrderResource.php": {
+      "id": "orphaned::app/Http/Resources/OrderResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/OrderResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (46 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 46
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/PackResource.php": {
+      "id": "orphaned::app/Http/Resources/PackResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/PackResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (36 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 36
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Services/ImageUploader.php": {
+      "id": "orphaned::app/Services/ImageUploader.php",
+      "detector": "orphaned",
+      "file": "app/Services/ImageUploader.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (28 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 28
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/OrderItemResource.php": {
+      "id": "orphaned::app/Http/Resources/OrderItemResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/OrderItemResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (25 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 25
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/PromoResource.php": {
+      "id": "orphaned::app/Http/Resources/PromoResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/PromoResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (23 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 23
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/UserResource.php": {
+      "id": "orphaned::app/Http/Resources/UserResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/UserResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (23 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 23
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/AdvertisementResource.php": {
+      "id": "orphaned::app/Http/Resources/AdvertisementResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/AdvertisementResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (21 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 21
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "orphaned::app/Http/Resources/UspResource.php": {
+      "id": "orphaned::app/Http/Resources/UspResource.php",
+      "detector": "orphaned",
+      "file": "app/Http/Resources/UspResource.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Orphaned file (21 LOC): zero importers, not an entry point",
+      "detail": {
+        "loc": 21
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/AdvertisementResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/AdvertisementResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/AdvertisementResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (21 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 21,
+        "importer_count": 0,
+        "loc_weight": 4.58257569495584
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/LoginRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/LoginRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/LoginRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (34 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 34,
+        "importer_count": 0,
+        "loc_weight": 5.830951894845301
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Services/OrderService.php::untested_critical": {
+      "id": "test_coverage::app/Services/OrderService.php::untested_critical",
+      "detector": "test_coverage",
+      "file": "app/Services/OrderService.php",
+      "tier": 2,
+      "confidence": "high",
+      "summary": "Untested critical module (161 LOC, 0 importers) \u2014 high blast radius",
+      "detail": {
+        "kind": "untested_critical",
+        "loc": 161,
+        "importer_count": 0,
+        "loc_weight": 12.68857754044952,
+        "complexity_score": 64
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/CartCheckRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/CartCheckRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/CartCheckRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (24 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 24,
+        "importer_count": 0,
+        "loc_weight": 4.898979485566356
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/ThemeController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/ThemeController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/ThemeController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (98 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 98,
+        "importer_count": 0,
+        "loc_weight": 9.899494936611665
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/OrderController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/OrderController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/OrderController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (68 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 68,
+        "importer_count": 0,
+        "loc_weight": 8.246211251235321
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/AdvertisementController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/AdvertisementController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/AdvertisementController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (60 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 60,
+        "importer_count": 0,
+        "loc_weight": 7.745966692414834
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/PackController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/PackController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/PackController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (83 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 83,
+        "importer_count": 0,
+        "loc_weight": 9.1104335791443
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/OrderResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/OrderResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/OrderResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (46 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 46,
+        "importer_count": 0,
+        "loc_weight": 6.782329983125268
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/OrderManagementController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/OrderManagementController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/OrderManagementController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (51 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 51,
+        "importer_count": 0,
+        "loc_weight": 7.14142842854285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Services/FinanceService.php::untested_module": {
+      "id": "test_coverage::app/Services/FinanceService.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Services/FinanceService.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (86 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 86,
+        "importer_count": 0,
+        "loc_weight": 9.273618495495704
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/OrderItemResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/OrderItemResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/OrderItemResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (25 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 25,
+        "importer_count": 0,
+        "loc_weight": 5.0
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/Usp.php::untested_module": {
+      "id": "test_coverage::app/Models/Usp.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/Usp.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (18 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 18,
+        "importer_count": 0,
+        "loc_weight": 4.242640687119285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::database/seeders/DatabaseSeeder.php::untested_module": {
+      "id": "test_coverage::database/seeders/DatabaseSeeder.php::untested_module",
+      "detector": "test_coverage",
+      "file": "database/seeders/DatabaseSeeder.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (74 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 74,
+        "importer_count": 0,
+        "loc_weight": 8.602325267042627
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "script",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/PackResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/PackResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/PackResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (36 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 36,
+        "importer_count": 0,
+        "loc_weight": 6.0
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/UspResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/UspResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/UspResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (21 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 21,
+        "importer_count": 0,
+        "loc_weight": 4.58257569495584
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/ProductResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/ProductResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/ProductResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (59 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 59,
+        "importer_count": 0,
+        "loc_weight": 7.681145747868608
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/UserRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/UserRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/UserRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (51 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 51,
+        "importer_count": 0,
+        "loc_weight": 7.14142842854285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/FavoriteController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/FavoriteController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/FavoriteController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (40 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 40,
+        "importer_count": 0,
+        "loc_weight": 6.324555320336759
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/ReportController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/ReportController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/ReportController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (41 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 41,
+        "importer_count": 0,
+        "loc_weight": 6.4031242374328485
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/PackRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/PackRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/PackRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (78 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 78,
+        "importer_count": 0,
+        "loc_weight": 8.831760866327848
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/AuthController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/AuthController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/AuthController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (101 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 101,
+        "importer_count": 0,
+        "loc_weight": 10.04987562112089
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/RegisterRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/RegisterRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/RegisterRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (46 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 46,
+        "importer_count": 0,
+        "loc_weight": 6.782329983125268
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/CartController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/CartController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/CartController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (16 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 16,
+        "importer_count": 0,
+        "loc_weight": 4.0
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Console/Commands/SeedTestData.php::untested_critical": {
+      "id": "test_coverage::app/Console/Commands/SeedTestData.php::untested_critical",
+      "detector": "test_coverage",
+      "file": "app/Console/Commands/SeedTestData.php",
+      "tier": 2,
+      "confidence": "high",
+      "summary": "Untested critical module (289 LOC, 0 importers) \u2014 high blast radius",
+      "detail": {
+        "kind": "untested_critical",
+        "loc": 289,
+        "importer_count": 0,
+        "loc_weight": 17.0,
+        "complexity_score": 55
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/PromoResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/PromoResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/PromoResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (23 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 23,
+        "importer_count": 0,
+        "loc_weight": 4.795831523312719
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/AdvertisementRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/AdvertisementRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/AdvertisementRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (54 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 54,
+        "importer_count": 0,
+        "loc_weight": 7.3484692283495345
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Resources/UserResource.php::untested_module": {
+      "id": "test_coverage::app/Http/Resources/UserResource.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Resources/UserResource.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (23 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 23,
+        "importer_count": 0,
+        "loc_weight": 4.795831523312719
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/Address.php::untested_module": {
+      "id": "test_coverage::app/Models/Address.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/Address.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (18 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 18,
+        "importer_count": 0,
+        "loc_weight": 4.242640687119285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/Advertisement.php::untested_module": {
+      "id": "test_coverage::app/Models/Advertisement.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/Advertisement.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (24 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 24,
+        "importer_count": 0,
+        "loc_weight": 4.898979485566356
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/HeaderSetting.php::untested_module": {
+      "id": "test_coverage::app/Models/HeaderSetting.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/HeaderSetting.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (23 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 23,
+        "importer_count": 0,
+        "loc_weight": 4.795831523312719
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/ProductRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/ProductRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/ProductRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (115 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 115,
+        "importer_count": 0,
+        "loc_weight": 10.723805294763608
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/OrderItem.php::untested_module": {
+      "id": "test_coverage::app/Models/OrderItem.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/OrderItem.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (34 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 34,
+        "importer_count": 0,
+        "loc_weight": 5.830951894845301
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/UserController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/UserController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/UserController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (65 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 65,
+        "importer_count": 0,
+        "loc_weight": 8.06225774829855
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/ProductController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/ProductController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/ProductController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (203 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 203,
+        "importer_count": 0,
+        "loc_weight": 14.247806848775006
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/PromoAnnouncement.php::untested_module": {
+      "id": "test_coverage::app/Models/PromoAnnouncement.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/PromoAnnouncement.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (18 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 18,
+        "importer_count": 0,
+        "loc_weight": 4.242640687119285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Providers/AppServiceProvider.php::untested_module": {
+      "id": "test_coverage::app/Providers/AppServiceProvider.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Providers/AppServiceProvider.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (29 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 29,
+        "importer_count": 0,
+        "loc_weight": 5.385164807134504
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/ProfileController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/ProfileController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/ProfileController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (160 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 160,
+        "importer_count": 0,
+        "loc_weight": 12.649110640673518
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/Pack.php::untested_module": {
+      "id": "test_coverage::app/Models/Pack.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/Pack.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (72 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 72,
+        "importer_count": 0,
+        "loc_weight": 8.48528137423857
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Console/Commands/ImportProductImages.php::untested_module": {
+      "id": "test_coverage::app/Console/Commands/ImportProductImages.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Console/Commands/ImportProductImages.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (66 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 66,
+        "importer_count": 0,
+        "loc_weight": 8.12403840463596
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/TopBarController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/TopBarController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/TopBarController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (182 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 182,
+        "importer_count": 0,
+        "loc_weight": 13.490737563232042
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Console/Commands/FetchProductImages.php::untested_module": {
+      "id": "test_coverage::app/Console/Commands/FetchProductImages.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Console/Commands/FetchProductImages.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (82 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 82,
+        "importer_count": 0,
+        "loc_weight": 9.055385138137417
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Services/CartService.php::untested_critical": {
+      "id": "test_coverage::app/Services/CartService.php::untested_critical",
+      "detector": "test_coverage",
+      "file": "app/Services/CartService.php",
+      "tier": 2,
+      "confidence": "high",
+      "summary": "Untested critical module (127 LOC, 0 importers) \u2014 high blast radius",
+      "detail": {
+        "kind": "untested_critical",
+        "loc": 127,
+        "importer_count": 0,
+        "loc_weight": 11.269427669584644,
+        "complexity_score": 102
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Middleware/EnsureRole.php::untested_module": {
+      "id": "test_coverage::app/Http/Middleware/EnsureRole.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Middleware/EnsureRole.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (34 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 34,
+        "importer_count": 0,
+        "loc_weight": 5.830951894845301
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/ReviewController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/ReviewController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/ReviewController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (96 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 96,
+        "importer_count": 0,
+        "loc_weight": 9.797958971132712
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/Report.php::untested_module": {
+      "id": "test_coverage::app/Models/Report.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/Report.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (24 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 24,
+        "importer_count": 0,
+        "loc_weight": 4.898979485566356
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Models/ServiceLink.php::untested_module": {
+      "id": "test_coverage::app/Models/ServiceLink.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Models/ServiceLink.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (18 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 18,
+        "importer_count": 0,
+        "loc_weight": 4.242640687119285
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Requests/StoreOrderRequest.php::untested_module": {
+      "id": "test_coverage::app/Http/Requests/StoreOrderRequest.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Requests/StoreOrderRequest.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (60 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 60,
+        "importer_count": 0,
+        "loc_weight": 7.745966692414834
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Middleware/SecurityHeaders.php::untested_module": {
+      "id": "test_coverage::app/Http/Middleware/SecurityHeaders.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Middleware/SecurityHeaders.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (30 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 30,
+        "importer_count": 0,
+        "loc_weight": 5.477225575051661
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Http/Controllers/Api/AdminController.php::untested_module": {
+      "id": "test_coverage::app/Http/Controllers/Api/AdminController.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Http/Controllers/Api/AdminController.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (46 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 46,
+        "importer_count": 0,
+        "loc_weight": 6.782329983125268
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "test_coverage::app/Services/ImageUploader.php::untested_module": {
+      "id": "test_coverage::app/Services/ImageUploader.php::untested_module",
+      "detector": "test_coverage",
+      "file": "app/Services/ImageUploader.php",
+      "tier": 3,
+      "confidence": "high",
+      "summary": "Untested module (28 LOC, 0 importers)",
+      "detail": {
+        "kind": "untested_module",
+        "loc": 28,
+        "importer_count": 0,
+        "loc_weight": 5.291502622129181
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:29+00:00",
+      "last_seen": "2026-11-09T12:41:29+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "boilerplate_duplication::app/Http/Requests/RegisterRequest.php::8cc1f8ff099b6f09": {
+      "id": "boilerplate_duplication::app/Http/Requests/RegisterRequest.php::8cc1f8ff099b6f09",
+      "detector": "boilerplate_duplication",
+      "file": "app/Http/Requests/RegisterRequest.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Boilerplate block repeated across 2 files (window 13 lines): app/Http/Requests/RegisterRequest.php:11, app/Http/Requests/UserRequest.php:13",
+      "detail": {
+        "distinct_files": 2,
+        "window_size": 13,
+        "locations": [
+          {
+            "file": "app/Http/Requests/RegisterRequest.php",
+            "line": 11
+          },
+          {
+            "file": "app/Http/Requests/UserRequest.php",
+            "line": 13
+          }
+        ],
+        "sample": [
+          "        return true;",
+          "    }",
+          "",
+          "    protected function prepareForValidation(): void"
+        ]
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:30+00:00",
+      "last_seen": "2026-11-09T12:41:30+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    },
+    "boilerplate_duplication::app/Http/Controllers/Api/PackController.php::f43470cb6da6a9b7": {
+      "id": "boilerplate_duplication::app/Http/Controllers/Api/PackController.php::f43470cb6da6a9b7",
+      "detector": "boilerplate_duplication",
+      "file": "app/Http/Controllers/Api/PackController.php",
+      "tier": 3,
+      "confidence": "medium",
+      "summary": "Boilerplate block repeated across 2 files (window 6 lines): app/Http/Controllers/Api/PackController.php:46, app/Http/Controllers/Api/ProductController.php:142",
+      "detail": {
+        "distinct_files": 2,
+        "window_size": 6,
+        "locations": [
+          {
+            "file": "app/Http/Controllers/Api/PackController.php",
+            "line": 46
+          },
+          {
+            "file": "app/Http/Controllers/Api/ProductController.php",
+            "line": 142
+          }
+        ],
+        "sample": [
+          "        DB::transaction(function () use ($request, $pack, $uploader) {",
+          "            $data = $this->fields($request);",
+          "            if ($img = $uploader->store($request->file('image'), $request->input('nom'))) {",
+          "                $data['image'] = $img;"
+        ]
+      },
+      "status": "open",
+      "note": null,
+      "first_seen": "2026-11-09T12:41:30+00:00",
+      "last_seen": "2026-11-09T12:41:30+00:00",
+      "resolved_at": null,
+      "reopen_count": 0,
+      "work_item_kind": "mechanical_defect",
+      "issue_kind": "mechanical_defect",
+      "origin": "scan",
+      "lang": "php",
+      "zone": "production",
+      "suppressed": false,
+      "suppressed_at": null,
+      "suppression_pattern": null
+    }
+  },
+  "scan_coverage": {
+    "php": {
+      "status": "reduced",
+      "confidence": 0.0,
+      "detectors": {
+        "phpstan_error": {
+          "detector": "phpstan_error",
+          "status": "reduced",
+          "confidence": 0.0,
+          "summary": "phpstan tooling unavailable (tool_not_found)",
+          "impact": "Detector results may be under-reported for this scan.",
+          "remediation": "Install/fix the tool command and rerun scan.",
+          "tool": "phpstan",
+          "reason": "tool_not_found"
+        },
+        "security": {
+          "detector": "security",
+          "status": "full",
+          "confidence": 1.0,
+          "summary": "Security coverage complete for enabled detectors.",
+          "impact": "",
+          "remediation": "",
+          "tool": "",
+          "reason": ""
+        }
+      },
+      "warnings": [
+        {
+          "detector": "phpstan_error",
+          "status": "reduced",
+          "confidence": 0.0,
+          "summary": "phpstan tooling unavailable (tool_not_found)",
+          "impact": "Detector results may be under-reported for this scan.",
+          "remediation": "Install/fix the tool command and rerun scan.",
+          "tool": "phpstan",
+          "reason": "tool_not_found"
+        }
+      ],
+      "updated_at": "2026-11-09T12:41:30+00:00"
+    }
+  },
+  "score_confidence": {
+    "status": "reduced",
+    "confidence": 0.0,
+    "detectors": [
+      {
+        "detector": "phpstan_error",
+        "status": "reduced",
+        "confidence": 0.0,
+        "summary": "phpstan tooling unavailable (tool_not_found)",
+        "impact": "Detector results may be under-reported for this scan.",
+        "remediation": "Install/fix the tool command and rerun scan.",
+        "tool": "phpstan",
+        "reason": "tool_not_found"
+      }
+    ],
+    "dimensions": []
+  },
+  "scan_metadata": {
+    "source": "scan"
+  },
+  "subjective_integrity": {
+    "status": "pass",
+    "target_score": 85.0,
+    "matched_count": 0,
+    "matched_dimensions": [],
+    "reset_dimensions": []
+  },
+  "subjective_assessments": {},
+  "scan_history": [
+    {
+      "timestamp": "2026-11-09T12:41:30+00:00",
+      "lang": "php",
+      "strict_score": 18.7,
+      "verified_strict_score": 74.8,
+      "objective_score": 74.8,
+      "overall_score": 18.7,
+      "open": 76,
+      "diff_new": 76,
+      "diff_resolved": 0,
+      "ignored": 0,
+      "raw_issues": 76,
+      "suppressed_pct": 0.0,
+      "ignore_patterns": 0,
+      "subjective_integrity": {
+        "status": "pass",
+        "matched_count": 0,
+        "reset_count": 0,
+        "target_score": 85.0
+      },
+      "score_confidence": {
+        "status": "reduced",
+        "confidence": 0.0,
+        "detector_count": 1,
+        "dimension_count": 0
+      },
+      "dimension_scores": {
+        "Code quality": {
+          "score": 90.5,
+          "strict": 90.5
+        },
+        "Security": {
+          "score": 100.0,
+          "strict": 100.0
+        },
+        "File health": {
+          "score": 96.9,
+          "strict": 96.9
+        },
+        "Duplication": {
+          "score": 99.3,
+          "strict": 99.3
+        },
+        "Test health": {
+          "score": 11.7,
+          "strict": 11.7
+        },
+        "Abstraction fit": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "AI generated debt": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "API coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Auth consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Contracts": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Convention drift": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Cross-module arch": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Dep health": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Design coherence": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Error consistency": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "High elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Stale migration": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Init coupling": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Logic clarity": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Low elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Mid elegance": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Naming quality": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Structure nav": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Test strategy": {
+          "score": 0.0,
+          "strict": 0.0
+        },
+        "Type safety": {
+          "score": 0.0,
+          "strict": 0.0
+        }
+      }
+    }
+  ],
+  "review_cache": {
+    "detectors": {
+      "boilerplate": {
+        "version": 1,
+        "fingerprint": "b93b9f56e7bd87e22039aef5655eaaf5aceeb3e0",
+        "entries": [
+          {
+            "id": "b58f858a5764d5de",
+            "distinct_files": 4,
+            "window_size": 11,
+            "locations": [
+              {
+                "file": "database/migrations/2026_11_05_000001_create_top_bars_tables.php",
+                "line": 1
+              },
+              {
+                "file": "database/migrations/2026_11_07_000001_create_liens_service_table.php",
+                "line": 1
+              },
+              {
+                "file": "database/migrations/2026_11_07_000002_add_instagram_to_liens_service.php",
+                "line": 1
+              },
+              {
+                "file": "database/migrations/2026_11_08_000001_add_soft_delete_to_produits.php",
+                "line": 1
+              }
+            ],
+            "sample": [
+              "<?php",
+              "",
+              "use Illuminate\\Database\\Migrations\\Migration;",
+              "use Illuminate\\Database\\Schema\\Blueprint;"
+            ]
+          },
+          {
+            "id": "8cc1f8ff099b6f09",
+            "distinct_files": 2,
+            "window_size": 13,
+            "locations": [
+              {
+                "file": "app/Http/Requests/RegisterRequest.php",
+                "line": 11
+              },
+              {
+                "file": "app/Http/Requests/UserRequest.php",
+                "line": 13
+              }
+            ],
+            "sample": [
+              "        return true;",
+              "    }",
+              "",
+              "    protected function prepareForValidation(): void"
+            ]
+          },
+          {
+            "id": "f43470cb6da6a9b7",
+            "distinct_files": 2,
+            "window_size": 6,
+            "locations": [
+              {
+                "file": "app/Http/Controllers/Api/PackController.php",
+                "line": 46
+              },
+              {
+                "file": "app/Http/Controllers/Api/ProductController.php",
+                "line": 142
+              }
+            ],
+            "sample": [
+              "        DB::transaction(function () use ($request, $pack, $uploader) {",
+              "            $data = $this->fields($request);",
+              "            if ($img = $uploader->store($request->file('image'), $request->input('nom'))) {",
+              "                $data['image'] = $img;"
+            ]
+          }
+        ]
+      },
+      "security": {
+        "version": 1,
+        "fingerprint": "54c14482685c462a60df2133df581e400a56fdf9",
+        "entries": [],
+        "files_scanned": 0,
+        "coverage": null
+      },
+      "dupes": {
+        "version": 1,
+        "threshold": 0.9,
+        "functions": {
+          "app/Console/Commands/FetchProductImages.php:handle:20:50": {
+            "body_hash": "f873c97e2e7f54223763084b78489e14",
+            "loc": 31
+          },
+          "app/Console/Commands/FetchProductImages.php:find:52:81": {
+            "body_hash": "8634774e6890dc3c0cf8577ec39c2182",
+            "loc": 30
+          },
+          "app/Console/Commands/ImportProductImages.php:handle:18:65": {
+            "body_hash": "c35a20a4173be6674d800bc2fa639f31",
+            "loc": 48
+          },
+          "app/Console/Commands/SeedTestData.php:backupFile:29:32": {
+            "body_hash": "c1f2f0759bf1ef3a816387cb72dce16f",
+            "loc": 4
+          },
+          "app/Console/Commands/SeedTestData.php:handle:34:37": {
+            "body_hash": "852c23386cac3d0efac14dc5c27d174a",
+            "loc": 4
+          },
+          "app/Console/Commands/SeedTestData.php:generate:39:119": {
+            "body_hash": "e2cf147492276ae40900088b741764a6",
+            "loc": 81
+          },
+          "app/Console/Commands/SeedTestData.php:undo:121:141": {
+            "body_hash": "4fc082c0cd4f18565a69926c6ab6fa49",
+            "loc": 21
+          },
+          "app/Console/Commands/SeedTestData.php:stock:143:153": {
+            "body_hash": "8579bc2ebe7533c326adf93b77dc1e4f",
+            "loc": 11
+          },
+          "app/Console/Commands/SeedTestData.php:pick:155:160": {
+            "body_hash": "b38d535fd6604c750a4d4d0d1e7728d0",
+            "loc": 6
+          },
+          "app/Console/Commands/SeedTestData.php:shades:162:165": {
+            "body_hash": "afbf5f2090b74f45c76159dfbc1284a1",
+            "loc": 4
+          },
+          "app/Console/Commands/SeedTestData.php:sizes:167:170": {
+            "body_hash": "04776ed010d230a7f21d07bd81ca9dac",
+            "loc": 4
+          },
+          "app/Console/Commands/SeedTestData.php:separate:181:199": {
+            "body_hash": "c337bd25e5e1168417a9a30c2bb0c1c0",
+            "loc": 19
+          },
+          "app/Console/Commands/SeedTestData.php:recipe:201:204": {
+            "body_hash": "dc1192309622611794b066eaa4c9366a",
+            "loc": 4
+          },
+          "app/Console/Commands/SeedTestData.php:byName:206:245": {
+            "body_hash": "d9c7a5aa6f2a27e83aecc08ba4e53107",
+            "loc": 40
+          },
+          "app/Console/Commands/SeedTestData.php:bySubCategory:247:283": {
+            "body_hash": "91abad00a9e9e658ce17420b82438b7b",
+            "loc": 37
+          },
+          "app/Console/Commands/SeedTestData.php:combos:285:288": {
+            "body_hash": "cef92aec99d92ecc7ce09f4196ee7313",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/AdminController.php:dashboard:15:33": {
+            "body_hash": "1bc9bf18ceefc1fdfc6c81992d8543b5",
+            "loc": 19
+          },
+          "app/Http/Controllers/Api/AdminController.php:finances:35:45": {
+            "body_hash": "65591d05fd2387fa9e001583ce8d47fa",
+            "loc": 11
+          },
+          "app/Http/Controllers/Api/AdvertisementController.php:index:15:18": {
+            "body_hash": "bafee89a5f5c9b611f7871f5665d9ea2",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/AdvertisementController.php:store:20:33": {
+            "body_hash": "6da28527cd738338aece8d762285cec0",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/AdvertisementController.php:update:35:51": {
+            "body_hash": "258e5657516d11e93fea8ccaaedcd3ca",
+            "loc": 17
+          },
+          "app/Http/Controllers/Api/AdvertisementController.php:destroy:53:59": {
+            "body_hash": "878c4a862d10866a2dff541d16157b18",
+            "loc": 7
+          },
+          "app/Http/Controllers/Api/AuthController.php:login:23:64": {
+            "body_hash": "a15b5235666c18dc5e60e5ebd8fd280a",
+            "loc": 42
+          },
+          "app/Http/Controllers/Api/AuthController.php:register:66:76": {
+            "body_hash": "8c65c838252d52cd0b0c87345877e155",
+            "loc": 11
+          },
+          "app/Http/Controllers/Api/AuthController.php:me:78:81": {
+            "body_hash": "41dc8f63013bd4cc02e5f4fd018a5a9a",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/AuthController.php:logout:83:88": {
+            "body_hash": "4196f0b8fe4754b1f6765439a93fb788",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/AuthController.php:tokenResponse:90:100": {
+            "body_hash": "7d508f0866b6e9d623ec686663205e89",
+            "loc": 11
+          },
+          "app/Http/Controllers/Api/CartController.php:check:12:15": {
+            "body_hash": "a0755c8d292143ea2dff0f4be0b03f3a",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/FavoriteController.php:index:15:18": {
+            "body_hash": "08353d5fb7d8fbb7e8070655ed2bf418",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/FavoriteController.php:products:20:25": {
+            "body_hash": "7b6ec21b373cf273e00c75a80a341138",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/FavoriteController.php:toggle:27:39": {
+            "body_hash": "ac5b594e9bf75c2b42daddde3784714f",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/OrderController.php:store:18:42": {
+            "body_hash": "6690592adcef4bbfdcc519c0da114477",
+            "loc": 25
+          },
+          "app/Http/Controllers/Api/OrderController.php:notifications:44:58": {
+            "body_hash": "ce9fe79c6a7542b54fad8d9d5b8cd159",
+            "loc": 15
+          },
+          "app/Http/Controllers/Api/OrderController.php:notificationsCount:60:67": {
+            "body_hash": "4839fae775bf3763e71183e2615073b0",
+            "loc": 8
+          },
+          "app/Http/Controllers/Api/OrderManagementController.php:index:15:29": {
+            "body_hash": "a83f33b7060a63c7b8adef748935a6db",
+            "loc": 15
+          },
+          "app/Http/Controllers/Api/OrderManagementController.php:updateStatus:31:50": {
+            "body_hash": "3d62efdad8bface89fcca78b97270195",
+            "loc": 20
+          },
+          "app/Http/Controllers/Api/PackController.php:index:16:19": {
+            "body_hash": "6456b6253cf02d1db5853756a8b8a1ba",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/PackController.php:show:22:25": {
+            "body_hash": "fb61bab429b958c8ceec869f2f192dee",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/PackController.php:manageIndex:27:30": {
+            "body_hash": "682a919b4527b9d7da3a8f2b015c36b3",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/PackController.php:store:32:42": {
+            "body_hash": "df79eb1481c5e6dbef2ef3776953bc34",
+            "loc": 11
+          },
+          "app/Http/Controllers/Api/PackController.php:update:44:56": {
+            "body_hash": "b1a4f4f2f328a22be24251922aedc449",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/PackController.php:destroy:59:64": {
+            "body_hash": "5fe892bf7e2cb10b10dbf88ff9895210",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/PackController.php:fields:66:77": {
+            "body_hash": "fecd18104ddc2a59a892a6cc4b17c0bd",
+            "loc": 12
+          },
+          "app/Http/Controllers/Api/PackController.php:productLinks:79:82": {
+            "body_hash": "f5b9dcb5322e7d24c3e56d622fbe2dac",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/ProductController.php:index:20:32": {
+            "body_hash": "3168216ca8f4682d14db149f20d97d70",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/ProductController.php:show:34:45": {
+            "body_hash": "a083a7f7dfaf5ac1d073f080b3c63407",
+            "loc": 12
+          },
+          "app/Http/Controllers/Api/ProductController.php:suggestions:47:65": {
+            "body_hash": "de12350881a29d9dc814300e115326c2",
+            "loc": 19
+          },
+          "app/Http/Controllers/Api/ProductController.php:categories:67:73": {
+            "body_hash": "a15b2582d80726e385eb622065cabdd9",
+            "loc": 7
+          },
+          "app/Http/Controllers/Api/ProductController.php:manageIndex:75:92": {
+            "body_hash": "7120475b79023c943d373711dd890566",
+            "loc": 18
+          },
+          "app/Http/Controllers/Api/ProductController.php:destroy:94:99": {
+            "body_hash": "c5e91aaafc103ede16546cdff2d7c6b6",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/ProductController.php:restore:101:107": {
+            "body_hash": "c6afbec6fc0f63929b0994d8f040ee97",
+            "loc": 7
+          },
+          "app/Http/Controllers/Api/ProductController.php:forceDestroy:110:123": {
+            "body_hash": "269b86858cc6d521522bdad18a077032",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/ProductController.php:store:125:138": {
+            "body_hash": "1d5828e527f7753d65953be4a3229250",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/ProductController.php:update:140:155": {
+            "body_hash": "26516e5cc0dd3d594d1f28f1a1a9ae34",
+            "loc": 16
+          },
+          "app/Http/Controllers/Api/ProductController.php:fields:157:170": {
+            "body_hash": "ab207e256ed1e3f54bb096179168e146",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/ProductController.php:syncExtras:173:202": {
+            "body_hash": "e3c034c609146fd877639bf4b693db79",
+            "loc": 30
+          },
+          "app/Http/Controllers/Api/ProfileController.php:show:21:24": {
+            "body_hash": "3d60e152278e4bb4ba8d55ddac83077e",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/ProfileController.php:update:26:64": {
+            "body_hash": "911f7538d08ba6d9c9540ece4c095993",
+            "loc": 39
+          },
+          "app/Http/Controllers/Api/ProfileController.php:updateImage:66:78": {
+            "body_hash": "eda452927e7c90f950cdbeec0356c04b",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/ProfileController.php:destroyImage:80:87": {
+            "body_hash": "d70dc17d345b9d3720e6e21373487247",
+            "loc": 8
+          },
+          "app/Http/Controllers/Api/ProfileController.php:destroy:93:137": {
+            "body_hash": "a04b5286df3b2b5cb814af5a063fb92f",
+            "loc": 45
+          },
+          "app/Http/Controllers/Api/ProfileController.php:payload:139:151": {
+            "body_hash": "1ffe7bb8c778b0eff15079bc11171df6",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/ProfileController.php:deleteImage:153:159": {
+            "body_hash": "cf21d3c6b8f59f903ede6a8278120b5a",
+            "loc": 7
+          },
+          "app/Http/Controllers/Api/ReportController.php:store:12:26": {
+            "body_hash": "cae6e9b6a579fdda6f654181c5fa5e00",
+            "loc": 15
+          },
+          "app/Http/Controllers/Api/ReportController.php:adminIndex:28:40": {
+            "body_hash": "7de981daeb627306db26bcc059812a31",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/ReviewController.php:index:15:28": {
+            "body_hash": "ead94c0780549f9fd924ded1d146555c",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/ReviewController.php:mine:30:38": {
+            "body_hash": "5059c642d1cc4fe1c4d12b226a1b25c0",
+            "loc": 9
+          },
+          "app/Http/Controllers/Api/ReviewController.php:store:41:55": {
+            "body_hash": "982d49e14b449a69551ce6a2c58cb3b9",
+            "loc": 15
+          },
+          "app/Http/Controllers/Api/ReviewController.php:adminIndex:57:71": {
+            "body_hash": "30e361e5be701d12cae5d6da7403a115",
+            "loc": 15
+          },
+          "app/Http/Controllers/Api/ReviewController.php:adminUpdate:73:78": {
+            "body_hash": "f019a0021cbeec5219373f0d4a49d3be",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/ReviewController.php:destroyMine:81:88": {
+            "body_hash": "16c03aa765c568c8294f472fa913a93e",
+            "loc": 8
+          },
+          "app/Http/Controllers/Api/ReviewController.php:adminDestroy:90:95": {
+            "body_hash": "1bcf481a6f685cfdbeb557e5c73dd674",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/ThemeController.php:show:16:19": {
+            "body_hash": "fbaeb45ff0ad49c51766e2791d2ba36e",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/ThemeController.php:update:22:63": {
+            "body_hash": "ee0715506609934ef5a70502952a5bdd",
+            "loc": 42
+          },
+          "app/Http/Controllers/Api/ThemeController.php:reset:66:71": {
+            "body_hash": "a7dce637b32598039fbf42b8ff944e4f",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/ThemeController.php:logoStore:74:82": {
+            "body_hash": "f457cd71c99c54f7146ed2e2eb3d58c9",
+            "loc": 9
+          },
+          "app/Http/Controllers/Api/ThemeController.php:logoDestroy:85:88": {
+            "body_hash": "43597eeae034a6fdf3ab80580f146bd4",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/ThemeController.php:saveLogo:90:97": {
+            "body_hash": "6ab4ef41c0d34d38da3e3d961e21608d",
+            "loc": 8
+          },
+          "app/Http/Controllers/Api/TopBarController.php:index:24:37": {
+            "body_hash": "231a90ef9b18d4e81aaa9f9c7a446912",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/TopBarController.php:serviceLinks:39:42": {
+            "body_hash": "7e28242b24badcaa81562d8321c051f2",
+            "loc": 4
+          },
+          "app/Http/Controllers/Api/TopBarController.php:serviceLinksUpdate:44:65": {
+            "body_hash": "a6767774e5ae9fdbf6e7f14472f4184b",
+            "loc": 22
+          },
+          "app/Http/Controllers/Api/TopBarController.php:headerUpdate:67:80": {
+            "body_hash": "ad931a89896beb3c467d14a81543aaa2",
+            "loc": 14
+          },
+          "app/Http/Controllers/Api/TopBarController.php:adminIndex:82:89": {
+            "body_hash": "938c9397b5399ad100e32def803c9935",
+            "loc": 8
+          },
+          "app/Http/Controllers/Api/TopBarController.php:uspStore:91:96": {
+            "body_hash": "82cc48a49d710ecef13a6c91360fc02d",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:uspUpdate:98:103": {
+            "body_hash": "c66b912c3a1ad6ef2c17114f1d9840e1",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:uspDestroy:105:110": {
+            "body_hash": "6ea090a151b9f5a69334804c4a2053d2",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:promoStore:112:117": {
+            "body_hash": "fb7ed51b2ad0dd9ef6e3206e6ef850bb",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:promoUpdate:119:124": {
+            "body_hash": "e9e453143260f563a7e76d26352c1029",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:promoDestroy:126:131": {
+            "body_hash": "7aecc7211d7e29e08201c738a901d34c",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/TopBarController.php:uspData:133:145": {
+            "body_hash": "9825a4ef1be9ce7613c3b7e0e31c2ca0",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/TopBarController.php:promoData:147:168": {
+            "body_hash": "3251dff5e553733b3845b40e3dad6ad6",
+            "loc": 22
+          },
+          "app/Http/Controllers/Api/TopBarController.php:messages:170:181": {
+            "body_hash": "ee775468325d0c13e7058770e6f3e21f",
+            "loc": 12
+          },
+          "app/Http/Controllers/Api/UserController.php:index:14:19": {
+            "body_hash": "acf68d622e6b382d50d75fbb50a952da",
+            "loc": 6
+          },
+          "app/Http/Controllers/Api/UserController.php:store:21:31": {
+            "body_hash": "047adceb4e78c761da367f83b86a8db1",
+            "loc": 11
+          },
+          "app/Http/Controllers/Api/UserController.php:update:33:45": {
+            "body_hash": "a35a00280398ca3344cff0a658809d4e",
+            "loc": 13
+          },
+          "app/Http/Controllers/Api/UserController.php:destroy:48:59": {
+            "body_hash": "8ab2f3f5182bae855a7b164c3f116769",
+            "loc": 12
+          },
+          "app/Http/Controllers/Api/UserController.php:abortIfAdmin:61:64": {
+            "body_hash": "151dcc7ca6b4cb962dc7c9df856a7533",
+            "loc": 4
+          },
+          "app/Http/Middleware/EnsureRole.php:handle:16:33": {
+            "body_hash": "0b102a543c98d002e59f9d7628989711",
+            "loc": 18
+          },
+          "app/Http/Middleware/SecurityHeaders.php:handle:11:29": {
+            "body_hash": "80c09d4f6d700efdd539c1419837634f",
+            "loc": 19
+          },
+          "app/Http/Requests/AdvertisementRequest.php:authorize:10:13": {
+            "body_hash": "ffcb4ee7fe2a28c204ac122cb9f02111",
+            "loc": 4
+          },
+          "app/Http/Requests/AdvertisementRequest.php:prepareForValidation:15:22": {
+            "body_hash": "97223ef00197fc120cd59dc54682bdde",
+            "loc": 8
+          },
+          "app/Http/Requests/AdvertisementRequest.php:rules:24:32": {
+            "body_hash": "f6cb3ebee4771f36f9faca8ae4875f84",
+            "loc": 9
+          },
+          "app/Http/Requests/AdvertisementRequest.php:after:34:41": {
+            "body_hash": "643532d13e11498232579f90d2490525",
+            "loc": 8
+          },
+          "app/Http/Requests/AdvertisementRequest.php:messages:43:53": {
+            "body_hash": "edde9d37b598a45c48429a897b29ac80",
+            "loc": 11
+          },
+          "app/Http/Requests/CartCheckRequest.php:authorize:9:12": {
+            "body_hash": "22580ba0b55117c4147c857f888b4631",
+            "loc": 4
+          },
+          "app/Http/Requests/CartCheckRequest.php:rules:14:23": {
+            "body_hash": "03d7de8f1f639f122ae71cd35c593fcf",
+            "loc": 10
+          },
+          "app/Http/Requests/LoginRequest.php:authorize:9:12": {
+            "body_hash": "22580ba0b55117c4147c857f888b4631",
+            "loc": 4
+          },
+          "app/Http/Requests/LoginRequest.php:prepareForValidation:14:17": {
+            "body_hash": "48ae684f7ff40e90bb825419eaeb18fc",
+            "loc": 4
+          },
+          "app/Http/Requests/LoginRequest.php:rules:19:25": {
+            "body_hash": "10ab8d37539963b8eaa74a5fbf4f1209",
+            "loc": 7
+          },
+          "app/Http/Requests/LoginRequest.php:messages:27:33": {
+            "body_hash": "e749d93b5d9cf21afb6a7a65a41d0f70",
+            "loc": 7
+          },
+          "app/Http/Requests/PackRequest.php:authorize:11:14": {
+            "body_hash": "9e7dbf1591053213237208e05363c1c4",
+            "loc": 4
+          },
+          "app/Http/Requests/PackRequest.php:prepareForValidation:16:27": {
+            "body_hash": "c92153596bb70ff936554c3882e685af",
+            "loc": 12
+          },
+          "app/Http/Requests/PackRequest.php:rules:29:47": {
+            "body_hash": "ce796add42e33bae95c457d038f6c624",
+            "loc": 19
+          },
+          "app/Http/Requests/PackRequest.php:withValidator:49:57": {
+            "body_hash": "2e1e9244f29da4287a18ebb5248d44fb",
+            "loc": 9
+          },
+          "app/Http/Requests/PackRequest.php:messages:59:77": {
+            "body_hash": "9b30aa047600158c46ac09f259baf5fd",
+            "loc": 19
+          },
+          "app/Http/Requests/ProductRequest.php:authorize:13:16": {
+            "body_hash": "ea9e848a90e0e046328564d69178927a",
+            "loc": 4
+          },
+          "app/Http/Requests/ProductRequest.php:prepareForValidation:18:35": {
+            "body_hash": "4d4b95d5a1eb50ddfe05253e1528db1c",
+            "loc": 18
+          },
+          "app/Http/Requests/ProductRequest.php:rules:37:66": {
+            "body_hash": "e388ea190e7f03ef773427fadb0088f7",
+            "loc": 30
+          },
+          "app/Http/Requests/ProductRequest.php:withValidator:69:89": {
+            "body_hash": "f41be23ab4591cbf87d3a9802a598356",
+            "loc": 21
+          },
+          "app/Http/Requests/ProductRequest.php:messages:91:114": {
+            "body_hash": "7a1ecdc86da3d28b650d5c6e3bef9f56",
+            "loc": 24
+          },
+          "app/Http/Requests/RegisterRequest.php:authorize:9:12": {
+            "body_hash": "22580ba0b55117c4147c857f888b4631",
+            "loc": 4
+          },
+          "app/Http/Requests/RegisterRequest.php:prepareForValidation:14:20": {
+            "body_hash": "5f37f066682d8029e69260b4a175b487",
+            "loc": 7
+          },
+          "app/Http/Requests/RegisterRequest.php:rules:22:29": {
+            "body_hash": "cfd51bf29547388c846af927e958416c",
+            "loc": 8
+          },
+          "app/Http/Requests/RegisterRequest.php:messages:31:45": {
+            "body_hash": "abb908668ef2a93de623097997048b8d",
+            "loc": 15
+          },
+          "app/Http/Requests/StoreOrderRequest.php:authorize:10:13": {
+            "body_hash": "ff786cea57f98b352ffa83effcbd30ce",
+            "loc": 4
+          },
+          "app/Http/Requests/StoreOrderRequest.php:prepareForValidation:16:24": {
+            "body_hash": "bf9e7cf7a4b5828201b18abb62eb4775",
+            "loc": 9
+          },
+          "app/Http/Requests/StoreOrderRequest.php:rules:26:41": {
+            "body_hash": "f51f7b3d4aba2f306a9c58cfa4ffa9e1",
+            "loc": 16
+          },
+          "app/Http/Requests/StoreOrderRequest.php:messages:43:59": {
+            "body_hash": "ea4374cfc5492858e04ed32acb1f68dd",
+            "loc": 17
+          },
+          "app/Http/Requests/UserRequest.php:authorize:11:14": {
+            "body_hash": "ffcb4ee7fe2a28c204ac122cb9f02111",
+            "loc": 4
+          },
+          "app/Http/Requests/UserRequest.php:prepareForValidation:16:22": {
+            "body_hash": "5f37f066682d8029e69260b4a175b487",
+            "loc": 7
+          },
+          "app/Http/Requests/UserRequest.php:rules:24:35": {
+            "body_hash": "e5267bd8b10dd5aaa850ed022ef12747",
+            "loc": 12
+          },
+          "app/Http/Requests/UserRequest.php:messages:37:50": {
+            "body_hash": "aca065993d50db61412685b755755ca8",
+            "loc": 14
+          },
+          "app/Http/Resources/AdvertisementResource.php:toArray:10:20": {
+            "body_hash": "8312c1509756112fe4f6afbeffa3ede7",
+            "loc": 11
+          },
+          "app/Http/Resources/OrderItemResource.php:toArray:10:24": {
+            "body_hash": "24bc00fd5effe56f961950b07d340e54",
+            "loc": 15
+          },
+          "app/Http/Resources/OrderResource.php:toArray:17:45": {
+            "body_hash": "faa1319a25bc16959a1a3cb7c90ebdb9",
+            "loc": 29
+          },
+          "app/Http/Resources/PackResource.php:toArray:10:35": {
+            "body_hash": "66ac0dcd1f17c9d086917574118f0b0d",
+            "loc": 26
+          },
+          "app/Http/Resources/ProductResource.php:toArray:16:58": {
+            "body_hash": "92ab97f59d14484b8dbb9cfcbdea4a27",
+            "loc": 43
+          },
+          "app/Http/Resources/PromoResource.php:toArray:10:22": {
+            "body_hash": "304cf5468cc274f0120a06d1128f1d0b",
+            "loc": 13
+          },
+          "app/Http/Resources/UserResource.php:toArray:11:22": {
+            "body_hash": "7139e5e6c9094922c213e000b6d331d7",
+            "loc": 12
+          },
+          "app/Http/Resources/UspResource.php:toArray:10:20": {
+            "body_hash": "3ea21ec5e39200a6b7d32bcfc48076ad",
+            "loc": 11
+          },
+          "app/Models/Address.php:casts:14:17": {
+            "body_hash": "2861cffb72228accaf0362bfdcdd9b8d",
+            "loc": 4
+          },
+          "app/Models/Advertisement.php:casts:15:18": {
+            "body_hash": "7504b34b44212f4c003d37c9d1a78d90",
+            "loc": 4
+          },
+          "app/Models/Advertisement.php:product:20:23": {
+            "body_hash": "c73c8d1aa2c3f180939921cbe48f1036",
+            "loc": 4
+          },
+          "app/Models/HeaderSetting.php:casts:14:17": {
+            "body_hash": "f33e249f2432ff068fea3eb97261584d",
+            "loc": 4
+          },
+          "app/Models/HeaderSetting.php:toApi:19:22": {
+            "body_hash": "7a756de909ea4004c9216340adb1554f",
+            "loc": 4
+          },
+          "app/Models/Order.php:casts:34:37": {
+            "body_hash": "18fdd4c47c1bb7d56882fc5b5e5bf827",
+            "loc": 4
+          },
+          "app/Models/Order.php:client:39:42": {
+            "body_hash": "b5f21861d64415c487ec4954a4d097c4",
+            "loc": 4
+          },
+          "app/Models/Order.php:items:44:47": {
+            "body_hash": "d7d0ec284ee444a9ac52a9cfef9fdaf1",
+            "loc": 4
+          },
+          "app/Models/Order.php:payment:49:52": {
+            "body_hash": "a9cb3a2e77c03516e468bdf977d719f7",
+            "loc": 4
+          },
+          "app/Models/Order.php:canMoveTo:54:57": {
+            "body_hash": "9f2895e9c653e727a12b899b1c6607cb",
+            "loc": 4
+          },
+          "app/Models/OrderItem.php:casts:15:18": {
+            "body_hash": "1be18c6a3488a05146598d23f6ab5218",
+            "loc": 4
+          },
+          "app/Models/OrderItem.php:product:20:23": {
+            "body_hash": "d1aef6e644eb9545ae5aebc3d8140150",
+            "loc": 4
+          },
+          "app/Models/OrderItem.php:pack:25:28": {
+            "body_hash": "9c13437c3ad9459ccdca558f368f1f86",
+            "loc": 4
+          },
+          "app/Models/OrderItem.php:variant:30:33": {
+            "body_hash": "f73a632b3a0b80b93b2fa25dadf9a0ac",
+            "loc": 4
+          },
+          "app/Models/Pack.php:casts:16:19": {
+            "body_hash": "2424c99c57a37015762d65efd03f5120",
+            "loc": 4
+          },
+          "app/Models/Pack.php:products:21:24": {
+            "body_hash": "5ac10cb1d55908127c5e55db111e2106",
+            "loc": 4
+          },
+          "app/Models/Pack.php:scopeWithDetails:26:29": {
+            "body_hash": "a1ad48154cbb9734543656105888a73f",
+            "loc": 4
+          },
+          "app/Models/Pack.php:availableCount:35:43": {
+            "body_hash": "5f17cd590c57acd0da6688ba651c631d",
+            "loc": 9
+          },
+          "app/Models/Pack.php:separateValue:45:48": {
+            "body_hash": "f9a0c142d740a0a0a530b8e3ecacab34",
+            "loc": 4
+          },
+          "app/Models/Pack.php:splitForOrder:55:71": {
+            "body_hash": "32a259937a398438070b598cdbb7dfd0",
+            "loc": 17
+          },
+          "app/Models/Payment.php:casts:19:22": {
+            "body_hash": "b6abda55842c91dc876deaf8f5b4c457",
+            "loc": 4
+          },
+          "app/Models/Payment.php:order:24:27": {
+            "body_hash": "4c8b24bead70aa9cde14c2ee55dd14cf",
+            "loc": 4
+          },
+          "app/Models/Product.php:casts:22:29": {
+            "body_hash": "db3534b7f05f852e0be64cb7305d69fc",
+            "loc": 8
+          },
+          "app/Models/Product.php:advertisements:31:34": {
+            "body_hash": "6e9de700c28f8185afdf15e44bae2af7",
+            "loc": 4
+          },
+          "app/Models/Product.php:scopeWithPromo:36:41": {
+            "body_hash": "b2d49bcf5c7dc06fdaf86cdcce2ac2db",
+            "loc": 6
+          },
+          "app/Models/Product.php:reviews:43:46": {
+            "body_hash": "0e48ee28210863e0ede2f1bada714a8a",
+            "loc": 4
+          },
+          "app/Models/Product.php:variants:48:51": {
+            "body_hash": "0835f3faf725c206e9d364db71f1962c",
+            "loc": 4
+          },
+          "app/Models/Product.php:images:53:56": {
+            "body_hash": "4820f9028bb4aa8d95ce4df23d4948b8",
+            "loc": 4
+          },
+          "app/Models/Product.php:favorites:58:61": {
+            "body_hash": "db598e10ff8b9196a07a10a2dbde3b8e",
+            "loc": 4
+          },
+          "app/Models/Product.php:syncVariantStock:64:69": {
+            "body_hash": "ec549a70a94230325a7d34a20f37ba1b",
+            "loc": 6
+          },
+          "app/Models/Product.php:scopeForShop:71:74": {
+            "body_hash": "afb2693114b06c535702b631222570e0",
+            "loc": 4
+          },
+          "app/Models/Product.php:promoPercent:77:84": {
+            "body_hash": "56eebcd31167aa2220ad37d4db3f4bc8",
+            "loc": 8
+          },
+          "app/Models/Product.php:finalPrice:87:93": {
+            "body_hash": "da4e8f33b57dab86c08886ba175ea325",
+            "loc": 7
+          },
+          "app/Models/Product.php:basePrice:96:99": {
+            "body_hash": "487b5965cc2c998de3a592fc34bdbac9",
+            "loc": 4
+          },
+          "app/Models/Product.php:sansImage:102:106": {
+            "body_hash": "6bcd5413b24dffff3c90872743f3dd48",
+            "loc": 5
+          },
+          "app/Models/Product.php:imageUrl:108:111": {
+            "body_hash": "ae492eeb1a2c57d5866d5d456d33328a",
+            "loc": 4
+          },
+          "app/Models/ProductVariant.php:casts:15:18": {
+            "body_hash": "ff3f3bd0ba6040366518f8096eee8852",
+            "loc": 4
+          },
+          "app/Models/ProductVariant.php:product:20:23": {
+            "body_hash": "c73c8d1aa2c3f180939921cbe48f1036",
+            "loc": 4
+          },
+          "app/Models/ProductVariant.php:sizeLabel:25:35": {
+            "body_hash": "902de81f3d56ac85744cd2db730cc97f",
+            "loc": 11
+          },
+          "app/Models/PromoAnnouncement.php:casts:14:17": {
+            "body_hash": "cf256c022874a4199de3ea815fdc711b",
+            "loc": 4
+          },
+          "app/Models/Report.php:casts:15:18": {
+            "body_hash": "b5328214a4b802a79d48bd7d0d748b85",
+            "loc": 4
+          },
+          "app/Models/Report.php:user:20:23": {
+            "body_hash": "7ee2d60f98f07b36e8a37dcb43c6e616",
+            "loc": 4
+          },
+          "app/Models/Review.php:casts:15:18": {
+            "body_hash": "db73f51d98b7a37539f43b3469102b64",
+            "loc": 4
+          },
+          "app/Models/Review.php:product:20:23": {
+            "body_hash": "2cda10564eddff6f95fb89837f693998",
+            "loc": 4
+          },
+          "app/Models/Review.php:user:25:28": {
+            "body_hash": "7ee2d60f98f07b36e8a37dcb43c6e616",
+            "loc": 4
+          },
+          "app/Models/ServiceLink.php:toApi:14:17": {
+            "body_hash": "ef3511e6dba9527adfd89d8e549ffd38",
+            "loc": 4
+          },
+          "app/Models/ThemeSetting.php:casts:46:49": {
+            "body_hash": "94823057b619d72fcf02b60cba694d02",
+            "loc": 4
+          },
+          "app/Models/ThemeSetting.php:current:52:57": {
+            "body_hash": "514164e657ebf0c6021e117c0de727e8",
+            "loc": 6
+          },
+          "app/Models/ThemeSetting.php:payload:60:67": {
+            "body_hash": "6c077d7f91fc3e4e1639d216afe48545",
+            "loc": 8
+          },
+          "app/Models/User.php:casts:27:30": {
+            "body_hash": "a6d9b5aa09cdf0dc7eae7ec955716337",
+            "loc": 4
+          },
+          "app/Models/User.php:orders:32:35": {
+            "body_hash": "76dbf7e7e614959137b3844c3c137f1f",
+            "loc": 4
+          },
+          "app/Models/User.php:isAdmin:37:40": {
+            "body_hash": "7c86971ce84dd891e7f3ddf01911b856",
+            "loc": 4
+          },
+          "app/Models/User.php:homePath:42:49": {
+            "body_hash": "6af8ff7c3a5422840bcd1bc67e546ef1",
+            "loc": 8
+          },
+          "app/Models/Usp.php:casts:14:17": {
+            "body_hash": "8c9257df38678d12d143a8e8c10cd403",
+            "loc": 4
+          },
+          "app/Providers/AppServiceProvider.php:register:13:15": {
+            "body_hash": "965a4de28272e56bd9f1cc779990207d",
+            "loc": 3
+          },
+          "app/Providers/AppServiceProvider.php:boot:17:28": {
+            "body_hash": "b9b2977eded2e9d4c7bcccb3bd723126",
+            "loc": 12
+          },
+          "app/Services/CartService.php:lines:17:126": {
+            "body_hash": "46a6892c1dda771faeb9d777c4951de0",
+            "loc": 110
+          },
+          "app/Services/FinanceService.php:summary:12:32": {
+            "body_hash": "e0bd7978290711a3f94339eb88e00dfa",
+            "loc": 21
+          },
+          "app/Services/FinanceService.php:perDay:34:58": {
+            "body_hash": "21e6caf8bb398777e49237c9d7004330",
+            "loc": 25
+          },
+          "app/Services/FinanceService.php:payments:60:85": {
+            "body_hash": "2a5248eb78ac1c2749f97425ca1b35bc",
+            "loc": 26
+          },
+          "app/Services/ImageUploader.php:store:14:27": {
+            "body_hash": "edd96e8e7bd4515030a8f3e5b50b8443",
+            "loc": 14
+          },
+          "app/Services/OrderService.php:create:25:124": {
+            "body_hash": "23f1cdce10c5c7e2dcf11e21fbed8716",
+            "loc": 100
+          },
+          "app/Services/OrderService.php:changeStatus:130:160": {
+            "body_hash": "5147739620aeac8180d56b264714ce92",
+            "loc": 31
+          },
+          "database/seeders/DatabaseSeeder.php:run:20:73": {
+            "body_hash": "cd1d5a94320761e64e857eba21038281",
+            "loc": 54
+          }
+        },
+        "near_pairs": []
+      }
+    }
+  },
+  "lang_capabilities": {
+    "php": {
+      "fixers": [],
+      "typecheck_cmd": ""
+    }
+  },
+  "zone_distribution": {
+    "production": 66,
+    "config": 12,
+    "generated": 14,
+    "script": 1,
+    "test": 10
+  },
+  "tool_hash": "f62aad694b9e",
+  "scan_path": ".",
+  "scan_completeness": {
+    "php": "full"
+  },
+  "potentials": {
+    "php": {
+      "structural": 67,
+      "flat_dirs": 21,
+      "unused_imports": 1,
+      "signature": 7,
+      "security": 67,
+      "single_use": 0,
+      "cycles": 67,
+      "orphaned": 67,
+      "test_coverage": 432,
+      "boilerplate_duplication": 4,
+      "dupes": 204,
+      "stale_wontfix": 0
+    }
+  },
+  "codebase_metrics": {
+    "php": {
+      "total_files": 103,
+      "total_loc": 6233,
+      "total_directories": 17
+    }
+  },
+  "dimension_scores": {
+    "Code quality": {
+      "score": 90.5,
+      "strict": 90.5,
+      "verified_strict_score": 90.5,
+      "checks": 88,
+      "failing": 12,
+      "tier": 3,
+      "detectors": {
+        "orphaned": {
+          "potential": 67,
+          "pass_rate": 0.8746268656716418,
+          "failing": 12,
+          "weighted_failures": 8.4
+        },
+        "flat_dirs": {
+          "potential": 21,
+          "pass_rate": 1.0,
+          "failing": 0,
+          "weighted_failures": 0.0
+        }
+      }
+    },
+    "Security": {
+      "score": 100.0,
+      "strict": 100.0,
+      "verified_strict_score": 100.0,
+      "checks": 134,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "cycles": {
+          "potential": 67,
+          "pass_rate": 1.0,
+          "failing": 0,
+          "weighted_failures": 0.0
+        },
+        "security": {
+          "potential": 67,
+          "pass_rate": 1.0,
+          "failing": 0,
+          "weighted_failures": 0.0
+        }
+      }
+    },
+    "File health": {
+      "score": 96.9,
+      "strict": 96.9,
+      "verified_strict_score": 96.9,
+      "checks": 67,
+      "failing": 3,
+      "tier": 3,
+      "detectors": {
+        "structural": {
+          "potential": 67,
+          "pass_rate": 0.9686567164179105,
+          "failing": 3,
+          "weighted_failures": 2.0999999999999996
+        }
+      }
+    },
+    "Duplication": {
+      "score": 99.3,
+      "strict": 99.3,
+      "verified_strict_score": 99.3,
+      "checks": 208,
+      "failing": 2,
+      "tier": 3,
+      "detectors": {
+        "dupes": {
+          "potential": 204,
+          "pass_rate": 1.0,
+          "failing": 0,
+          "weighted_failures": 0.0
+        },
+        "boilerplate_duplication": {
+          "potential": 4,
+          "pass_rate": 0.65,
+          "failing": 2,
+          "weighted_failures": 1.4
+        }
+      }
+    },
+    "Test health": {
+      "score": 11.7,
+      "strict": 11.7,
+      "verified_strict_score": 11.7,
+      "checks": 432,
+      "failing": 51,
+      "tier": 4,
+      "detectors": {
+        "test_coverage": {
+          "potential": 432,
+          "pass_rate": 0.11723593104153675,
+          "failing": 51,
+          "weighted_failures": 381.3540777900561
+        }
+      }
+    },
+    "Abstraction fit": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "abstraction_fitness",
+          "configured_weight": 8.0,
+          "components": []
+        }
+      }
+    },
+    "AI generated debt": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "ai_generated_debt",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "API coherence": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "api_surface_coherence",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Auth consistency": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "authorization_consistency",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Contracts": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "contract_coherence",
+          "configured_weight": 12.0,
+          "components": []
+        }
+      }
+    },
+    "Convention drift": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "convention_outlier",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Cross-module arch": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "cross_module_architecture",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Dep health": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "dependency_health",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Design coherence": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "design_coherence",
+          "configured_weight": 10.0,
+          "components": []
+        }
+      }
+    },
+    "Error consistency": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "error_consistency",
+          "configured_weight": 3.0,
+          "components": []
+        }
+      }
+    },
+    "High elegance": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "high_level_elegance",
+          "configured_weight": 22.0,
+          "components": []
+        }
+      }
+    },
+    "Stale migration": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "incomplete_migration",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Init coupling": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "initialization_coupling",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Logic clarity": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "logic_clarity",
+          "configured_weight": 6.0,
+          "components": []
+        }
+      }
+    },
+    "Low elegance": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "low_level_elegance",
+          "configured_weight": 12.0,
+          "components": []
+        }
+      }
+    },
+    "Mid elegance": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "mid_level_elegance",
+          "configured_weight": 22.0,
+          "components": []
+        }
+      }
+    },
+    "Naming quality": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "naming_quality",
+          "configured_weight": 2.0,
+          "components": []
+        }
+      }
+    },
+    "Structure nav": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "package_organization",
+          "configured_weight": 5.0,
+          "components": []
+        }
+      }
+    },
+    "Test strategy": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "test_strategy",
+          "configured_weight": 1.0,
+          "components": []
+        }
+      }
+    },
+    "Type safety": {
+      "score": 0.0,
+      "strict": 0.0,
+      "verified_strict_score": 0.0,
+      "checks": 10,
+      "failing": 0,
+      "tier": 4,
+      "detectors": {
+        "subjective_assessment": {
+          "potential": 10,
+          "pass_rate": 0.0,
+          "failing": 0,
+          "weighted_failures": 10.0,
+          "assessment_score": 0.0,
+          "placeholder": true,
+          "dimension_key": "type_safety",
+          "configured_weight": 12.0,
+          "components": []
+        }
+      }
+    }
+  },
+  "reminder_history": {
+    "zone_classification": 1,
+    "report_scores": 1
+  }
+}

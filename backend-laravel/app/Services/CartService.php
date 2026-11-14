@@ -11,18 +11,13 @@ use App\Models\Product;
  */
 class CartService
 {
-    public const MAX_LIGNES = 30;   // produits différents
-    public const MAX_QTE    = 20;   // par produit
+    public const MAX_LIGNES = 30;
+    public const MAX_QTE    = 20;
 
-    /**
-     * @param  array<int, array{id:int, quantity:int}>  $items
-     * @return array{lines: array, total: float, count: int, warnings: string[]}
-     */
     public function lines(array $items): array
     {
         $out = ['lines' => [], 'total' => 0.0, 'count' => 0, 'warnings' => []];
 
-        // Regroupe les doublons et applique les limites
         $wanted = [];
         foreach ($items as $it) {
             $id = (int) ($it['id'] ?? 0);
@@ -106,7 +101,7 @@ class CartService
                 $out['warnings'][] = "Quantité de « {$p->nom} » ajustée au stock disponible ({$stock}).";
             }
 
-            $prix = $p->finalPrice();
+            $prix = $p->finalPrice($v);
             $out['lines'][] = [
                 'id'             => $p->id,
                 'variant_id'     => $v?->id,
@@ -116,7 +111,7 @@ class CartService
                 'category'       => $p->categorie,
                 'image_url'      => $p->imageUrl(),
                 'price'          => $prix,
-                'original_price' => (float) $p->prix,
+                'original_price' => $p->basePrice($v),
                 'promo'          => $p->promoPercent(),
                 'quantity'       => $qte,
                 'stock'          => $stock,

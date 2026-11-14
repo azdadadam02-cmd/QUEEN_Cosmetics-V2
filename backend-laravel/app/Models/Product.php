@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/** Produit (table « produits ») */
 class Product extends Model
 {
     use SoftDeletes;   // « supprimer » = corbeille ; la suppression définitive est un second geste
@@ -34,7 +33,6 @@ class Product extends Model
         return $this->hasMany(Advertisement::class, 'produit_id');
     }
 
-    /** Charge la plus forte réduction venant des publicités liées (colonne virtuelle pub_reduction) */
     public function scopeWithPromo(Builder $q): Builder
     {
         return $q->withMax(['advertisements as pub_reduction' => fn ($a) => $a->where('reduction', '>', 0)], 'reduction')
@@ -70,7 +68,6 @@ class Product extends Model
         }
     }
 
-    /** Disponibles d'abord, puis les plus récents (comme l'ancien accueil) */
     public function scopeForShop(Builder $q): Builder
     {
         return $q->withPromo()->orderByRaw('quantite_stock <= 0')->orderByDesc('id');
@@ -87,11 +84,18 @@ class Product extends Model
     }
 
     /** Prix réellement payé par le client (c'est lui qui entre dans le panier et la commande) */
-    public function finalPrice(): float
+    public function finalPrice(?ProductVariant $variant = null): float
     {
+        $base = $this->basePrice($variant);
         $pc = $this->promoPercent();
 
-        return $pc > 0 ? round($this->prix * (100 - $pc) / 100, 2) : (float) $this->prix;
+        return $pc > 0 ? round($base * (100 - $pc) / 100, 2) : $base;
+    }
+
+    /** Prix avant promo : celui de la variante s'il est renseigné, sinon celui du produit */
+    public function basePrice(?ProductVariant $variant = null): float
+    {
+        return (float) ($variant?->prix ?? $this->prix);
     }
 
     /** « Sans image » = champ vide OU fichier absent de public/images (produits importés sans leurs photos) */

@@ -1,0 +1,522 @@
+- generic [active] [ref=e1]:
+  - list "Nos avantages" [ref=e2]:
+    - listitem [ref=e3]:
+      - generic [ref=e4]: Get 15% off your first order
+    - listitem [ref=e8]:
+      - generic [ref=e9]: Sign up for email exclusives
+    - listitem [ref=e14]:
+      - generic [ref=e15]: Earn QUEEN Status Points
+  - link "QUEEN-Cosmetics" [ref=e21] [cursor=pointer]:
+    - /url: /
+  - banner [ref=e22]:
+    - navigation "Navigation principale" [ref=e23]:
+      - button "Langue" [ref=e24] [cursor=pointer]
+      - list [ref=e29]:
+        - listitem [ref=e30]:
+          - link [ref=e31] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e35]:
+          - search [ref=e36]:
+            - generic [ref=e37] [cursor=pointer]:
+              - searchbox "Rechercher un produit"
+        - listitem [ref=e41]:
+          - link [ref=e42] [cursor=pointer]:
+            - /url: /products
+        - listitem [ref=e47]:
+          - link [ref=e48] [cursor=pointer]:
+            - /url: /packs
+        - listitem [ref=e54]:
+          - link [ref=e55] [cursor=pointer]:
+            - /url: /cart
+      - button [ref=e62] [cursor=pointer]
+  - status
+  - main [ref=e68]:
+    - region "Offres QUEEN" [ref=e69]:
+      - generic [ref=e70]:
+        - article [ref=e71]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: Offre exclusive
+            - heading "QUEEN - Des Promotions execeptionnelles tout l'année" [level=2] [ref=e75]
+            - link "Découvrir la collection" [ref=e76] [cursor=pointer]:
+              - /url: /products
+          - generic [ref=e77]:
+            - generic [ref=e78]: jusqu'à
+            - strong [ref=e79]: "-90%"
+        - article [ref=e80]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: Offre exclusive
+            - heading "QUEEN - Offre parfums" [level=2] [ref=e84]
+            - link "Découvrir la collection" [ref=e85] [cursor=pointer]:
+              - /url: /products
+          - generic [ref=e86]:
+            - generic [ref=e87]: jusqu'à
+            - strong [ref=e88]: "-15%"
+        - article [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: Offre exclusive
+            - heading "QUEEN - Promotion maquillage" [level=2] [ref=e93]
+            - link "Découvrir la collection" [ref=e94] [cursor=pointer]:
+              - /url: /products
+          - generic [ref=e95]:
+            - generic [ref=e96]: jusqu'à
+            - strong [ref=e97]: "-20%"
+      - generic [ref=e98]:
+        - button "Publicité 1" [ref=e99] [cursor=pointer]
+        - button "Publicité 2" [ref=e100] [cursor=pointer]
+        - button "Publicité 3" [ref=e101] [cursor=pointer]
+    - generic [ref=e102]:
+      - navigation "Catégories" [ref=e104]:
+        - button "Tous" [ref=e105] [cursor=pointer]
+        - button "Accessoires" [ref=e106] [cursor=pointer]
+        - button "Maquillage Levres" [ref=e107] [cursor=pointer]
+        - button "Maquillage Visage" [ref=e108] [cursor=pointer]
+        - button "Maquillage Yeux" [ref=e109] [cursor=pointer]
+        - button "Ongles" [ref=e110] [cursor=pointer]
+        - button "Parfum" [ref=e111] [cursor=pointer]
+        - button "Parfums" [ref=e112] [cursor=pointer]
+        - button "Soin Cheveux" [ref=e113] [cursor=pointer]
+        - button "Soin Corps" [ref=e114] [cursor=pointer]
+        - button "Soin Visage" [ref=e115] [cursor=pointer]
+        - button "Solaire" [ref=e116] [cursor=pointer]
+      - generic [ref=e117]:
+        - heading "Accessoires" [level=2] [ref=e118]
+        - generic [ref=e119]:
+          - article [ref=e120]:
+            - link "Recourbe-cils" [ref=e121] [cursor=pointer]:
+              - /url: /products/89
+              - generic [ref=e122]: promo
+              - generic [aria-hidden] [ref=e124]: R
+              - heading "Recourbe-cils" [level=3] [ref=e125]
+              - img "3 sur 5 (1 avis)" [ref=e126]:
+                - generic [ref=e127]: ★
+                - generic [ref=e128]: ★
+                - generic [ref=e129]: ★
+                - generic [ref=e130]: ★
+                - generic [ref=e131]: ★
+              - generic [ref=e132]:
+                - deletion [ref=e133]: 201,13 DH
+                - text: 140,79 DH
+          - article [ref=e134]:
+            - link "Trousse Transparente" [ref=e135] [cursor=pointer]:
+              - /url: /products/88
+              - generic [ref=e136]: promo
+              - generic [aria-hidden] [ref=e138]: T
+              - heading "Trousse Transparente" [level=3] [ref=e139]
+              - img "5 sur 5 (2 avis)" [ref=e140]:
+                - generic [ref=e141]: ★
+                - generic [ref=e142]: ★
+                - generic [ref=e143]: ★
+                - generic [ref=e144]: ★
+                - generic [ref=e145]: ★
+              - generic [ref=e146]:
+                - deletion [ref=e147]: 63,47 DH
+                - text: 53,95 DH
+          - article [ref=e148]:
+            - link "Pinceau Highlighter" [ref=e149] [cursor=pointer]:
+              - /url: /products/87
+              - generic [aria-hidden] [ref=e151]: P
+              - heading "Pinceau Highlighter" [level=3] [ref=e152]
+              - img "2 sur 5 (2 avis)" [ref=e153]:
+                - generic [ref=e154]: ★
+                - generic [ref=e155]: ★
+                - generic [ref=e156]: ★
+                - generic [ref=e157]: ★
+                - generic [ref=e158]: ★
+              - generic [ref=e159]: 292,16 DH
+          - article [ref=e160]:
+            - link "Nettoyant Pinceaux" [ref=e161] [cursor=pointer]:
+              - /url: /products/86
+              - generic [ref=e162]: promo
+              - generic [aria-hidden] [ref=e164]: "N"
+              - heading "Nettoyant Pinceaux" [level=3] [ref=e165]
+              - img "4.8 sur 5 (5 avis)" [ref=e166]:
+                - generic [ref=e167]: ★
+                - generic [ref=e168]: ★
+                - generic [ref=e169]: ★
+                - generic [ref=e170]: ★
+                - generic [ref=e171]: ★
+              - generic [ref=e172]:
+                - deletion [ref=e173]: 303,69 DH
+                - text: 258,14 DH
+          - article [ref=e174]:
+            - link "Pinceau Poudre" [ref=e175] [cursor=pointer]:
+              - /url: /products/85
+              - generic [ref=e176]: promo
+              - generic [aria-hidden] [ref=e178]: P
+              - heading "Pinceau Poudre" [level=3] [ref=e179]
+              - img "2 sur 5 (1 avis)" [ref=e180]:
+                - generic [ref=e181]: ★
+                - generic [ref=e182]: ★
+                - generic [ref=e183]: ★
+                - generic [ref=e184]: ★
+                - generic [ref=e185]: ★
+              - generic [ref=e186]:
+                - deletion [ref=e187]: 246,33 DH
+                - text: 221,70 DH
+          - article [ref=e188]:
+            - link "Eponge Maquillage" [ref=e189] [cursor=pointer]:
+              - /url: /products/84
+              - generic [ref=e190]: promo
+              - generic [aria-hidden] [ref=e192]: E
+              - heading "Eponge Maquillage" [level=3] [ref=e193]
+              - img "4.8 sur 5 (5 avis)" [ref=e194]:
+                - generic [ref=e195]: ★
+                - generic [ref=e196]: ★
+                - generic [ref=e197]: ★
+                - generic [ref=e198]: ★
+                - generic [ref=e199]: ★
+              - generic [ref=e200]:
+                - deletion [ref=e201]: 306,42 DH
+                - text: 214,49 DH
+        - button "Voir plus >" [ref=e202] [cursor=pointer]
+      - generic [ref=e203]:
+        - heading "Maquillage Levres" [level=2] [ref=e204]
+        - generic [ref=e205]:
+          - article [ref=e206]:
+            - link "Lip Glow" [ref=e207] [cursor=pointer]:
+              - /url: /products/39
+              - generic [ref=e208]: promo
+              - generic [aria-hidden] [ref=e210]: L
+              - generic [ref=e211]: Dior
+              - heading "Lip Glow" [level=3] [ref=e212]
+              - img "2.3 sur 5 (4 avis)" [ref=e213]:
+                - generic [ref=e214]: ★
+                - generic [ref=e215]: ★
+                - generic [ref=e216]: ★
+                - generic [ref=e217]: ★
+                - generic [ref=e218]: ★
+              - generic [ref=e219]:
+                - deletion [ref=e220]: 104,83 DH
+                - text: 94,35 DH
+          - article [ref=e221]:
+            - link "Color Sensational" [ref=e222] [cursor=pointer]:
+              - /url: /products/38
+              - generic [ref=e223]: promo
+              - generic [aria-hidden] [ref=e225]: C
+              - generic [ref=e226]: Maybelline
+              - heading "Color Sensational" [level=3] [ref=e227]
+              - img "5 sur 5 (2 avis)" [ref=e228]:
+                - generic [ref=e229]: ★
+                - generic [ref=e230]: ★
+                - generic [ref=e231]: ★
+                - generic [ref=e232]: ★
+                - generic [ref=e233]: ★
+              - generic [ref=e234]:
+                - deletion [ref=e235]: 86,03 DH
+                - text: 77,43 DH
+          - article [ref=e236]:
+            - link "Retro Matte" [ref=e237] [cursor=pointer]:
+              - /url: /products/37
+              - generic [ref=e238]: promo
+              - generic [aria-hidden] [ref=e240]: R
+              - generic [ref=e241]: Mac
+              - heading "Retro Matte" [level=3] [ref=e242]
+              - img "5 sur 5 (1 avis)" [ref=e243]:
+                - generic [ref=e244]: ★
+                - generic [ref=e245]: ★
+                - generic [ref=e246]: ★
+                - generic [ref=e247]: ★
+                - generic [ref=e248]: ★
+              - generic [ref=e249]:
+                - deletion [ref=e250]: 288,90 DH
+                - text: 245,57 DH
+          - article [ref=e251]:
+            - link "Cream Lip Stain" [ref=e252] [cursor=pointer]:
+              - /url: /products/36
+              - generic [aria-hidden] [ref=e254]: C
+              - generic [ref=e255]: Sephora
+              - heading "Cream Lip Stain" [level=3] [ref=e256]
+              - img "4 sur 5 (4 avis)" [ref=e257]:
+                - generic [ref=e258]: ★
+                - generic [ref=e259]: ★
+                - generic [ref=e260]: ★
+                - generic [ref=e261]: ★
+                - generic [ref=e262]: ★
+              - generic [ref=e263]: 207,63 DH
+          - article [ref=e264]:
+            - link "Lip Injection" [ref=e265] [cursor=pointer]:
+              - /url: /products/35
+              - generic [ref=e266]: promo
+              - generic [aria-hidden] [ref=e268]: L
+              - generic [ref=e269]: Too Faced
+              - heading "Lip Injection" [level=3] [ref=e270]
+              - img "2.3 sur 5 (4 avis)" [ref=e271]:
+                - generic [ref=e272]: ★
+                - generic [ref=e273]: ★
+                - generic [ref=e274]: ★
+                - generic [ref=e275]: ★
+                - generic [ref=e276]: ★
+              - generic [ref=e277]:
+                - deletion [ref=e278]: 288,66 DH
+                - text: 259,79 DH
+          - article [ref=e279]:
+            - link "Rouge Velvet" [ref=e280] [cursor=pointer]:
+              - /url: /products/34
+              - generic [ref=e281]: promo
+              - generic [aria-hidden] [ref=e283]: R
+              - heading "Rouge Velvet" [level=3] [ref=e284]
+              - img "5 sur 5 (2 avis)" [ref=e285]:
+                - generic [ref=e286]: ★
+                - generic [ref=e287]: ★
+                - generic [ref=e288]: ★
+                - generic [ref=e289]: ★
+                - generic [ref=e290]: ★
+              - generic [ref=e291]:
+                - deletion [ref=e292]: 256,01 DH
+                - text: 217,61 DH
+        - button "Voir plus >" [ref=e293] [cursor=pointer]
+      - region [ref=e294]:
+        - generic [ref=e295]:
+          - generic [ref=e296]:
+            - heading "Nos packs" [level=2] [ref=e297]
+            - paragraph [ref=e298]: Plusieurs produits, un seul prix.
+          - link "Voir tous les packs >" [ref=e299] [cursor=pointer]:
+            - /url: /packs
+        - generic [ref=e300]:
+          - link "PACK ZWIN DIH WLA 5LIH 200,00 DH 567,29 DH Vous économisez 367,29 DH Voir le pack" [ref=e301] [cursor=pointer]:
+            - /url: /packs/16
+            - generic [ref=e303]:
+              - strong [ref=e304]: PACK ZWIN
+              - generic [ref=e305]: DIH WLA 5LIH
+              - generic [ref=e306]:
+                - generic [ref=e307]: 200,00 DH
+                - deletion [ref=e308]: 567,29 DH
+                - generic [ref=e309]: Vous économisez 367,29 DH
+              - generic [ref=e310]: Voir le pack
+          - link "PACK MACHI DYAL DRAWCH 50,00 DH 108,83 DH Vous économisez 58,83 DH DIIIIH" [ref=e311] [cursor=pointer]:
+            - /url: /packs/15
+            - generic [ref=e313]:
+              - strong [ref=e314]: PACK MACHI DYAL DRAWCH
+              - generic [ref=e315]:
+                - generic [ref=e316]: 50,00 DH
+                - deletion [ref=e317]: 108,83 DH
+                - generic [ref=e318]: Vous économisez 58,83 DH
+              - generic [ref=e319]: DIIIIH
+          - link "PACK DRAWCH 300,00 DH 459,22 DH Vous économisez 159,22 DH Voir le pack" [ref=e320] [cursor=pointer]:
+            - /url: /packs/14
+            - generic [ref=e322]:
+              - strong [ref=e323]: PACK DRAWCH
+              - generic [ref=e324]:
+                - generic [ref=e325]: 300,00 DH
+                - deletion [ref=e326]: 459,22 DH
+                - generic [ref=e327]: Vous économisez 159,22 DH
+              - generic [ref=e328]: Voir le pack
+      - generic [ref=e329]:
+        - heading "Maquillage Visage" [level=2] [ref=e330]
+        - generic [ref=e331]:
+          - article [ref=e332]:
+            - link "Teint Idole" [ref=e333] [cursor=pointer]:
+              - /url: /products/19
+              - generic [ref=e334]: promo
+              - generic [aria-hidden] [ref=e336]: T
+              - generic [ref=e337]: Lancome
+              - heading "Teint Idole" [level=3] [ref=e338]
+              - img "4.8 sur 5 (4 avis)" [ref=e339]:
+                - generic [ref=e340]: ★
+                - generic [ref=e341]: ★
+                - generic [ref=e342]: ★
+                - generic [ref=e343]: ★
+                - generic [ref=e344]: ★
+              - generic [ref=e345]:
+                - deletion [ref=e346]: 282,41 DH
+                - text: 254,17 DH
+          - article [ref=e347]:
+            - link "Pro Filtr" [ref=e348] [cursor=pointer]:
+              - /url: /products/18
+              - generic [ref=e349]: promo
+              - generic [aria-hidden] [ref=e351]: P
+              - generic [ref=e352]: Fenty Beauty
+              - heading "Pro Filtr" [level=3] [ref=e353]
+              - img "2.2 sur 5 (5 avis)" [ref=e354]:
+                - generic [ref=e355]: ★
+                - generic [ref=e356]: ★
+                - generic [ref=e357]: ★
+                - generic [ref=e358]: ★
+                - generic [ref=e359]: ★
+              - generic [ref=e360]:
+                - deletion [ref=e361]: 161,16 DH
+                - text: 128,93 DH
+          - article [ref=e362]:
+            - link "Superstay" [ref=e363] [cursor=pointer]:
+              - /url: /products/16
+              - generic [aria-hidden] [ref=e365]: S
+              - generic [ref=e366]: Maybelline
+              - heading "Superstay" [level=3] [ref=e367]
+              - img "2 sur 5 (2 avis)" [ref=e368]:
+                - generic [ref=e369]: ★
+                - generic [ref=e370]: ★
+                - generic [ref=e371]: ★
+                - generic [ref=e372]: ★
+                - generic [ref=e373]: ★
+              - generic [ref=e374]: 295,51 DH
+          - article [ref=e375]:
+            - link "Fit Me" [ref=e376] [cursor=pointer]:
+              - /url: /products/15
+              - generic [ref=e377]: promo
+              - generic [aria-hidden] [ref=e379]: F
+              - generic [ref=e380]: Maybelline
+              - heading "Fit Me" [level=3] [ref=e381]
+              - img "4.8 sur 5 (4 avis)" [ref=e382]:
+                - generic [ref=e383]: ★
+                - generic [ref=e384]: ★
+                - generic [ref=e385]: ★
+                - generic [ref=e386]: ★
+                - generic [ref=e387]: ★
+              - generic [ref=e388]:
+                - deletion [ref=e389]: 125,71 DH
+                - text: 106,85 DH
+          - article [ref=e390]:
+            - link "Perfect Base" [ref=e391] [cursor=pointer]:
+              - /url: /products/13
+              - generic [ref=e392]: promo
+              - generic [aria-hidden] [ref=e394]: P
+              - heading "Perfect Base" [level=3] [ref=e395]
+              - img "5 sur 5 (1 avis)" [ref=e396]:
+                - generic [ref=e397]: ★
+                - generic [ref=e398]: ★
+                - generic [ref=e399]: ★
+                - generic [ref=e400]: ★
+                - generic [ref=e401]: ★
+              - generic [ref=e402]:
+                - deletion [ref=e403]: 314,66 DH
+                - text: 283,19 DH
+          - article [ref=e404]:
+            - link "Glow Filter" [ref=e405] [cursor=pointer]:
+              - /url: /products/12
+              - generic [aria-hidden] [ref=e407]: G
+              - heading "Glow Filter" [level=3] [ref=e408]
+              - img "4 sur 5 (2 avis)" [ref=e409]:
+                - generic [ref=e410]: ★
+                - generic [ref=e411]: ★
+                - generic [ref=e412]: ★
+                - generic [ref=e413]: ★
+                - generic [ref=e414]: ★
+              - generic [ref=e415]: 284,30 DH
+        - button "Voir plus >" [ref=e416] [cursor=pointer]
+      - region [ref=e417]:
+        - generic [ref=e418]:
+          - heading "Besoin d’un coup de pouce ?" [level=2] [ref=e419]
+          - paragraph [ref=e420]: Découvrez ce qui est populaire en ce moment.
+        - generic [ref=e421]:
+          - link "Les Packs" [ref=e422] [cursor=pointer]:
+            - /url: /packs
+          - link "Parfums" [ref=e428] [cursor=pointer]:
+            - /url: /products?cat=Parfums
+          - link "Lèvres" [ref=e434] [cursor=pointer]:
+            - /url: /products?cat=Maquillage%20Levres
+          - link "Yeux" [ref=e440] [cursor=pointer]:
+            - /url: /products?cat=Maquillage%20Yeux
+          - link "Soin du visage" [ref=e445] [cursor=pointer]:
+            - /url: /products?cat=Soin%20Visage
+          - link "Ongles" [ref=e450] [cursor=pointer]:
+            - /url: /products?cat=Ongles
+          - link "Solaire" [ref=e456] [cursor=pointer]:
+            - /url: /products?cat=Solaire
+      - generic [ref=e461]:
+        - heading "Maquillage Yeux" [level=2] [ref=e462]
+        - generic [ref=e463]:
+          - article [ref=e464]:
+            - link "Roller Lash" [ref=e465] [cursor=pointer]:
+              - /url: /products/29
+              - generic [ref=e466]: promo
+              - generic [aria-hidden] [ref=e468]: R
+              - generic [ref=e469]: Benefit
+              - heading "Roller Lash" [level=3] [ref=e470]
+              - img "5 sur 5 (2 avis)" [ref=e471]:
+                - generic [ref=e472]: ★
+                - generic [ref=e473]: ★
+                - generic [ref=e474]: ★
+                - generic [ref=e475]: ★
+                - generic [ref=e476]: ★
+              - generic [ref=e477]:
+                - deletion [ref=e478]: 177,18 DH
+                - text: 150,60 DH
+          - article [ref=e479]:
+            - link "Soft Glam" [ref=e480] [cursor=pointer]:
+              - /url: /products/28
+              - generic [aria-hidden] [ref=e482]: S
+              - generic [ref=e483]: Anastasia Beverly Hills
+              - heading "Soft Glam" [level=3] [ref=e484]
+              - img "3 sur 5 (4 avis)" [ref=e485]:
+                - generic [ref=e486]: ★
+                - generic [ref=e487]: ★
+                - generic [ref=e488]: ★
+                - generic [ref=e489]: ★
+                - generic [ref=e490]: ★
+              - generic [ref=e491]: 80,30 DH
+          - article [ref=e492]:
+            - link "Desert Dusk" [ref=e493] [cursor=pointer]:
+              - /url: /products/27
+              - generic [ref=e494]: promo
+              - generic [aria-hidden] [ref=e496]: D
+              - generic [ref=e497]: Huda Beauty
+              - heading "Desert Dusk" [level=3] [ref=e498]
+              - img "4.8 sur 5 (5 avis)" [ref=e499]:
+                - generic [ref=e500]: ★
+                - generic [ref=e501]: ★
+                - generic [ref=e502]: ★
+                - generic [ref=e503]: ★
+                - generic [ref=e504]: ★
+              - generic [ref=e505]:
+                - deletion [ref=e506]: 79,33 DH
+                - text: 55,53 DH
+          - article [ref=e507]:
+            - link "Epic Ink" [ref=e508] [cursor=pointer]:
+              - /url: /products/26
+              - generic [aria-hidden] [ref=e510]: E
+              - generic [ref=e511]: NYX
+              - heading "Epic Ink" [level=3] [ref=e512]
+              - img "4 sur 5 (5 avis)" [ref=e513]:
+                - generic [ref=e514]: ★
+                - generic [ref=e515]: ★
+                - generic [ref=e516]: ★
+                - generic [ref=e517]: ★
+                - generic [ref=e518]: ★
+              - generic [ref=e519]: 128,45 DH
+          - article [ref=e520]:
+            - link "Lash Sensational" [ref=e521] [cursor=pointer]:
+              - /url: /products/25
+              - generic [ref=e522]: promo
+              - generic [aria-hidden] [ref=e524]: L
+              - generic [ref=e525]: Maybelline
+              - heading "Lash Sensational" [level=3] [ref=e526]
+              - img "3 sur 5 (2 avis)" [ref=e527]:
+                - generic [ref=e528]: ★
+                - generic [ref=e529]: ★
+                - generic [ref=e530]: ★
+                - generic [ref=e531]: ★
+                - generic [ref=e532]: ★
+              - generic [ref=e533]:
+                - deletion [ref=e534]: 255,57 DH
+                - text: 178,90 DH
+          - article [ref=e535]:
+            - link "Rose Metals" [ref=e536] [cursor=pointer]:
+              - /url: /products/24
+              - generic [ref=e537]: promo
+              - generic [aria-hidden] [ref=e539]: R
+              - heading "Rose Metals" [level=3] [ref=e540]
+              - img "3 sur 5 (4 avis)" [ref=e541]:
+                - generic [ref=e542]: ★
+                - generic [ref=e543]: ★
+                - generic [ref=e544]: ★
+                - generic [ref=e545]: ★
+                - generic [ref=e546]: ★
+              - generic [ref=e547]:
+                - deletion [ref=e548]: 64,27 DH
+                - text: 57,84 DH
+        - button "Voir plus >" [ref=e549] [cursor=pointer]
+      - navigation "Pagination" [ref=e550]:
+        - button "< Précédent" [disabled] [ref=e551]
+        - button "1" [ref=e552] [cursor=pointer]
+        - button "2" [ref=e553] [cursor=pointer]
+        - button "3" [ref=e554] [cursor=pointer]
+        - button "Suivant >" [ref=e555] [cursor=pointer]
+  - contentinfo [ref=e556]:
+    - generic [ref=e557]:
+      - generic [ref=e558]:
+        - text: QUEEN
+        - emphasis [ref=e559]: Cosmetics
+      - generic [ref=e560]: Paiement à la livraison · Livraison partout au Maroc · Produits authentiques
+      - generic [ref=e561]: © QUEEN Cosmetics
+  - button "Open Next.js Dev Tools" [ref=e567] [cursor=pointer]
+  - alert [ref=e571]

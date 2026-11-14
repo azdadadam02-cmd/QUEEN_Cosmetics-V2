@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
+import FormError from '@/components/ui/FormError';
 import StatusPill from '@/components/ui/StatusPill';
 import { api, errorMessage } from '@/lib/api';
 import { dateTime, money } from '@/lib/format';
-import { toast } from '@/store/toastStore';
 
 const FILTERS = [['', 'Tous'], ['paye', 'Encaissés'], ['encaisser', 'À encaisser']];
 
@@ -12,12 +12,13 @@ const FILTERS = [['', 'Tous'], ['paye', 'Encaissés'], ['encaisser', 'À encaiss
 export default function FinancesPage() {
   const [filter, setFilter] = useState('');
   const [d, setD] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
     api
       .get('/admin/finances', { params: filter ? { filter } : {} })
       .then(({ data }) => setD(data))
-      .catch((e) => toast.error(errorMessage(e)));
+      .catch((e) => setLoadError(errorMessage(e)));
   }, [filter]);
 
   if (!d) return <p className="loading-line">Chargement…</p>;
@@ -27,6 +28,7 @@ export default function FinancesPage() {
   return (
     <>
       <PageHead title="Finances" note="Paiement à la livraison : l'argent est encaissé quand la commande est livrée" />
+      <FormError message={loadError} />
       <div className="stats">
         <div className="stat gold"><span className="stat-label">Total encaissé</span><strong>{money(s.encaisse)}</strong><small>{s.nb_payes} commande(s) payée(s)</small></div>
         <div className="stat"><span className="stat-label">Encaissé ce mois</span><strong>{money(s.mois)}</strong><small>panier moyen {money(s.panier_moyen)}</small></div>

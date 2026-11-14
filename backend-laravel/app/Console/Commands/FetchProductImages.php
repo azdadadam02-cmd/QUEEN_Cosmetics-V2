@@ -49,7 +49,6 @@ class FetchProductImages extends Command
         return self::SUCCESS;
     }
 
-    /** Cherche « nom marque » puis « nom » ; ne garde qu'un résultat dont le nom contient tous les mots du produit */
     private function find(Product $p): array
     {
         $mots = array_filter(explode('-', Str::slug($p->nom)));
@@ -70,7 +69,7 @@ class FetchProductImages extends Command
                 $brand  = $norm($x['brands'] ?? '');
                 $ok     = ! $marque || ! $brand || str_contains($brand, $marque) || str_contains($marque, $brand);
 
-                $souple = $this->option('souple'); // n'importe quelle photo proche : on préfère une photo approximative à rien
+                $souple = $this->option('souple');
 
                 if (! empty($x['image_front_url']) && ($souple || ($ok && ! array_diff($mots, explode('-', $slug))))) {
                     return [true, ['url' => $x['image_front_url'], 'brand' => $x['brands'] ?? '', 'name' => $x['product_name'] ?? '']];

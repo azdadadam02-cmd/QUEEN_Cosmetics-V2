@@ -11,7 +11,6 @@ use Illuminate\Http\JsonResponse;
 /** Admin : gestion de tous les utilisateurs SAUF les comptes admin */
 class UserController extends Controller
 {
-    /** GET /api/admin/users */
     public function index(): JsonResponse
     {
         $users = User::where('role', '<>', 'admin')->withCount('orders')->orderByDesc('id')->get();
@@ -19,7 +18,6 @@ class UserController extends Controller
         return response()->json(UserResource::collection($users)->resolve());
     }
 
-    /** POST /api/admin/users */
     public function store(UserRequest $request): JsonResponse
     {
         $user = User::create([
@@ -32,7 +30,6 @@ class UserController extends Controller
         return response()->json(['message' => "Utilisateur « {$user->nom} » créé.", 'user' => new UserResource($user)], 201);
     }
 
-    /** PUT /api/admin/users/{user} — mot de passe inchangé si vide */
     public function update(UserRequest $request, User $user): JsonResponse
     {
         $this->abortIfAdmin($user);

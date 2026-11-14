@@ -43,7 +43,7 @@ class SeedTestData extends Command
 
             return self::FAILURE;
         }
-        mt_srand(2026);   // mêmes données à chaque génération
+        mt_srand(2026);
 
         $inPack   = DB::table('pack_produit')->pluck('produit_id')->all();
         $hasVar   = ProductVariant::distinct()->pluck('produit_id')->all();
@@ -58,7 +58,7 @@ class SeedTestData extends Command
             foreach ($products as $p) {
                 $backup['stocks'][$p->id] = (int) $p->quantite_stock;
                 $skip = in_array($p->id, $inPack) || in_array($p->id, $hasVar);
-                $recipe = $skip ? [] : $this->recipe($p);
+                $recipe = $skip ? [] : $this->separate($this->recipe($p), $p);
 
                 if ($recipe) {
                     foreach ($recipe as $row) {
@@ -72,7 +72,6 @@ class SeedTestData extends Command
                 }
             }
 
-            // Cas à tester : 3 produits en rupture, 4 en stock faible (total ≤ 5)
             shuffle($variantProducts);
             foreach (array_slice($variantProducts, 0, 3) as $id) {
                 ProductVariant::where('produit_id', $id)->update(['quantite_stock' => 0]);
@@ -87,7 +86,6 @@ class SeedTestData extends Command
                 Product::find($id)->syncVariantStock();
             }
 
-            // Notes : chaque produit vise 2, 3, 4 ou 5 étoiles (moyenne arrondie), avec 1 à 5 avis de clients différents
             if ($clients) {
                 foreach ($products as $p) {
                     if ($p->trashed() || in_array($p->id, $reviewed)) {
@@ -142,7 +140,6 @@ class SeedTestData extends Command
         return self::SUCCESS;
     }
 
-    /** Stock selon le prix : un produit bon marché se vend (et se stocke) plus qu'un produit cher ; quelques variantes à 0 ou presque */
     private function stock(Product $p, bool $variant): int
     {
         $base  = $p->prix < 100 ? 120 : ($p->prix < 200 ? 60 : ($p->prix < 300 ? 30 : 14));
@@ -177,6 +174,30 @@ class SeedTestData extends Command
      * Le NOM décide d'abord (les sous-catégories de la base sont mélangées : « Naked Palette » y est rangé en Eyeliner),
      * la sous-catégorie ne sert qu'aux noms qu'aucune règle ne reconnaît.
      */
+    /**
+     * Une variante = une couleur OU une taille, jamais les deux, sans doublon.
+     * Les couleurs gardent le prix du produit ; les tailles (dans l'ordre de la recette, du plus petit au plus grand) vont de 75 % à 150 % du prix.
+     */
+    private function separate(array $rows, Product $p): array
+    {
+        $sizeKeys = array_flip(['taille', 'volume_ml', 'poids_g', 'quantite_pieces']);
+        $out = [];
+        foreach ($rows as $r) {
+            $r = ! empty($r['couleur']) ? ['couleur' => $r['couleur']] : array_intersect_key($r, $sizeKeys);
+            if (array_filter($r)) {
+                $out[json_encode($r)] = $r;
+            }
+        }
+        $out = array_values($out);
+        $sizes = array_keys(array_filter($out, fn ($r) => empty($r['couleur'])));
+        $n = count($sizes);
+        foreach ($sizes as $rank => $i) {
+            $out[$i]['prix'] = $n > 1 ? round($p->prix * (0.75 + 0.75 * $rank / ($n - 1))) : null;
+        }
+
+        return $out;
+    }
+
     private function recipe(Product $p): array
     {
         return $this->byName($p) ?? $this->bySubCategory($p);
@@ -189,7 +210,7 @@ class SeedTestData extends Command
         $any = fn (array $words) => collect($words)->contains(fn ($w) => str_contains($n, $w));
 
         return match (true) {
-            $any(['recourbe'])                  => [],   // un seul modèle
+            $any(['recourbe'])                  => [],
             $any(['nettoyant pinceaux'])        => $this->sizes('volume_ml', [100, 200]),
             $any(['kit pinceaux'])              => $this->sizes('quantite_pieces', [5, 8, 12]),
             $any(['blender', 'eponge'])         => $this->combos([['#f1c9cf', 1], ['#e9bf9a', 2], ['#111111', 4], ['#f1c9cf', 4]], 'quantite_pieces'),
@@ -261,7 +282,6 @@ class SeedTestData extends Command
         };
     }
 
-    /** [[couleur, valeur]] → lignes de variantes (la valeur va dans $field) */
     private function combos(array $pairs, string $field): array
     {
         return array_map(fn ($pair) => ['couleur' => $pair[0], $field => $pair[1]], $this->pick($pairs, 3, count($pairs)));

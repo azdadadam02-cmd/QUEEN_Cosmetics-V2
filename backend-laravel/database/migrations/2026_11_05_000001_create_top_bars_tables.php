@@ -4,12 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * Barres au-dessus de la navbar (même schéma que Database.TEXT) :
- *  - usps           : barre des avantages (livraison, -15 %, …)
- *  - annonces_promo : barre promotionnelle (texte + compte à rebours optionnel)
- * Ne touche pas aux tables existantes.
- */
 return new class extends Migration
 {
     public function up(): void
@@ -48,7 +42,6 @@ return new class extends Migration
             });
         }
 
-        // Avis clients : visibles seulement après validation de l'admin (est_approuve)
         if (! Schema::hasTable('avis_produits')) {
             Schema::create('avis_produits', function (Blueprint $table) {
                 $table->id();

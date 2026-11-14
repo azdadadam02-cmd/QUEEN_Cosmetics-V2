@@ -12,18 +12,17 @@ use App\Services\ImageUploader;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 
-/** Profil du client connecté : informations, photo, suppression du compte */
 class ProfileController extends Controller
 {
-    /** GET /api/profile */
     public function show(Request $request): JsonResponse
     {
         return response()->json($this->payload($request->user()));
     }
 
-    /** PUT /api/profile : téléphone et adresse vont dans l'adresse principale (adresses_livraison) */
     public function update(Request $request): JsonResponse
     {
         $request->merge([
@@ -35,11 +34,13 @@ class ProfileController extends Controller
             'nom'            => ['required', 'string', 'min:3', 'max:100'],
             'telephone'      => ['nullable', 'regex:/^(\+212|00212|0)[5-7]\d{8}$/'],
             'adresse'        => ['nullable', 'string', 'max:255'],
-            'date_naissance' => ['nullable', 'date', 'before:today', 'after:1900-01-01'],
+            // Clients majeurs uniquement : né au plus tard il y a 18 ans jour pour jour. NoOverflow : un 29 février donne le 28, pas le 1er mars
+            'date_naissance' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:'.now()->subYearsNoOverflow(18)->toDateString(), 'after:1900-01-01'],
         ], [
             'nom.*'            => 'Le nom est obligatoire (3 à 100 caractères).',
             'telephone.*'      => 'Numéro de téléphone invalide (ex : 06 12 34 56 78).',
             'adresse.*'        => "L'adresse ne doit pas dépasser 255 caractères.",
+            'date_naissance.before_or_equal' => 'Vous devez avoir au moins 18 ans.',
             'date_naissance.*' => 'Date de naissance invalide.',
         ]);
 
@@ -62,7 +63,6 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Vos informations sont enregistrées.', 'profile' => $this->payload($user->fresh())]);
     }
 
-    /** POST /api/profile/image (multipart) */
     public function updateImage(Request $request, ImageUploader $uploader): JsonResponse
     {
         $request->validate(
@@ -77,7 +77,6 @@ class ProfileController extends Controller
         return response()->json(['message' => 'Photo de profil mise à jour.', 'profile' => $this->payload($user->fresh())]);
     }
 
-    /** DELETE /api/profile/image */
     public function destroyImage(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -94,6 +93,20 @@ class ProfileController extends Controller
     public function destroy(Request $request): JsonResponse
     {
         $user = $request->user();
+
+        // Mot de passe exigé : un token volé ne suffit pas pour effacer le compte.
+        // Même verrou que la connexion (5 échecs → 5 min), sinon cette route servirait à deviner le mot de passe.
+        $key = 'delete-account:'.$user->id;
+        if (RateLimiter::tooManyAttempts($key, 5)) {
+            return response()->json(['message' => 'Trop de tentatives. Réessayez dans '.ceil(RateLimiter::availableIn($key) / 60).' minute(s).'], 429);
+        }
+        $request->validate(['password' => ['required', 'string', 'max:72']], ['password.*' => 'Entrez votre mot de passe pour confirmer.']);
+        if (! Hash::check($request->input('password'), $user->mot_de_passe)) {
+            RateLimiter::hit($key, 300);
+
+            return response()->json(['message' => 'Mot de passe incorrect.', 'errors' => ['password' => ['Mot de passe incorrect.']]], 422);
+        }
+        RateLimiter::clear($key);
 
         if ($user->orders()->whereIn('statut', [Order::EN_ATTENTE, Order::ACCEPTEE])->exists()) {
             return response()->json(['message' => 'Suppression impossible : vous avez une commande en cours. Attendez sa livraison.'], 422);

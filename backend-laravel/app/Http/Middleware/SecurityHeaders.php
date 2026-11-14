@@ -6,12 +6,15 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/** En-têtes de sécurité sur toutes les réponses de l'API (JSON, jamais mis en cache) */
 class SecurityHeaders
 {
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
+
+        // PHP ajoute « X-Powered-By: PHP/8.x » : la version exacte aide à cibler une faille connue
+        header_remove('X-Powered-By');
+        $response->headers->remove('X-Powered-By');
 
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('X-Frame-Options', 'DENY');

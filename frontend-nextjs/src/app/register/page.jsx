@@ -7,7 +7,6 @@ import { errorMessage, fieldErrors } from '@/lib/api';
 import { register } from '@/lib/auth';
 import { toast } from '@/store/toastStore';
 
-/** Inscription : crée un compte client et connecte directement (comme avant) */
 export default function RegisterPage() {
   const router = useRouter();
   const [form, setForm] = useState({ nom: '', email: '', password: '', password_confirmation: '' });

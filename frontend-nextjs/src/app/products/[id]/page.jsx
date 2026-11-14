@@ -13,7 +13,6 @@ export async function generateMetadata({ params }) {
   return { title: p?.name || 'Produit introuvable' };
 }
 
-/** Fiche produit dynamique : /products/1, /products/2… */
 export default function ProductPage({ params }) {
   return (
     <>
@@ -39,7 +38,7 @@ async function ProductDetail({ params }) {
 
   return (
     <>
-      <ProductHero product={p} moreHref={similar.length ? '#similaires' : '#description'} />
+      <ProductHero product={p} reviews={reviews || []} moreHref={similar.length ? '#similaires' : '#description'} />
 
       <section className="pd-section" id="description">
         <h2>Description</h2>

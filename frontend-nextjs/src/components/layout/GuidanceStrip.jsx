@@ -21,7 +21,6 @@ const ITEMS = [
   { label: 'Solaire', cat: 'Solaire', icon: 'sun', color: '#f4a24c' },
 ];
 
-/** Bandeau de raccourcis de l'accueil : « Besoin d'un coup de pouce ? » */
 export default function GuidanceStrip({ categories = [], hasPacks = false }) {
   const items = ITEMS.filter((i) => (i.packs ? hasPacks : categories.includes(i.cat)));
   if (items.length < 3) return null;

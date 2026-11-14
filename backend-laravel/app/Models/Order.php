@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-/** Commande (table « commandes ») */
 class Order extends Model
 {
     public const EN_ATTENTE = 'En attente';

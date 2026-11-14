@@ -12,18 +12,10 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Api\ThemeController;
 use App\Http\Controllers\Api\TopBarController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| QUEEN Cosmetics — API consommée par Next.js   (préfixe automatique : /api)
-|--------------------------------------------------------------------------
-| Public           : boutique, publicités, vérification du panier, login/register
-| auth:sanctum     : token « Authorization: Bearer … »
-| role:xxx         : rôle relu en base à chaque requête (app/Http/Middleware/EnsureRole.php)
-*/
 
 Route::middleware('throttle:api')->group(function () {
 
@@ -38,6 +30,7 @@ Route::middleware('throttle:api')->group(function () {
     Route::get('/advertisements', [AdvertisementController::class, 'index']);
     Route::get('/top-bars', [TopBarController::class, 'index']);
     Route::get('/service-links', [TopBarController::class, 'serviceLinks']);
+    Route::get('/theme', [ThemeController::class, 'show']);
     Route::post('/cart/check', [CartController::class, 'check']);
 
     /* ── AUTHENTIFICATION ────────────────────────────────── */
@@ -52,6 +45,7 @@ Route::middleware('throttle:api')->group(function () {
             Route::post('/orders', [OrderController::class, 'store']);
             Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])->whereNumber('product');
             Route::get('/products/{product}/reviews/mine', [ReviewController::class, 'mine'])->whereNumber('product');
+            Route::delete('/products/{product}/reviews/mine', [ReviewController::class, 'destroyMine'])->whereNumber('product');
             Route::get('/favorites', [FavoriteController::class, 'index']);
             Route::get('/favorites/products', [FavoriteController::class, 'products']);
             Route::post('/reports', [ReportController::class, 'store'])->middleware('throttle:5,1');
@@ -109,6 +103,10 @@ Route::middleware('throttle:api')->group(function () {
             Route::delete('/promos/{promo}', [TopBarController::class, 'promoDestroy'])->whereNumber('promo');
             Route::put('/header', [TopBarController::class, 'headerUpdate']);
             Route::put('/service-links', [TopBarController::class, 'serviceLinksUpdate']);
+            Route::put('/theme', [ThemeController::class, 'update']);
+            Route::delete('/theme', [ThemeController::class, 'reset']);
+            Route::post('/theme/logo', [ThemeController::class, 'logoStore'])->middleware('throttle:uploads');
+            Route::delete('/theme/logo', [ThemeController::class, 'logoDestroy']);
 
             Route::get('/reports', [ReportController::class, 'adminIndex']);
 

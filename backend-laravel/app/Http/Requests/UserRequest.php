@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-/** Création / modification d'un utilisateur non-admin par l'admin */
 class UserRequest extends FormRequest
 {
     public function authorize(): bool
@@ -24,7 +23,7 @@ class UserRequest extends FormRequest
 
     public function rules(): array
     {
-        $user     = $this->route('user');            // null en création
+        $user     = $this->route('user');
         $creating = $user === null;
 
         return [

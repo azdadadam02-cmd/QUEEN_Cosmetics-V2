@@ -3,11 +3,13 @@ import { useCallback, useEffect, useState } from 'react';
 import PageHead from '@/components/layout/PageHead';
 import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
+import DialogActions from '@/components/ui/DialogActions';
 import Field from '@/components/ui/Field';
+import FormError from '@/components/ui/FormError';
 import Modal from '@/components/ui/Modal';
-import { api, errorMessage, fieldErrors } from '@/lib/api';
+import { api, errorMessage } from '@/lib/api';
 import { ROLE_LABELS } from '@/lib/auth';
-import { toast } from '@/store/toastStore';
+import { useSubmit } from '@/lib/useSubmit';
 
 const ROLES = ['client', 'responsable_produits', 'responsable_commandes'];
 const EMPTY = { nom: '', email: '', role: 'client', password: '' };
@@ -17,49 +19,36 @@ export default function UtilisateursPage() {
   const [users, setUsers] = useState(null);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
-  const [errors, setErrors] = useState({});
-  const [saving, setSaving] = useState(false);
+  const submit = useSubmit();
+  const action = useSubmit();
+  const { errors } = submit;
+  const { setError: setLoadError } = action;
 
   const load = useCallback(() => {
-    api.get('/admin/users').then(({ data }) => setUsers(data)).catch((e) => toast.error(errorMessage(e)));
-  }, []);
+    api.get('/admin/users').then(({ data }) => setUsers(data)).catch((e) => setLoadError(errorMessage(e)));
+  }, [setLoadError]);
   useEffect(() => {
     load();
   }, [load]);
 
   function open(u = {}) {
     setEditing(u);
-    setErrors({});
+    submit.reset();
     setForm(u.id ? { nom: u.name, email: u.email, role: u.role, password: '' } : EMPTY);
   }
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  async function save(e) {
+  function save(e) {
     e.preventDefault();
-    setSaving(true);
-    setErrors({});
-    try {
-      const { data } = editing.id ? await api.put(`/admin/users/${editing.id}`, form) : await api.post('/admin/users', form);
-      toast.success(data.message);
+    submit.run(() => (editing.id ? api.put(`/admin/users/${editing.id}`, form) : api.post('/admin/users', form)), () => {
       setEditing(null);
       load();
-    } catch (err) {
-      setErrors(fieldErrors(err));
-      toast.error(errorMessage(err));
-    } finally {
-      setSaving(false);
-    }
+    });
   }
 
-  async function destroy(u) {
+  function destroy(u) {
     if (!window.confirm(`Supprimer « ${u.name} » ?`)) return;
-    try {
-      const { data } = await api.delete(`/admin/users/${u.id}`);
-      toast.success(data.message);
-      load();
-    } catch (err) {
-      toast.error(errorMessage(err));
-    }
+    action.run(() => api.delete(`/admin/users/${u.id}`), load);
   }
 
   return (
@@ -67,6 +56,7 @@ export default function UtilisateursPage() {
       <PageHead title="Utilisateurs" note="Les comptes administrateur ne sont pas modifiables ici">
         <Button onClick={() => open()}>+ Nouvel utilisateur</Button>
       </PageHead>
+      <FormError message={action.error} />
       <div className="panel tablewrap">
         <table className="tbl">
           <thead><tr><th>Utilisateur</th><th>Rôle</th><th className="num">Commandes</th><th className="right">Actions</th></tr></thead>
@@ -98,10 +88,8 @@ export default function UtilisateursPage() {
             </select>
           </Field>
           <Field id="password" label="Mot de passe" hint={editing?.id ? '(vide = inchangé)' : '(8 caractères min., 1 majuscule)'} type="password" value={form.password} onChange={set('password')} error={errors.password} autoComplete="new-password" />
-          <div className="dialog-actions">
-            <button type="button" className="btn-ghost" onClick={() => setEditing(null)}>Annuler</button>
-            <Button type="submit" size="sm" loading={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</Button>
-          </div>
+          <FormError message={submit.error} />
+          <DialogActions onCancel={() => setEditing(null)} busy={submit.busy} />
         </form>
       </Modal>
     </>

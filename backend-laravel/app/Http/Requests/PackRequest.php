@@ -6,7 +6,6 @@ use App\Models\ProductVariant;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
-/** Ajout / modification d'un pack (responsable produits ou admin). Formulaire multipart : les produits arrivent en JSON. */
 class PackRequest extends FormRequest
 {
     public function authorize(): bool

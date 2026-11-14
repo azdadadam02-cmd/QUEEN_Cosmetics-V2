@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Utilisateur (table « utilisateurs » de queen_db).
- * Rôles : client | admin | responsable_produits | responsable_commandes
- */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -43,7 +39,6 @@ class User extends Authenticatable
         return $this->role === 'admin';
     }
 
-    /** Page d'accueil Next.js selon le rôle */
     public function homePath(): string
     {
         return [

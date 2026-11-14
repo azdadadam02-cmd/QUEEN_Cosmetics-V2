@@ -1,21 +1,25 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
+import FormError from '@/components/ui/FormError';
 import Stars from '@/components/ui/Stars';
-import { api, errorMessage } from '@/lib/api';
+import { api } from '@/lib/api';
+import { dayDate } from '@/lib/format';
 import { useHydrated } from '@/lib/useHydrated';
+import { useSubmit } from '@/lib/useSubmit';
 import { useAuthStore } from '@/store/authStore';
-import { toast } from '@/store/toastStore';
 
-/** Avis approuvés par l'admin + formulaire pour les clients connectés (l'avis envoyé attend la validation) */
 export default function Reviews({ productId, reviews }) {
+  const router = useRouter();
   const hydrated = useHydrated();
   const user = useAuthStore((s) => s.user);
   const [note, setNote] = useState(0);
   const [commentaire, setCommentaire] = useState('');
-  const [sending, setSending] = useState(false);
+  const send = useSubmit();
+  const removal = useSubmit();
   const [mine, setMine] = useState(null);   // l'avis du client : il le voit même avant la validation
   const isClient = hydrated && user?.role === 'client';
 
@@ -29,19 +33,21 @@ export default function Reviews({ productId, reviews }) {
     }).catch(() => {});
   }, [isClient, productId]);
 
-  async function submit(e) {
+  function submit(e) {
     e.preventDefault();
-    if (!note) return toast.error('Choisissez une note de 1 à 5.');
-    setSending(true);
-    try {
-      const { data } = await api.post(`/products/${productId}/reviews`, { note, commentaire });
-      toast.success(data.message);
-      setMine({ rating: note, comment: commentaire, approved: false });
-    } catch (err) {
-      toast.error(errorMessage(err));
-    } finally {
-      setSending(false);
-    }
+    if (!note) return send.setError('Choisissez une note de 1 à 5.');
+    send.run(() => api.post(`/products/${productId}/reviews`, { note, commentaire }), () => setMine({ rating: note, comment: commentaire, approved: false, date: new Date().toLocaleDateString('sv') }));
+  }
+
+  function remove() {
+    if (!window.confirm('Supprimer votre avis ?')) return;
+    removal.run(() => api.delete(`/products/${productId}/reviews/mine`), () => {
+      setMine(null);
+      setNote(0);
+      setCommentaire('');
+      send.reset();
+      router.refresh();
+    });
   }
 
   return (
@@ -56,6 +62,7 @@ export default function Reviews({ productId, reviews }) {
               <span className="pill pill-role">En attente de validation</span>
               <Stars value={mine.rating} count={1} className="stars-sm" />
             </header>
+            {mine.date && <time className="review-date" dateTime={mine.date}>{dayDate(mine.date)}</time>}
             {mine.comment && <p>{mine.comment}</p>}
           </article>
         )}
@@ -66,6 +73,7 @@ export default function Reviews({ productId, reviews }) {
               <strong>{r.author}</strong>
               <Stars value={r.rating} count={1} className="stars-sm" />
             </header>
+            {r.date && <time className="review-date" dateTime={r.date}>{dayDate(r.date)}</time>}
             {r.comment && <p>{r.comment}</p>}
           </article>
         ))}
@@ -80,7 +88,11 @@ export default function Reviews({ productId, reviews }) {
             ))}
           </div>
           <textarea value={commentaire} onChange={(e) => setCommentaire(e.target.value)} maxLength={1000} placeholder="Votre commentaire (optionnel)" />
-          <div><Button type="submit" size="sm" loading={sending}>{mine ? 'Mettre à jour' : 'Envoyer mon avis'}</Button></div>
+          <FormError message={send.error || send.errors.note || send.errors.commentaire || removal.error} success={send.success || removal.success} />
+          <div className="review-actions">
+            <Button type="submit" size="sm" loading={send.busy}>{mine ? 'Mettre à jour' : 'Envoyer mon avis'}</Button>
+            {mine && <Button type="button" variant="danger" size="sm" loading={removal.busy} onClick={remove}>Supprimer mon avis</Button>}
+          </div>
           <small className="muted">Les avis sont publiés après validation{mine ? ' : une modification repasse en attente' : ''}.</small>
         </form>
       )}

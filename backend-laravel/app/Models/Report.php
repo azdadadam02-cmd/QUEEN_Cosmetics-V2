@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/** Report envoyé par un client depuis son profil (table « reclamations ») */
 class Report extends Model
 {
     protected $table = 'reclamations';

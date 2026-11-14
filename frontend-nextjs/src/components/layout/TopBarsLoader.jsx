@@ -1,7 +1,6 @@
 import { apiGet } from '@/lib/serverApi';
 import TopBars from './TopBars';
 
-/** Lit les barres côté serveur (présentes dans le HTML initial, pas de saut de page au chargement) */
 export default async function TopBarsLoader() {
   // Les barres sont un bonus : si l'API est coupée ou pas migrée, le site s'affiche quand même
   const data = await apiGet('/top-bars').catch(() => null);

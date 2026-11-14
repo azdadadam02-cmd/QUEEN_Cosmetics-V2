@@ -1,4 +1,3 @@
-/** Champ de formulaire avec libellé + message d'erreur venant de Laravel */
 export default function Field({ label, hint, error, id, as = 'input', children, ...props }) {
   const Tag = as;
   return (

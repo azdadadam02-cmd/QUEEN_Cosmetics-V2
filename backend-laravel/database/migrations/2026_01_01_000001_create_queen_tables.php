@@ -17,7 +17,6 @@ return new class extends Migration
 {
     public function up(): void
     {
-        /* ── produits ── */
         if (! Schema::hasTable('produits')) {
             Schema::create('produits', function (Blueprint $table) {
                 $table->id();
@@ -26,13 +25,12 @@ return new class extends Migration
                 $table->decimal('prix', 10, 2);
                 $table->unsignedInteger('quantite_stock')->default(0);
                 $table->string('image', 255)->nullable();
-                $table->unsignedTinyInteger('promotion')->default(0);   // % de réduction (0 = aucune)
+                $table->unsignedTinyInteger('promotion')->default(0);
             });
         } elseif (! Schema::hasColumn('produits', 'promotion')) {
             Schema::table('produits', fn (Blueprint $t) => $t->unsignedTinyInteger('promotion')->default(0));
         }
 
-        /* ── publicites ── */
         if (! Schema::hasTable('publicites')) {
             Schema::create('publicites', function (Blueprint $table) {
                 $table->id();
@@ -45,7 +43,6 @@ return new class extends Migration
             Schema::table('publicites', fn (Blueprint $t) => $t->unsignedBigInteger('produit_id')->nullable());
         }
 
-        /* ── commandes ── */
         if (! Schema::hasTable('commandes')) {
             Schema::create('commandes', function (Blueprint $table) {
                 $table->id();
@@ -57,7 +54,7 @@ return new class extends Migration
                 $table->string('telephone', 20)->nullable();
                 $table->string('ville', 80)->nullable();
                 $table->string('adresse', 255)->nullable();
-                $table->string('statut_vu', 20)->nullable();   // dernier statut vu par le client (badge notifications)
+                $table->string('statut_vu', 20)->nullable();
             });
         } else {
             $cols = [
@@ -74,7 +71,6 @@ return new class extends Migration
             }
         }
 
-        /* ── details_commandes ── */
         if (! Schema::hasTable('details_commandes')) {
             Schema::create('details_commandes', function (Blueprint $table) {
                 $table->id();
@@ -85,7 +81,6 @@ return new class extends Migration
             });
         }
 
-        /* ── paiements ── */
         if (! Schema::hasTable('paiements')) {
             Schema::create('paiements', function (Blueprint $table) {
                 $table->id();

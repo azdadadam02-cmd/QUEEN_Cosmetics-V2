@@ -1,0 +1,1029 @@
+{
+  "version": 8,
+  "created": "2026-11-09T12:41:34+00:00",
+  "updated": "2026-11-09T12:41:34+00:00",
+  "queue_order": [
+    "subjective::abstraction_fitness",
+    "subjective::ai_generated_debt",
+    "subjective::api_surface_coherence",
+    "subjective::authorization_consistency",
+    "subjective::contract_coherence",
+    "subjective::convention_outlier",
+    "subjective::cross_module_architecture",
+    "subjective::dependency_health",
+    "subjective::design_coherence",
+    "subjective::error_consistency",
+    "subjective::high_level_elegance",
+    "subjective::incomplete_migration",
+    "subjective::initialization_coupling",
+    "subjective::logic_clarity",
+    "subjective::low_level_elegance",
+    "subjective::mid_level_elegance",
+    "subjective::naming_quality",
+    "subjective::package_organization",
+    "subjective::test_strategy",
+    "subjective::type_safety"
+  ],
+  "deferred": [],
+  "skipped": {},
+  "active_cluster": null,
+  "overrides": {
+    "test_coverage::src/app/admin/layout.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/layout.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/ProfilePhoto.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/ProfilePhoto.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/navbar/AccountMenu.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/navbar/AccountMenu.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/error.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/error.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/serverApi.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/serverApi.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/ProductGallery.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/products/[id]/ProductGallery.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/PackCard.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/PackCard.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/OrdersTable.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/OrdersTable.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/PacksSection.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/PacksSection.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/layout.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/layout.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/AdsCarousel.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/AdsCarousel.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/checkout/OrderLines.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/checkout/OrderLines.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/parts.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/parts.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ProductsTable.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/ProductsTable.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/products-table/ProductActionDialog.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/products-table/ProductActionDialog.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/useSubmit.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/useSubmit.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/orders-table/StatusChips.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/orders-table/StatusChips.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/checkout/ShippingFields.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/checkout/ShippingFields.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/StaffTabs.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/StaffTabs.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/VariantPicker.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/products/[id]/VariantPicker.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/apparence/ThemePreview.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/apparence/ThemePreview.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/cart/CartSummary.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/cart/CartSummary.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/PageHead.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/PageHead.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/avis/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/avis/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/checkout/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/checkout/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/orders/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/orders/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/useFavorite.js::untested_module": {
+      "issue_id": "test_coverage::src/app/products/[id]/useFavorite.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/products-table/ProductStats.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/products-table/ProductStats.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/PacksTable.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/PacksTable.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Modal.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Modal.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/QuantityInput.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/QuantityInput.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/Navbar.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/Navbar.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/PacksManager.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/PacksManager.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/BrandForm.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/BrandForm.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/UspSection.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/UspSection.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/SiteLogo.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/SiteLogo.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/layout.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/layout.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/ProfileShell.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/ProfileShell.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/packs/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/packs/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/TopBars.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/TopBars.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/useReveal.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/useReveal.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/finances/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/finances/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/AuthShell.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/AuthShell.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/GuidanceStrip.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/GuidanceStrip.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ProductCard.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/ProductCard.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/report/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/report/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Thumb.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Thumb.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Button.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Button.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/commandes/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/commandes/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/gestion/commandes/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/gestion/commandes/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/Footer.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/Footer.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/CategoryBar.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/CategoryBar.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Field.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Field.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/PromoSection.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/PromoSection.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/packs/PacksBrowser.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/packs/PacksBrowser.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/TrustBadges.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/TrustBadges.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/store/authStore.js::untested_module": {
+      "issue_id": "test_coverage::src/store/authStore.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/themeServer.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/themeServer.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/orders-table/OrderRow.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/orders-table/OrderRow.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/SmoothScroll.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/SmoothScroll.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Pager.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Pager.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/gestion/produits/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/gestion/produits/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/login/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/login/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/store/cartStore.js::untested_module": {
+      "issue_id": "test_coverage::src/store/cartStore.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/favorites/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/favorites/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/register/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/register/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/packs/[id]/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/packs/[id]/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/reports/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/reports/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/navbar/NavSearch.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/navbar/NavSearch.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/gestion/produits/GalleryEditor.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/gestion/produits/GalleryEditor.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/ProductHero.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/products/[id]/ProductHero.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/packs/[id]/PackBuy.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/packs/[id]/PackBuy.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/Avatar.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/Avatar.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/auth.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/auth.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/navbar/NavIcon.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/navbar/NavIcon.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/barres/ServiceLinksForm.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/barres/ServiceLinksForm.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/utilisateurs/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/utilisateurs/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ThemeStyle.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/ThemeStyle.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/products-table/ProductRow.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/products-table/ProductRow.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/packs-manager/PackLookFields.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/packs-manager/PackLookFields.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/cart/CartLine.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/cart/CartLine.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ClientNavbar.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/ClientNavbar.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/checkout/CheckoutSummary.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/checkout/CheckoutSummary.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ImageInput.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/ImageInput.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/produits/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/admin/produits/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/gestion/produits/VariantsEditor.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/gestion/produits/VariantsEditor.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/profile/DeleteAccount.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/profile/DeleteAccount.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/api.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/api.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/products-table/ProductFilters.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/products-table/ProductFilters.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/RequireRole.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/RequireRole.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/barIcons.jsx::untested_module": {
+      "issue_id": "test_coverage::src/lib/barIcons.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/packs-manager/PackProductsPicker.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/layout/packs-manager/PackProductsPicker.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/cart/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/cart/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/store/toastStore.js::untested_module": {
+      "issue_id": "test_coverage::src/store/toastStore.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/lib/useHydrated.js::untested_module": {
+      "issue_id": "test_coverage::src/lib/useHydrated.js::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/ui/DialogActions.jsx::untested_module": {
+      "issue_id": "test_coverage::src/components/ui/DialogActions.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/products/[id]/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/not-found.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/not-found.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/page.jsx::untested_module": {
+      "issue_id": "test_coverage::src/app/products/page.jsx::untested_module",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/publicites/page.jsx::untested_critical": {
+      "issue_id": "test_coverage::src/app/admin/publicites/page.jsx::untested_critical",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_critical",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/components/layout/ProductsBrowser.jsx::untested_critical": {
+      "issue_id": "test_coverage::src/components/layout/ProductsBrowser.jsx::untested_critical",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_critical",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/products/[id]/Reviews.jsx::untested_critical": {
+      "issue_id": "test_coverage::src/app/products/[id]/Reviews.jsx::untested_critical",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_critical",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "test_coverage::src/app/admin/apparence/page.jsx::untested_critical": {
+      "issue_id": "test_coverage::src/app/admin/apparence/page.jsx::untested_critical",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/test_coverage-untested_critical",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::abstraction_fitness": {
+      "issue_id": "subjective::abstraction_fitness",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::ai_generated_debt": {
+      "issue_id": "subjective::ai_generated_debt",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::api_surface_coherence": {
+      "issue_id": "subjective::api_surface_coherence",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::authorization_consistency": {
+      "issue_id": "subjective::authorization_consistency",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::contract_coherence": {
+      "issue_id": "subjective::contract_coherence",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::convention_outlier": {
+      "issue_id": "subjective::convention_outlier",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::cross_module_architecture": {
+      "issue_id": "subjective::cross_module_architecture",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::dependency_health": {
+      "issue_id": "subjective::dependency_health",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::design_coherence": {
+      "issue_id": "subjective::design_coherence",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::error_consistency": {
+      "issue_id": "subjective::error_consistency",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::high_level_elegance": {
+      "issue_id": "subjective::high_level_elegance",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::incomplete_migration": {
+      "issue_id": "subjective::incomplete_migration",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::initialization_coupling": {
+      "issue_id": "subjective::initialization_coupling",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::logic_clarity": {
+      "issue_id": "subjective::logic_clarity",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::low_level_elegance": {
+      "issue_id": "subjective::low_level_elegance",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::mid_level_elegance": {
+      "issue_id": "subjective::mid_level_elegance",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::naming_quality": {
+      "issue_id": "subjective::naming_quality",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::package_organization": {
+      "issue_id": "subjective::package_organization",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::test_strategy": {
+      "issue_id": "subjective::test_strategy",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    },
+    "subjective::type_safety": {
+      "issue_id": "subjective::type_safety",
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "cluster": "auto/initial-review",
+      "updated_at": "2026-11-09T12:41:34+00:00"
+    }
+  },
+  "clusters": {
+    "auto/test_coverage-untested_module": {
+      "name": "auto/test_coverage-untested_module",
+      "description": "Fix 103 test coverage issues",
+      "issue_ids": [
+        "test_coverage::src/app/admin/layout.jsx::untested_module",
+        "test_coverage::src/app/profile/ProfilePhoto.jsx::untested_module",
+        "test_coverage::src/components/layout/navbar/AccountMenu.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/page.jsx::untested_module",
+        "test_coverage::src/app/error.jsx::untested_module",
+        "test_coverage::src/lib/serverApi.js::untested_module",
+        "test_coverage::src/app/products/[id]/ProductGallery.jsx::untested_module",
+        "test_coverage::src/components/layout/PackCard.jsx::untested_module",
+        "test_coverage::src/components/layout/OrdersTable.jsx::untested_module",
+        "test_coverage::src/components/layout/PacksSection.jsx::untested_module",
+        "test_coverage::src/app/layout.jsx::untested_module",
+        "test_coverage::src/components/layout/AdsCarousel.jsx::untested_module",
+        "test_coverage::src/app/checkout/OrderLines.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/parts.jsx::untested_module",
+        "test_coverage::src/components/layout/ProductsTable.jsx::untested_module",
+        "test_coverage::src/components/layout/products-table/ProductActionDialog.jsx::untested_module",
+        "test_coverage::src/lib/useSubmit.js::untested_module",
+        "test_coverage::src/components/layout/orders-table/StatusChips.jsx::untested_module",
+        "test_coverage::src/app/checkout/ShippingFields.jsx::untested_module",
+        "test_coverage::src/components/layout/StaffTabs.jsx::untested_module",
+        "test_coverage::src/app/products/[id]/VariantPicker.jsx::untested_module",
+        "test_coverage::src/app/admin/apparence/ThemePreview.jsx::untested_module",
+        "test_coverage::src/app/cart/CartSummary.jsx::untested_module",
+        "test_coverage::src/components/layout/PageHead.jsx::untested_module",
+        "test_coverage::src/app/admin/avis/page.jsx::untested_module",
+        "test_coverage::src/app/checkout/page.jsx::untested_module",
+        "test_coverage::src/app/profile/orders/page.jsx::untested_module",
+        "test_coverage::src/app/products/[id]/useFavorite.js::untested_module",
+        "test_coverage::src/components/layout/products-table/ProductStats.jsx::untested_module",
+        "test_coverage::src/components/layout/PacksTable.jsx::untested_module",
+        "test_coverage::src/components/ui/Modal.jsx::untested_module",
+        "test_coverage::src/components/ui/QuantityInput.jsx::untested_module",
+        "test_coverage::src/components/layout/Navbar.jsx::untested_module",
+        "test_coverage::src/components/layout/PacksManager.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/BrandForm.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/UspSection.jsx::untested_module",
+        "test_coverage::src/components/layout/SiteLogo.jsx::untested_module",
+        "test_coverage::src/app/profile/layout.jsx::untested_module",
+        "test_coverage::src/app/profile/ProfileShell.jsx::untested_module",
+        "test_coverage::src/app/packs/page.jsx::untested_module",
+        "test_coverage::src/components/layout/TopBars.jsx::untested_module",
+        "test_coverage::src/lib/useReveal.js::untested_module",
+        "test_coverage::src/app/page.jsx::untested_module",
+        "test_coverage::src/app/admin/finances/page.jsx::untested_module",
+        "test_coverage::src/components/layout/AuthShell.jsx::untested_module",
+        "test_coverage::src/components/layout/GuidanceStrip.jsx::untested_module",
+        "test_coverage::src/components/layout/ProductCard.jsx::untested_module",
+        "test_coverage::src/app/admin/page.jsx::untested_module",
+        "test_coverage::src/app/profile/report/page.jsx::untested_module",
+        "test_coverage::src/components/ui/Thumb.jsx::untested_module",
+        "test_coverage::src/components/ui/Button.jsx::untested_module",
+        "test_coverage::src/app/admin/commandes/page.jsx::untested_module",
+        "test_coverage::src/app/gestion/commandes/page.jsx::untested_module",
+        "test_coverage::src/components/layout/Footer.jsx::untested_module",
+        "test_coverage::src/components/layout/CategoryBar.jsx::untested_module",
+        "test_coverage::src/components/ui/Field.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/PromoSection.jsx::untested_module",
+        "test_coverage::src/app/packs/PacksBrowser.jsx::untested_module",
+        "test_coverage::src/components/ui/TrustBadges.jsx::untested_module",
+        "test_coverage::src/app/profile/page.jsx::untested_module",
+        "test_coverage::src/store/authStore.js::untested_module",
+        "test_coverage::src/lib/themeServer.js::untested_module",
+        "test_coverage::src/components/layout/orders-table/OrderRow.jsx::untested_module",
+        "test_coverage::src/components/layout/SmoothScroll.jsx::untested_module",
+        "test_coverage::src/components/ui/Pager.jsx::untested_module",
+        "test_coverage::src/app/gestion/produits/page.jsx::untested_module",
+        "test_coverage::src/app/login/page.jsx::untested_module",
+        "test_coverage::src/store/cartStore.js::untested_module",
+        "test_coverage::src/app/profile/favorites/page.jsx::untested_module",
+        "test_coverage::src/app/register/page.jsx::untested_module",
+        "test_coverage::src/app/packs/[id]/page.jsx::untested_module",
+        "test_coverage::src/app/admin/reports/page.jsx::untested_module",
+        "test_coverage::src/components/layout/navbar/NavSearch.jsx::untested_module",
+        "test_coverage::src/app/gestion/produits/GalleryEditor.jsx::untested_module",
+        "test_coverage::src/app/products/[id]/ProductHero.jsx::untested_module",
+        "test_coverage::src/app/packs/[id]/PackBuy.jsx::untested_module",
+        "test_coverage::src/components/ui/Avatar.jsx::untested_module",
+        "test_coverage::src/lib/auth.js::untested_module",
+        "test_coverage::src/components/layout/navbar/NavIcon.jsx::untested_module",
+        "test_coverage::src/app/admin/barres/ServiceLinksForm.jsx::untested_module",
+        "test_coverage::src/app/admin/utilisateurs/page.jsx::untested_module",
+        "test_coverage::src/components/layout/ThemeStyle.jsx::untested_module",
+        "test_coverage::src/components/layout/products-table/ProductRow.jsx::untested_module",
+        "test_coverage::src/components/layout/packs-manager/PackLookFields.jsx::untested_module",
+        "test_coverage::src/app/cart/CartLine.jsx::untested_module",
+        "test_coverage::src/components/layout/ClientNavbar.jsx::untested_module",
+        "test_coverage::src/app/checkout/CheckoutSummary.jsx::untested_module",
+        "test_coverage::src/components/layout/ImageInput.jsx::untested_module",
+        "test_coverage::src/app/admin/produits/page.jsx::untested_module",
+        "test_coverage::src/app/gestion/produits/VariantsEditor.jsx::untested_module",
+        "test_coverage::src/app/profile/DeleteAccount.jsx::untested_module",
+        "test_coverage::src/lib/api.js::untested_module",
+        "test_coverage::src/components/layout/products-table/ProductFilters.jsx::untested_module",
+        "test_coverage::src/components/layout/RequireRole.jsx::untested_module",
+        "test_coverage::src/lib/barIcons.jsx::untested_module",
+        "test_coverage::src/components/layout/packs-manager/PackProductsPicker.jsx::untested_module",
+        "test_coverage::src/app/cart/page.jsx::untested_module",
+        "test_coverage::src/store/toastStore.js::untested_module",
+        "test_coverage::src/lib/useHydrated.js::untested_module",
+        "test_coverage::src/components/ui/DialogActions.jsx::untested_module",
+        "test_coverage::src/app/products/[id]/page.jsx::untested_module",
+        "test_coverage::src/app/not-found.jsx::untested_module",
+        "test_coverage::src/app/products/page.jsx::untested_module"
+      ],
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "updated_at": "2026-11-09T12:41:34+00:00",
+      "auto": true,
+      "cluster_key": "detector::test_coverage::untested_module",
+      "action": "review test coverage gaps",
+      "execution_status": "review",
+      "user_modified": false,
+      "action_type": "refactor",
+      "execution_policy": "planned_only"
+    },
+    "auto/test_coverage-untested_critical": {
+      "name": "auto/test_coverage-untested_critical",
+      "description": "Fix 4 test coverage issues",
+      "issue_ids": [
+        "test_coverage::src/app/admin/publicites/page.jsx::untested_critical",
+        "test_coverage::src/components/layout/ProductsBrowser.jsx::untested_critical",
+        "test_coverage::src/app/products/[id]/Reviews.jsx::untested_critical",
+        "test_coverage::src/app/admin/apparence/page.jsx::untested_critical"
+      ],
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "updated_at": "2026-11-09T12:41:34+00:00",
+      "auto": true,
+      "cluster_key": "detector::test_coverage::untested_critical",
+      "action": "review test coverage gaps",
+      "execution_status": "review",
+      "user_modified": false,
+      "action_type": "refactor",
+      "execution_policy": "planned_only"
+    },
+    "auto/initial-review": {
+      "name": "auto/initial-review",
+      "description": "Initial review of 20 unscored subjective dimensions",
+      "issue_ids": [
+        "subjective::abstraction_fitness",
+        "subjective::ai_generated_debt",
+        "subjective::api_surface_coherence",
+        "subjective::authorization_consistency",
+        "subjective::contract_coherence",
+        "subjective::convention_outlier",
+        "subjective::cross_module_architecture",
+        "subjective::dependency_health",
+        "subjective::design_coherence",
+        "subjective::error_consistency",
+        "subjective::high_level_elegance",
+        "subjective::incomplete_migration",
+        "subjective::initialization_coupling",
+        "subjective::logic_clarity",
+        "subjective::low_level_elegance",
+        "subjective::mid_level_elegance",
+        "subjective::naming_quality",
+        "subjective::package_organization",
+        "subjective::test_strategy",
+        "subjective::type_safety"
+      ],
+      "created_at": "2026-11-09T12:41:34+00:00",
+      "updated_at": "2026-11-09T12:41:34+00:00",
+      "auto": true,
+      "cluster_key": "subjective::unscored",
+      "action": "desloppify review --prepare --dimensions abstraction_fitness,ai_generated_debt,api_surface_coherence,authorization_consistency,contract_coherence,convention_outlier,cross_module_architecture,dependency_health,design_coherence,error_consistency,high_level_elegance,incomplete_migration,initialization_coupling,logic_clarity,low_level_elegance,mid_level_elegance,naming_quality,package_organization,test_strategy,type_safety",
+      "execution_status": "review",
+      "user_modified": false,
+      "action_type": "manual_fix",
+      "execution_policy": "planned_only"
+    }
+  },
+  "superseded": {},
+  "promoted_ids": [],
+  "plan_start_scores": {
+    "strict": 19.5,
+    "overall": 19.5,
+    "objective": 77.9,
+    "verified": 77.9
+  },
+  "refresh_state": {
+    "_subjective_migration_pruned": true,
+    "lifecycle_phase": "plan"
+  },
+  "execution_log": [
+    {
+      "timestamp": "2026-11-09T12:41:34+00:00",
+      "action": "sync_subjective",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-11-09T12:41:34+00:00",
+      "action": "auto_cluster",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-11-09T12:41:34+00:00",
+      "action": "sync_lifecycle_phase",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "phase": "review_initial"
+      }
+    },
+    {
+      "timestamp": "2026-11-09T12:41:34+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    }
+  ],
+  "epic_triage_meta": {},
+  "commit_log": [],
+  "uncommitted_issues": [],
+  "commit_tracking_branch": null,
+  "scan_count_at_plan_start": 1
+}

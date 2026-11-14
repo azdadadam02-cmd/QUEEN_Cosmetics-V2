@@ -1,4 +1,3 @@
-/** En-tête de page de l'espace personnel */
 export default function PageHead({ title, note, children }) {
   return (
     <div className="page-head page-head-row">

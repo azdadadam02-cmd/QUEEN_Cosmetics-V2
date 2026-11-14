@@ -77,7 +77,7 @@ class OrderService
                 if (($v ? $v->quantite_stock : $p->quantite_stock) < $qte) {
                     throw ValidationException::withMessages(['items' => "Stock insuffisant pour « {$p->nom} »."]);
                 }
-                $prix     = $p->finalPrice();
+                $prix     = $p->finalPrice($v);
                 $lignes[] = [$p, $v, $qte, $prix, null];
                 $total   += $prix * $qte;
             }
@@ -86,7 +86,7 @@ class OrderService
                 'client_id'     => $client->id,
                 'total'         => round($total, 2),
                 'statut'        => Order::EN_ATTENTE,
-                'statut_vu'     => Order::EN_ATTENTE,     // le client vient de la voir : pas de badge
+                'statut_vu'     => Order::EN_ATTENTE,
                 'nom_livraison' => $livraison['nom'],
                 'telephone'     => $livraison['telephone'],
                 'ville'         => $livraison['ville'],

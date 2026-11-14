@@ -1,0 +1,839 @@
+{
+  "command": "show",
+  "query": "*",
+  "status_filter": "open",
+  "total": 37,
+  "summary": {
+    "by_tier": {
+      "T2": 4,
+      "T3": 33
+    },
+    "by_detector": {
+      "test_coverage": 10,
+      "orphaned": 10,
+      "boilerplate_duplication": 6,
+      "signature": 4,
+      "flat_dirs": 3,
+      "smells": 3,
+      "structural": 1
+    },
+    "files": 23
+  },
+  "by_file": {
+    "src/app/admin/barres/parts.jsx": [
+      {
+        "id": "orphaned::src/app/admin/barres/parts.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (47 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 47
+        }
+      },
+      {
+        "id": "signature::src/app/admin/barres/parts.jsx::signature_variance::destroy",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "'destroy' has 4 different signatures across 4 files",
+        "detail": {}
+      },
+      {
+        "id": "signature::src/app/admin/barres/parts.jsx::signature_variance::open",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "'open' has 4 different signatures across 5 files",
+        "detail": {}
+      },
+      {
+        "id": "signature::src/app/admin/barres/parts.jsx::signature_variance::save",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "'save' has 2 different signatures across 6 files",
+        "detail": {}
+      }
+    ],
+    "src/app/admin/publicites/page.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/publicites/page.jsx::untested_critical",
+        "tier": 2,
+        "confidence": "high",
+        "summary": "Untested critical module (110 LOC, 0 importers) \u2014 high blast radius",
+        "detail": {
+          "kind": "untested_critical",
+          "loc": 110,
+          "importer_count": 0,
+          "loc_weight": 10.488088481701515,
+          "complexity_score": 45
+        }
+      },
+      {
+        "id": "boilerplate_duplication::src/app/admin/publicites/page.jsx::13d97856ebca5a30",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 2 files (window 8 lines): src/app/admin/publicites/page.jsx:103, src/app/admin/utilisateurs/page.jsx:90",
+        "detail": {
+          "distinct_files": 2,
+          "window_size": 8,
+          "locations": [
+            {
+              "file": "src/app/admin/publicites/page.jsx",
+              "line": 103
+            },
+            {
+              "file": "src/app/admin/utilisateurs/page.jsx",
+              "line": 90
+            }
+          ],
+          "sample": [
+            "          {errors.image && <span className=\"error-text\">{errors.image}</span>}",
+            "          <FormError message={submit.error} />",
+            "          <DialogActions onCancel={() => setEditing(null)} busy={submit.busy} />",
+            "        </form>"
+          ]
+        }
+      },
+      {
+        "id": "boilerplate_duplication::src/app/admin/publicites/page.jsx::915f212acca120ab",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 2 files (window 7 lines): src/app/admin/publicites/page.jsx:104, src/app/gestion/produits/page.jsx:91",
+        "detail": {
+          "distinct_files": 2,
+          "window_size": 7,
+          "locations": [
+            {
+              "file": "src/app/admin/publicites/page.jsx",
+              "line": 104
+            },
+            {
+              "file": "src/app/gestion/produits/page.jsx",
+              "line": 91
+            }
+          ],
+          "sample": [
+            "          <FormError message={submit.error} />",
+            "          <DialogActions onCancel={() => setEditing(null)} busy={submit.busy} />",
+            "        </form>",
+            "      </Modal>"
+          ]
+        }
+      },
+      {
+        "id": "boilerplate_duplication::src/app/admin/publicites/page.jsx::a05b254815add910",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 3 files (window 6 lines): src/app/admin/publicites/page.jsx:43, src/app/admin/utilisateurs/page.jsx:37, src/app/gestion/produits/page.jsx:38",
+        "detail": {
+          "distinct_files": 3,
+          "window_size": 6,
+          "locations": [
+            {
+              "file": "src/app/admin/publicites/page.jsx",
+              "line": 43
+            },
+            {
+              "file": "src/app/admin/utilisateurs/page.jsx",
+              "line": 37
+            },
+            {
+              "file": "src/app/gestion/produits/page.jsx",
+              "line": 38
+            }
+          ],
+          "sample": [
+            "    setForm(ad.id ? { titre: ad.title, reduction: String(ad.reduction || ''), produit_id: ad.product_id ? String(ad.product_id) : '' } : EMPTY);",
+            "  }",
+            "  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));",
+            ""
+          ]
+        }
+      }
+    ],
+    "src/app/admin/barres/PromoSection.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/barres/PromoSection.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (78 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 78,
+          "importer_count": 0,
+          "loc_weight": 8.831760866327848
+        }
+      },
+      {
+        "id": "boilerplate_duplication::src/app/admin/barres/PromoSection.jsx::ecd2857c9f2190a9",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 2 files (window 9 lines): src/app/admin/barres/PromoSection.jsx:52, src/app/admin/barres/UspSection.jsx:40",
+        "detail": {
+          "distinct_files": 2,
+          "window_size": 9,
+          "locations": [
+            {
+              "file": "src/app/admin/barres/PromoSection.jsx",
+              "line": 52
+            },
+            {
+              "file": "src/app/admin/barres/UspSection.jsx",
+              "line": 40
+            }
+          ],
+          "sample": [
+            "                  <button type=\"button\" className=\"btn-danger\" onClick={() => destroy(p)}>Supprimer</button>",
+            "                </td>",
+            "              </tr>",
+            "            ))}"
+          ]
+        }
+      },
+      {
+        "id": "orphaned::src/app/admin/barres/PromoSection.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (78 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 78
+        }
+      }
+    ],
+    "src/app/admin/apparence/ThemePreview.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/apparence/ThemePreview.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (26 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 26,
+          "importer_count": 0,
+          "loc_weight": 5.0990195135927845
+        }
+      },
+      {
+        "id": "orphaned::src/app/admin/apparence/ThemePreview.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (26 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 26
+        }
+      }
+    ],
+    "src/app/admin/apparence/page.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/apparence/page.jsx::untested_critical",
+        "tier": 2,
+        "confidence": "high",
+        "summary": "Untested critical module (181 LOC, 0 importers) \u2014 high blast radius",
+        "detail": {
+          "kind": "untested_critical",
+          "loc": 181,
+          "importer_count": 0,
+          "loc_weight": 13.45362404707371,
+          "complexity_score": 150
+        }
+      },
+      {
+        "id": "structural::src/app/admin/apparence/page.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Large file: complexity score 150",
+        "detail": {
+          "complexity_score": 150,
+          "complexity_signals": [
+            "nesting depth 1",
+            "longest function 130 LOC",
+            "cyclomatic complexity 9",
+            "callback depth 3"
+          ],
+          "loc": 181
+        }
+      }
+    ],
+    "src/app/admin/barres/BrandForm.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/barres/BrandForm.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (36 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 36,
+          "importer_count": 0,
+          "loc_weight": 6.0
+        }
+      },
+      {
+        "id": "orphaned::src/app/admin/barres/BrandForm.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (36 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 36
+        }
+      }
+    ],
+    "src/app/admin/barres/ServiceLinksForm.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/barres/ServiceLinksForm.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (51 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 51,
+          "importer_count": 0,
+          "loc_weight": 7.14142842854285
+        }
+      },
+      {
+        "id": "orphaned::src/app/admin/barres/ServiceLinksForm.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (51 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 51
+        }
+      }
+    ],
+    "src/app/admin/barres/UspSection.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/barres/UspSection.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (66 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 66,
+          "importer_count": 0,
+          "loc_weight": 8.12403840463596
+        }
+      },
+      {
+        "id": "orphaned::src/app/admin/barres/UspSection.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (66 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 66
+        }
+      }
+    ],
+    "src/app/products/[id]/Reviews.jsx": [
+      {
+        "id": "test_coverage::src/app/products/[id]/Reviews.jsx::untested_critical",
+        "tier": 2,
+        "confidence": "high",
+        "summary": "Untested critical module (102 LOC, 0 importers) \u2014 high blast radius",
+        "detail": {
+          "kind": "untested_critical",
+          "loc": 102,
+          "importer_count": 0,
+          "loc_weight": 10.099504938362077,
+          "complexity_score": 48
+        }
+      },
+      {
+        "id": "signature::src/app/products/[id]/Reviews.jsx::signature_variance::remove",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "'remove' has 3 different signatures across 4 files",
+        "detail": {}
+      }
+    ],
+    "src/app": [
+      {
+        "id": "flat_dirs::src/app",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Directory overload: 4 files, 9 child dirs (combined 31) \u2014 consider grouping by domain",
+        "detail": {
+          "file_count": 4,
+          "child_dir_count": 9,
+          "combined_score": 31,
+          "kind": "overload",
+          "parent_sibling_count": 0,
+          "wrapper_item_count": 0,
+          "sparse_child_count": 0,
+          "sparse_child_ratio": 0.0,
+          "sparse_child_file_threshold": 0
+        }
+      }
+    ],
+    "src/app/admin": [
+      {
+        "id": "flat_dirs::src/app/admin",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Directory overload: 2 files, 10 child dirs (combined 32) \u2014 consider grouping by domain",
+        "detail": {
+          "file_count": 2,
+          "child_dir_count": 10,
+          "combined_score": 32,
+          "kind": "overload",
+          "parent_sibling_count": 0,
+          "wrapper_item_count": 0,
+          "sparse_child_count": 0,
+          "sparse_child_ratio": 0.0,
+          "sparse_child_file_threshold": 0
+        }
+      }
+    ],
+    "src/app/admin/avis/page.jsx": [
+      {
+        "id": "test_coverage::src/app/admin/avis/page.jsx::untested_module",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Untested module (56 LOC, 0 importers)",
+        "detail": {
+          "kind": "untested_module",
+          "loc": 56,
+          "importer_count": 0,
+          "loc_weight": 7.483314773547883
+        }
+      }
+    ],
+    "src/app/cart/CartLine.jsx": [
+      {
+        "id": "orphaned::src/app/cart/CartLine.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (46 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 46
+        }
+      }
+    ],
+    "src/app/cart/CartSummary.jsx": [
+      {
+        "id": "orphaned::src/app/cart/CartSummary.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (27 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 27
+        }
+      }
+    ],
+    "src/app/checkout/CheckoutSummary.jsx": [
+      {
+        "id": "orphaned::src/app/checkout/CheckoutSummary.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (23 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 23
+        }
+      }
+    ],
+    "src/app/checkout/OrderLines.jsx": [
+      {
+        "id": "orphaned::src/app/checkout/OrderLines.jsx",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Orphaned file (22 LOC): zero importers, not an entry point",
+        "detail": {
+          "loc": 22
+        }
+      }
+    ],
+    "src/app/gestion/produits/page.jsx": [
+      {
+        "id": "boilerplate_duplication::src/app/gestion/produits/page.jsx::78d6a83361a426d3",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 2 files (window 9 lines): src/app/gestion/produits/page.jsx:89, src/components/layout/PacksManager.jsx:91",
+        "detail": {
+          "distinct_files": 2,
+          "window_size": 9,
+          "locations": [
+            {
+              "file": "src/app/gestion/produits/page.jsx",
+              "line": 89
+            },
+            {
+              "file": "src/components/layout/PacksManager.jsx",
+              "line": 91
+            }
+          ],
+          "sample": [
+            "          <GalleryEditor gallery={gallery} removed={removed} onRemove={(id) => setRemoved((r) => [...r, id])} newImages={newImages} onAdd={setNewImages} errors={errors} />",
+            "",
+            "          <FormError message={submit.error} />",
+            "          <DialogActions onCancel={() => setEditing(null)} busy={submit.busy} />"
+          ]
+        }
+      }
+    ],
+    "src/app/layout.jsx": [
+      {
+        "id": "smells::src/app/layout.jsx::empty_catch::16",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Empty catch_clause \u2014 swallows errors silently",
+        "detail": {}
+      }
+    ],
+    "src/components/layout": [
+      {
+        "id": "flat_dirs::src/components/layout",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Directory overload: 26 files, 4 child dirs (combined 38) \u2014 consider grouping by domain",
+        "detail": {
+          "file_count": 26,
+          "child_dir_count": 4,
+          "combined_score": 38,
+          "kind": "overload",
+          "parent_sibling_count": 0,
+          "wrapper_item_count": 0,
+          "sparse_child_count": 0,
+          "sparse_child_ratio": 0.0,
+          "sparse_child_file_threshold": 0
+        }
+      }
+    ],
+    "src/components/layout/Navbar.jsx": [
+      {
+        "id": "boilerplate_duplication::src/components/layout/Navbar.jsx::0d8573654f7f51c3",
+        "tier": 3,
+        "confidence": "medium",
+        "summary": "Boilerplate block repeated across 2 files (window 14 lines): src/components/layout/Navbar.jsx:49, src/components/layout/navbar/AccountMenu.jsx:30",
+        "detail": {
+          "distinct_files": 2,
+          "window_size": 14,
+          "locations": [
+            {
+              "file": "src/components/layout/Navbar.jsx",
+              "line": 49
+            },
+            {
+              "file": "src/components/layout/navbar/AccountMenu.jsx",
+              "line": 30
+            }
+          ],
+          "sample": [
+            "    const close = (e) => menuRef.current && !menuRef.current.contains(e.target) && setOpen(false);",
+            "    document.addEventListener('mousedown', close);",
+            "    return () => document.removeEventListener('mousedown', close);",
+            "  }, []);"
+          ]
+        }
+      }
+    ],
+    "src/components/layout/ProductsBrowser.jsx": [
+      {
+        "id": "test_coverage::src/components/layout/ProductsBrowser.jsx::untested_critical",
+        "tier": 2,
+        "confidence": "high",
+        "summary": "Untested critical module (100 LOC, 0 importers) \u2014 high blast radius",
+        "detail": {
+          "kind": "untested_critical",
+          "loc": 100,
+          "importer_count": 0,
+          "loc_weight": 10.0,
+          "complexity_score": 41
+        }
+      }
+    ],
+    "src/components/layout/SiteLogo.jsx": [
+      {
+        "id": "smells::src/components/layout/SiteLogo.jsx::empty_catch::12",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Empty catch_clause \u2014 swallows errors silently",
+        "detail": {}
+      }
+    ],
+    "src/lib/auth.js": [
+      {
+        "id": "smells::src/lib/auth.js::empty_catch::25",
+        "tier": 3,
+        "confidence": "high",
+        "summary": "Empty catch_clause \u2014 swallows errors silently",
+        "detail": {}
+      }
+    ]
+  },
+  "total_matching": 209,
+  "hidden": {
+    "by_detector": {
+      "test_coverage": 97,
+      "orphaned": 75
+    },
+    "total": 172
+  },
+  "noise_budget": 10,
+  "noise_global_budget": 0,
+  "narrative": {
+    "phase": "first_scan",
+    "headline": "First scan complete. 209 open issues across 3 dimensions.",
+    "dimensions": {
+      "lowest_dimensions": [
+        {
+          "name": "Abstraction fit",
+          "strict": 0.0,
+          "failing": 0,
+          "impact": 0.0,
+          "subjective": true,
+          "impact_description": "re-review to improve"
+        },
+        {
+          "name": "AI generated debt",
+          "strict": 0.0,
+          "failing": 0,
+          "impact": 0.0,
+          "subjective": true,
+          "impact_description": "re-review to improve"
+        },
+        {
+          "name": "API coherence",
+          "strict": 0.0,
+          "failing": 0,
+          "impact": 0.0,
+          "subjective": true,
+          "impact_description": "re-review to improve"
+        }
+      ],
+      "biggest_gap_dimensions": [],
+      "stagnant_dimensions": []
+    },
+    "actions": [
+      {
+        "type": "reorganize",
+        "detector": "orphaned",
+        "count": 85,
+        "description": "85 orphaned issues \u2014 delete dead files or relocate with `desloppify move`",
+        "command": "desloppify show orphaned --status open",
+        "impact": 0.0,
+        "dimension": "Code quality",
+        "priority": 1,
+        "lane": "restructure"
+      },
+      {
+        "type": "reorganize",
+        "detector": "flat_dirs",
+        "count": 3,
+        "description": "3 flat_dirs issues \u2014 create subdirectories and use `desloppify move`",
+        "command": "desloppify show flat_dirs --status open",
+        "impact": 0.0,
+        "dimension": "Code quality",
+        "priority": 2,
+        "lane": "restructure"
+      },
+      {
+        "type": "refactor",
+        "detector": "structural",
+        "count": 1,
+        "description": "1 structural work items \u2014 review large files \u2014 split only when responsibilities are clearly separable",
+        "command": "desloppify show structural --status open",
+        "impact": 0.0,
+        "dimension": "File health",
+        "priority": 3,
+        "lane": "refactor_0"
+      },
+      {
+        "type": "refactor",
+        "detector": "test_coverage",
+        "count": 107,
+        "description": "107 test_coverage work items \u2014 review test coverage gaps \u2014 focus on critical modules with many importers first; defer test writing until code quality issues are resolved",
+        "command": "desloppify show test_coverage --status open",
+        "impact": 0.0,
+        "dimension": "Test health",
+        "priority": 4,
+        "lane": "test_coverage"
+      },
+      {
+        "type": "refactor",
+        "detector": "signature",
+        "count": 4,
+        "description": "4 signature work items \u2014 consolidate inconsistent function signatures",
+        "command": "desloppify show signature --status open",
+        "impact": 0.0,
+        "dimension": "Unknown",
+        "priority": 5,
+        "lane": "refactor_1"
+      },
+      {
+        "type": "refactor",
+        "detector": "boilerplate_duplication",
+        "count": 6,
+        "description": "6 boilerplate_duplication work items \u2014 extract shared boilerplate into reusable helpers or base classes",
+        "command": "desloppify show boilerplate_duplication --status open",
+        "impact": 0.0,
+        "dimension": "Duplication",
+        "priority": 6,
+        "lane": "refactor_2"
+      },
+      {
+        "type": "manual_fix",
+        "detector": "smells",
+        "count": 3,
+        "description": "3 smells issues \u2014 inspect with `desloppify next` and fix manually",
+        "command": "desloppify show smells --status open",
+        "impact": 0.0,
+        "dimension": "Code quality",
+        "priority": 7,
+        "lane": "refactor_3"
+      }
+    ],
+    "strategy": {
+      "fixer_leverage": {
+        "auto_fixable_count": 0,
+        "total_count": 209,
+        "coverage": 0.0,
+        "impact_ratio": 0.0,
+        "recommendation": "none"
+      },
+      "lanes": {
+        "restructure": {
+          "actions": [
+            1,
+            2
+          ],
+          "file_count": 88,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        },
+        "refactor_0": {
+          "actions": [
+            3
+          ],
+          "file_count": 1,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        },
+        "refactor_1": {
+          "actions": [
+            5
+          ],
+          "file_count": 2,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        },
+        "refactor_2": {
+          "actions": [
+            6
+          ],
+          "file_count": 4,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        },
+        "refactor_3": {
+          "actions": [
+            7
+          ],
+          "file_count": 3,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        },
+        "test_coverage": {
+          "actions": [
+            4
+          ],
+          "file_count": 107,
+          "total_impact": 0.0,
+          "automation": "manual",
+          "run_first": false
+        }
+      },
+      "can_parallelize": true,
+      "hint": "6 independent workstreams, safe to parallelize. Rescan after each phase to verify."
+    },
+    "tools": {
+      "fixers": [],
+      "move": {
+        "available": true,
+        "relevant": true,
+        "reason": "85 orphaned files + 3 flat directories",
+        "usage": "desloppify move <source> <dest> [--dry-run]"
+      },
+      "plan": {
+        "command": "desloppify plan",
+        "description": "Generate prioritized markdown cleanup plan"
+      },
+      "badge": {
+        "generated": false,
+        "in_readme": false,
+        "path": "scorecard.png",
+        "recommendation": null
+      }
+    },
+    "debt": {
+      "overall_gap": 0.0,
+      "wontfix_count": 0,
+      "worst_dimension": null,
+      "worst_gap": 0.0,
+      "trend": "stable"
+    },
+    "milestone": null,
+    "primary_action": {
+      "command": "desloppify show orphaned --status open",
+      "description": "85 orphaned issues \u2014 delete dead files or relocate with `desloppify move`"
+    },
+    "why_now": "6 independent workstreams, safe to parallelize. Rescan after each phase to verify.",
+    "verification_step": {
+      "command": "desloppify scan",
+      "reason": "revalidate after changes"
+    },
+    "risk_flags": [],
+    "strict_target": {
+      "target": 85.0,
+      "current": 19.5,
+      "gap": 65.5,
+      "state": "below",
+      "warning": null
+    },
+    "reminders": [
+      {
+        "type": "zone_classification",
+        "message": "10 of 138 files classified as non-production (2 config, 8 test). Override with `desloppify zone set <file> production` if any are misclassified.",
+        "command": "desloppify zone show",
+        "priority": 2,
+        "severity": "medium"
+      }
+    ],
+    "reminder_history": {
+      "zone_classification": 2,
+      "report_scores": 1
+    }
+  },
+  "config": {
+    "target_strict_score": 85,
+    "review_max_age_days": 30,
+    "review_batch_max_files": 80,
+    "holistic_max_age_days": 30,
+    "generate_scorecard": true,
+    "badge_path": "scorecard.png",
+    "exclude": [],
+    "ignore": [],
+    "ignore_metadata": {},
+    "zone_overrides": {},
+    "review_dimensions": [],
+    "large_files_threshold": 0,
+    "props_threshold": 0,
+    "issue_noise_budget": 10,
+    "issue_noise_global_budget": 0,
+    "execution_log_max_entries": 10000,
+    "needs_rescan": false,
+    "languages": {},
+    "commit_tracking_enabled": true,
+    "commit_pr": 0,
+    "commit_default_branch": "",
+    "commit_message_template": "desloppify: {status} {count} issue(s) \u2014 {summary}",
+    "trust_plugins": false,
+    "transition_messages": {},
+    "hermes_enabled": false,
+    "hermes_models": {
+      "execute": "openrouter:x-ai/grok-4.20-beta",
+      "review": "openrouter:google/gemini-3.1-pro-preview"
+    }
+  }
+}

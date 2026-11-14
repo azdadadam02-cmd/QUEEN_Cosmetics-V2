@@ -17,9 +17,6 @@ use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
-    /* ───────── Boutique (public) ───────── */
-
-    /** GET /api/products?category=Parfums&search=rose */
     public function index(Request $request): AnonymousResourceCollection
     {
         $q = Product::forShop();
@@ -34,7 +31,6 @@ class ProductController extends Controller
         return ProductResource::collection($q->get());
     }
 
-    /** GET /api/products/{product} */
     public function show(int $product): ProductResource
     {
         $p = Product::withPromo()->with(['variants', 'images'])->withCount('favorites as loves_count')->findOrFail($product);
@@ -48,7 +44,6 @@ class ProductController extends Controller
         return new ProductResource($p);
     }
 
-    /** GET /api/products/suggestions?ids=1,2 : mêmes sous-catégories que le panier (sinon mêmes catégories), hors panier et en stock */
     public function suggestions(Request $request): AnonymousResourceCollection
     {
         $ids = collect(explode(',', (string) $request->query('ids')))->map(fn ($v) => (int) $v)->filter()->unique()->take(30)->values();
@@ -69,7 +64,6 @@ class ProductController extends Controller
         return ProductResource::collection($products->isNotEmpty() ? $products : $find('categorie'));
     }
 
-    /** GET /api/categories */
     public function categories(): JsonResponse
     {
         return response()->json(
@@ -78,9 +72,6 @@ class ProductController extends Controller
         );
     }
 
-    /* ───────── Back-office ───────── */
-
-    /** GET /api/manage/products — liste complète + stats (responsable produits & admin en lecture) */
     public function manageIndex(): JsonResponse
     {
         // Corbeille comprise (flag « deleted ») ; catégories et stats ne parlent que du catalogue actif
@@ -100,7 +91,6 @@ class ProductController extends Controller
         ]);
     }
 
-    /** DELETE /api/manage/products/{product} : met en corbeille (récupérable) */
     public function destroy(Product $product): JsonResponse
     {
         $product->delete();
@@ -108,7 +98,6 @@ class ProductController extends Controller
         return response()->json(['message' => "Produit « {$product->nom} » mis dans les supprimés."]);
     }
 
-    /** POST /api/manage/products/{id}/restore */
     public function restore(int $id): JsonResponse
     {
         $product = Product::onlyTrashed()->findOrFail($id);
@@ -133,7 +122,6 @@ class ProductController extends Controller
         return response()->json(['message' => "Produit « {$product->nom} » supprimé définitivement."]);
     }
 
-    /** POST /api/manage/products (multipart/form-data) */
     public function store(ProductRequest $request, ImageUploader $uploader): JsonResponse
     {
         $product = DB::transaction(function () use ($request, $uploader) {
@@ -149,7 +137,6 @@ class ProductController extends Controller
         ], 201);
     }
 
-    /** POST /api/manage/products/{product} (multipart — sans image, l'ancienne est gardée) */
     public function update(ProductRequest $request, Product $product, ImageUploader $uploader): JsonResponse
     {
         DB::transaction(function () use ($request, $product, $uploader) {
@@ -206,6 +193,7 @@ class ProductController extends Controller
                 'poids_g'         => $r['poids_g'] ?? null,
                 'quantite_pieces' => $r['quantite_pieces'] ?? null,
                 'quantite_stock'  => (int) $r['stock'],
+                'prix'            => isset($r['prix']) && $r['prix'] !== '' ? round((float) $r['prix'], 2) : null,
             ];
             $existing = ! empty($r['id']) ? $product->variants()->find((int) $r['id']) : null;   // jamais la variante d'un autre produit
             $existing ? $existing->update($values) : $product->variants()->create($values);

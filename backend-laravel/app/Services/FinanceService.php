@@ -7,10 +7,8 @@ use App\Models\Payment;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-/** Argent encaissé (paiements à la livraison) — lecture seule pour l'admin */
 class FinanceService
 {
-    /** Totaux : encaissé, ce mois, à encaisser, en attente, refusé, panier moyen */
     public function summary(): array
     {
         $debutMois = Carbon::now()->startOfMonth();
@@ -33,7 +31,6 @@ class FinanceService
         return $r;
     }
 
-    /** Encaissé par jour sur les $n derniers jours (jours sans vente = 0) */
     public function perDay(int $n = 14): array
     {
         $from = Carbon::today()->subDays($n - 1);
@@ -60,7 +57,6 @@ class FinanceService
         return $out;
     }
 
-    /** Liste des paiements ; $filter : '' | 'paye' | 'encaisser' */
     public function payments(string $filter = ''): array
     {
         $q = DB::table('paiements as p')

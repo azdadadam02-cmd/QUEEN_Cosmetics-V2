@@ -1,16 +1,13 @@
 'use client';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ProductCard from '@/components/layout/ProductCard';
 import Button from '@/components/ui/Button';
-import Thumb from '@/components/ui/Thumb';
-import VariantTag from '@/components/ui/VariantTag';
 import { api, errorMessage } from '@/lib/api';
-import { money } from '@/lib/format';
 import { useHydrated } from '@/lib/useHydrated';
 import { useAuthStore } from '@/store/authStore';
-import { lineKey, MAX_QTE, useCartStore } from '@/store/cartStore';
-import { toast } from '@/store/toastStore';
+import { lineKey, useCartStore } from '@/store/cartStore';
+import CartLine from './CartLine';
+import CartSummary from './CartSummary';
 
 /** Panier : +, −, retirer, vider. Les prix et le stock sont relus depuis Laravel à l'ouverture. */
 export default function CartPage() {
@@ -19,9 +16,8 @@ export default function CartPage() {
   const user = useAuthStore((s) => s.user);
   const [checked, setChecked] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
-  const [openPack, setOpenPack] = useState(null);
+  const [notices, setNotices] = useState([]);
 
-  // Vérifie le panier auprès de l'API (prix réduits, stock, produits supprimés)
   useEffect(() => {
     if (!hydrated) return;
     const body = payload();
@@ -30,14 +26,13 @@ export default function CartPage() {
       .post('/cart/check', { items: body })
       .then(({ data }) => {
         syncFromServer(data.lines);
-        data.warnings.forEach((w) => toast.info(w));
+        setNotices(data.warnings);
       })
-      .catch((e) => toast.error(errorMessage(e)))
+      .catch((e) => setNotices([errorMessage(e)]))
       .finally(() => setChecked(true));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated]);
 
-  // Produits des mêmes sous-catégories que le panier
   const cartIds = [...new Set(items.flatMap((i) => (i.pack_id ? (i.products || []).map((it) => it.id) : [i.id])))].sort((a, b) => a - b).join(',');
   useEffect(() => {
     if (!hydrated || !cartIds) return;
@@ -46,15 +41,12 @@ export default function CartPage() {
 
   if (!hydrated) return <p className="loading-line">Chargement du panier…</p>;
 
-  const total = items.reduce((s, i) => s + i.price * i.quantity, 0);
-  const count = items.reduce((s, i) => s + i.quantity, 0);
-  const checkoutHref = user ? '/checkout' : '/login?next=/checkout';
-
   return (
     <>
       <div className="page-head">
         <h1 className="h-serif">Mon panier</h1>
       </div>
+      {notices.map((n) => <p key={n} className="error-text form-error" role="status">{n}</p>)}
 
       {items.length === 0 ? (
         <div className="empty-state">
@@ -67,65 +59,14 @@ export default function CartPage() {
         <div className="cart-layout">
           <div>
             <div className="cart-list">
-              {items.map((i) => (
-                <div className="cart-item" key={lineKey(i)}>
-                  <Link href={i.pack_id ? `/packs/${i.pack_id}` : `/products/${i.id}`}><Thumb src={i.image_url} name={i.name} /></Link>
-                  <div className="ci-info">
-                    <h3>{i.name}</h3>
-                    <VariantTag color={i.variant_color} size={i.variant_size} />
-                    {i.pack_id && (
-                      <button type="button" className="link-remove pack-detail-btn" aria-expanded={openPack === i.pack_id} onClick={() => setOpenPack((v) => (v === i.pack_id ? null : i.pack_id))}>
-                        {openPack === i.pack_id ? 'Masquer le détail' : 'Détail'}
-                      </button>
-                    )}
-                    <small>{money(i.price)} · {i.stock} en stock</small>
-                  </div>
-                  <div className="qty-form">
-                    <div className="qty">
-                      <button type="button" aria-label="Moins" onClick={() => setQuantity(lineKey(i), i.quantity - 1)}>−</button>
-                      <span>{i.quantity}</span>
-                      <button
-                        type="button"
-                        aria-label="Plus"
-                        disabled={i.quantity >= Math.min(i.stock, MAX_QTE)}
-                        onClick={() => setQuantity(lineKey(i), i.quantity + 1)}
-                      >+</button>
-                    </div>
-                    <button type="button" className="link-remove" onClick={() => remove(lineKey(i))}>Retirer</button>
-                  </div>
-                  <span className="ci-total">{money(i.price * i.quantity)}</span>
-                  {i.pack_id && openPack === i.pack_id && (
-                    <ul className="pack-lines">
-                      {(i.products || []).map((it) => (
-                        <li key={it.id}>
-                          <Link href={`/products/${it.id}`}><Thumb src={it.image_url} name={it.name} size="xs" /><span>{it.name} × {it.quantity * i.quantity}</span></Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
+              {items.map((i) => <CartLine key={lineKey(i)} item={i} onQuantity={(n) => setQuantity(lineKey(i), n)} onRemove={() => remove(lineKey(i))} />)}
             </div>
             <div className="clear-form">
               <button type="button" className="link-remove" onClick={() => window.confirm('Vider le panier ?') && clear()}>Vider le panier</button>
             </div>
           </div>
 
-          <aside className="summary">
-            <h3 className="h-serif">Récapitulatif</h3>
-            <dl>
-              <div><dt>Articles</dt><dd>{count}</dd></div>
-              <div><dt>Livraison</dt><dd>Offerte</dd></div>
-              <div><dt>Paiement</dt><dd>À la livraison</dd></div>
-            </dl>
-            <div className="total"><span>Total</span><strong>{money(total)}</strong></div>
-            {user && user.role !== 'client' ? (
-              <p className="sum-link">Connecté en tant que personnel : la commande est réservée aux comptes clients.</p>
-            ) : (
-              <Button href={checkoutHref} target={user ? undefined : '_blank'} rel={user ? undefined : 'noopener'} block aria-disabled={!checked}>Confirmer la commande</Button>
-            )}
-            <Link href="/products" className="sum-link">Continuer mes achats</Link>
-          </aside>
+          <CartSummary items={items} user={user} checked={checked} />
         </div>
       )}
 

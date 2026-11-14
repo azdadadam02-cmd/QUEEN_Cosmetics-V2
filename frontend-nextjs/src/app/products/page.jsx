@@ -4,7 +4,6 @@ import { apiGet } from '@/lib/serverApi';
 
 export const metadata = { title: 'Catalogue' };
 
-/** Catalogue complet (/products) */
 export default function ProductsPage() {
   return (
     <>

@@ -12,7 +12,6 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //
     }
 
     public function boot(): void
@@ -20,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
         // Les Resources renvoient directement l'objet / le tableau (sans clé « data »)
         JsonResource::withoutWrapping();
 
-        // Limites de débit (middleware « throttle:<nom> » dans routes/api.php)
         RateLimiter::for('api', fn (Request $r) => Limit::perMinute(120)->by($r->user()?->id ?: $r->ip()));
 
         RateLimiter::for('register', fn (Request $r) => Limit::perHour(10)->by($r->ip())

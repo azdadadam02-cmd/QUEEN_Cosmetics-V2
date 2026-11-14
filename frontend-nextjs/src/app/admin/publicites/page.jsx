@@ -4,22 +4,25 @@ import { useEffect, useState } from 'react';
 import ImageInput from '@/components/layout/ImageInput';
 import PageHead from '@/components/layout/PageHead';
 import Button from '@/components/ui/Button';
+import DialogActions from '@/components/ui/DialogActions';
 import Field from '@/components/ui/Field';
+import FormError from '@/components/ui/FormError';
 import Modal from '@/components/ui/Modal';
-import { api, errorMessage, fieldErrors } from '@/lib/api';
-import { toast } from '@/store/toastStore';
+import { api, errorMessage } from '@/lib/api';
+import { useSubmit } from '@/lib/useSubmit';
 
 const EMPTY = { titre: '', reduction: '', produit_id: '' };
 
-/** Publicités du carrousel de l'accueil (+ promo sur un produit lié) */
 export default function PublicitesPage() {
   const [ads, setAds] = useState(null);
   const [products, setProducts] = useState([]);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [file, setFile] = useState(null);
-  const [errors, setErrors] = useState({});
-  const [saving, setSaving] = useState(false);
+  const submit = useSubmit();
+  const action = useSubmit();
+  const { errors } = submit;
+  const { setError: setLoadError } = action;
 
   const [reloadKey, setReloadKey] = useState(0);
   const load = () => setReloadKey((k) => k + 1);
@@ -30,46 +33,31 @@ export default function PublicitesPage() {
         setAds(a.data);
         setProducts(p.data.products);
       })
-      .catch((e) => toast.error(errorMessage(e)));
-  }, [reloadKey]);
+      .catch((e) => setLoadError(errorMessage(e)));
+  }, [reloadKey, setLoadError]);
 
   function open(ad = {}) {
     setEditing(ad);
     setFile(null);
-    setErrors({});
+    submit.reset();
     setForm(ad.id ? { titre: ad.title, reduction: String(ad.reduction || ''), produit_id: ad.product_id ? String(ad.product_id) : '' } : EMPTY);
   }
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  async function save(e) {
+  function save(e) {
     e.preventDefault();
-    setSaving(true);
-    setErrors({});
     const fd = new FormData();
     Object.entries(form).forEach(([k, v]) => fd.append(k, v));
     if (file) fd.append('image', file);
-    try {
-      const { data } = await api.post(editing.id ? `/admin/advertisements/${editing.id}` : '/admin/advertisements', fd);
-      toast.success(data.message);
+    submit.run(() => api.post(editing.id ? `/admin/advertisements/${editing.id}` : '/admin/advertisements', fd), () => {
       setEditing(null);
       load();
-    } catch (err) {
-      setErrors(fieldErrors(err));
-      toast.error(errorMessage(err));
-    } finally {
-      setSaving(false);
-    }
+    });
   }
 
-  async function destroy(ad) {
+  function destroy(ad) {
     if (!window.confirm(`Supprimer la publicité « ${ad.title} » ?`)) return;
-    try {
-      const { data } = await api.delete(`/admin/advertisements/${ad.id}`);
-      toast.success(data.message);
-      load();
-    } catch (err) {
-      toast.error(errorMessage(err));
-    }
+    action.run(() => api.delete(`/admin/advertisements/${ad.id}`), load);
   }
 
   return (
@@ -77,6 +65,7 @@ export default function PublicitesPage() {
       <PageHead title="Publicités">
         <Button onClick={() => open()}>+ Nouvelle publicité</Button>
       </PageHead>
+      <FormError message={action.error} />
 
       {!ads && <p className="loading-line">Chargement…</p>}
       {ads?.length === 0 && <p className="empty">Aucune publicité : l&apos;accueil affiche un bandeau par défaut.</p>}
@@ -112,10 +101,8 @@ export default function PublicitesPage() {
           </Field>
           <ImageInput file={file} onChange={setFile} current={editing?.image_url} />
           {errors.image && <span className="error-text">{errors.image}</span>}
-          <div className="dialog-actions">
-            <button type="button" className="btn-ghost" onClick={() => setEditing(null)}>Annuler</button>
-            <Button type="submit" size="sm" loading={saving}>{saving ? 'Enregistrement…' : 'Enregistrer'}</Button>
-          </div>
+          <FormError message={submit.error} />
+          <DialogActions onCancel={() => setEditing(null)} busy={submit.busy} />
         </form>
       </Modal>
     </>

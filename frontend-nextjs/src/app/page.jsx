@@ -3,7 +3,6 @@ import AdsCarousel from '@/components/layout/AdsCarousel';
 import ProductsBrowser from '@/components/layout/ProductsBrowser';
 import { apiGet } from '@/lib/serverApi';
 
-/** Accueil : carrousel des publicités + sélection de produits (données lues côté serveur) */
 export default function HomePage() {
   return (
     <Suspense fallback={<HomeSkeleton />}>
